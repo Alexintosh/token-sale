@@ -1,3 +1,6 @@
 build
-secrets.json
+conf/develop/secrets.json
 node_modules
+**/*secrets.json
+.idea/
+logs/

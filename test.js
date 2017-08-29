@@ -36,7 +36,7 @@ try {
 if (!fs.existsSync('secrets.json')) {
   throw new Error('no secrets.json found.');
 }
-const secrets = JSON.parse(fs.readFileSync('secrets.json', 'utf8'));
+const secrets = JSON.parse(fs.readFileSync(`./conf/${process.env.NODE_ENV}/secrets.json`, 'utf8'));
 const mnemonic = secrets.mnemonic;
 
 const testRPCInput = { accounts: generateAccounts(mnemonic, 0, ACCOUNTS, []) };
