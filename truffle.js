@@ -6,7 +6,7 @@ let secrets;
 let mnemonic;
 const secretFile = `./conf/${process.env.NODE_ENV}/secrets.json`;
 if (fs.existsSync(secretFile)) {
-  secrets = JSON.parse(fs.readFileSync(secretFile, 'utf8'));
+  secrets  = JSON.parse(fs.readFileSync(secretFile, 'utf8'));
   mnemonic = secrets.mnemonic;
 } else {
   console.log('no secrets.json found. You can only deploy to the testrpc.');
@@ -28,6 +28,12 @@ module.exports = {
     },
     rinkeby    : {
       provider  : new HDWalletProvider(mnemonic, 'https://rinkeby.infura.io'),
+      network_id: '*',
+      gas       : 4500000,
+      gasPrice  : 25000000000,
+    },
+    ropsten    : {
+      provider  : new HDWalletProvider(mnemonic, 'https://ropsten.infura.io'),
       network_id: '*',
       gas       : 4500000,
       gasPrice  : 25000000000,

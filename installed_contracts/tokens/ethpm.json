@@ -18,7 +18,8 @@
     "./contracts/SampleRecipientThrow.sol",
     "./contracts/StandardToken.sol",
     "./contracts/Token.sol",
-    "./contracts/TokenTester.sol"
+    "./contracts/TokenTester.sol",
+    "./contracts/SafeMath.sol"
   ],
   "dependencies": {},
   "manifest_version": 1,
