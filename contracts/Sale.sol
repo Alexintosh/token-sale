@@ -3,7 +3,7 @@ pragma solidity ^0.4.11;
 
 import "tokens/HumanStandardToken.sol";
 import "./Disbursement.sol";
-import "tokens/SafeMath.sol";
+//import "tokens/SafeMath.sol";
 
 
 contract Sale {
@@ -189,7 +189,7 @@ contract Sale {
 
     /// @dev purchaseToken(): function that exchanges ETH for tokens (main sale function)
     /// @notice You're about to purchase the equivalent of `msg.value` Wei in tokens
-    function purchaseTokens()
+    function ()
     saleStarted
     payable
     setupComplete
@@ -219,8 +219,9 @@ contract Sale {
     }
 
     function getAvailableTokens() constant returns (uint256 balance){
-        uint256 denominators = 10 ** (uint256(token.decimals()));
-        return SafeMath.div(token.balanceOf(this), denominators);
+//        uint256 denominators = 10 ** (uint256(token.decimals()));
+//        return SafeMath.div(token.balanceOf(this), denominators);
+        return token.balanceOf(this);
     }
 
     function saleState() constant returns (string state){

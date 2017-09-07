@@ -94,11 +94,12 @@ contract Disbursement {
     function calcMaxWithdraw()
         public
         constant
-        returns (uint)
-    {
-        uint maxTokens = (token.balanceOf(this) + withdrawnTokens) * (now - startDate) / disbursementPeriod;
-        if (withdrawnTokens >= maxTokens || startDate > now)
-            return 0;
-        return maxTokens - withdrawnTokens;
+        returns (uint){
+        if (startDate > now) return 0;
+        return token.balanceOf(this);
+    }
+
+    function getAvailableTokens() public constant returns (uint){
+        return token.balanceOf(this);
     }
 }
