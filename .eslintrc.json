@@ -2,6 +2,7 @@
   "extends": "airbnb-base",
   "rules":   {
     "key-spacing": "off",
-    "no-multi-spaces":"off"
+    "no-multi-spaces":"off",
+    "max-len":"off"
   }
 }
