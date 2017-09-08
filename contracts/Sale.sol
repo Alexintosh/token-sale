@@ -224,16 +224,6 @@ contract Sale {
         return token.balanceOf(this);
     }
 
-    function saleState() constant returns (string state){
-        if (block.number < startBlock) {
-            return "NOT STARTED";
-        }
-        if (block.number >= freezeBlock) {
-            return "COMPLETED";
-        }
-        return "ACTIVE";
-    }
-
     /*
      * Owner-only functions
      */
