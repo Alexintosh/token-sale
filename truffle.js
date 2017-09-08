@@ -4,9 +4,8 @@ const fs               = require('fs');
 // first read in the secrets.json to get our mnemonic
 let secrets;
 let mnemonic;
-const secretFile = `./conf/${process.env.NODE_ENV}/secrets.json`;
-if (fs.existsSync(secretFile)) {
-  secrets  = JSON.parse(fs.readFileSync(secretFile, 'utf8'));
+if (fs.existsSync('secrets.json')) {
+  secrets = JSON.parse(fs.readFileSync('secrets.json', 'utf8'));
   mnemonic = secrets.mnemonic;
 } else {
   console.log('no secrets.json found. You can only deploy to the testrpc.');

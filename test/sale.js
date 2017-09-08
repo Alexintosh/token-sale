@@ -16,10 +16,10 @@ const Sale = artifacts.require('./Sale.sol');
 const Disbursement = artifacts.require('./Disbursement.sol');
 
 contract('Sale', (accounts) => {
-  const preBuyersConf = JSON.parse(fs.readFileSync(`./conf/${process.env.NODE_ENV}/preBuyers.json`));
-  const timelocksConf = JSON.parse(fs.readFileSync(`./conf/${process.env.NODE_ENV}/timelocks.json`));
-  const saleConf = JSON.parse(fs.readFileSync(`./conf/${process.env.NODE_ENV}/sale.json`));
-  const tokenConf = JSON.parse(fs.readFileSync(`./conf/${process.env.NODE_ENV}/token.json`));
+  const preBuyersConf = JSON.parse(fs.readFileSync('./conf/preBuyers.json'));
+  const timelocksConf = JSON.parse(fs.readFileSync('./conf/timelocks.json'));
+  const saleConf = JSON.parse(fs.readFileSync('./conf/sale.json'));
+  const tokenConf = JSON.parse(fs.readFileSync('./conf/token.json'));
   const logs = JSON.parse(fs.readFileSync('./logs/logs.json'));
   const [owner, james, miguel, edwhale] = accounts;
   let tokensForSale;
