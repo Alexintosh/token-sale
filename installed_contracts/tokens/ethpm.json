@@ -12,9 +12,13 @@
   "links": {},
   "sources": [
     "./contracts/HumanStandardToken.sol",
+    "./contracts/HumanStandardTokenFactory.sol",
     "./contracts/Migrations.sol",
+    "./contracts/SampleRecipientSuccess.sol",
+    "./contracts/SampleRecipientThrow.sol",
     "./contracts/StandardToken.sol",
-    "./contracts/Token.sol"
+    "./contracts/Token.sol",
+    "./contracts/TokenTester.sol"
   ],
   "dependencies": {},
   "manifest_version": 1,
