@@ -1,9 +1,3 @@
 build
+secrets.json
 node_modules
-**/*secrets.json
-.idea/
-logs/
-generator/*
-conf/livenet
-conf/testnet
-

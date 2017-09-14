@@ -1,5 +1,5 @@
 const HDWalletProvider = require('truffle-hdwallet-provider');
-const fs               = require('fs');
+const fs = require('fs');
 
 // first read in the secrets.json to get our mnemonic
 let secrets;
@@ -15,33 +15,27 @@ if (fs.existsSync('secrets.json')) {
 module.exports = {
   networks: {
     development: {
-      host      : 'localhost',
-      port      : 8545,
+      host: 'localhost',
+      port: 8545,
       network_id: '*', // Match any network id
     },
-    kovan      : {
-      provider  : new HDWalletProvider(mnemonic, 'https://kovan.infura.io'),
+    kovan: {
+      provider: new HDWalletProvider(mnemonic, 'https://kovan.infura.io'),
       network_id: '*',
-      gas       : 4500000,
-      gasPrice  : 25000000000,
+      gas: 4500000,
+      gasPrice: 25000000000,
     },
-    rinkeby    : {
-      provider  : new HDWalletProvider(mnemonic, 'https://rinkeby.infura.io'),
+    rinkeby: {
+      provider: new HDWalletProvider(mnemonic, 'https://rinkeby.infura.io'),
       network_id: '*',
-      gas       : 4500000,
-      gasPrice  : 25000000000,
+      gas: 4500000,
+      gasPrice: 25000000000,
     },
-    ropsten    : {
-      provider  : new HDWalletProvider(mnemonic, 'https://ropsten.infura.io'),
-      network_id: '*',
-      gas       : 4500000,
-      gasPrice  : 25000000000,
-    },
-    mainnet    : {
-      provider  : new HDWalletProvider(mnemonic, 'https://mainnet.infura.io'),
+    mainnet: {
+      provider: new HDWalletProvider(mnemonic, 'https://mainnet.infura.io'),
       network_id: 1,
-      gas       : 4500000,
-      gasPrice  : 4000000000,
+      gas: 4500000,
+      gasPrice: 4000000000,
     },
   },
 };

@@ -7,11 +7,10 @@ const BN = require('bn.js');
 const HttpProvider = require('ethjs-provider-http');
 const EthRPC = require('ethjs-rpc');
 const EthQuery = require('ethjs-query');
-const Web3 = require('web3');
 
 const ethRPC = new EthRPC(new HttpProvider('http://localhost:8545'));
 const ethQuery = new EthQuery(new HttpProvider('http://localhost:8545'));
-const web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:8545'));
+
 const Sale = artifacts.require('./Sale.sol');
 const Disbursement = artifacts.require('./Disbursement.sol');
 
@@ -22,6 +21,7 @@ contract('Sale', (accounts) => {
   const tokenConf = JSON.parse(fs.readFileSync('./conf/token.json'));
   const logs = JSON.parse(fs.readFileSync('./logs/logs.json'));
   const [owner, james, miguel, edwhale] = accounts;
+
   let tokensForSale;
 
   /*
@@ -30,8 +30,8 @@ contract('Sale', (accounts) => {
 
   async function purchaseToken(actor, amount) {
     if (!BN.isBN(amount)) { throw new Error('Supplied amount is not a BN.'); }
-    await Sale.deployed();
-    await web3.eth.sendTransaction({ to: Sale.address, from: actor, value: amount.mul(saleConf.price) });
+    const sale = await Sale.deployed();
+    await sale.purchaseTokens({ from: actor, value: amount.mul(saleConf.price) });
   }
 
   async function getTokenBalanceOf(actor) {
@@ -546,16 +546,15 @@ contract('Sale', (accounts) => {
     it('should return excess Wei to Edwhale', async () => {
       const startingBalance = await ethQuery.getBalance(edwhale);
       const gasPrice = await ethQuery.gasPrice();
-      await Sale.deployed();
+      const sale = await Sale.deployed();
       const excessEther = saleConf.price.div(new BN('2', 10));
       const receipt =
-        await web3.eth.sendTransaction({
-          to:Sale.address,
+        await sale.purchaseTokens({
           value: saleConf.price.add(excessEther),
           from: edwhale,
           gasPrice,
         });
-      const gasUsed = new BN(receipt.gasUsed, 10);
+      const gasUsed = new BN(receipt.receipt.gasUsed, 10);
       const expectedEthDebit = gasPrice.mul(gasUsed).add(saleConf.price);
       const finalBalance = await ethQuery.getBalance(edwhale);
       const expected = startingBalance.sub(expectedEthDebit);

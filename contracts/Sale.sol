@@ -163,17 +163,9 @@ contract Sale {
         }
     }
 
-    /// owner can transfer tokens to any address.
-    function transferTokens(address to, uint256 quantity) onlyOwner saleStarted setupComplete {
-        // Cannot transfer more token than available
-        require(quantity <= token.balanceOf(this));
-        token.transfer(to, quantity);
-        PurchasedTokens(to, quantity);
-    }
-
     /// @dev purchaseToken(): function that exchanges ETH for tokens (main sale function)
     /// @notice You're about to purchase the equivalent of `msg.value` Wei in tokens
-    function ()
+    function purchaseTokens()
         saleStarted
         payable
         setupComplete
@@ -200,10 +192,6 @@ contract Sale {
         token.transfer(msg.sender, purchaseAmount);
 
         PurchasedTokens(msg.sender, purchaseAmount);
-    }
-
-    function getAvailableTokens() constant returns (uint256 balance){
-        return token.balanceOf(this);
     }
 
     /*
