@@ -1,0 +1,145 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+.min-height{
+  min-height: 80vh;
+}
+.supply-component h3 {
+  margin-bottom: 5px;
+}
+.supply-component h3 span {
+  font-size: 16px;
+}
+.about-list{
+  padding-left: 0px;
+}
+.about-list li{
+  font-size: 16px;
+  padding-top: 5px;
+  list-style: none;
+}
+.about-list a{
+  color: #555;
+  font-size: 18px;
+  line-height: 30px;
+}
+.about-list a:hover{
+  color: #111;
+  text-decoration: none;
+}
+.contribute-step{
+  padding-left: 5px;
+  list-style: none;
+}
+.card-spacing p{
+  padding: 10px 0px;
+}
+#contactForm input[type="text"]{
+  width: 100%;
+  margin: 10px 0px;
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+#contactFormRegister{
+  padding: 30px;
+}
+#contactFormRegister input[type="submit"]{
+  margin-top: 30px;
+}
+#contactFormRegister input[type="text"]{
+  width: 100%;
+  margin: 10px 0px;
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+#userFormRegister{
+  padding: 10px 20px 30px 30px;
+}
+#userFormRegister input[type="submit"]{
+  margin-top: 30px;
+}
+#userFormRegister input[type="text"]{
+  width: 100%;
+  margin: 10px 0px;
+  font-size: 16px;
+  padding: 10px 10px;
+  border-radius: 0px;
+  background-color: transparent;
+  border-bottom: 1px solid #444;
+  border-top: transparent;
+  border-left: transparent;
+  border-right: transparent;
+}
+.sale-table td, .sale-table th{
+  padding-left: 10px;
+  padding-top: 20px;
+}
+.involved img{
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+}
+.consensys-logo p {
+  font-size: 20px;
+  padding-top: 20px;
+}
+#about-nav{
+  position: -webkit-sticky;
+  position: sticky;
+  top: 30px;
+}
+.mt-0{
+  margin-top: 0px !important;
+}
+#whitepaper a{
+  font-size: 20px;
+}
+#whitepaper div{
+  padding-bottom: 40px;
+}
+.press-card{
+  font-size: 20px;
+  line-height: 35px;
+  padding-bottom: 20px;
+}
+.modal-p{
+  font-size: 20px;
+  padding: 30px 30px 0 30px;
+}
+#amount-raised{
+  padding: 30px;
+}
+#amount-raised p{
+  font-size: 13px;
+  color: #666;
+  line-height: 8px;
+}
+#amount-raised h3{
+  padding-bottom: 10px;
+}
+#contribute{
+  padding: 30px;
+}
+#sale-landing{
+  min-height: 80vh;
+}
+#user-account p span {
+  color: #666;
+}
+.input-label{
+  text-align: right;
+  position: relative;
+  top: -50px;
+  right: 40px;
+  font-size: 25px;
+  z-index: -10;
+}
+#sale-header{
+  padding-bottom: 30px;
+}

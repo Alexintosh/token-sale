@@ -1,0 +1,161 @@
+{
+    "about":[{
+        "section": "Token Information",
+        "link": "token-information",
+        "details": [{
+            "header": "",
+            "type": "none",
+            "paragraphs":[
+                "A total fixed supply of 1,000,000,000 ADT will be created prior to the adChain Protocol going live on the Ethereum mainnet."
+            ]
+        },{
+            "header": "Token Breakdown",
+            "type": "list",
+            "paragraphs":[
+                "500 million to be distributed in a public token sale with a cap of $10 million sold",
+                "200 million reserved for MetaX, per the time lock schedule detailed below",
+                "200 million reserved for ConsenSys, per the time lock schedule detailed below",
+                "100 million sold to fund development via multiple pre-sale agreements (as described above)"
+            ]            
+        },{
+            "header": "Conversion Ratio",
+            "type": "none",
+            "paragraphs":[
+                "1 ether = 2400 tokens"
+            ]            
+        },{
+            "header": "Valuation",
+            "type": "none",
+            "paragraphs":[
+                "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisinuli."
+            ]            
+        }]
+    },{
+        "section": "How to contribute?",
+        "link": "contribute",
+        "details": [{
+            "header": "",
+            "type": "none",
+            "paragraphs":[
+                "You can participate to the token sale through sending Bitcoin, Ethereum, USD, or shapeshit."
+            ]
+        },{
+            "header": "Ethereum",
+            "type": "none",
+            "paragraphs":[
+                "You send Ether directly from Exchange like Coinbase, poloniex etc"
+            ]
+        },{
+            "header": "",
+            "type": "step",
+            "paragraphs":[
+                "Create a credential (Email and password) for claiming your tokens later",
+                "Send Ether to the designated address to participated to the token sale.",
+                "If you transaction go through, claiming your token by verifying the credentials (email and password set previously)."
+            ]
+        },{
+            "header": "MetaMask",
+            "type": "none",
+            "paragraphs":[
+                "If you use MetaMask, you can send Ether directly to the campaign smart contract. Please follow the gas limit noted on the page. The token will be sent immediately to the MetaMask wallet from which the ETH arrived."
+            ]
+        },{
+            "header": "Other smart contract ABIs (MIST, Parity)",
+            "type": "none",
+            "paragraphs":[
+                "You can also particite directly through the campaign smart contract from your personal ethereum wallet like MyEtherWallet, Parity, Mist or hardware wallet. Please follow the gas limit noted on the page. The token will be sent immediately to the wallet from which the ETH arrived."
+            ]
+        }]
+    },{
+        "section": "ConsenSys Diligence: Audit Reports",
+        "link": "diligence",
+        "details":[{
+            "header": "",
+            "type": "none",
+            "paragraphs": [
+                "You might remember the Dell computer commercials in which a youth reports this exciting news to his friends that they are about to get their new computer by telling them, “Dude, you’re getting a Dell!” It was a cute series but it reflects the excitement young people get about anything new, particularly if it’s a new machine.",
+                "So when its time to finally get your children that very first telescope, you want to make sure it’s just the right thing. There are a number of reasons you should put some serious thought into just what this beginner telescope should look like. Perhaps this will be your children’s first experience with a real telescope. They may have a healthy and thriving love of astronomy from your family trips to the country to watch a meteor shower or just to gaze at the stars. And you may have piqued their interest showing them how to enhance the experience with binoculars or even letting them play with your telescope.",
+                "But this is a big moment. You want them to “bond” with this first telescope the way you did and catch the excitement of using the power of a telescope to do things with their love of astronomy that they could never do before. The reasons for taking care with your choice are many including..."
+            ]
+        }]
+    },{
+        "section": "Project Overview",
+        "link": "overview",
+        "details": [{
+            "header": "",
+            "type": "none",
+            "paragraphs": [
+                "You might remember the Dell computer commercials in which a youth reports this exciting news to his friends that they are about to get their new computer by telling them, “Dude, you’re getting a Dell!” It was a cute series but it reflects the excitement young people get about anything new, particularly if it’s a new machine.",
+                "So when its time to finally get your children that very first telescope, you want to make sure it’s just the right thing. There are a number of reasons you should put some serious thought into just what this beginner"
+            ]
+        }]
+    },{
+        "section": "Business Details",
+        "link": "details",
+        "details": [{
+            "header": "",
+            "type": "none",
+            "paragraphs": [
+                "You might remember the Dell computer commercials in which a youth reports this exciting news to his friends that they are about to get their new computer by telling them, “Dude, you’re getting a Dell!” It was a cute series but it reflects the excitement young people get about anything new, particularly if it’s a new machine.",
+                "So when its time to finally get your children that very first telescope, you want to make sure it’s just the right thing. There are a number of reasons you should put some serious thought into just what this beginner."
+            ]
+        }]
+    }],
+    "team": [
+        { 
+          "name": "John Lilic",
+          "position": "Cofounder",
+          "secondaryPosition": "Technical Lead"
+        },{ 
+          "name": "Igor Lilic",
+          "position": "CTO & Cofounder",
+          "secondaryPosition": "ConsenSys Enterprise"
+        },{ 
+          "name": "Mike Goldin",
+          "position": "Teachnical Lead",
+          "secondaryPosition": "ConsenSys AdTech"
+        },{
+          "name": "Joseph Lubin",
+          "position": "Founder / ConsenSys",
+          "secondaryPosition": "Cofounder / Ethereum"
+        }
+    ],
+    "information":{
+        "tokenName": "Hello Coin",
+        "description": "Today, many people rely on computers to do homework, work, and create or store useful information. Therefore, it is important for the information on the computer to be stored",
+        "totalTokenSupply": "100,000",
+        "contributionCap": "10,000",
+        "conversionRatio": "2000",
+        "coin": "ETH",
+        "startDate": "July 1st 12pm EST",
+        "startDateTimestamp": 1498867200
+    },
+    "aboutNavigation":[{
+        "title": "Token Information",
+        "link": "token-information"
+    },{
+        "title": "How to Contribute?",
+        "link": "contribute"
+    },{
+        "title": "ConsenSys Diligence",
+        "link": "diligence"
+    },{
+        "title": "Project Overview",
+        "link": "overview"
+    },{
+        "title": "Business Details",
+        "link": "details"
+    },{
+        "title": "Team",
+        "link": "team"
+    },{
+        "title": "White Paper",
+        "link": "whitepaper"
+    },{
+        "title": "Press",
+        "link": "press"
+    },{
+        "title": "Contact",
+        "link": "contact"
+    }]
+}

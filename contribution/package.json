@@ -1,0 +1,32 @@
+{
+  "name": "sample-token-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.16.2",
+    "bluebird": "^3.5.0",
+    "react": "^15.6.1",
+    "react-bootstrap": "^0.31.3",
+    "react-dom": "^15.6.1",
+    "react-redux": "^5.0.6",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.0.12",
+    "react-sticky": "^6.0.1",
+    "react-youtube": "^7.4.0",
+    "redux": "^3.7.2",
+    "redux-logger": "^3.0.6",
+    "redux-observable": "^0.16.0",
+    "redux-thunk": "^2.2.0",
+    "rxjs": "^5.4.3",
+    "thunk": "0.0.1",
+    "uuid": "^3.1.0",
+    "web3": "^1.0.0-beta.20"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "deploy": "sudo serve -s build --port 3000",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
