@@ -24,7 +24,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "deploy": "sudo serve -s build --port 3000",
+    "deploy": "serve -s build --port 3000",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
