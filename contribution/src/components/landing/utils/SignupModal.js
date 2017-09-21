@@ -9,7 +9,8 @@ export default class SignupModal extends PureComponent{
             contactEmail: '',
             contactAddress: '',
             contactCountry: '',
-            purchaseSize: ''
+            purchaseSize: '',
+            countryCheck: false
         }
     }
     handleInputChange(e){
@@ -19,8 +20,13 @@ export default class SignupModal extends PureComponent{
             [name]: value
         })
     }
-    submitContact(name, email, address, country, size){
-        console.log(name + ": " + email + " : " + address + " : " + country + " : " + size)
+    handleCheckChange(val){
+        this.setState({
+            countryCheck: val
+        })
+    }
+    submitContact(name, email, address, country, size, countryCheck){
+        console.log(name + ": " + email + " : " + address + " : " + country + " : " + size + " : " + countryCheck)
     }
     render(){
         return(
@@ -48,6 +54,14 @@ export default class SignupModal extends PureComponent{
                                     value={this.state.contactEmail}
                                     onChange={this.handleInputChange.bind(this)} 
                                     placeholder="Email *" />
+                            <label>
+                                <input  type="checkbox" 
+                                        name="countryCheck"
+                                        id="countryCheck"
+                                        onChange={() => this.handleCheckChange(!this.state.countryCheck)}
+                                        value={this.state.countryCheck} />
+                                        <p>By checking this box, you agree that you are not a resident of the United States or China.</p>
+                            </label>
                             <input  type="text"
                                     name="contactCountry"
                                     id="contactCountry"
@@ -59,7 +73,7 @@ export default class SignupModal extends PureComponent{
                                     id="contactAddress"
                                     value={this.state.contactAddress}
                                     onChange={this.handleInputChange.bind(this)} 
-                                    placeholder="Address *" />
+                                    placeholder="Ethereum Address *" />
                             <input  type="text"
                                     name="purchaseSize"
                                     id="purchaseSize"
