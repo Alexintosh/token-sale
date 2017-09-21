@@ -17,10 +17,7 @@ class App extends Component {
             <Header />
             <Route exact path="/" component={SinglePage} />
             {
-                this.props.presale
-              ?
-                null
-              :
+                !this.props.register &&
                 <Route exact path="/contribute" component={Contribute} />
             }
           </div>
@@ -32,7 +29,7 @@ class App extends Component {
 }
 const mapStateToProps = state => {
   return {
-    presale: state.sale.presale
+    register: state.sale.register
   }
 }
 export default connect(

@@ -130,6 +130,24 @@
         "startDate": "July 1st 12pm EST",
         "startDateTimestamp": 1498867200
     },
+    "price": {
+        "minimum": "$20,000",
+        "currency": "USD",
+        "coin": "Hello",
+        "contribute": [{
+            "commited": "$50,000",
+            "price": "$0.90"
+        },{
+            "commited": "$250,000",
+            "price": "$0.85"
+        },{
+            "commited": "$1,000,000",
+            "price": "$0.80"
+        },{
+            "commited": "$3,000,000+",
+            "price": "$0.75"
+        }] 
+    },
     "aboutNavigation":[{
         "title": "Token Information",
         "link": "token-information"

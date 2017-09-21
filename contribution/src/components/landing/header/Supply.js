@@ -6,7 +6,7 @@ export default class Supply extends PureComponent {
         return(
             <section id="supply" className="supply-component">
                 <h3>{information.contributionCap} {information.coin}</h3>
-                <p>Contribution cap (around $20 M)</p>
+                <p>Contribution cap</p>
                 <h3>{information.conversionRatio} <span>Tokens/1 {information.coin}</span></h3>
                 <p>Conversion Ratio</p>
                 <h3>{information.totalTokenSupply}</h3>

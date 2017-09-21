@@ -17,10 +17,8 @@ export default class SectionInformation extends PureComponent{
         return(
             <div>
                 {
-                    this.props.header.length > 0 ? 
+                    this.props.header.length > 0 && 
                         <h3>{this.props.header}</h3> 
-                    :
-                        ''
                 }
                 {information}
             </div>
