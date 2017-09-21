@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import { Modal }                from 'react-bootstrap';
+import validator                from 'validator';
 
 export default class SignupModal extends PureComponent{
     constructor(){
@@ -26,11 +27,24 @@ export default class SignupModal extends PureComponent{
         })
     }
     submitContact(name, email, address, country, size, countryCheck){
-        console.log(name + ": " + email + " : " + address + " : " + country + " : " + size + " : " + countryCheck)
+        if(countryCheck){
+            if(validator.isAlphanumeric(name.replace(/ /g,''))){
+                if(validator.isEmail(email)){
+                    if(validator.isAlphanumeric(address) && address.length === 42){
+                        if(validator.isAlphanumeric(country)){
+                            if(validator.isCurrency(size)){
+                                this.props.hide();
+                            }
+                        }
+                    }else{alert("Please enter a valid ethereum address")}
+                }
+            }
+        }
+        console.log(name.replace(/ /g,'') + ": " + email + " : " + address + " : " + country + " : " + size + " : " + countryCheck);
     }
     render(){
         return(
-            <Modal bsSize="medium" show={this.props.display} onHide={this.props.hide}>
+            <Modal show={this.props.display} onHide={this.props.hide}>
                 <Modal.Body className="center-text">
                         <p className="modal-p">Please fill the following information to submit interest in the HelloCoin sale.</p>
                         <form   id="contactFormRegister" 
@@ -40,7 +54,8 @@ export default class SignupModal extends PureComponent{
                                                         this.state.contactEmail, 
                                                         this.state.contactAddress, 
                                                         this.state.contactCountry, 
-                                                        this.state.purchaseSize)
+                                                        this.state.purchaseSize,
+                                                        this.state.countryCheck)
                                     }}>
                             <input  type="text"
                                     name="contactName"

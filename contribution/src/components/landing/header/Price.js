@@ -1,10 +1,11 @@
 import React, { PureComponent } from 'react';
 import { price }                from '../../pages.json';
+import uuidv4                   from 'uuid/v4';
 
 export default class Price extends PureComponent{
     render(){
         const rows = price.contribute.map((row)=>{
-            return <tr><td>{row.commited}</td><td>{row.price}</td></tr>
+            return <tr key={uuidv4()}><td>{row.commited}</td><td>{row.price}</td></tr>
         })
         return(
             <section id="price">
