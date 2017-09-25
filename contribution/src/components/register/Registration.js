@@ -88,7 +88,7 @@ class Registration extends Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-md-8 col-md-offset-2">
-                            <p className="modal-p center-text">Please fill the following form to submit interest in the LEVERJ sale.</p>
+                            <p className="modal-p center-text">Please fill the following form to submit interest in the LEVERJ sale and have exclusive access when the pre-sale launches.</p>
                             <form   id="contactFormRegister" 
                                     onSubmit={(e)=>{
                                         e.preventDefault(); 
