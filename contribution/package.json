@@ -5,6 +5,10 @@
   "dependencies": {
     "axios": "^0.16.2",
     "bluebird": "^3.5.0",
+    "body-parser": "^1.18.1",
+    "cors": "^2.8.4",
+    "express": "^4.15.4",
+    "mongoose": "^4.11.12",
     "react": "^15.6.1",
     "react-bootstrap": "^0.31.3",
     "react-dom": "^15.6.1",
@@ -21,13 +25,15 @@
     "thunk": "0.0.1",
     "uuid": "^3.1.0",
     "validator": "^8.2.0",
-    "web3": "^1.0.0-beta.20"
+    "web3": "0.19.1"
   },
   "scripts": {
     "start": "react-scripts start",
+    "server": "node ./registration/server.js",
     "deploy": "sudo serve -s build --port 3000",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "contracts": "cd contracts && solc --combined-json abi,bin *.sol > ../src/contracts/contracts.json"
   }
 }

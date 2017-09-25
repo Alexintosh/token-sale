@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import { Modal }                from 'react-bootstrap';
 import validator                from 'validator';
+import { userRegister }         from '../../../actions/saleLogic';
 
 export default class SignupModal extends PureComponent{
     constructor(){
@@ -26,21 +27,24 @@ export default class SignupModal extends PureComponent{
             countryCheck: val
         })
     }
-    submitContact(name, email, address, country, size, countryCheck){
+    submitContact(name, email, address, country, amount, countryCheck){
         if(countryCheck){
             if(validator.isAlphanumeric(name.replace(/ /g,''))){
                 if(validator.isEmail(email)){
                     if(validator.isAlphanumeric(address) && address.length === 42){
                         if(validator.isAlphanumeric(country)){
-                            if(validator.isCurrency(size)){
+                            if(validator.isCurrency(amount)){
                                 this.props.hide();
+                                userRegister(name, email, address, country, amount, countryCheck, (res)=>{
+                                    console.log(res);
+                                })
                             }
                         }
                     }else{alert("Please enter a valid ethereum address")}
                 }
             }
         }
-        console.log(name.replace(/ /g,'') + ": " + email + " : " + address + " : " + country + " : " + size + " : " + countryCheck);
+        console.log(name.replace(/ /g,'') + ": " + email + " : " + address + " : " + country + " : " + amount + " : " + countryCheck);
     }
     render(){
         return(
