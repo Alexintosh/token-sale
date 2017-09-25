@@ -1,5 +1,17 @@
+h1{
+    font-size: 45px;
+}
+hr {
+    border-color: #c3c3c3;
+    border-width: 1px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
 .pt-10{
     padding-top: 10px;
+}
+.pt-30{
+    padding-top: 30px;
 }
 .pv-20{
     padding-top: 20px;

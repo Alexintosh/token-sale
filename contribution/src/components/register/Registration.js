@@ -49,7 +49,7 @@ class Registration extends Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-md-8 col-md-offset-2">
-                            <p className="modal-p center-text">Please fill the following information to submit interest in the HelloCoin sale.</p>
+                            <p className="modal-p center-text">Please fill the following form to submit interest in the LEVERJ sale.</p>
                             <form   id="contactFormRegister" 
                                     onSubmit={(e)=>{
                                         e.preventDefault(); 
@@ -97,7 +97,7 @@ class Registration extends Component {
                                         id="purchaseSize"
                                         value={this.state.purchaseSize}
                                         onChange={this.handleInputChange.bind(this)} 
-                                        placeholder="Purchase Size [min $20,000] *" />
+                                        placeholder="Purchase Size [min 25 ETH - max 500 ETH] *" />
                                 <div className="center-text">
                                     <input type="submit" value="Register" className="btn btn-color btn-submit" />
                                 </div>

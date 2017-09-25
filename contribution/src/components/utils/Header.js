@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react';
-import { information }          from '../pages.json';
 import leverjlogo               from '../../public/img/leverjlogo.svg';
 
 export default class Header extends PureComponent{
@@ -8,11 +7,12 @@ export default class Header extends PureComponent{
             <section id="sale-header">
                 <img src={ leverjlogo } alt="LeverJ Logo" className="nav-logo" />
                 <div className="nav-header">LEVERJ.IO</div>
+                <hr />
                 <div className="container">
                     <div className="center-text row">
                         <div className="col-md-8 col-md-offset-2">
-                            <h1>{information.tokenName}</h1>
-                            <p>{information.description}</p>
+                            <h1 className="pt-30">LEVER<span className="color-text">J</span></h1>
+                            <p className="header-p">DECENTRALIZED LEVERAGED TRADING EXCHANGE</p>
                         </div>
                     </div>
                 </div>

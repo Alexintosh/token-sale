@@ -5,7 +5,6 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Registration         from './components/register/Registration';
 import Thankyou             from './components/register/Thankyou';
 import Header               from './components/utils/Header';
-import Footer               from './components/utils/Footer';
 
 
 class App extends Component {
@@ -18,7 +17,6 @@ class App extends Component {
             <Route exact path="/" component={Registration} />
             <Route exact path="/success" component={Thankyou} />
           </div>
-          <Footer />
         </div>
       </Router>
     );
