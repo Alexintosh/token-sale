@@ -176,3 +176,16 @@ body {
 #sale-header{
   padding-bottom: 30px;
 }
+.nav-logo{
+  width: 40px;
+  top: 20px;
+  left: 20px;
+  position: absolute;
+}
+.nav-header{
+  position: absolute;
+  top: 22px;
+  left: 70px;
+  font-size: 25px;
+  font-weight: bold;
+}

@@ -1,5 +1,5 @@
-import { registerUser, signTransaction }   from '../utils/metaMask';
-import axios from 'axios';
+//import { registerUser, signTransaction }   from '../utils/metaMask';
+//import axios from 'axios';
 
 export const handleUserInputChange = (n, v) => {
   return dispatch => {
@@ -29,10 +29,10 @@ export const handleUserInformationSubmission = (name, email, country, terms) => 
   }
 }
 export const userRegister = (name, email, address, country, amount, countryCheck, callback) => {
-
-  signTransaction(name, email, address, country, amount, countryCheck, (res)=>{
-    console.log(res);
-  })  
+  callback({error: null})
+  // signTransaction(name, email, address, country, amount, countryCheck, (res)=>{
+  //   console.log(res);
+  // })  
 
   // axios.post('http://localhost:8080/api/register',{
   //   name: name,
