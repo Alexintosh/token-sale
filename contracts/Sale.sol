@@ -85,11 +85,12 @@ contract Sale {
         uint _startBlock,
         uint _freezeBlock,
         uint _totalPreBuyers,
-        uint _totalTimelockedBeneficiaries
+        uint _totalTimelockedBeneficiaries,
+	address _burnAddress
     ) {
         owner = _owner;
         wallet = _wallet;
-        token = new HumanStandardToken(_tokenSupply, _tokenName, _tokenDecimals, _tokenSymbol);
+        token = new HumanStandardToken(_tokenSupply, _tokenName, _tokenDecimals, _tokenSymbol, _burnAddress);
         price = _price;
         startBlock = _startBlock;
         freezeBlock = _freezeBlock;
@@ -197,6 +198,13 @@ contract Sale {
     /*
      * Owner-only functions
      */
+
+    function postSaleBurn()
+    	onlyOwner
+    {
+    	require(token.balanceOf(this) > 0);
+	token.transfer(token.getBurnAddress(), token.balanceOf(this));
+    }
 
     function changeOwner(address _newOwner)
         onlyOwner
