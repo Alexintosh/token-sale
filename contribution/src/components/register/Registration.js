@@ -33,7 +33,7 @@ class Registration extends Component {
                 if(validator.isEmail(email)){
                     if(validator.isAlphanumeric(address) && address.length === 42){
                         if(validator.isAlphanumeric(country)){
-                            if(validator.isCurrency(amount)){
+                            if(validator.isCurrency(amount) && amount >= 25 && amount <= 500){
                                 userRegister(name, email, address, country, amount, countryCheck, (res)=>{
                                     this.props.history.push('/success');
                                 })

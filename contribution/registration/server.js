@@ -24,7 +24,7 @@ app.post('/api/register',(req, res) => {
             if(validator.isEmail(req.body.email)){
                 if(validator.isAlphanumeric(req.body.address) && req.body.address.length === 42){
                     if(validator.isAlphanumeric(req.body.country)){
-                        if(validator.isCurrency(req.body.amount)){
+                        if(validator.isCurrency(amount) && amount >= 25 && amount <= 500){
                             
                             const user = new db.User({
                                 name: req.body.name,
