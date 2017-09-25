@@ -39,7 +39,7 @@ class Registration extends Component {
                                 })
                             }
                         }
-                    }else{alert("Please enter a valid ethereum address")}
+                    }
                 }
             }
         }
