@@ -24,7 +24,8 @@ class Header extends Component {
                                         this.props.register
                                     ?
                                         <Register   name={information.tokenName}
-                                                    getShare={() => console.log("here")} />
+                                                    getShare={() => console.log("here")}
+                                                    history={this.props.history} />
                                     :
                                         <Sale   name={information.tokenName}
                                                 getShare={() => console.log("here")} />

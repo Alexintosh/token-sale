@@ -2,9 +2,12 @@ import React, { Component }               from 'react';
 import { connect }                        from 'react-redux'; 
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-import Registration         from './components/register/Registration';
 import Thankyou             from './components/register/Thankyou';
+import SinglePage           from './components/landing/containers/SinglePage';
+import Contribute           from './components/sale/containers/Contribute';
+
 import Header               from './components/utils/Header';
+import Footer               from './components/utils/Footer';
 
 
 class App extends Component {
@@ -13,10 +16,15 @@ class App extends Component {
       <Router>
         <div className="pt-50">
           <div className="min-height">
-            <Header />
-            <Route exact path="/" component={Registration} />
-            <Route exact path="/success" component={Thankyou} />
+              <Header />
+              <Route exact path="/" component={SinglePage} />
+              <Route exact path="/success" component={Thankyou} />
+              {
+                  !this.props.register &&
+                  <Route exact path="/contribute" component={Contribute} />
+              }
           </div>
+          <Footer />
         </div>
       </Router>
     );

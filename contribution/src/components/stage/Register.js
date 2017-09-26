@@ -31,7 +31,7 @@ export default class PreSale extends PureComponent {
                         <button onClick={() => this.props.getShare()} className="btn btn-white btn-full-1">Share</button>
                     </div>
                 </div>
-                <SignupModal display={ this.state.display } hide={() => this.hideModal()} />
+                <SignupModal display={ this.state.display } hide={() => this.hideModal()}  history={this.props.history} />
             </section>
         )
     }

@@ -6,7 +6,7 @@ export default class SinglePage extends Component {
     render(){
         return(
             <section id="single-page">
-                <Header />
+                <Header history={this.props.history} />
                 <About />
             </section>
         )
