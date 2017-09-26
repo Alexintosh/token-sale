@@ -21,7 +21,6 @@ export default class Contact extends PureComponent {
         if(validator.isAlphanumeric(name.replace(/ /g,''))){
             if(validator.isEmail(email)){
                 if(validator.isAlphanumeric(message)){
-                    alert("Thank you for contacting us")
                     console.log("should link to thank you page")
                 }
             }

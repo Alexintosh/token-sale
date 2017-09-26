@@ -89,3 +89,15 @@
     background-color: rgba(254, 46, 46, 0.85);
     border-radius: 5px;
 }
+.footer-social {
+    list-style: none;
+    padding-left: 0px;
+}
+.footer-social li {
+    display: inline-block;
+    padding: 20px;
+}
+.footer-social i{
+    font-size: 30px;
+    color: #fff;
+}
