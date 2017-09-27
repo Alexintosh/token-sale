@@ -1,5 +1,9 @@
-  
-  const initialState = {
+ 
+  import uuidv4 from 'uuid/v4';
+
+  const initialState = { 
+    accessId: uuidv4(),
+    apiToken: '',
     userName: '',
     userEmail: '',
     userCountry: '',
@@ -26,7 +30,12 @@
         return {
           ...state,
           termsConditions: action.payload
-        }
+	}
+      case 'ADD_API_TOKEN':
+	return { 
+	  ...state,
+	  apiToken: action.payload
+	}
       default: {
         return state;
       }

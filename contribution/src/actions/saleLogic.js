@@ -28,9 +28,19 @@ export const handleUserInformationSubmission = (name, email, country, terms) => 
     }
   }
 }
-export const userRegister = (name, email, address, country, amount, countryCheck, callback) => {
+export const handleAPIToken = (apiToken) => {
+  return dispatch => {
+    dispatch({
+      type: 'ADD_API_TOKEN',
+      payload: apiToken
+    })
+  }
+}
+export const userRegister = (name, email, address, country, amount, countryCheck, accessId, apiToken, callback) => {
 
   axios.post('http://localhost:8080/api/register',{
+    access_id: accessId,
+    api_token: apiToken,
     name: name,
     email: email,
     address: address,
@@ -43,5 +53,21 @@ export const userRegister = (name, email, address, country, amount, countryCheck
   }).catch(function(err){
     console.log(err)
     callback("error")
+  })
+}
+
+export const apiRegister = (accessId, callback) => {
+  console.log("JS: getting here, starting apiregistercall");
+
+  axios.post('http://localhost:8080/api/register_client',{
+    access_id: accessId
+  }).then(function(res){
+    console.log(res);
+    console.log('JS: after apiregistercallback being called with input: ' + JSON.stringify(res));
+    callback(res.data);
+  }).catch(function(err){
+    console.log(err);
+    console.log('JS: after apiregistercallback ERROR');
+    callback("error");
   })
 }

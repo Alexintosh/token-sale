@@ -1,7 +1,7 @@
 // Imports the Google Cloud client library
 const Datastore = require('@google-cloud/datastore');
 
-module.exports.addRegistration = function(regData){
+module.exports.addRegistration = function(regData, res, callback){
 
   console.log("starting datastorelib registration function");
 
@@ -37,11 +37,13 @@ module.exports.addRegistration = function(regData){
   datastore.save(registration)
     .then(() => {
       console.log(`Saved ${registration.key.name}: ${registration.data.email}`);
+      callback(res, null, true);
     })
     .catch((err) => {
       console.error('ERROR:', err);
+      callback(res, err, null);
     });
 
-  console.log("finished datastorelib registratio function");
+  console.log("finished datastorelib registration function");
 
 }

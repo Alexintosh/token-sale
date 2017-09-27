@@ -9,6 +9,7 @@
     "body-parser": "^1.18.1",
     "cors": "^2.8.4",
     "express": "^4.15.4",
+    "express-rate-limit": "^2.9.0",
     "mongoose": "^4.11.12",
     "react": "^15.6.1",
     "react-bootstrap": "^0.31.3",

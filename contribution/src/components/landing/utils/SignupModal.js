@@ -1,9 +1,10 @@
 import React, { PureComponent } from 'react';
+import { connect }              from 'react-redux';
 import { Modal }                from 'react-bootstrap';
 import validator                from 'validator';
 import { userRegister }         from '../../../actions/saleLogic';
 
-export default class SignupModal extends PureComponent{
+class SignupModal extends PureComponent{
     constructor(){
         super();
         this.state = {
@@ -78,8 +79,12 @@ export default class SignupModal extends PureComponent{
             validation = false;
         }
         if(validation){
-            userRegister(name, email, address, country, amount, countryCheck, (res)=>{
-                this.props.history.push('/success');
+            userRegister(name, email, address, country, amount, countryCheck, this.props.accessId, this.props.apiToken, (res)=>{
+                if(res === 'success'){
+                    this.props.history.push('/success');
+                }else{
+                    console.log("error error error");
+                }
             })
         }
     }
@@ -169,3 +174,14 @@ export default class SignupModal extends PureComponent{
         )
     }
 }
+
+const mapStateToProps = state => {
+  return {
+    accessId: state.sale.accessId,
+    apiToken: state.sale.apiToken
+  }
+}
+
+export default connect(
+  mapStateToProps
+)(SignupModal)
