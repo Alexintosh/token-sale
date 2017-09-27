@@ -137,8 +137,8 @@ class Registration extends Component {
                                         id="purchaseSize"
                                         value={this.state.purchaseSize}
                                         onChange={this.handleInputChange.bind(this)} 
-                                        placeholder="Purchase Size [min 25 ETH - max 500 ETH] *" />
-                                <div id="_purchaseSize" className={"warning-text" + (this.state.purchaseSizeCheck ? ' hidden' : '')}>Please enter an amount between 25ETH and 500ETH</div>
+                                        placeholder="Purchase Size [min 25 Ether - max 500 Ether] *" />
+                                <div id="_purchaseSize" className={"warning-text" + (this.state.purchaseSizeCheck ? ' hidden' : '')}>Please enter an amount between 25 Ether and 500 Ether</div>
 
                                 <label>
                                     <input  type="checkbox" 

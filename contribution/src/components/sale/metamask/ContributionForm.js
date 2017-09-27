@@ -16,7 +16,7 @@ class ContributionForm extends Component{
                             value={this.props.userContribution}
                             onChange={this.props.handleInputChange.bind(this)} 
                             placeholder="Amount *" />
-                    <p className="input-label">ETH</p>
+                    <p className="input-label">Ether</p>
                     <input type="submit" value="Contribute" className="btn btn-color mt-0" />
                 </form>
             </section>

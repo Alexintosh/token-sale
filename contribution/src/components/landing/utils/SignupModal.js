@@ -65,7 +65,7 @@ export default class SignupModal extends PureComponent{
             this.setState({ contactAddressCheck: false })
             validation = false;            
         }
-        if(!(validator.isCurrency(amount) && amount >= 25 && amount <= 500)){
+        if(!(validator.isDecimal(amount) && amount >= 25 && amount <= 500)){
             this.setState({ purchaseSizeCheck: false })
             validation = false;
         }
@@ -136,8 +136,8 @@ export default class SignupModal extends PureComponent{
                                 id="purchaseSize"
                                 value={this.state.purchaseSize}
                                 onChange={this.handleInputChange.bind(this)} 
-                                placeholder="Purchase Size [min 25 ETH - max 500 ETH] *" />
-                        <div id="_purchaseSize" className={"warning-text" + (this.state.purchaseSizeCheck ? ' hidden' : '')}>Please enter an amount between 25ETH and 500ETH</div>
+                                placeholder="Purchase Size [min 25 Ether - max 500 Ether] *" />
+                        <div id="_purchaseSize" className={"warning-text" + (this.state.purchaseSizeCheck ? ' hidden' : '')}>Please enter an amount between 25 Ether and 500 Ether</div>
 
                         <label>
                             <input  type="checkbox" 
@@ -147,7 +147,7 @@ export default class SignupModal extends PureComponent{
                                     value={this.state.countryCheck} />
                                     <p>By checking this box, you agree that you are not a resident of the United States or China.</p>
                         </label>
-                        <div id="_countryCheck" className={"warning-text" + (this.state.countryCheckValidation ? ' hidden' : '')}>You may only proceed if you agree that you are not a resident of the United States or Chine</div>
+                        <div id="_countryCheck" className={"warning-text" + (this.state.countryCheckValidation ? ' hidden' : '')}>You may only proceed if you agree that you are not a resident of the United States or China</div>
 
 
                         <label>
