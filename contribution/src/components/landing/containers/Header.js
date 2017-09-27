@@ -2,9 +2,8 @@ import React, { Component }     from 'react';
 import { connect }              from 'react-redux';
 import Supply                   from '../header/Supply';
 import Price                    from '../header/Price';
-import Sale                     from '../../stage/Sale';
+import Countdown                from '../header/Countdown';
 import Register                 from '../../stage/Register';
-import { information }          from '../../pages.json';
 
 class Header extends Component {
     render(){
@@ -20,17 +19,15 @@ class Header extends Component {
                         <div className="col-md-h-5">
                             <div className="ph-20">
                                 <Supply />
-                                {
-                                        this.props.register
-                                    ?
-                                        <Register   name={information.tokenName}
-                                                    getShare={() => console.log("here")}
-                                                    history={this.props.history} />
-                                    :
-                                        <Sale   name={information.tokenName}
-                                                getShare={() => console.log("here")} />
-                                }
                             </div>
+                        </div>
+                    </div>
+                    <div className="col-container pb-40">
+                        <div className="col-md-h-7">
+                            <Countdown  history={this.props.history} />
+                        </div>
+                        <div className="col-md-h-5">
+                            <Register   history={this.props.history} />
                         </div>
                     </div>
                 </div>

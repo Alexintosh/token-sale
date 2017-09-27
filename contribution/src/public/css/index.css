@@ -48,7 +48,7 @@ body {
   padding: 30px;
 }
 #contactFormRegister input[type="submit"]{
-  margin-top: 30px;
+  margin-top: 30px
 }
 #contactFormRegister input[type="text"]{
   width: 100%;
@@ -188,4 +188,51 @@ body {
 }
 .header-p{
   font-size: 20px;
+}
+.team-card{
+  text-align: center;
+}
+.team-card .information{
+  min-height: 200px;
+}
+.team-card img{
+  border-radius: 5px;
+  width: 130px;
+  height: 130px;
+  filter: grayscale(100%);
+}
+.team-card .information h3{
+  font-size: 20px;
+}
+.team-card .information p{
+  font-size: 14px !important;
+}
+#countdownForm input[type="submit"]{
+  position: relative;
+  width: 30%;
+  margin-top: 0px;
+  border-radius: 0 5px 5px 0;
+  padding: 10px 0px !important;
+  top: -1px;
+  left: -2px;
+}
+#countdownForm input[type="text"]{
+  width: 70%;
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 5px 0 0 5px;
+  border: 1px solid #ccc;
+}
+.about-card-contact{
+  margin: 0 auto;
+  padding: 10px 30px 30px 30px;
+  width: 80%;
+  border-radius: 5px;
+  border: 1px solid rgba(119, 119, 119, 0.5);
+}
+.about-card-contact p{
+  padding-bottom: 20px;
+}
+#thank-you{
+  padding-top: 100px;
 }

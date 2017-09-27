@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import AboutNavigation          from '../about/AboutNavigation';
-import Contact                  from '../about/Contact';
 import Team                     from '../about/Team';
-import Section                  from '../section/Section';
 import WhitePaper               from '../about/WhitePaper';
-import Press                    from '../utils/Press';
+import BusinessDetail           from '../about/BusinessDetail';
+import Section                  from '../section/Section';
 import { about }                from '../../pages.json';
 import uuidv4                   from 'uuid/v4';
 
@@ -22,10 +21,9 @@ export default class About extends Component {
                         </div>
                         <div className="col-md-h-8">
                             { aboutSection }
+                            <BusinessDetail />
                             <Team />
                             <WhitePaper />
-                            <Press />
-                            <Contact />
                         </div>
                     </div>
                 </div>

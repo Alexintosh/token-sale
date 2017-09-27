@@ -6,7 +6,7 @@ export default class WhitePaper extends PureComponent{
             <section id="whitepaper">
                 <div className="about-card">
                     <h2><span>Whitepaper</span></h2>
-                    <a href="https://github.com" target="_blank" rel="noopener noreferrer">Hello Coin White Paper</a>
+                    <a href="https://leverj.io/whitepaper.pdf" target="_blank" rel="noopener noreferrer">Leverj White Paper</a>
                 </div>
             </section>
         )

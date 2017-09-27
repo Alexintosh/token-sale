@@ -54,8 +54,6 @@
 }
 #pre-sale h4{
   padding-top: 30px;
-  font-weight: bold;
-  color: #666;
 }
 .about-background{
   background-color: rgba(221, 221, 221, 0.2);
@@ -100,4 +98,8 @@
 .footer-social i{
     font-size: 30px;
     color: #fff;
+}
+.footer-social i:hover{
+    font-size: 30px;
+    color: #FF9720;
 }

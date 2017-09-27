@@ -9,16 +9,16 @@ export default class Price extends PureComponent{
         })
         return(
             <section id="price">
-                <div className="about-card">
+                <div className="about-card borderless">
                     <div className="center-text">
                         <h2>Sale Price</h2>
                         <p>*minimum {price.minimum} {price.currency}</p>
                     </div>
-                    <table className="table sale-table">
+                    <table className="table sale-table center-text">
                         <thead>
                             <tr>
-                                <th>Amount Committed (${price.currency})</th>
-                                <th>Price (${price.currency}/{price.coin})</th>
+                                <th className="center-text">Sale Stage</th>
+                                <th className="center-text">Price ({price.coin}/{price.currency})</th>
                             </tr>
                         </thead>
                         <tbody>

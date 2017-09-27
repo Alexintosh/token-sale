@@ -3,6 +3,7 @@ import { connect }                        from 'react-redux';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import Thankyou             from './components/register/Thankyou';
+import EmailSignup          from './components/register/EmailSignup';
 import SinglePage           from './components/landing/containers/SinglePage';
 import Contribute           from './components/sale/containers/Contribute';
 
@@ -19,6 +20,7 @@ class App extends Component {
               <Header />
               <Route exact path="/" component={SinglePage} />
               <Route exact path="/success" component={Thankyou} />
+              <Route exact path="/email-signup" component={EmailSignup} />
               {
                   !this.props.register &&
                   <Route exact path="/contribute" component={Contribute} />

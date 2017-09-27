@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react';
-import ConsenSysLogo            from '../../public/img/consensyslogo.png';
 
 export default class Footer extends PureComponent{
     render(){
@@ -7,7 +6,7 @@ export default class Footer extends PureComponent{
             <section id="footer">
                 <div className="container">
                     <div className="row center-text">
-                        <div className="col-sm-6 involved">
+                        <div className="col-sm-6 col-sm-offset-3 involved">
                             <h3>Get Involved!</h3>
                             <ul className="footer-social">
                                 <li>
@@ -41,10 +40,7 @@ export default class Footer extends PureComponent{
                                   </a>
                                 </li>
                             </ul>
-                        </div>
-                        <div className="col-sm-6 consensys-logo">
-                            <img src={ConsenSysLogo} alt="ConsenSys Logo" />
-                            <p>ConsenSys Mesh Company</p>
+                            <p>© COPYRIGHT LEVERJ.IO 2017.</p>
                         </div>
                     </div>
                 </div>
