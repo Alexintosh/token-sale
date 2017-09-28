@@ -9,6 +9,7 @@ var RateLimit   = require('express-rate-limit');
 const uuidv4    = require('uuid/v4');
 const app       = express();
 
+require('dotenv').config();
 var tokenMap = new Map();
 
 //TODO: Need to read up more on the bodyparser docs
@@ -69,9 +70,9 @@ app.post('/api/email-registration',(req, res) => {
 
 		var helper = require('sendgrid').mail;  
 		from_email = new helper.Email("noreply@consensys.net");
-		to_email = new helper.Email("stuarth323@gmail.com");
+		to_email = new helper.Email(req.body.email);
 		subject = "Email Registration";
-		content = new helper.Content("text/html", "Thank you for registring with Leverj");
+		content = new helper.Content("text/html", "<h1>Thanks for your interest in the Leverj Token Pre-Sale!</h1><p>We’ve recorded your email and will be notifying you shortly with instructions to help you get started.</p><p>- The Leverj Team</p>");
 		mail = new helper.Mail(from_email, subject, to_email, content);
 		var sg = require('sendgrid')(process.env.SENDGRID_API);
 		var request = sg.emptyRequest({
@@ -137,9 +138,9 @@ app.post('/api/register',(req, res) => {
 									//Email sending
 									var helper = require('sendgrid').mail;  
 									from_email = new helper.Email("noreply@consensys.net");
-									to_email = new helper.Email("stuarth323@gmail.com");
-									subject = "Email Registration";
-									content = new helper.Content("text/html", "Thank you for registring with Leverj");
+									to_email = new helper.Email(req.body.email);
+									subject = "Leverj Presale Registration";
+									content = new helper.Content("text/html", "<h1>Thanks for your interest in the Leverj Token Pre-Sale!</h1><p>We’ve recorded your email and will be notifying you shortly with instructions to help you get started.</p><p>- The Leverj Team</p>");
 									mail = new helper.Mail(from_email, subject, to_email, content);
 									var sg = require('sendgrid')(process.env.SENDGRID_API);
 									var request = sg.emptyRequest({

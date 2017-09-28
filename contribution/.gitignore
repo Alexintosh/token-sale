@@ -1,2 +1,3 @@
 sendgrid.env
 datastore_key_file.env
+.env
