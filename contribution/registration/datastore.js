@@ -8,7 +8,7 @@ module.exports.addRegistration = function(regData, res, callback){
   // Your Google Cloud Platform project ID
   const projectId = 'consenssys-leverj';
 
-  var keyfile = '';
+  var keyfile = process.env.DATASTORE_API_KEY_FILE;
 
   if(keyfile == '' || keyfile === undefined){console.log("ERROR: please provide a keyfile");return;}
 
