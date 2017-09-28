@@ -21,7 +21,7 @@ app.use(cors({origin: '*'})); //TODO:should change this for deployment
 app.enable('trust proxy');
 var limiter = new RateLimit({
 	windowMs: 15*60*1000, // 15 minutes 
-	max: 2, // limit each IP to 100 requests per windowMs 
+	max: 2, // limit each IP to 2 requests per windowMs 
 	delayMs: 0 // disable delaying - full speed until the max limit is reached 
 });
 app.use(limiter);
@@ -38,7 +38,7 @@ app.post('/api/register_client', (req, res)=>{
 	var api_token = uuidv4();
 	
 	console.log('api: setting access id: ' + req.body.access_id);
-    console.log('api: setting api token: ' + api_token);
+ 	console.log('api: setting api token: ' + api_token);
 	
 	tokenMap.set(req.body.access_id, api_token);
 	setTimeout(()=>{ tokenMap.delete(req.body.access_id); }, 2*60*60*1000);
@@ -50,15 +50,15 @@ app.post('/api/register_client', (req, res)=>{
 app.post('/api/email-registration',(req, res) => {
 	
 	if(!checkRequestHeaders(req.headers)){
-		console.log('api/register: 401 due to request headers');
-		console.logres.status(401);
+		res.status(401);
 		res.send('unauthorized');
 		return;
 	}
     
-    console.log('api/email-registration: received access id: ' + req.body.access_id);
-    console.log('api/email-registration: received api token: ' + req.body.api_token);
-    console.log('api/email-registration: existing token: ' + tokenMap.get(req.body.access_id));
+    	console.log('api/email-registration: received access id: ' + req.body.access_id);
+    	console.log('api/email-registration: received api token: ' + req.body.api_token);
+    	console.log('api/email-registration: existing token: ' + tokenMap.get(req.body.access_id));
+	
 	if(req.body.api_token != tokenMap.get(req.body.access_id)){
 		console.log('api/email-registration: 401 due to token issue');
 		res.status(401);
@@ -83,8 +83,8 @@ app.post('/api/email-registration',(req, res) => {
 			console.log(response.statusCode);
 			console.log(response.body);
 			console.log(response.headers);
-			response.status(200);
-			response.send("success");
+			res.status(200);
+			res.send("success");
 		});
 
 	}else{ res.status(501); res.send("invalid information")}
@@ -95,7 +95,7 @@ app.post('/api/register',(req, res) => {
 
 	if(!checkRequestHeaders(req.headers)){
 		console.log('api/register: 401 due to request headers');
-		console.logres.status(401);
+		res.status(401);
 		res.send('unauthorized');
 		return;
 	}
@@ -151,8 +151,8 @@ app.post('/api/register',(req, res) => {
 										console.log(response.statusCode);
 										console.log(response.body);
 										console.log(response.headers);
-										response.status(200);
-										response.send("success");
+										res.status(200);
+										res.send("success");
 									});
                             	}
                             });
