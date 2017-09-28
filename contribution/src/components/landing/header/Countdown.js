@@ -1,4 +1,5 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent }     from 'react';
+import { userEmailRegistration }    from '../../../actions/saleLogic';
 
 export default class Countdown extends PureComponent {
     constructor(){
@@ -16,7 +17,9 @@ export default class Countdown extends PureComponent {
     }
     submitEmail(email){
         //will have to make it 
-        this.props.history.push('/email-signup');
+        userEmailRegistration(email, (res)=>{
+            this.props.history.push('/email-signup');
+        })
     }
     render(){
         return(

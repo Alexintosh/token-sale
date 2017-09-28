@@ -36,6 +36,19 @@ export const handleAPIToken = (apiToken) => {
     })
   }
 }
+
+export const userEmailRegistration = (email, callback) => {
+  axios.post('http://localhost:8080/api/email-registration',{
+    email: 'stuarth323@gmail.com'
+  }).then(function(res){
+    console.log(res);
+    callback("success")
+  }).catch(function(err){
+    console.log(err)
+    callback("error")
+  })
+}
+
 export const userRegister = (name, email, address, country, amount, countryCheck, accessId, apiToken, callback) => {
 
   axios.post('http://localhost:8080/api/register',{

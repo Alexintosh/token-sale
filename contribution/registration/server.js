@@ -47,6 +47,50 @@ app.post('/api/register_client', (req, res)=>{
 	res.send(api_token);
 })
 
+app.post('/api/email-registration',(req, res) => {
+	
+	if(!checkRequestHeaders(req.headers)){
+		console.log('api/register: 401 due to request headers');
+		console.logres.status(401);
+		res.send('unauthorized');
+		return;
+	}
+    
+    console.log('api/email-registration: received access id: ' + req.body.access_id);
+    console.log('api/email-registration: received api token: ' + req.body.api_token);
+    console.log('api/email-registration: existing token: ' + tokenMap.get(req.body.access_id));
+	if(req.body.api_token != tokenMap.get(req.body.access_id)){
+		console.log('api/email-registration: 401 due to token issue');
+		res.status(401);
+		res.send('unauthorized');
+		return;
+	}
+	if(validator.isEmail(req.body.email)){
+
+		var helper = require('sendgrid').mail;  
+		from_email = new helper.Email("noreply@consensys.net");
+		to_email = new helper.Email("stuarth323@gmail.com");
+		subject = "Email Registration";
+		content = new helper.Content("text/html", "Thank you for registring with Leverj");
+		mail = new helper.Mail(from_email, subject, to_email, content);
+		var sg = require('sendgrid')(process.env.SENDGRID_API);
+		var request = sg.emptyRequest({
+			method: 'POST',
+			path: '/v3/mail/send',
+			body: mail.toJSON()
+		});    
+		sg.API(request, function(error, response) {
+			console.log(response.statusCode);
+			console.log(response.body);
+			console.log(response.headers);
+			response.status(200);
+			response.send("success");
+		});
+
+	}else{ res.status(501); res.send("invalid information")}
+
+});
+
 app.post('/api/register',(req, res) => {
 
 	if(!checkRequestHeaders(req.headers)){
@@ -71,19 +115,8 @@ app.post('/api/register',(req, res) => {
             if(validator.isEmail(req.body.email)){
                 if(validator.isAlphanumeric(req.body.address) && req.body.address.length === 42){
                     if(validator.isAlphanumeric(req.body.country)){
-                        if(validator.isCurrency(req.body.amount) && req.body.amount >= 25 && req.body.amount <= 500){
-                            
-                            const user = new db.User({
-                                name: req.body.name,
-                                email: req.body.email,
-                                address: req.body.address,
-                                country: req.body.country,
-                                amount: req.body.amount,
-                                residency: req.body.check
-                            })
-    
-                            //user.save(function(err){ if(err) console.log(err); })
-			
+                        if(validator.isDecimal(req.body.amount) && req.body.amount >= 25 && req.body.amount <= 500){
+                            			
 			    			datastore_lib.addRegistration({
                                 name: req.body.name,
                                 email: req.body.email,
@@ -99,9 +132,28 @@ app.post('/api/register',(req, res) => {
 		                            response.send("update failed");
                             	}else{
                             		console.log('finished datastore call SUCCESS');
-					    			tokenMap.delete(req.body.access_id);
-		                            response.status(200);
-		                            response.send("success");
+									tokenMap.delete(req.body.access_id);
+									
+									//Email sending
+									var helper = require('sendgrid').mail;  
+									from_email = new helper.Email("noreply@consensys.net");
+									to_email = new helper.Email("stuarth323@gmail.com");
+									subject = "Email Registration";
+									content = new helper.Content("text/html", "Thank you for registring with Leverj");
+									mail = new helper.Mail(from_email, subject, to_email, content);
+									var sg = require('sendgrid')(process.env.SENDGRID_API);
+									var request = sg.emptyRequest({
+										method: 'POST',
+										path: '/v3/mail/send',
+										body: mail.toJSON()
+									});    
+									sg.API(request, function(error, response) {
+										console.log(response.statusCode);
+										console.log(response.body);
+										console.log(response.headers);
+										response.status(200);
+										response.send("success");
+									});
                             	}
                             });
 

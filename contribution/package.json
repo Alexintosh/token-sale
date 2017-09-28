@@ -24,6 +24,7 @@
     "redux-observable": "^0.16.0",
     "redux-thunk": "^2.2.0",
     "rxjs": "^5.4.3",
+    "sendgrid": "^5.2.3",
     "thunk": "0.0.1",
     "uuid": "^3.1.0",
     "validator": "^8.2.0",
