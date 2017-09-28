@@ -6,8 +6,9 @@ var validator   = require('validator');
 var db          = require('./models');
 var datastore_lib = require('./datastore.js');
 var RateLimit   = require('express-rate-limit');
+var request 	= require('request');
 const uuidv4    = require('uuid/v4');
-const app       = express();
+const app       = express()
 
 require('dotenv').config();
 var tokenMap = new Map();
@@ -68,25 +69,10 @@ app.post('/api/email-registration',(req, res) => {
 	}
 	if(validator.isEmail(req.body.email)){
 
-		var helper = require('sendgrid').mail;  
-		from_email = new helper.Email("noreply@consensys.net");
-		to_email = new helper.Email(req.body.email);
-		subject = "Email Registration";
-		content = new helper.Content("text/html", "<h1>Thanks for your interest in the Leverj Token Pre-Sale!</h1><p>We’ve recorded your email and will be notifying you shortly with instructions to help you get started.</p><p>- The Leverj Team</p>");
-		mail = new helper.Mail(from_email, subject, to_email, content);
-		var sg = require('sendgrid')(process.env.SENDGRID_API);
-		var request = sg.emptyRequest({
-			method: 'POST',
-			path: '/v3/mail/send',
-			body: mail.toJSON()
-		});    
-		sg.API(request, function(error, response) {
-			console.log(response.statusCode);
-			console.log(response.body);
-			console.log(response.headers);
+		mailChimp(req.body.email, (mailchimpResponse)=>{										
 			res.status(200);
 			res.send("success");
-		});
+		})
 
 	}else{ res.status(501); res.send("invalid information")}
 
@@ -135,26 +121,10 @@ app.post('/api/register',(req, res) => {
                             		console.log('finished datastore call SUCCESS');
 									tokenMap.delete(req.body.access_id);
 									
-									//Email sending
-									var helper = require('sendgrid').mail;  
-									from_email = new helper.Email("noreply@consensys.net");
-									to_email = new helper.Email(req.body.email);
-									subject = "Leverj Presale Registration";
-									content = new helper.Content("text/html", "<h1>Thanks for your interest in the Leverj Token Pre-Sale!</h1><p>We’ve recorded your email and will be notifying you shortly with instructions to help you get started.</p><p>- The Leverj Team</p>");
-									mail = new helper.Mail(from_email, subject, to_email, content);
-									var sg = require('sendgrid')(process.env.SENDGRID_API);
-									var request = sg.emptyRequest({
-										method: 'POST',
-										path: '/v3/mail/send',
-										body: mail.toJSON()
-									});    
-									sg.API(request, function(error, response) {
-										console.log(response.statusCode);
-										console.log(response.body);
-										console.log(response.headers);
+									mailChimp(req.body.email, (mailchimpResponse)=>{										
 										res.status(200);
 										res.send("success");
-									});
+									})
                             	}
                             });
 
@@ -212,4 +182,30 @@ function checkRequestHeaders(req_headers){
 	}
 
 	return true;
+}
+
+
+function mailChimp(email, callback){
+	var options = {
+		method: 'POST',
+		url: 'https://us16.api.mailchimp.com/3.0/lists/'+ process.env.MAILCHIP_LIST_ID +'/members',
+		headers: {
+			'cache-control': 'no-cache',
+			'content-type': 'application/json',
+			'authorization': 'Basic ' + process.env.MAILCHIMP_API
+		},
+		body: {
+		  email_address: email,
+		  status: 'subscribed'
+		},
+		json: true
+	  }
+	  request(options, function(error, response, body){
+		if(error){
+			console.log("Mailchimp Error: ", error);
+			callback("Error");
+		}else{
+			callback("success")
+		}
+	})
 }
