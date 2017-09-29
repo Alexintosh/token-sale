@@ -9,7 +9,6 @@ export default class Price extends PureComponent{
         })
         return(
             <section id="price">
-                <div className="about-card borderless">
                     <div className="center-text">
                         <h2>Sale Price</h2>
                         <p>*minimum {price.minimum} {price.currency}</p>
@@ -25,7 +24,6 @@ export default class Price extends PureComponent{
                            {rows}
                         </tbody>
                     </table>
-                </div>
             </section>
         )
     }

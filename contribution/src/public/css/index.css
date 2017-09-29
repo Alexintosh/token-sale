@@ -6,6 +6,10 @@ body {
 .min-height{
   min-height: 80vh;
 }
+.supply-component{
+  padding-top: 50px;
+  padding-left: 30px;
+}
 .supply-component h3 {
   margin-bottom: 5px;
 }
@@ -238,4 +242,25 @@ body {
 #news-container{
   padding-top: 70px;
   padding-bottom: 70px;
+}
+#news-container h2{
+  font-weight: bold;
+  font-size: 40px !important;
+  padding-bottom: 20px;
+}
+.news-image{
+  width: 150px;
+  padding-top: 30px;
+}
+#header{
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+#features-container{
+  padding-top: 70px;
+  padding-bottom: 70px;
+  background-color: rgba(221, 221, 221, 0.2);
+}
+#countdown{
+  padding-top: 10px;
 }

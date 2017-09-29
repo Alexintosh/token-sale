@@ -1,32 +1,33 @@
-import React, { Component }     from 'react';
-import { connect }              from 'react-redux';
+import React, { PureComponent }     from 'react';
 import Supply                   from '../header/Supply';
 import Price                    from '../header/Price';
 import Countdown                from '../header/Countdown';
+import LandingVideo             from '../utils/LandingVideo';
 import Register                 from '../../stage/Register';
 
-class Header extends Component {
+export default class Header extends PureComponent {
     render(){
         return(
-            <section id="landing">
+            <section id="header">
                 <div className="container">
-                    <div className="col-container">
-                        <div className="col-md-h-7">
-                            <div className="ph-20">
-                                <Price />
-                            </div>
-                        </div>
-                        <div className="col-md-h-5">
-                            <div className="ph-20">
-                                <Supply />
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-container pb-40">
-                        <div className="col-md-h-7">
+                    <div className="row pv-40">
+                        <div className="col-md-7">
                             <Countdown  history={this.props.history} />
                         </div>
-                        <div className="col-md-h-5">
+                        <div className="col-md-5">
+                            <Price />
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col-md-7">
+                            <LandingVideo />
+                        </div>
+                        <div className="col-md-5">
+                            <Supply />
+                        </div>
+                    </div>
+                    <div className="row pb-40">                        
+                        <div className="col-md-5 col-md-offset-7">
                             <Register   history={this.props.history} />
                         </div>
                     </div>
@@ -35,11 +36,3 @@ class Header extends Component {
         )
     }
 }
-const mapStateToProps = state => {
-    return {
-        register: state.sale.register
-    }
-}
-export default connect(
-    mapStateToProps
-)(Header)

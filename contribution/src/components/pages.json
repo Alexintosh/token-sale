@@ -120,9 +120,6 @@
         "title": "Project Overview",
         "link": "overview"
     },{
-        "title": "Business Details",
-        "link": "details"
-    },{
         "title": "Team",
         "link": "team"
     }]

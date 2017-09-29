@@ -33,6 +33,14 @@ hr {
     padding-top: 30px;
     padding-bottom: 30px;
 }
+.pv-40{
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+.pv-70{
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
 .ph-20{
     padding-left: 20px;
     padding-right: 20px;
@@ -121,6 +129,7 @@ hr {
 }
 .features-card{
     border: 1px solid #aaa;
+    background-color: #fff;
     border-radius: 5px;
     width: 100%;
     height: 350px;
@@ -128,4 +137,16 @@ hr {
     padding: 20px;
     text-align: center;
     box-shadow: 5px 5px 20px rgba(196, 196, 196, 0.5);
+}
+.features-card img{
+    height: 120px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.features-card h5{
+    padding-top: 10px;
+    font-weight: bold;
+}
+.features-card p{
+    font-size: 14px;
 }
