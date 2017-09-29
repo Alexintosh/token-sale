@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import AboutNavigation          from '../about/AboutNavigation';
 import Team                     from '../about/Team';
-import WhitePaper               from '../about/WhitePaper';
 import BusinessDetail           from '../about/BusinessDetail';
 import Section                  from '../section/Section';
 import { about }                from '../../pages.json';
@@ -23,7 +22,6 @@ export default class About extends Component {
                             { aboutSection }
                             <BusinessDetail />
                             <Team />
-                            <WhitePaper />
                         </div>
                     </div>
                 </div>

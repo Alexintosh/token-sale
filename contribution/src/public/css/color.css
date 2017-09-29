@@ -34,6 +34,17 @@
 .btn-white:hover{
     color: #666 !important;
 }
+.btn-white-1 {
+    background-color: #fff;
+    color: #ea993e;
+    border: 1px solid rgba(102, 102, 102, 0.3) !important;
+    border-radius: 5px;
+    padding: 20px 100px;
+    margin-bottom: 20px;
+}
+.btn-white-1:hover{
+    color: #666 !important;
+}
 #footer{
     padding: 50px;
     background-color: #151515;
@@ -102,4 +113,25 @@
 .footer-social i:hover{
     font-size: 30px;
     color: #FF9720;
+}
+.whitepaper-background{
+    padding-top: 40px;
+    padding-bottom: 40px;
+    color: #fff;
+    background: #ea993e; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(left top, #ebb063, #ea993e); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(bottom right, #ebb063, #ea993e); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(bottom right, #ebb063, #ea993e); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to bottom right, #ebb063, #ea993e); /* Standard syntax */
+}
+.whitepaper-link{
+    display: block;
+    color: #fff;
+}
+.whitepaper-link:hover{
+    display: block;
+    color: #ccc;
+}
+.whitepaper-link span{
+    border-bottom: 1px solid #fff;
 }
