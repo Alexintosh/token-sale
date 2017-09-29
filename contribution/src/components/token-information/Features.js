@@ -15,21 +15,21 @@ export default class Features extends PureComponent{
                             <div className="features-card">
                                 <img src={globe} alt="feature-1" />
                                 <h5>Decentralized Identity with Hardware Wallet Support</h5>
-                                <p>A decentralized identity can be used to authenticate, sign contracts, atleast documents, message other traders and selectively share media. Coinpit is the first and only exchange to support multi signature wallets where your private key can be held on a hardware wallet. </p>
+                                <p>A decentralized identity can be used to authenticate, sign contracts, atteast documents, message other traders and selectively share media. Coinpit is the first and only exchange to support multi signature wallets where your private key can be held on a hardware wallet. </p>
                             </div>
                         </div>
                         <div className="col-sm-4">
                             <div className="features-card">
                                 <img src={p2p} alt="feature-1" />
                                 <h5>Decentralized Identity with Hardware Wallet Support</h5>
-                                <p>A decentralized identity can be used to authenticate, sign contracts, atleast documents, message other traders and selectively share media. Coinpit is the first and only exchange to support multi signature wallets where your private key can be held on a hardware wallet. </p>
+                                <p>A decentralized identity can be used to authenticate, sign contracts, atteast documents, message other traders and selectively share media. Coinpit is the first and only exchange to support multi signature wallets where your private key can be held on a hardware wallet. </p>
                             </div>
                         </div>
                         <div className="col-sm-4">
                             <div className="features-card">
                                 <img src={cogs} alt="feature-1" />
                                 <h5>Decentralized Identity with Hardware Wallet Support</h5>
-                                <p>Discretionary entry and mechanical trade management enables traders to focus on market opportunities, eliminating trade management errosr. Since exchange funds are held-on-chain in segregated accounts, settlement is and withdrawal are immediate subject to blockchain latencies. </p>
+                                <p>Discretionary entry and mechanical trade management enables traders to focus on market opportunities, eliminating trade management error. Since exchange funds are held-on-chain in segregated accounts, settlement is and withdrawal are immediate subject to blockchain latencies. </p>
                             </div>
                         </div>
                         <div className="col-sm-4">
