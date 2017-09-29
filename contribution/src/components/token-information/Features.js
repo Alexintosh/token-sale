@@ -1,9 +1,9 @@
 import React, { PureComponent } from 'react';
-import cogs                     from '../../../public/img/cogs.png';
-import controls                 from '../../../public/img/controls.png';
-import stockgraph               from '../../../public/img/stockgraph.png';
-import globe                    from '../../../public/img/globe.png';
-import p2p                      from '../../../public/img/peer2peer.png';
+import cogs                     from '../../public/img/cogs.png';
+import controls                 from '../../public/img/controls.png';
+import stockgraph               from '../../public/img/stockgraph.png';
+import globe                    from '../../public/img/globe.png';
+import p2p                      from '../../public/img/peer2peer.png';
 
 export default class Features extends PureComponent{
     render(){

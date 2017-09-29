@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import SignupModal              from '../landing/utils/SignupModal';
+import SignupModal              from '../utils/SignupModal';
 
 export default class PreSale extends PureComponent { 
     constructor(){

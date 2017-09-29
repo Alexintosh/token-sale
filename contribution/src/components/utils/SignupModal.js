@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { connect }              from 'react-redux';
 import { Modal }                from 'react-bootstrap';
 import validator                from 'validator';
-import { userRegister }         from '../../../actions/saleLogic';
+import { userRegister }         from '../../actions/saleLogic';
 
 class SignupModal extends PureComponent{
     constructor(){

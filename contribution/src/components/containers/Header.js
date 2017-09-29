@@ -2,8 +2,8 @@ import React, { PureComponent }     from 'react';
 import Supply                   from '../header/Supply';
 import Price                    from '../header/Price';
 import Countdown                from '../header/Countdown';
+import Register                 from '../header/Register';
 import LandingVideo             from '../utils/LandingVideo';
-import Register                 from '../../stage/Register';
 
 export default class Header extends PureComponent {
     render(){

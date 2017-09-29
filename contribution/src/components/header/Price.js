@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { price }                from '../../pages.json';
+import { price }                from '../pages.json';
 import uuidv4                   from 'uuid/v4';
 
 export default class Price extends PureComponent{

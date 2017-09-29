@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { aboutNavigation }      from '../../pages.json';
+import { aboutNavigation }      from '../pages.json';
 import uuidv4                   from 'uuid/v4';
 
 export default class AboutNavigation extends PureComponent {

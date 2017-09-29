@@ -1,5 +1,5 @@
 import React, { PureComponent }     from 'react';
-import { userEmailRegistration }    from '../../../actions/saleLogic';
+import { userEmailRegistration }    from '../../actions/saleLogic';
 
 export default class Countdown extends PureComponent {
     constructor(){

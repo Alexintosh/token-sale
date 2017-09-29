@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import Consensys                from '../../../public/img/consensyslogo.png';
+import Consensys                from '../../public/img/consensyslogo.png';
 
 export default class Icons extends PureComponent{
     render(){

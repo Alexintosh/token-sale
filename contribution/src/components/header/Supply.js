@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { information }          from '../../pages.json';
+import { information }          from '../pages.json';
 
 export default class Supply extends PureComponent {
     render(){

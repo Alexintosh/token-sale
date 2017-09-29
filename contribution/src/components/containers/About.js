@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import AboutNavigation          from '../about/AboutNavigation';
 import Team                     from '../about/Team';
 import Section                  from '../section/Section';
-import { about }                from '../../pages.json';
+import { about }                from '../pages.json';
 import uuidv4                   from 'uuid/v4';
 
 export default class About extends Component {

@@ -10,7 +10,6 @@
     userContribution: '',
     userRegistered: true,
     termsConditions: false,
-    register: true,
     error: null
   };
   

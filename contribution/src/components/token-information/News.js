@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
-import bcn                      from '../../../public/img/BCN.png';
-import nasdaq                   from '../../../public/img/nasdaq.jpg';
-import merkle                   from '../../../public/img/merkle.jpg';
+import bcn                      from '../../public/img/BCN.png';
+import nasdaq                   from '../../public/img/nasdaq.jpg';
+import merkle                   from '../../public/img/merkle.jpg';
 
 export default class News extends PureComponent{
     render(){

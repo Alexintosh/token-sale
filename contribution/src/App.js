@@ -2,10 +2,10 @@ import React, { Component }               from 'react';
 import { connect }                        from 'react-redux'; 
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { apiRegister, handleAPIToken }	  from './actions/saleLogic';
-import Thankyou             from './components/register/Thankyou';
-import EmailSignup          from './components/register/EmailSignup';
-import SinglePage           from './components/landing/containers/SinglePage';
-import Contribute           from './components/sale/containers/Contribute';
+
+import Thankyou             from './components/thankyou/Thankyou';
+import EmailSignup          from './components/thankyou/EmailSignup';
+import LandingPage          from './components/containers/LandingPage';
 
 import Header               from './components/utils/Header';
 import Footer               from './components/utils/Footer';
@@ -23,13 +23,9 @@ class App extends Component {
         <div className="pt-50">
           <div className="min-height">
               <Header />
-              <Route exact path="/" component={SinglePage} />
+              <Route exact path="/" component={LandingPage} />
               <Route exact path="/success" component={Thankyou} />
               <Route exact path="/email-signup" component={EmailSignup} />
-              {
-                  !this.props.register &&
-                  <Route exact path="/contribute" component={Contribute} />
-              }
           </div>
           <Footer />
         </div>
@@ -39,8 +35,7 @@ class App extends Component {
 }
 const mapStateToProps = state => {
   return {
-    accessId: state.sale.accessId,
-    register: state.sale.register
+    accessId: state.sale.accessId
   }
 }
 const mapDispatchToProps = dispatch => {
