@@ -150,7 +150,7 @@ class SignupModal extends PureComponent{
                                     id="countryCheck"
                                     onChange={() => this.handleCheckChange("countryCheck",!this.state.countryCheck)}
                                     value={this.state.countryCheck} />
-                                    <p>By checking this box, you agree that you are not a resident of the United States or China.</p>
+                                    <p>By checking this box, you agree that you are not a resident of the United States, China, Iran, North Korea, Sudan, Cuba, Seychelles, and Syria.</p>
                         </label>
                         <div id="_countryCheck" className={"warning-text" + (this.state.countryCheckValidation ? ' hidden' : '')}>You may only proceed if you agree that you are not a resident of the United States or China</div>
 

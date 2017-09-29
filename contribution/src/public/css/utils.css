@@ -152,8 +152,18 @@ hr {
 .fs-70{
     font-size: 70px;
 }
-@media (max-width: 700px){
+@media (min-width: 992px) and (max-width: 1200px){
     .features-card{
         height: 450px;
+    }
+}
+@media (min-width: 768px) and (max-width: 991px){
+    .features-card{
+        height: 350px;
+    }
+}
+@media (max-width: 500px){
+    .features-card{
+        height: 420px;
     }
 }
