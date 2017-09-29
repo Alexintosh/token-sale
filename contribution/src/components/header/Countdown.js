@@ -26,7 +26,7 @@ export default class Countdown extends PureComponent {
             <section id="countdown">
                 <div className="about-card-contact center-text">
                     <h3>Presale starts on:</h3>
-                    <p>October 12, 2017</p>
+                    <p>October 12 -> 14, 2017</p>
                     <form id="countdownForm" onSubmit={(e)=>{e.preventDefault(); this.submitEmail(this.state.contactEmail)}}>
                         <input  type="text"
                                 name="contactEmail"

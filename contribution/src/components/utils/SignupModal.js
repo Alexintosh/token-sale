@@ -92,7 +92,7 @@ class SignupModal extends PureComponent{
         return(
             <Modal show={this.props.display} onHide={this.props.hide}>
                 <Modal.Body className="center-text">
-                    <p className="modal-p center-text">Please fill out the following form to gain exclusive access to the LEVERJ pre-sale.</p>
+                    <p className="modal-p center-text">Please fill out the following form to gain exclusive access to the Leverj pre-sale.</p>
                     <form   id="contactFormRegister" 
                             onSubmit={(e)=>{
                                 e.preventDefault(); 
