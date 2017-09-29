@@ -261,10 +261,11 @@ body {
   padding-bottom: 70px;
   background-color: rgba(221, 221, 221, 0.2);
 }
-#countdown{
-  padding-top: 10px;
-}
 #sale-header .container{
   padding-top: 40px;
   padding-bottom: 20px;
+}
+#pre-sale{
+  padding-left: 30px;
+  padding-top: 15px;
 }
