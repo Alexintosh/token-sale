@@ -46,9 +46,11 @@
     color: #666 !important;
 }
 #footer{
-    padding: 50px;
     background-color: #151515;
     color: #FFF;
+}
+#footer .container{
+    padding: 50px;
 }
 .countdown-input{
   padding-left: 10px;
@@ -136,4 +138,9 @@
 }
 .whitepaper-link span{
     border-bottom: 1px solid #fff;
+}
+@media (max-width: 700px){
+    .btn-white-1 {
+        padding: 20px 20px;
+    }
 }
