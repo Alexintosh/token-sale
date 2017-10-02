@@ -1,6 +1,10 @@
 //import { registerUser, signTransaction }   from '../utils/metaMask';
 import axios from 'axios';
 
+const APIEndpoint = 'http://localhost:8080';
+//const APIEndpoint = 'https://api.leverj.test.tokenry.ca';  // TEST
+//const APIEndpoint = 'https://api.leverj.tokenry.io';  // PROD
+
 export const handleUserInputChange = (n, v) => {
   return dispatch => {
     dispatch({ 
@@ -36,10 +40,44 @@ export const handleAPIToken = (apiToken) => {
     })
   }
 }
+export const updateRecaptchaResponse = (userResponse) => {
+  return dispatch => {
+    dispatch({
+      type: 'UPDATE_RECAPTCHA_RESPONSE',
+      payload: userResponse
+    })
+  }
+}
+export const setRecaptchaPassed = (boolResult) => {
+  return dispatch => {
+    dispatch({
+      type: 'UPDATE_RECAPTCHA_PASSED',
+      payload: boolResult
+    })
+  }
+}
+
+export const checkServerRecaptcha = (userResponse, accessId, apiToken, callback) => {
+  axios.post(APIEndpoint + '/api/check-recaptcha',{
+    user_response: userResponse,
+    access_id: accessId,
+    api_tokens: apiToken
+  }).then(function(res){
+    console.log(res);
+    if(res.body.success){
+      callback("success")
+    }else{
+      callback("error")
+    }
+  }).catch(function(err){
+    console.log(err)
+    callback("error")
+  })
+}
 
 export const userEmailRegistration = (email, callback) => {
-  axios.post('http://localhost:8080/api/email-registration',{
-    email: 'stuarth323@gmail.com'
+  axios.post(APIEndpoint + '/api/email-registration',{
+    email: 'jsonsivar@gmail.com'
   }).then(function(res){
     console.log(res);
     callback("success")
@@ -49,9 +87,9 @@ export const userEmailRegistration = (email, callback) => {
   })
 }
 
-export const userRegister = (name, email, address, country, amount, countryCheck, accessId, apiToken, callback) => {
+export const userRegister = (name, email, address, country, amount, countryCheck, accessId, apiToken, recaptchaResponse, callback) => {
 
-  axios.post('http://localhost:8080/api/register',{
+  axios.post(APIEndpoint + '/api/register',{
     access_id: accessId,
     api_token: apiToken,
     name: name,
@@ -59,7 +97,8 @@ export const userRegister = (name, email, address, country, amount, countryCheck
     address: address,
     country: country,
     amount: amount,
-    check: countryCheck
+    check: countryCheck,
+    user_response: recaptchaResponse
   }).then(function(res){
     console.log(res);
     callback("success")
@@ -72,7 +111,7 @@ export const userRegister = (name, email, address, country, amount, countryCheck
 export const apiRegister = (accessId, callback) => {
   console.log("JS: getting here, starting apiregistercall");
 
-  axios.post('http://localhost:8080/api/register_client',{
+  axios.post(APIEndpoint + '/api/register_client',{
     access_id: accessId
   }).then(function(res){
     console.log(res);

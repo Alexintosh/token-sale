@@ -10,6 +10,8 @@
     userContribution: '',
     userRegistered: true,
     termsConditions: false,
+    recaptchaUserResponse: '',
+    captchaPassed: true, //this should be set to false in non-dev environments 
     error: null
   };
   
@@ -29,12 +31,22 @@
         return {
           ...state,
           termsConditions: action.payload
-	}
+	     }
       case 'ADD_API_TOKEN':
-	return { 
-	  ...state,
-	  apiToken: action.payload
-	}
+	       return { 
+	       ...state,
+	       apiToken: action.payload
+	     }
+      case 'UPDATE_RECAPTCHA_RESPONSE':
+         return { 
+         ...state,
+         recaptchaUserResponse: action.payload
+       }
+       case 'UPDATE_RECAPTCHA_PASSED':
+         return { 
+         ...state,
+         captchaPassed: action.payload
+       }
       default: {
         return state;
       }

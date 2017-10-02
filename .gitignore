@@ -1,3 +1,5 @@
+contribution/.env
+contribution/package-lock.json
 build
 secrets.json
 node_modules

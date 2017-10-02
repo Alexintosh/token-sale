@@ -6,17 +6,19 @@ module.exports.addRegistration = function(regData, res, callback){
   console.log("starting datastorelib registration function");
 
   // Your Google Cloud Platform project ID
-  const projectId = 'consenssys-leverj';
-
+  const projectId = process.env.NODE_ENV=='prod' ? 'leverj-prod' : (process.env.NODE_ENV =='test' ? 'leverj-test' : 'consensys-leverj'); //consensys-leverj is a legacy name repurposed as dev project in GCP
+  
   var keyfile = process.env.DATASTORE_API_KEY_FILE;
 
   if(keyfile == '' || keyfile === undefined){console.log("ERROR: please provide a keyfile");return;}
+
+  var targetNamespace = process.env.NODE_ENV || 'dev';
 
   // Instantiates a client
   const datastore = Datastore({
     projectId: projectId,
     keyFilename: keyfile,
-    namespace: 'dev' // TODO: this should come from configuration file
+    namespace: targetNamespace
   });
 
   console.log("instantiated datastore object");
