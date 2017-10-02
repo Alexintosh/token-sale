@@ -1,3 +1,4 @@
+package-lock.json
 sendgrid.env
 datastore_key_file.env
 .env
