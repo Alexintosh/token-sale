@@ -1,10 +1,10 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import SignupModal              from '../utils/SignupModal';
 import Social                   from '../landing/Social';
 import Scroll                   from 'react-scroll';
 import consensys                from '../../public/img/consensyslogoblack.png';
 
-export default class Landing extends PureComponent{
+export default class Landing extends Component{
     constructor(){
         super();
         this.state={
@@ -24,6 +24,7 @@ export default class Landing extends PureComponent{
     scrollDown(){
         Scroll.animateScroll.scrollTo(1000);
     }
+    createstructuredselector
     render(){
         return(
             <section id="landing-registration">

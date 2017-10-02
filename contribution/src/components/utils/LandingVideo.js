@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import YouTube              from 'react-youtube' ;
+import React, { PureComponent } from 'react';
+import YouTube                  from 'react-youtube' ;
 
-class LandingVideo extends Component{
+class LandingVideo extends PureComponent {
     render(){
         const opts = {
             height: '376',

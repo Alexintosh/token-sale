@@ -1,7 +1,7 @@
-import React, { PureComponent }     from 'react';
+import React, { Component }         from 'react';
 import { userEmailRegistration }    from '../../actions/saleLogic';
 
-export default class Countdown extends PureComponent {
+export default class Countdown extends Component {
     constructor(){
         super();
         this.state = {

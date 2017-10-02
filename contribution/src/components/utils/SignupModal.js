@@ -1,11 +1,11 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import { connect }              from 'react-redux';
 import { Modal }                from 'react-bootstrap';
 import validator                from 'validator';
 import { userRegister, setRecaptchaPassed, updateRecaptchaResponse, checkServerRecaptcha } from '../../actions/saleLogic';
 import ReCAPTCHA                from 'react-google-recaptcha';
 
-class SignupModal extends PureComponent{
+class SignupModal extends Component{
     constructor(){
         super();
         this.state = {

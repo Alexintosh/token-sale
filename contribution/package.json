@@ -25,6 +25,7 @@
     "react-youtube": "^7.4.0",
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6",
+    "redux-logic": "^0.12.3",
     "redux-observable": "^0.16.0",
     "redux-thunk": "^2.2.0",
     "request-promise": "^4.2.2",

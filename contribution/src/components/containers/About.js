@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import AboutNavigation          from '../about/AboutNavigation';
 import Team                     from '../about/Team';
 import Section                  from '../section/Section';
 import { about }                from '../pages.json';
 import uuidv4                   from 'uuid/v4';
 
-export default class About extends Component {
+export default class About extends PureComponent {
     render(){
         const aboutSection = about.map((section)=>{
             return <Section header={section.section} details={section.details} link={section.link} key={uuidv4()} />

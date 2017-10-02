@@ -1,7 +1,7 @@
-import React, { PureComponent } from 'react';
-import SignupModal              from '../utils/SignupModal';
+import React, { Component } from 'react';
+import SignupModal          from '../utils/SignupModal';
 
-export default class PreSale extends PureComponent { 
+export default class PreSale extends Component { 
     constructor(){
         super();
         this.state={
