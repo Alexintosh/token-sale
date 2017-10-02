@@ -269,3 +269,35 @@ body {
   padding-left: 30px;
   padding-top: 15px;
 }
+#pre-sale h4{
+  padding-top: 30px;
+}
+.footer-social {
+    list-style: none;
+    padding-left: 0px;
+}
+.footer-social li {
+    display: inline-block;
+    padding: 20px;
+}
+.landing-social {
+    list-style: none;
+    padding-left: 0px;
+}
+.landing-social li {
+    display: inline-block;
+    padding: 20px;
+}
+.p-dull{
+  color: #666;
+}
+.lh-80{
+  line-height: 80px;
+}
+.clickable{
+  cursor: pointer;
+}
+.landing-img{
+  height: 70px;
+  margin-top: 10px;
+}

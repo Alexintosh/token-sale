@@ -22,9 +22,27 @@
 .btn-color:hover{
     color: #666 !important;
 }
-.about-card h2 span{ 
-    border-bottom: 3px solid #fd8900;
+
+.btn-register{
+    padding: 10px 140px;
+    font-size: 30px;
+    border-radius: 30px;
+    color: #fff;
+    background: #ea993e; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(left top, #ebb063, #ea993e); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(bottom right, #ebb063, #ea993e); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(bottom right, #ebb063, #ea993e); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to bottom right, #ebb063, #ea993e); /* Standard syntax */
 }
+.btn-register:hover {
+    color: #fff;
+    background: #fd8900; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(left top, #ebb063, #fd8900); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(bottom right, #ebb063, #fd8900); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(bottom right, #ebb063, #fd8900); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to bottom right, #ebb063, #fd8900); /* Standard syntax */    
+}
+
 .btn-white {
     background-color: #fff;
     color: #111;
@@ -65,9 +83,6 @@
 .supply-component p {
   color: #666;
 }
-#pre-sale h4{
-  padding-top: 30px;
-}
 .about-background{
   background-color: rgba(221, 221, 221, 0.2);
 }
@@ -100,19 +115,19 @@
     background-color: rgba(254, 46, 46, 0.85);
     border-radius: 5px;
 }
-.footer-social {
-    list-style: none;
-    padding-left: 0px;
-}
-.footer-social li {
-    display: inline-block;
-    padding: 20px;
-}
 .footer-social i{
     font-size: 30px;
     color: #fff;
 }
 .footer-social i:hover{
+    font-size: 30px;
+    color: #FF9720;
+}
+.landing-social i{
+    font-size: 30px;
+    color: #333;
+}
+.landing-social i:hover{
     font-size: 30px;
     color: #FF9720;
 }
@@ -138,6 +153,9 @@
 }
 .whitepaper-link span{
     border-bottom: 1px solid #fff;
+}
+.about-card h2 span{ 
+    border-bottom: 3px solid #fd8900;
 }
 @media (max-width: 700px){
     .btn-white-1 {

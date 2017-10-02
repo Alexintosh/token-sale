@@ -7,7 +7,6 @@ import Thankyou             from './components/thankyou/Thankyou';
 import EmailSignup          from './components/thankyou/EmailSignup';
 import LandingPage          from './components/containers/LandingPage';
 
-import Header               from './components/utils/Header';
 import Footer               from './components/utils/Footer';
 
 class App extends Component {
@@ -20,9 +19,8 @@ class App extends Component {
    render() {
     return (
       <Router>
-        <div className="pt-50">
+        <div>
           <div className="min-height">
-              <Header />
               <Route exact path="/" component={LandingPage} />
               <Route exact path="/success" component={Thankyou} />
               <Route exact path="/email-signup" component={EmailSignup} />
