@@ -1,17 +1,18 @@
 import React, { Component }         from 'react';
 import { connect }                  from 'react-redux';
-import { Modal }                    from 'react-bootstrap';
 import validator                    from 'validator';
+import ReCAPTCHA                    from 'react-google-recaptcha';
+import { Modal }                    from 'react-bootstrap';
+import { createStructuredSelector } from 'reselect';
+
+import {    updateRecaptchaResponse,
+            setRecaptchaPassed }    from '../../actions/saleActions';
 import {    userRegister,
-            setRecaptchaPassed, 
-            updateRecaptchaResponse, 
-            checkServerRecaptcha }  from '../../actions/saleLogic';
+            checkServerRecaptcha }  from '../../logic/saleLogic';
 import {    selectAccessId,
             selectApiToken,
             selectRecaptchaUserReponse,
             selectCaptchaPassed }   from '../../selectors'
-import ReCAPTCHA                    from 'react-google-recaptcha';
-import { createStructuredSelector } from 'reselect';
 
 class SignupModal extends Component{
     constructor(){

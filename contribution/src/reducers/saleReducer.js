@@ -31,12 +31,20 @@
         return {
           ...state,
           termsConditions: action.payload
-	     }
+       }
+      case 'FETCH_API': 
+       return {
+         ...state
+       }
       case 'ADD_API_TOKEN':
 	       return { 
 	       ...state,
 	       apiToken: action.payload
-	     }
+       }
+      case 'API_TOKEN_ERROR':
+       return {
+         ...state
+       }
       case 'UPDATE_RECAPTCHA_RESPONSE':
          return { 
          ...state,

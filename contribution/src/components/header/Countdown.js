@@ -1,5 +1,5 @@
 import React, { Component }         from 'react';
-import { userEmailRegistration }    from '../../actions/saleLogic';
+import { userEmailRegistration }    from '../../logic/saleLogic';
 
 export default class Countdown extends Component {
     constructor(){

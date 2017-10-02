@@ -1,7 +1,7 @@
-import React, { Component }               from 'react';
+import React, { PureComponent }           from 'react';
 import { connect }                        from 'react-redux'; 
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { apiRegister, handleAPIToken }	  from './actions/saleLogic';
+import { fetchAPIToken }                  from './actions/saleActions';
 import { createStructuredSelector }       from 'reselect';
 import { selectAccessId }                 from './selectors';
 
@@ -10,14 +10,12 @@ import EmailSignup          from './components/thankyou/EmailSignup';
 import LandingPage          from './components/containers/LandingPage';
 import Footer               from './components/utils/Footer';
 
-class App extends Component {
+class App extends PureComponent {
    componentDidMount(){
-     apiRegister(this.props.accessId, (apiToken)=>{
-        console.log('JS: return from apitoken call with token: ' + apiToken);
-        this.props.setAPIToken(apiToken);
-     });
+     this.props.fetchAPIToken(this.props.accessID);
    }
    render() {
+     console.log(this.props.accessId);
     return (
       <Router>
         <div>
@@ -37,9 +35,7 @@ const structuredSelector = createStructuredSelector({
 })
 const mapDispatchToProps = dispatch => {
    return {
-     setAPIToken: (apitoken) => {
-        dispatch(handleAPIToken(apitoken));
-     }
+     fetchAPIToken: (accessID) => dispatch(fetchAPIToken(accessID)),
    }	   
 }
 export default connect(
