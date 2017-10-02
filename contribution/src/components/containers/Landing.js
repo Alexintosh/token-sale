@@ -29,12 +29,12 @@ export default class Landing extends PureComponent{
             <section id="landing-registration">
                 <div className="container center-text">
                     <div className="h-20">
-                        <h4 className="pt-40">COINPIT.IO PRESENTS</h4>
-                        <h1 className="fs-60">LEVER<span className="color-text">J</span></h1>
+                        <h4 className="pt-30">COINPIT.IO PRESENTS</h4>
+                        <h1 className="fs-60 mt-0">LEVER<span className="color-text">J</span></h1>
                     </div>
                     <div className="h-70">
-                        <p className="fs-90 pt-20 fw-200 lh-80">DECENTRALIZED</p>
-                        <p className="fs-70 fw-200 lh-20">LEVERAGED TRADING</p>
+                        <p className="fs-90 pt-50 fw-200 lh-70">DECENTRALIZED</p>
+                        <p className="fs-70 fw-200 lh-70">LEVERAGED TRADING</p>
                         <p className="fs-30 pt-40 p-dull">TOKEN SALE COMING SOON</p>
                         <button onClick={()=> this.displayModal()} className="btn btn-register mv-20">Register</button>
                         <Social />

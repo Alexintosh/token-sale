@@ -291,6 +291,9 @@ body {
 .p-dull{
   color: #666;
 }
+.lh-70{
+  line-height: 70px;
+}
 .lh-80{
   line-height: 80px;
 }
