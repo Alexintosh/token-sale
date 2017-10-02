@@ -2,7 +2,8 @@ import React, { PureComponent } from 'react';
 import { connect }              from 'react-redux';
 import { Modal }                from 'react-bootstrap';
 import validator                from 'validator';
-import { userRegister }         from '../../actions/saleLogic';
+import { userRegister, setRecaptchaPassed, updateRecaptchaResponse, checkServerRecaptcha } from '../../actions/saleLogic';
+import ReCAPTCHA                from 'react-google-recaptcha';
 
 class SignupModal extends PureComponent{
     constructor(){
@@ -47,9 +48,30 @@ class SignupModal extends PureComponent{
             termsCheckValidation: true
         })
     }
+    onRecaptchaChange(value) {
+        console.log("Captcha value:", value);
+        var userResponse = value;
+        this.props.updateRecaptchaResp(userResponse);
+
+        checkServerRecaptcha(userResponse, this.props.accessId, this.props.apiToken, (res)=>{
+            if(res === 'success'){
+                // TODO: allow submit button
+                this.props.updateRecaptchaPassed(true);
+            }else{
+                this.props.updateRecaptchaPassed(false);
+                console.log("error checking recaptcha value");
+            }
+        })
+
+    }
     submitContact(name, email, address, country, amount, countryCheck, termsCheck){
+        
         var validation = true;
         this.reset();
+        if(!this.props.recaptchaPassed){
+            //TODO: show a message if recaptcha check failed
+            validation = false;
+        }
         if(!validator.isAlphanumeric(name.replace(/ /g,''))){
             this.setState({ contactNameCheck: false })
             validation = false;            
@@ -79,7 +101,7 @@ class SignupModal extends PureComponent{
             validation = false;
         }
         if(validation){
-            userRegister(name, email, address, country, amount, countryCheck, this.props.accessId, this.props.apiToken, (res)=>{
+            userRegister(name, email, address, country, amount, countryCheck, this.props.accessId, this.props.apiToken, this.props.userResponse, (res)=>{
                 if(res === 'success'){
                     this.props.history.push('/success');
                 }else{
@@ -165,9 +187,12 @@ class SignupModal extends PureComponent{
                         </label>
                         <div id="_termsCheck" className={"warning-text" + (this.state.termsCheckValidation ? ' hidden' : '')}>You may only proceed if you agree to the terms and conditions</div>
 
+                        <ReCAPTCHA className="center-text" ref="recaptcha" sitekey="6LcUYDIUAAAAACW2oe-ShyAVAVhuJJ2efpFjWziG" onChange={this.onRecaptchaChange.bind(this)}/>
+
                         <div className="center-text">
                             <input type="submit" value="Register" className="btn btn-color btn-submit" />
                         </div>
+
                 </form>
                 </Modal.Body>
             </Modal>
@@ -178,10 +203,23 @@ class SignupModal extends PureComponent{
 const mapStateToProps = state => {
   return {
     accessId: state.sale.accessId,
-    apiToken: state.sale.apiToken
+    apiToken: state.sale.apiToken,
+    userReponse: state.sale.recaptchaUserReponse,
+    recaptchaPassed: state.sale.captchaPassed
   }
+}
+const mapDispatchToProps = dispatch => {
+   return {
+     updateRecaptchaResp: (userResponse) => {
+        dispatch(updateRecaptchaResponse(userResponse));
+     },
+     updateRecaptchaPassed: (boolResult) => {
+        dispatch(setRecaptchaPassed(boolResult));
+     }
+   }       
 }
 
 export default connect(
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(SignupModal)
