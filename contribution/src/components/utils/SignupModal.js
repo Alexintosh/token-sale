@@ -1,9 +1,17 @@
-import React, { Component } from 'react';
-import { connect }              from 'react-redux';
-import { Modal }                from 'react-bootstrap';
-import validator                from 'validator';
-import { userRegister, setRecaptchaPassed, updateRecaptchaResponse, checkServerRecaptcha } from '../../actions/saleLogic';
-import ReCAPTCHA                from 'react-google-recaptcha';
+import React, { Component }         from 'react';
+import { connect }                  from 'react-redux';
+import { Modal }                    from 'react-bootstrap';
+import validator                    from 'validator';
+import {    userRegister,
+            setRecaptchaPassed, 
+            updateRecaptchaResponse, 
+            checkServerRecaptcha }  from '../../actions/saleLogic';
+import {    selectAccessId,
+            selectApiToken,
+            selectRecaptchaUserReponse,
+            selectCaptchaPassed }   from '../../selectors'
+import ReCAPTCHA                    from 'react-google-recaptcha';
+import { createStructuredSelector } from 'reselect';
 
 class SignupModal extends Component{
     constructor(){
@@ -200,14 +208,13 @@ class SignupModal extends Component{
     }
 }
 
-const mapStateToProps = state => {
-  return {
-    accessId: state.sale.accessId,
-    apiToken: state.sale.apiToken,
-    userReponse: state.sale.recaptchaUserReponse,
-    recaptchaPassed: state.sale.captchaPassed
-  }
-}
+const structuredSelector = createStructuredSelector({
+    accessId: selectAccessId,
+    apiToken: selectApiToken,
+    userReponse: selectRecaptchaUserReponse,
+    recaptchaPassed: selectCaptchaPassed
+})
+
 const mapDispatchToProps = dispatch => {
    return {
      updateRecaptchaResp: (userResponse) => {
@@ -220,6 +227,6 @@ const mapDispatchToProps = dispatch => {
 }
 
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+    structuredSelector,
+    mapDispatchToProps
 )(SignupModal)

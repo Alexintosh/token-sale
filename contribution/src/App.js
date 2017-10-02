@@ -2,11 +2,12 @@ import React, { Component }               from 'react';
 import { connect }                        from 'react-redux'; 
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { apiRegister, handleAPIToken }	  from './actions/saleLogic';
+import { createStructuredSelector }       from 'reselect';
+import { selectAccessId }                 from './selectors';
 
 import Thankyou             from './components/thankyou/Thankyou';
 import EmailSignup          from './components/thankyou/EmailSignup';
 import LandingPage          from './components/containers/LandingPage';
-
 import Footer               from './components/utils/Footer';
 
 class App extends Component {
@@ -31,11 +32,9 @@ class App extends Component {
     );
   }
 }
-const mapStateToProps = state => {
-  return {
-    accessId: state.sale.accessId
-  }
-}
+const structuredSelector = createStructuredSelector({
+    accessId: selectAccessId
+})
 const mapDispatchToProps = dispatch => {
    return {
      setAPIToken: (apitoken) => {
@@ -44,6 +43,6 @@ const mapDispatchToProps = dispatch => {
    }	   
 }
 export default connect(
-  mapStateToProps,
+  structuredSelector,
   mapDispatchToProps
 )(App)
