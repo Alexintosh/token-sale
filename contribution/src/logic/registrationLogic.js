@@ -8,13 +8,9 @@ import {    resetRegistrationFormFields,
             submitEmailFormSuccess,
             submitEmailFormError }     from '../actions/registrationActions';
 
-const APIEndpoint = 'http://localhost:8080';
-//const APIEndpoint = 'https://api.leverj.test.tokenry.ca';  // TEST
-//const APIEndpoint = 'https://api.leverj.tokenry.io';  // PROD
-
 const emailRegistration = createLogic({
     type: 'SUBMIT_EMAIL_REGISTRATION',
-    async process({ getState, action }, dispatch, done){
+    async process({ getState, action, APIEndpoint }, dispatch, done){
         try {
             if(validator.isEmail(getState().register.contactEmailName)){
                 const result = await axios.post(APIEndpoint + '/api/email-registration',{ email: getState().register.contactEmailName });
@@ -34,7 +30,7 @@ const emailRegistration = createLogic({
 
 const userRegister = createLogic({
     type: 'SUBMIT_REGISTRATION_FIELDS',
-    async process({ getState, action }, dispatch, done) {
+    async process({ getState, action, APIEndpoint }, dispatch, done) {
         try {
             dispatch(resetRegistrationFormFields());
             var sale = getState().sale;

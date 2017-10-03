@@ -5,14 +5,9 @@ import {  handleAPIToken,
           setRecaptchaPassed, 
           setRecaptchaError } from '../actions/saleActions';
 
-const APIEndpoint = 'http://localhost:8080';
-//const APIEndpoint = 'https://api.leverj.test.tokenry.ca';  // TEST
-//const APIEndpoint = 'https://api.leverj.tokenry.io';  // PROD
-
-
 const apiRegister = createLogic({
   type: 'FETCH_API_TOKEN',
-  async process({ getState, action }, dispatch, done) {
+  async process({ getState, action, APIEndpoint }, dispatch, done) {
     try {
       const result = await axios.post(APIEndpoint + '/api/register_client',{ access_id: action.apiToken })
       dispatch(handleAPIToken(result.data))
@@ -24,7 +19,7 @@ const apiRegister = createLogic({
 
 const checkCaptcha = createLogic({
   type: 'FETCH_CAPTCHA_RESPONSE',
-  async process({ getStaet, action }, dispatch, done) {
+  async process({ getStaet, action, APIEndpoint }, dispatch, done) {
     try {
       const result = await axios.post(APIEndpoint + '/api/check-recaptcha',{
           user_response: action.userResponse,

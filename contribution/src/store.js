@@ -4,7 +4,11 @@ import { createLogicMiddleware }        from 'redux-logic';
 import logger                           from 'redux-logger';
 import arrLogic                         from './logic';
 
-const logicMiddleware = createLogicMiddleware(arrLogic);
+const APIEndpoint = 'http://localhost:8080';
+//const APIEndpoint = 'https://api.leverj.test.tokenry.ca';  // TEST
+//const APIEndpoint = 'https://api.leverj.tokenry.io';  // PROD
+
+const logicMiddleware = createLogicMiddleware(arrLogic, { APIEndpoint });
 
 const middleware = applyMiddleware(
     logicMiddleware,
