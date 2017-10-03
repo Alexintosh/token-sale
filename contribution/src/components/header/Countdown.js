@@ -1,38 +1,25 @@
 import React, { Component }         from 'react';
-import { userEmailRegistration }    from '../../logic/registrationLogic';
+import { connect }                  from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+import { selectContactEmailName }   from '../../selectors';
 
-export default class Countdown extends Component {
-    constructor(){
-        super();
-        this.state = {
-            contactEmail: ''
-        }
-    }
-    handleInputChange(e){
-        const name = e.target.name;
-        const value = e.target.value;
-        this.setState({
-            [name]: value
-        })
-    }
-    submitEmail(email){
-        //will have to make it 
-        userEmailRegistration(email, (res)=>{
-            this.props.history.push('/email-signup');
-        })
-    }
+import {    submitEmailForm,
+            updateRegisterFormField } from '../../actions/registrationActions';
+
+
+class Countdown extends Component {
     render(){
         return(
             <section id="countdown">
                 <div className="about-card-contact center-text">
                     <h3>Presale starts on:</h3>
                     <p>October 12 -> 14, 2017</p>
-                    <form id="countdownForm" onSubmit={(e)=>{e.preventDefault(); this.submitEmail(this.state.contactEmail)}}>
+                    <form id="countdownForm" onSubmit={(e)=>{e.preventDefault(); this.props.submitEmail(this.props.history)}}>
                         <input  type="text"
-                                name="contactEmail"
-                                id="contactEmail"
-                                value={this.state.contactName}
-                                onChange={this.handleInputChange.bind(this)} 
+                                name="contactEmailName"
+                                id="contactEmailName"
+                                value={this.props.contactEmailName}
+                                onChange={this.props.updateRegisterFormField.bind(this)} 
                                 placeholder="Send me email updates" />
                         <input type="submit" className="btn btn-color btn-submit" value="Send" />
                     </form>
@@ -41,3 +28,17 @@ export default class Countdown extends Component {
         )
     }
 }
+const structuredSelector = createStructuredSelector({
+    contactEmailName: selectContactEmailName
+})
+const mapDispatchToProps = dispatch => {
+    return {
+        updateRegisterFormField: (e) => {
+            dispatch(updateRegisterFormField(e.target.name, e.target.value));
+        },
+        submitEmail: (history) => {
+            dispatch(submitEmailForm(history))
+        }
+    }
+}
+export default connect (structuredSelector, mapDispatchToProps)(Countdown)

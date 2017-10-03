@@ -34,3 +34,22 @@ export const registrationFormError = (err) => {
         payload: err
     }
 }
+
+export const submitEmailForm = (history) => {
+    return {
+        type: 'SUBMIT_EMAIL_REGISTRATION',
+        history
+    }
+}
+
+export const submitEmailFormSuccess = () => {
+    return {
+        type: 'SUBMIT_EMAIL_FORM_SUCCESS'
+    }
+}
+
+export const submitEmailFormError = (err) => {
+    return {
+        type: 'SUBMIT_EMAIL_FORM_ERROR'
+    }
+}

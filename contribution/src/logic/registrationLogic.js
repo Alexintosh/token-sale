@@ -4,20 +4,33 @@ import validator            from 'validator';
 
 import {    resetRegistrationFormFields,
             errorRegistrationFormField,
-            registrationFormError }     from '../actions/registrationActions';
+            registrationFormError,
+            submitEmailFormSuccess,
+            submitEmailFormError }     from '../actions/registrationActions';
 
 const APIEndpoint = 'http://localhost:8080';
 //const APIEndpoint = 'https://api.leverj.test.tokenry.ca';  // TEST
 //const APIEndpoint = 'https://api.leverj.tokenry.io';  // PROD
 
-export async function userEmailRegistration (email, callback) {
-    try {
-        const result = await axios.post(APIEndpoint + '/api/email-registration',{ email: email });
-        console.log(result); callback({ error: null, res: "success" })
-    } catch (err) {
-        callback({ error: err, res: null })
+const emailRegistration = createLogic({
+    type: 'SUBMIT_EMAIL_REGISTRATION',
+    async process({ getState, action }, dispatch, done){
+        try {
+            if(validator.isEmail(getState().register.contactEmailName)){
+                const result = await axios.post(APIEndpoint + '/api/email-registration',{ email: getState().register.contactEmailName });
+                console.log(result);
+                action.history.push('/email-signup');
+                dispatch(submitEmailFormSuccess())
+            }else{
+                dispatch(submitEmailFormError("not a valid email"))
+            }
+        } catch (err) {
+            dispatch(submitEmailFormError(err))
+        } finally {
+            done();
+        }
     }
-}
+})
 
 const userRegister = createLogic({
     type: 'SUBMIT_REGISTRATION_FIELDS',
@@ -77,5 +90,6 @@ function validate (reg, sale) {
 }
 
 export default [
-    userRegister
+    userRegister,
+    emailRegistration
 ]

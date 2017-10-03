@@ -25,3 +25,7 @@ export const selectCountryCheck = state => state.register.countryCheck;
 export const selectTermsCheck = state => state.register.termsCheck;
 export const selectCountryCheckValidation = state => state.register.countryCheckValidation;
 export const selectTermsCheckValidation = state => state.register.termsCheckValidation;
+
+
+///Email Registration inside of countdown
+export const selectContactEmailName = state => state.register.contactEmailName;

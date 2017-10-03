@@ -1,4 +1,5 @@
 const initialState = {
+    contactEmailName: '',
     contactName: '',
     contactEmail: '',
     contactAddress: '',
@@ -43,6 +44,10 @@ export default function registrationReducer(state = initialState, action) {
                 ...state
             }
         case 'REGISTRATION_FORM_ERROR': 
+            return {
+                ...state
+            }
+        case 'SUBMIT_EMAIL_REGISTRATION':
             return {
                 ...state
             }
