@@ -27,12 +27,10 @@
     "redux-logger": "^3.0.6",
     "redux-logic": "^0.12.3",
     "redux-observable": "^0.16.0",
-    "redux-thunk": "^2.2.0",
     "request-promise": "^4.2.2",
     "reselect": "^3.0.1",
     "rxjs": "^5.4.3",
     "sendgrid": "^5.2.3",
-    "thunk": "0.0.1",
     "uuid": "^3.1.0",
     "validator": "^8.2.0",
     "web3": "0.19.1"

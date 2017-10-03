@@ -6,9 +6,8 @@ import { Modal }                    from 'react-bootstrap';
 import { createStructuredSelector } from 'reselect';
 
 import {    updateRecaptchaResponse,
-            setRecaptchaPassed }    from '../../actions/saleActions';
-import {    userRegister,
-            checkServerRecaptcha }  from '../../logic/saleLogic';
+            fetchCaptchaResponse }  from '../../actions/saleActions';
+import {    userRegister }          from '../../logic/saleLogic';
 import {    selectAccessId,
             selectApiToken,
             selectRecaptchaUserReponse,
@@ -61,17 +60,7 @@ class SignupModal extends Component{
         console.log("Captcha value:", value);
         var userResponse = value;
         this.props.updateRecaptchaResp(userResponse);
-
-        checkServerRecaptcha(userResponse, this.props.accessId, this.props.apiToken, (res)=>{
-            if(res === 'success'){
-                // TODO: allow submit button
-                this.props.updateRecaptchaPassed(true);
-            }else{
-                this.props.updateRecaptchaPassed(false);
-                console.log("error checking recaptcha value");
-            }
-        })
-
+        this.props.fetchCaptchaResponse(userResponse, this.props.accessId, this.props.apiToken);
     }
     submitContact(name, email, address, country, amount, countryCheck, termsCheck){
         
@@ -221,8 +210,8 @@ const mapDispatchToProps = dispatch => {
      updateRecaptchaResp: (userResponse) => {
         dispatch(updateRecaptchaResponse(userResponse));
      },
-     updateRecaptchaPassed: (boolResult) => {
-        dispatch(setRecaptchaPassed(boolResult));
+     fetchCaptchaResponse: (userResponse, accessID, apiToken) => {
+         dispatch(fetchCaptchaResponse(userResponse, accessID, apiToken))
      }
    }       
 }

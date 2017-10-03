@@ -45,16 +45,24 @@
        return {
          ...state
        }
+      case 'FETCH_CAPTCHA_RESPONSE': 
+       return {
+         ...state
+       }
       case 'UPDATE_RECAPTCHA_RESPONSE':
          return { 
          ...state,
          recaptchaUserResponse: action.payload
-       }
-       case 'UPDATE_RECAPTCHA_PASSED':
+      }
+      case 'UPDATE_RECAPTCHA_PASSED':
          return { 
          ...state,
          captchaPassed: action.payload
-       }
+      }
+      case 'UPDATE_RECAPTCH_ERROR':
+        return {
+          ...state
+        }
       default: {
         return state;
       }
