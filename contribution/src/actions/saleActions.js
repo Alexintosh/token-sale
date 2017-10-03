@@ -2,7 +2,7 @@
 export const fetchAPIToken = (apiToken) => {
     return {
         type: 'FETCH_API_TOKEN',
-        apiToken,
+        payload: apiToken,
     };
 }
 export const handleAPIToken = (apiToken) => {

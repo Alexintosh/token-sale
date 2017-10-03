@@ -15,7 +15,7 @@
     error: null
   };
   
-  export default function userReducer(state = initialState, action) {
+  export default function saleReducer(state = initialState, action) {
     switch (action.type) {
       case 'UPDATE_USER':
         return {
@@ -32,7 +32,7 @@
           ...state,
           termsConditions: action.payload
        }
-      case 'FETCH_API': 
+      case 'FETCH_API_TOKEN': 
        return {
          ...state
        }

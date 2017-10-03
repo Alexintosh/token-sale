@@ -1,5 +1,5 @@
 import React, { Component }         from 'react';
-import { userEmailRegistration }    from '../../logic/saleLogic';
+import { userEmailRegistration }    from '../../logic/registrationLogic';
 
 export default class Countdown extends Component {
     constructor(){
@@ -34,7 +34,7 @@ export default class Countdown extends Component {
                                 value={this.state.contactName}
                                 onChange={this.handleInputChange.bind(this)} 
                                 placeholder="Send me email updates" />
-                        <input type="submit" className="btn btn-color btn-submit" vaue="Send" />
+                        <input type="submit" className="btn btn-color btn-submit" value="Send" />
                     </form>
                 </div>
             </section>

@@ -1,60 +1,23 @@
-import React, { Component }         from 'react';
-import { connect }                  from 'react-redux';
-import validator                    from 'validator';
-import ReCAPTCHA                    from 'react-google-recaptcha';
-import { Modal }                    from 'react-bootstrap';
-import { createStructuredSelector } from 'reselect';
+import React, { Component }             from 'react';
+import { connect }                      from 'react-redux';
+import validator                        from 'validator';
+import ReCAPTCHA                        from 'react-google-recaptcha';
+import { Modal }                        from 'react-bootstrap';
+import { createStructuredSelector }     from 'reselect';
 
 import {    updateRecaptchaResponse,
-            fetchCaptchaResponse }  from '../../actions/saleActions';
-import {    userRegister }          from '../../logic/saleLogic';
-import {    selectAccessId,
-            selectApiToken,
-            selectRecaptchaUserReponse,
-            selectCaptchaPassed }   from '../../selectors'
+            fetchCaptchaResponse }      from '../../actions/saleActions';
+import {    userRegister }              from '../../logic/registrationLogic';
+import {    resetRegistrationFormFields,
+            updateRegisterFormField }   from '../../actions/registrationActions';
+
+import * as formSelector                from '../../selectors'
 
 class SignupModal extends Component{
-    constructor(){
-        super();
-        this.state = {
-            contactName: '',
-            contactEmail: '',
-            contactAddress: '',
-            contactCountry: '',
-            purchaseSize: '',
-            countryCheck: false,
-            termsCheck: false,
-            contactNameCheck: true,
-            contactEmailCheck: true,
-            contactAddressCheck: true,
-            contactCountryCheck: true,
-            purchaseSizeCheck: true,
-            countryCheckValidation: true,
-            termsCheckValidation:true
-        }
-    }
     handleInputChange(e){
         const name = e.target.name;
         const value = e.target.value;
-        this.setState({
-            [name]: value
-        })
-    }
-    handleCheckChange(name, val){
-        this.setState({
-            [name]: val
-        })
-    }
-    reset(){
-        this.setState({
-            contactNameCheck: true,
-            contactEmailCheck: true,
-            contactAddressCheck: true,
-            contactCountryCheck: true,
-            purchaseSizeCheck: true,
-            countryCheckValidation: true,
-            termsCheckValidation: true
-        })
+        this.props.updateRegisterFormField(name, value);
     }
     onRecaptchaChange(value) {
         console.log("Captcha value:", value);
@@ -65,7 +28,7 @@ class SignupModal extends Component{
     submitContact(name, email, address, country, amount, countryCheck, termsCheck){
         
         var validation = true;
-        this.reset();
+        this.props.resetRegistrationFormFields()
         if(!this.props.recaptchaPassed){
             //TODO: show a message if recaptcha check failed
             validation = false;
@@ -116,81 +79,78 @@ class SignupModal extends Component{
                     <form   id="contactFormRegister" 
                             onSubmit={(e)=>{
                                 e.preventDefault(); 
-                                this.submitContact( this.state.contactName, 
-                                                    this.state.contactEmail, 
-                                                    this.state.contactAddress, 
-                                                    this.state.contactCountry, 
-                                                    this.state.purchaseSize,
-                                                    this.state.countryCheck,
-                                                    this.state.termsCheck)
+                                this.submitContact( this.props.contactName, 
+                                                    this.props.contactEmail, 
+                                                    this.props.contactAddress, 
+                                                    this.props.contactCountry, 
+                                                    this.props.purchaseSize,
+                                                    this.props.countryCheck,
+                                                    this.props.termsCheck)
                                 }}>
                         <input  type="text"
                                 name="contactName"
                                 id="contactName"
-                                value={this.state.contactName}
+                                value={this.props.contactName}
                                 onChange={this.handleInputChange.bind(this)} 
                                 placeholder="Name *" />
-                        <div id="_contactName" className={"warning-text" + (this.state.contactNameCheck ? ' hidden' : '')}>Please enter your name</div>
+                        <div id="_contactName" className={"warning-text" + (this.props.contactNameCheck ? ' hidden' : '')}>Please enter your name</div>
 
                         <input  type="text"
                                 name="contactEmail"
                                 id="contactEmail"
-                                value={this.state.contactEmail}
+                                value={this.props.contactEmail}
                                 onChange={this.handleInputChange.bind(this)} 
                                 placeholder="Email *" />
-                        <div id="_contactEmail" className={"warning-text" + (this.state.contactEmailCheck ? ' hidden' : '')}>Please enter your email address</div>
+                        <div id="_contactEmail" className={"warning-text" + (this.props.contactEmailCheck ? ' hidden' : '')}>Please enter your email address</div>
 
                         <input  type="text"
                                 name="contactCountry"
                                 id="contactCountry"
-                                value={this.state.contactCountry}
+                                value={this.props.contactCountry}
                                 onChange={this.handleInputChange.bind(this)} 
                                 placeholder="Country *" />
-                        <div id="_contactCountry" className={"warning-text" + (this.state.contactCountryCheck ? ' hidden' : '')}>Please enter where you are a resident</div>
+                        <div id="_contactCountry" className={"warning-text" + (this.props.contactCountryCheck ? ' hidden' : '')}>Please enter where you are a resident</div>
 
                         <input  type="text"
                                 name="contactAddress"
                                 id="contactAddress"
-                                value={this.state.contactAddress}
+                                value={this.props.contactAddress}
                                 onChange={this.handleInputChange.bind(this)} 
                                 placeholder="Ethereum Address *" />
-                        <div id="_contactAddress" className={"warning-text" + (this.state.contactAddressCheck ? ' hidden' : '')}>Please enter a valid ethereum address</div>
+                        <div id="_contactAddress" className={"warning-text" + (this.props.contactAddressCheck ? ' hidden' : '')}>Please enter a valid ethereum address</div>
 
                         <input  type="text"
                                 name="purchaseSize"
                                 id="purchaseSize"
-                                value={this.state.purchaseSize}
+                                value={this.props.purchaseSize}
                                 onChange={this.handleInputChange.bind(this)} 
                                 placeholder="Purchase Size [min 25 Ether - max 500 Ether] *" />
-                        <div id="_purchaseSize" className={"warning-text" + (this.state.purchaseSizeCheck ? ' hidden' : '')}>Please enter an amount between 25 Ether and 500 Ether</div>
+                        <div id="_purchaseSize" className={"warning-text" + (this.props.purchaseSizeCheck ? ' hidden' : '')}>Please enter an amount between 25 Ether and 500 Ether</div>
 
                         <label>
                             <input  type="checkbox" 
-                                    name="countryCheck"
                                     id="countryCheck"
-                                    onChange={() => this.handleCheckChange("countryCheck",!this.state.countryCheck)}
-                                    value={this.state.countryCheck} />
+                                    onChange={() => this.props.updateRegisterFormField("countryCheck",!this.props.countryCheck)}
+                                    value={this.props.countryCheck} />
                                     <p>By checking this box, you agree that you are not a resident of the United States, China, Iran, North Korea, Sudan, Cuba, Seychelles, and Syria.</p>
                         </label>
-                        <div id="_countryCheck" className={"warning-text" + (this.state.countryCheckValidation ? ' hidden' : '')}>You may only proceed if you agree that you are not a resident of the United States or China</div>
+                        <div id="_countryCheck" className={"warning-text" + (this.props.countryCheckValidation ? ' hidden' : '')}>You may only proceed if you agree that you are not a resident of the United States or China</div>
 
 
                         <label>
                             <input  type="checkbox" 
-                                    name="termsCheck"
                                     id="termsCheck"
-                                    onChange={() => this.handleCheckChange("termsCheck",!this.state.termsCheck)}
-                                    value={this.state.countryCheck} />
+                                    onChange={() => this.props.updateRegisterFormField("termsCheck",!this.props.termsCheck)}
+                                    value={this.props.countryCheck} />
                                     <p>By checking this box, you agree with these <a href="https://leverj.io/tc.html" target="_blank" rel="noopener noreferrer">terms and conditions.</a></p>
                         </label>
-                        <div id="_termsCheck" className={"warning-text" + (this.state.termsCheckValidation ? ' hidden' : '')}>You may only proceed if you agree to the terms and conditions</div>
+                        <div id="_termsCheck" className={"warning-text" + (this.props.termsCheckValidation ? ' hidden' : '')}>You may only proceed if you agree to the terms and conditions</div>
 
                         <ReCAPTCHA className="center-text" ref="recaptcha" sitekey="6LcUYDIUAAAAACW2oe-ShyAVAVhuJJ2efpFjWziG" onChange={this.onRecaptchaChange.bind(this)}/>
 
                         <div className="center-text">
                             <input type="submit" value="Register" className="btn btn-color btn-submit" />
                         </div>
-
                 </form>
                 </Modal.Body>
             </Modal>
@@ -199,10 +159,24 @@ class SignupModal extends Component{
 }
 
 const structuredSelector = createStructuredSelector({
-    accessId: selectAccessId,
-    apiToken: selectApiToken,
-    userReponse: selectRecaptchaUserReponse,
-    recaptchaPassed: selectCaptchaPassed
+    accessId: formSelector.selectAccessId,
+    apiToken: formSelector.selectApiToken,
+    userReponse: formSelector.selectRecaptchaUserReponse,
+    recaptchaPassed: formSelector.selectCaptchaPassed,
+    contactName: formSelector.selectContactName,
+    contactEmail: formSelector.selectContactEmail,
+    contactAddress: formSelector.selectContactAddress,
+    contactCountry: formSelector.selectContactCountry,
+    purchaseSize: formSelector.selectPurchaseSize,
+    countryCheck: formSelector.selectCountryCheck,
+    termsCheck: formSelector.selectTermsCheck,
+    contactNameCheck: formSelector.selectContactNameCheck,
+    contactEmailCheck: formSelector.selectContactEmailCheck,
+    contactAddressCheck: formSelector.selectContactAddressCheck,
+    contactCountryCheck: formSelector.selectContactCountryCheck,
+    purchaseSizeCheck: formSelector.selectPurchaseSizeCheck,
+    countryCheckValidation: formSelector.selectCountryCheckValidation,
+    termsCheckValidation: formSelector.selectTermsCheckValidation
 })
 
 const mapDispatchToProps = dispatch => {
@@ -212,6 +186,12 @@ const mapDispatchToProps = dispatch => {
      },
      fetchCaptchaResponse: (userResponse, accessID, apiToken) => {
          dispatch(fetchCaptchaResponse(userResponse, accessID, apiToken))
+     },
+     updateRegisterFormField: (name, value) => {
+         dispatch(updateRegisterFormField(name, value))
+     },
+     resetRegistrationFormFields: () => {
+         dispatch(resetRegistrationFormFields())
      }
    }       
 }

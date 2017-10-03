@@ -3,9 +3,8 @@ import { rootReducer }                  from './reducers';
 import { createLogicMiddleware }        from 'redux-logic';
 import logger                           from 'redux-logger';
 import arrLogic                         from './logic';
-import axios from 'axios';
 
-const logicMiddleware = createLogicMiddleware(arrLogic, { axios });
+const logicMiddleware = createLogicMiddleware(arrLogic);
 
 const middleware = applyMiddleware(
     logicMiddleware,
