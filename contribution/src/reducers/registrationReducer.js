@@ -22,6 +22,11 @@ export default function registrationReducer(state = initialState, action) {
                 ...state,
                 [action.payload.name]: action.payload.value
             }
+        case 'ERROR_REGISTRATION_FIELD':
+            return{
+                ...state,
+                [action.payload]: false
+            }
         case 'RESET_REGISTRATION_FIELDS':
             return {
                 ...state,
@@ -32,6 +37,14 @@ export default function registrationReducer(state = initialState, action) {
                 purchaseSizeCheck: true,
                 countryCheckValidation: true,
                 termsCheckValidation: true
+            }
+        case 'SUBMIT_REGISTRATION_FIELDS':
+            return {
+                ...state
+            }
+        case 'REGISTRATION_FORM_ERROR': 
+            return {
+                ...state
             }
         default: {
             return state

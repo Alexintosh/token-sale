@@ -14,9 +14,7 @@ const apiRegister = createLogic({
   type: 'FETCH_API_TOKEN',
   async process({ getState, action }, dispatch, done) {
     try {
-      console.log("here");
       const result = await axios.post(APIEndpoint + '/api/register_client',{ access_id: action.apiToken })
-      console.log("HERE", result.data)
       dispatch(handleAPIToken(result.data))
     } catch (err) {
       dispatch(handleAPITokenError(err));
