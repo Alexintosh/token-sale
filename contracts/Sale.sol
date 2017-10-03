@@ -1,6 +1,7 @@
 pragma solidity ^0.4.11;
 import "tokens/HumanStandardToken.sol";
 import "./Disbursement.sol";
+import "./SafeMath.sol";
 
 contract Sale {
 
@@ -11,6 +12,7 @@ contract Sale {
     event PurchasedTokens(address indexed purchaser, uint amount);
     event TransferredPreBuyersReward(address indexed preBuyer, uint amount);
     event TransferredTimelockedTokens(address beneficiary, address disburser, uint amount);
+    event UnsoldRedeemed(address msgsender, address recipient, uint tokensToRedistribute);
 
     /*
      * Storage
@@ -22,6 +24,8 @@ contract Sale {
     uint public price;
     uint public startBlock;
     uint public freezeBlock;
+    uint public soldTokens;
+    uint public soldTokensPublic;
 
     uint public totalPreBuyers;
     uint public preBuyersDispensedTo = 0;
@@ -31,6 +35,8 @@ contract Sale {
     bool public emergencyFlag = false;
     bool public preSaleTokensDisbursed = false;
     bool public timelockedTokensDisbursed = false;
+    mapping (address => bool) privateBuyers;
+    mapping (address => bool) redeemedUnsold;
 
     /*
      * Modifiers
@@ -51,6 +57,12 @@ contract Sale {
         _;
     }
 
+    modifier frozen {
+        require(block.number >= freezeBlock);
+        _;
+    }
+
+
     modifier setupComplete {
         assert(preSaleTokensDisbursed && timelockedTokensDisbursed);
         _;
@@ -58,6 +70,31 @@ contract Sale {
 
     modifier notInEmergency {
         assert(emergencyFlag == false);
+        _;
+    }
+
+    modifier checkBlockNumberInputs(uint _start, uint _freeze) {
+        require( _freeze > _start && _start >= block.number );
+        _;
+    }
+
+    modifier ownerOrSender(address _recipient){
+        require(msg.sender == owner || msg.sender == _recipient);
+        _;
+    }
+
+    modifier hasTokens(address _investor){
+        require(token.balanceOf(_investor) > 0 );
+        _;
+    }
+
+    modifier notPrivateBuyer(){
+        require(!privateBuyers[msg.sender]);
+        _;
+    }
+
+    modifier notAlreadyRedeemed(address _recipient){
+        require(!redeemedUnsold[_recipient]);
         _;
     }
 
@@ -85,17 +122,19 @@ contract Sale {
         uint _startBlock,
         uint _freezeBlock,
         uint _totalPreBuyers,
-        uint _totalTimelockedBeneficiaries,
-	address _burnAddress
-    ) {
+        uint _totalTimelockedBeneficiaries) 
+        checkBlockNumberInputs(_startBlock,_freezeBlock)
+    {
         owner = _owner;
         wallet = _wallet;
-        token = new HumanStandardToken(_tokenSupply, _tokenName, _tokenDecimals, _tokenSymbol, _burnAddress);
+        token = new HumanStandardToken(_tokenSupply, _tokenName, _tokenDecimals, _tokenSymbol);
         price = _price;
         startBlock = _startBlock;
         freezeBlock = _freezeBlock;
         totalPreBuyers = _totalPreBuyers;
         totalTimelockedBeneficiaries = _totalTimelockedBeneficiaries;
+        soldTokens = 0;
+        soldTokensPublic=0;
 
         token.transfer(this, token.totalSupply());
         assert(token.balanceOf(this) == token.totalSupply());
@@ -117,6 +156,8 @@ contract Sale {
         for(uint i = 0; i < _preBuyers.length; i++) {
             token.transfer(_preBuyers[i], _preBuyersTokens[i]);
             preBuyersDispensedTo += 1;
+            privateBuyers[_preBuyers[i]] = true;
+            soldTokens += _preBuyersTokens[i];
             TransferredPreBuyersReward(_preBuyers[i], _preBuyersTokens[i]);
         }
 
@@ -155,7 +196,8 @@ contract Sale {
           disbursement.setup(token);
           token.transfer(disbursement, beneficiaryTokens);
           timeLockedBeneficiariesDisbursedTo += 1;
-
+          privateBuyers[beneficiary] = true;
+          soldTokens += beneficiaryTokens;
           TransferredTimelockedTokens(beneficiary, disbursement, beneficiaryTokens);
         }
 
@@ -171,6 +213,8 @@ contract Sale {
         payable
         setupComplete
         notInEmergency
+        notFrozen
+        notPrivateBuyer
     {
         /* Calculate whether any of the msg.value needs to be returned to
            the sender. The purchaseAmount is the actual number of tokens which
@@ -191,20 +235,32 @@ contract Sale {
 
         // Transfer the sum of tokens tokenPurchase to the msg.sender
         token.transfer(msg.sender, purchaseAmount);
-
+        soldTokens += purchaseAmount;
+        soldTokensPublic += purchaseAmount;
         PurchasedTokens(msg.sender, purchaseAmount);
+    }
+
+    function redeemUnsoldShare(address _recipient)
+        ownerOrSender(_recipient)
+        frozen
+        hasTokens(_recipient)
+        notPrivateBuyer
+        notAlreadyRedeemed(_recipient)
+    {
+        uint tokensToRedistribute = SafeMath.div(SafeMath.mul(token.balanceOf(_recipient), token.totalSupply() - soldTokens), soldTokensPublic);
+
+        // JS: what do we do with this? will this throw for any reason?
+        // uint remainder = SafeMath.mul(token.balanceOf(_recipient), token.totalSupply - soldTokens) % soldTokensPublic;
+        
+        require(tokensToRedistribute <= token.balanceOf(this));
+        token.transfer(_recipient, tokensToRedistribute);
+        redeemedUnsold[_recipient] = true;
+        UnsoldRedeemed(msg.sender, _recipient, tokensToRedistribute);
     }
 
     /*
      * Owner-only functions
      */
-
-    function postSaleBurn()
-    	onlyOwner
-    {
-    	require(token.balanceOf(this) > 0);
-	token.transfer(token.getBurnAddress(), token.balanceOf(this));
-    }
 
     function changeOwner(address _newOwner)
         onlyOwner

@@ -34,20 +34,14 @@ contract HumanStandardToken is StandardToken {
         uint256 _initialAmount,
         string _tokenName,
         uint8 _decimalUnits,
-        string _tokenSymbol,
-	address _burnAddress
-    ) {
-	burnAddress = _burnAddress;
+        string _tokenSymbol)
+    {
         balances[msg.sender] = _initialAmount;               // Give the creator all initial tokens
         totalSupply = _initialAmount;                        // Update total supply
         name = _tokenName;                                   // Set the name for display purposes
         decimals = _decimalUnits;                            // Amount of decimals for display purposes
         symbol = _tokenSymbol;                               // Set the symbol for display purposes
     }
-
-	function getBurnAddress() public returns (address _burnAddress){
-		return burnAddress;
-	}
 
     /* Approves and then calls the receiving contract */
     function approveAndCall(address _spender, uint256 _value, bytes _extraData) returns (bool success) {
