@@ -14,7 +14,6 @@ contract Token {
     */
     /// total amount of tokens
     uint256 public totalSupply;
-    address burnAddress;
 
     /// @param _owner The address from which the balance will be retrieved
     /// @return The balance
