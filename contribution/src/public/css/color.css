@@ -154,7 +154,7 @@
 .whitepaper-link span{
     border-bottom: 1px solid #fff;
 }
-.about-card h2 span{ 
+.sub-header span{ 
     border-bottom: 3px solid #fd8900;
 }
 @media (max-width: 700px){

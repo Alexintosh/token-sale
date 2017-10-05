@@ -9,6 +9,7 @@ import Thankyou             from './components/thankyou/Thankyou';
 import EmailSignup          from './components/thankyou/EmailSignup';
 import LandingPage          from './components/containers/LandingPage';
 import Footer               from './components/utils/Footer';
+import Header               from './components/utils/Header';
 
 class App extends PureComponent {
    componentDidMount(){
@@ -19,6 +20,7 @@ class App extends PureComponent {
     return (
       <Router>
         <div>
+          <Header />
           <div className="min-height">
               <Route exact path="/" component={LandingPage} />
               <Route exact path="/success" component={Thankyou} />

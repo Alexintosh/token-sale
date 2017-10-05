@@ -1,25 +1,28 @@
 import React, { PureComponent } from 'react';
 import AboutNavigation          from '../about/AboutNavigation';
-import Team                     from '../about/Team';
-import Section                  from '../section/Section';
-import { about }                from '../pages.json';
-import uuidv4                   from 'uuid/v4';
+import Overview                 from '../about/Overview';
+import Information              from '../about/Information';
+import Contribute               from '../about/Contribute';
+import Whitepaper               from '../about/Whitepaper';
 
 export default class About extends PureComponent {
     render(){
-        const aboutSection = about.map((section)=>{
-            return <Section header={section.section} details={section.details} link={section.link} key={uuidv4()} />
-        })
         return(
             <section id="about" className="about-background pv-20">
-                <div className="container">
+                <div className="container-fluid">
                     <div className="col-container">
-                        <div className="col-md-h-4">
+                        <div className="col-md-h-3">
                             <AboutNavigation />
                         </div>
-                        <div className="col-md-h-8">
-                            { aboutSection }
-                            <Team />
+                        <div className="col-md-h-9">
+                            <div className="row">
+                                <div className="col-md-11">
+                                    <Overview />
+                                    <Information />
+                                    <Contribute />
+                                    <Whitepaper />
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

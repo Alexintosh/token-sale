@@ -4,7 +4,7 @@ export default class Social extends PureComponent{
     render(){
         return(
             <section id="social-tags">
-                <ul className="landing-social">
+                <ul className="landing-social text-left">
                     <li>
                         <a href="https://www.reddit.com/r/Leverj/" target="_blank" title="Reddit" rel="noopener noreferrer">
                             <i className="fa fa-reddit"></i>

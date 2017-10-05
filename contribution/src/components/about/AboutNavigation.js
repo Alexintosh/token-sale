@@ -1,18 +1,19 @@
 import React, { PureComponent } from 'react';
-import { aboutNavigation }      from '../pages.json';
 import uuidv4                   from 'uuid/v4';
+import Scrollspy from 'react-scrollspy'
 
 export default class AboutNavigation extends PureComponent {
     render(){
-        const nav = aboutNavigation.map((list)=>{
-            return <li key={uuidv4()}><a href={"#"+list.link}>{list.title}</a></li>
-        })
         return(
             <section id="about-nav">
-                <h2 className="mt-0">About this project</h2>
-                <ul className="about-list">
-                    { nav }
-                </ul>
+                <Scrollspy items={ ['overview', 'information', 'contribute', 'whitepaper', 'audit', 'faq'] } currentClassName="is-current" className="about-list">
+                    <li key={uuidv4()}><a href="#overview">OVERVIEW</a></li>
+                    <li key={uuidv4()}><a href="#information">TOKEN INFORMATION</a></li>
+                    <li key={uuidv4()}><a href="#contribute">HOW TO CONTRIBUTE</a></li>
+                    <li key={uuidv4()}><a href="#whitepaper">WHITEPAPER</a></li>
+                    <li key={uuidv4()}><a href="#audit">CODE AUDIT</a></li>
+                    <li key={uuidv4()}><a href="#faq">FAQ</a></li>
+                </Scrollspy>
             </section>
         )
     }
