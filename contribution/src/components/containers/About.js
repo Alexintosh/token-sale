@@ -4,6 +4,7 @@ import Overview                 from '../about/Overview';
 import Information              from '../about/Information';
 import Contribute               from '../about/Contribute';
 import Whitepaper               from '../about/Whitepaper';
+import FAQ                      from '../about/FAQ';
 
 export default class About extends PureComponent {
     render(){
@@ -21,6 +22,7 @@ export default class About extends PureComponent {
                                     <Information />
                                     <Contribute />
                                     <Whitepaper />
+                                    <FAQ />
                                 </div>
                             </div>
                         </div>

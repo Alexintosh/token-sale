@@ -316,3 +316,13 @@ body {
   margin-top: 30px;
   width: 65px;
 }
+.accordian-header{
+  font-size: 25px;
+  padding: 20px;
+  border: 1px solid rgba(119, 119, 119, 0.5);
+  border-radius: 5px;
+  cursor: pointer;
+}
+.accordian-container{
+  padding-top: 20px;
+}
