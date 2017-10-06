@@ -3,6 +3,7 @@ import Overview                 from '../about/Overview';
 import Information              from '../about/Information';
 import Contribute               from '../about/Contribute';
 import Whitepaper               from '../about/Whitepaper';
+import Audit                    from '../about/Audit';
 import FAQ                      from '../about/FAQ';
 import StickyNavigation         from '../about/StickyNavigation';
 
@@ -13,13 +14,14 @@ export default class About extends PureComponent {
                 <div className="container-fluid">
                     <StickyNavigation history={this.props.history} />
                     <div className="row">
-                        <div className="col-md-10 col-md-offset-2">
+                        <div className="col-md-9 col-md-offset-3">
                             <div className="row">
                                 <div className="col-md-11">
                                     <Overview />
                                     <Information />
                                     <Contribute />
                                     <Whitepaper />
+                                    <Audit />
                                     <FAQ />
                                 </div>
                             </div>

@@ -1,11 +1,12 @@
 import React, { PureComponent } from 'react';
 import metamask                 from '../../public/img/metamask.png';
 import mew                      from '../../public/img/mew.png';
+import pdf                      from '../../public/documents/LEV_Token_Purchase_Instructions.pdf'
 
 export default class Contribute extends PureComponent {
     render(){
         return(
-            <section id="contribute" className="about-card pv-20">
+            <section id="contribute" className="pt-100 h-90">
                 <div className="row">
                     <div className="col-md-10">
                         <h2 className="sub-header fs-50"><span>HOW TO CONTRIBUTE</span></h2>
@@ -41,6 +42,7 @@ export default class Contribute extends PureComponent {
                                 All transactions sent to GRID token sale contract are viewable on etherscan website.
                             </li>
                         </ul>
+                        <a href={pdf} target="_blank" rel="noopener noreferrer" className="btn btn-contribute">How To Contribute</a>
                     </div>
                     <div className="col-md-2 center-text">
                         <div className="pt-80">

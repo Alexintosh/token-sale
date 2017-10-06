@@ -3,7 +3,7 @@ import React, { PureComponent } from 'react';
 export default class Whitepaper extends PureComponent {
     render(){
         return (
-            <section id="whitepaper" className="about-card pv-20">
+            <section id="whitepaper" className="pt-100 h-50">
                 <h2 className="sub-header fs-50 pt-30"><span>WHITEPAPER</span></h2>
                 <h4 className="font-bold fs-20">SECURE/ TRANSPARENT/ DECENTRALIZED</h4>
                 <p>

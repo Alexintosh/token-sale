@@ -3,7 +3,7 @@ import React, { PureComponent } from 'react';
 export default class Secondary extends PureComponent{
     render(){
         return(
-            <div>
+            <div className="about-card">
                 <h2 className="sub-header"><span>SECONDARY SALE OF TOKENS POLICY/PLAN</span></h2>
                 <p>
                     Leverj will hold the 30% of tokens for liquidity and operations. Leverj will stake most of these tokens in order to get FEE tokens. 

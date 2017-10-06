@@ -3,9 +3,6 @@ body {
   padding: 0;
   font-family: 'Montserrat', sans-serif;
 }
-.supply-component{
-  padding-left: 30px;
-}
 .supply-component h3 {
   margin-bottom: 5px;
   font-weight: bold;
@@ -14,8 +11,10 @@ body {
   font-size: 16px;
 }
 .about-list{
-  padding-top: 80px;
+  margin-top: 80px;
   padding-left: 20px;
+  margin-left: 40px;
+  border-left: 3px solid #222;
 }
 .about-list li{
   font-size: 16px;
@@ -30,6 +29,19 @@ body {
 .about-list a:hover{
   color: #111;
   text-decoration: none;
+}
+.is-current a{
+  font-size: 20px;
+  font-weight: bold;
+  color: #222;
+}
+.nav-circle{
+  margin-left: -30px;
+  padding-right: 20px;
+  display: none;
+}
+.is-current .nav-circle{
+  display: inline-block;
 }
 #contactFormRegister{
   padding: 30px;
@@ -151,10 +163,6 @@ body {
 .sub-header.fs-50{
   padding-top: 10px;
 }
-.is-current a{
-  font-weight: bold;
-  color: #222;
-}
 .contribute-img{
   margin-top: 30px;
   width: 65px;
@@ -226,6 +234,24 @@ span.date{
 .bottombar-img{
   height: 60px;
   margin-top: 10px;
+}
+.github{
+  font-size: 30px;
+  color: #111;
+  margin-left: 15px;
+  margin-top: -10px;
+}
+.github:hover{
+  color: #444;
+  border-bottom: 1px solid #444;
+  text-decoration: none;
+}
+.fa-github{
+  padding-top: 10px;
+}
+.diligence-img{
+  width: 50px;
+  margin-right: 10px;
 }
 @media (max-width: 768px){
   .sub-header{

@@ -3,7 +3,7 @@ import React, { PureComponent } from 'react';
 export default class ProjectOverview extends PureComponent { 
     render(){
         return(
-            <div>
+            <div className="about-card">
                 <h2 className="sub-header"><span>PROJECT OVERVIEW</span></h2>
                 <p>
                     Leverj is a decentralized cryptocurrency derivatives trading platform. Using the Ethereum

@@ -3,7 +3,7 @@ import React, { PureComponent } from 'react';
 export default class TokenBreakdown extends PureComponent{
     render(){
         return(
-            <div>
+            <div className="about-card">
                 <h2 className="sub-header"><span>TOKEN BREAKDOWN</span></h2>
                 <ul>
                     <li>500 million to be distributed in a public token sale with a cap of $10 million sold</li>

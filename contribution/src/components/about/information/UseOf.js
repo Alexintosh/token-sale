@@ -3,7 +3,7 @@ import React, { PureComponent } from 'react';
 export default class UseOf extends PureComponent{
     render(){
         return(
-            <div>
+            <div className="about-card">
                 <h2 className="sub-header"><span>USE OF PROCEEDS/ BREAKDOWN/ TIMELINE, ETC.</span></h2>
                 <p>
                     Disclaimer: Our project is subject to several other considerations that require flexibility in how we spend the raise. 

@@ -215,6 +215,9 @@ th{
 .h-15{
     min-height: 15vh;
 }
+.h-50{
+    min-height: 50vh;
+}
 .h-70{
     min-height: 70vh;
 }
@@ -254,6 +257,9 @@ th{
 }
 .mv-100{
     margin-top: 100px;
+}
+.mv-150{
+    margin-top: 150px;
 }
 @media (min-width: 992px) and (max-width: 1200px){
     .features-card{
