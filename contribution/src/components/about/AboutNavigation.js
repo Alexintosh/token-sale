@@ -5,7 +5,7 @@ import Scrollspy from 'react-scrollspy'
 export default class AboutNavigation extends PureComponent {
     render(){
         return(
-            <section id="about-nav">
+            <section id="about-nav" className={(this.props.stuck ? 'about-stuck' : 'h-90')}>
                 <Scrollspy items={ ['overview', 'information', 'contribute', 'whitepaper', 'audit', 'faq'] } currentClassName="is-current" className="about-list">
                     <li key={uuidv4()}><a href="#overview">OVERVIEW</a></li>
                     <li key={uuidv4()}><a href="#information">TOKEN INFORMATION</a></li>

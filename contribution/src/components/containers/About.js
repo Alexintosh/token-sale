@@ -1,21 +1,19 @@
 import React, { PureComponent } from 'react';
-import AboutNavigation          from '../about/AboutNavigation';
 import Overview                 from '../about/Overview';
 import Information              from '../about/Information';
 import Contribute               from '../about/Contribute';
 import Whitepaper               from '../about/Whitepaper';
 import FAQ                      from '../about/FAQ';
+import StickyNavigation         from '../about/StickyNavigation';
 
 export default class About extends PureComponent {
     render(){
         return(
-            <section id="about" className="about-background pv-20">
+            <section id="about" className="about-background">
                 <div className="container-fluid">
-                    <div className="col-container">
-                        <div className="col-md-h-3 hidden-xs">
-                            <AboutNavigation />
-                        </div>
-                        <div className="col-md-h-9">
+                    <StickyNavigation history={this.props.history} />
+                    <div className="row">
+                        <div className="col-md-9 col-md-offset-3">
                             <div className="row">
                                 <div className="col-md-11">
                                     <Overview />

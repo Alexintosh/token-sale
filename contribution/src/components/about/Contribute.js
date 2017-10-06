@@ -5,7 +5,7 @@ import mew                      from '../../public/img/mew.png';
 export default class Contribute extends PureComponent {
     render(){
         return(
-            <section id="contribute" className="pv-20">
+            <section id="contribute" className="pv-20 h-90">
                 <div className="row">
                     <div className="col-md-10">
                         <h2 className="sub-header fs-50"><span>HOW TO CONTRIBUTE</span></h2>

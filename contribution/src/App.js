@@ -19,7 +19,7 @@ class App extends PureComponent {
      console.log(this.props.accessId);
     return (
       <Router>
-        <div>
+        <div className="globe">
           <Header />
           <div className="min-height">
               <Route exact path="/" component={LandingPage} />

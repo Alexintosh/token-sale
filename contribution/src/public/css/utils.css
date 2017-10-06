@@ -46,6 +46,9 @@ th{
 .pt-80{
     padding-top: 80px;
 }
+.pt-100{
+    padding-top: 100px;
+}
 .pb-0{
     padding-bottom: 0px;
 }
@@ -113,6 +116,7 @@ th{
     padding: 25px 60px;
     border: 1px solid rgba(119, 119, 119, 0.5);
     border-radius: 5px;
+    background-color: #fff;
 }
 .about-card li{
     font-size: 18px;
@@ -172,6 +176,9 @@ th{
 .features-card p{
     font-size: 14px;
 }
+.fs-15{
+    font-size: 15px;
+}
 .fs-20{
     font-size: 20px;
 }
@@ -217,6 +224,9 @@ th{
 .h-90{
     min-height: 90vh;
 }
+.h-100{
+    min-height: 100vh;
+}
 .text-left{
     text-align: left;
 }
@@ -232,15 +242,15 @@ th{
 .font-bold{
     font-weight: bold;
 }
-#landing-registration{
+.globe{
     background-image: url('../img/Sphere.png');
     background-attachment: fixed;
     background-repeat: no-repeat;
-    background-position: center; 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+    background-position: center bottom; 
+    background-size: 85% auto;
+}
+.pos-absolute{
+    position: absolute;
 }
 @media (min-width: 992px) and (max-width: 1200px){
     .features-card{

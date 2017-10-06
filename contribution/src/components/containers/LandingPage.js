@@ -7,7 +7,7 @@ export default class LandingPage extends PureComponent {
         return(
             <section id="single-page">
                 <Landing history={this.props.history} />
-                <About />
+                <About history={this.props.history} />
             </section>
         )
     }
