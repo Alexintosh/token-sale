@@ -17,13 +17,12 @@ body {
   border-left: 3px solid #222;
 }
 .about-list li{
-  font-size: 16px;
-  padding-top: 5px;
+  padding-top: 15px;
   list-style: none;
 }
 .about-list a{
   color: #555;
-  font-size: 18px;
+  font-size: 20px;
   line-height: 30px;
 }
 .about-list a:hover{
@@ -31,7 +30,7 @@ body {
   text-decoration: none;
 }
 .is-current a{
-  font-size: 20px;
+  font-size: 24px;
   font-weight: bold;
   color: #222;
 }
