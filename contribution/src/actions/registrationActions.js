@@ -53,3 +53,25 @@ export const submitEmailFormError = (err) => {
         type: 'SUBMIT_EMAIL_FORM_ERROR'
     }
 }
+
+
+
+/////FORM STEPS 
+export const validateFields = () => {
+    return {
+        type: 'VALIDATE_FORM_FIELDS_STEP1'
+    }
+}
+
+export const changeFormStep = (name) => {
+    return { 
+        type: 'SHOW_FORM_STEP',
+        payload: name
+    }
+}
+
+export const resetFormSteps = () => {
+    return {
+        type: 'RESET_FORM_STEPS'
+    }
+}

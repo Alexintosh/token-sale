@@ -58,8 +58,15 @@ th{
 .pb-40{
     padding-bottom: 40px;
 }
+.pl-20{
+    padding-left: 20px;
+}
 .pr-20{
     padding-right: 20px;
+}
+.pv-10{
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 .pv-20{
     padding-top: 20px;

@@ -7,8 +7,8 @@ export default class Whitepaper extends PureComponent {
                 <h2 className="sub-header fs-50 pt-30"><span>WHITEPAPER</span></h2>
                 <h4 className="font-bold fs-20">SECURE/ TRANSPARENT/ DECENTRALIZED</h4>
                 <p>
-                    LeverJ decentralizes the most desirable features of derivatives trading by implementing them in cryptocurrencies and eliminating points of friction. 
-                    With a tight focus on derivatives trading and the supporting ecosystem, LeverJ has taken the approach of defining the product frst. 
+                    Leverj decentralizes the most desirable features of derivatives trading by implementing them in cryptocurrencies and eliminating points of friction. 
+                    With a tight focus on derivatives trading and the supporting ecosystem, Leverj has taken the approach of defining the product frst. 
                     We have built a functioning exchange with a usable UI (user interface), decentralized identity, and provable audit. 
                     We plan to decentralize the back-end and add ecosystem features that will enable large players to move into the cryptocurrency world.
                 </p>

@@ -22,7 +22,7 @@ export default class Overview extends PureComponent{
                             </div>
                         </div>
                         <p className="pt-20">
-                            *With a tight focus on derivatives trading and the supporting ecosystem, LeverJ has taken the approach of defining the
+                            *With a tight focus on derivatives trading and the supporting ecosystem, Leverj has taken the approach of defining the
                             product frst. We have built a functioning exchange with a usable UI (user interface), decentralized identity, and provable
                             audit. We plan to decentralize the back-end and add ecosystem features that will enable large players to move into the
                             cryptocurrency world.

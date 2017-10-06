@@ -6,11 +6,13 @@ import pdf                      from '../../public/documents/LEV_Token_Purchase_
 export default class Contribute extends PureComponent {
     render(){
         return(
-            <section id="contribute" className="pt-100 h-90">
+            <section id="contribute" className="pt-100 h-90 about-card">
                 <div className="row">
                     <div className="col-md-10">
                         <h2 className="sub-header fs-50"><span>HOW TO CONTRIBUTE</span></h2>
-                        <p className="font-bold">You can participate to the token sale through MyEtherWallet or MetaMask for detailed instructions click on this PDF.</p>
+                        <p className="font-bold">
+                            You can participate to the token sale through MyEtherWallet or MetaMask for detailed instructions 
+                            <a href={pdf} target="_blank" rel="noopener noreferrer"> click on this PDF <i className="fa fa-file-pdf-o"></i></a></p>
                         <p>To join the GRID token sale, you can purchase GRID tokens directly from the Token Sale smart contract. Check out this guide to
                             learn how to purchase using MyEtherWallet, Mist, Parity and MetaMask. To view the GRID token sale smart contract address,
                             click the Reveal Smart Contract Address button above, and accept GRID token purchase agreement . The button will remain
@@ -42,7 +44,6 @@ export default class Contribute extends PureComponent {
                                 All transactions sent to GRID token sale contract are viewable on etherscan website.
                             </li>
                         </ul>
-                        <a href={pdf} target="_blank" rel="noopener noreferrer" className="btn btn-contribute">How To Contribute</a>
                     </div>
                     <div className="col-md-2 center-text">
                         <div className="pt-80">

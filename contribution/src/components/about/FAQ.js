@@ -26,7 +26,8 @@ export default class FAQ extends Component {
             <section id="faq" className="pt-100">
                 <h2 className="sub-header fs-50 pt-30"><span>FAQ</span></h2>
                 <div id="define" className="accordian-header" onClick={() => this.displayAccordian('define',this.state.define)}>
-                    What is Leverj?<i className="fa fa-plus pull-right fs-25 pt-8 pr-20" aria-hidden="true"></i>
+                    What is Leverj?
+                    {this.state.define ? <i className="fa fa-minus pull-right fs-25 pt-8 pr-20" aria-hidden="true"></i> : <i className="fa fa-plus pull-right fs-25 pt-8 pr-20" aria-hidden="true"></i> }
                     <div className={"accordian-container" + (this.state.define ? '' : ' hide' )}>
                         <p><span className="font-bold">Q:</span> What is Leverj?</p>
                         <p><span className="font-bold">A:</span> Leverj is a decentralized leveraged crypto exchange that provides solutions to the inherent risks seen in centralized trading platforms.</p>
@@ -35,7 +36,8 @@ export default class FAQ extends Component {
                     </div>
                 </div>
                 <div id="exchange" className="accordian-header" onClick={() => this.displayAccordian('exchange',this.state.exchange)}>
-                    Decentralized Exchange<i className="fa fa-plus pull-right fs-25 pt-8 pr-20" aria-hidden="true"></i>
+                    Decentralized Exchange
+                    {this.state.exchange ? <i className="fa fa-minus pull-right fs-25 pt-8 pr-20" aria-hidden="true"></i> : <i className="fa fa-plus pull-right fs-25 pt-8 pr-20" aria-hidden="true"></i> }
                     <div className={"accordian-container" + (this.state.exchange ? '' : ' hide' )}>
                         <p><span className="font-bold">Q:</span> What risks are associated with centralized exchanges?</p>
                         <p><span className="font-bold">A:</span> The exposure of three core pieces of user information are inevitable in centralized exchanges. They include the identity of the user, user funds and user transaction history. In a traditional centralized exchange, this valuable information is at the mercy and competence of the exchange operators. The centralization of these valuables in the custody of an exchange are an attractive target for hackers, lawsuits and state actors. As seen over and over again, the risks and losses can be substantial.</p>
@@ -44,14 +46,16 @@ export default class FAQ extends Component {
                     </div>
                 </div>
                 <div id="identity" className="accordian-header" onClick={() => this.displayAccordian('identity',this.state.identity)}>
-                    Decentralized Identity<i className="fa fa-plus pull-right fs-25 pt-8 pr-20" aria-hidden="true"></i>
+                    Decentralized Identity
+                    {this.state.identity ? <i className="fa fa-minus pull-right fs-25 pt-8 pr-20" aria-hidden="true"></i> : <i className="fa fa-plus pull-right fs-25 pt-8 pr-20" aria-hidden="true"></i> }
                     <div className={"accordian-container" + (this.state.identity ? '' : ' hide' )}>
                         <p><span className="font-bold">Q:</span> What is decentralized identity?</p>
                         <p><span className="font-bold">A:</span> The user’s identity for any trade is simply a public key that controls the user’s coins. This brings financial privacy to trades that would be otherwise exposed on the blockchain. Given the ability to create identities at will, users are able to decentralize transaction histories. This works to further obfuscate the identity of the user and the amount of funds held by the user.</p>
                     </div>
                 </div>
                 <div id="ux" className="accordian-header" onClick={() => this.displayAccordian('ux',this.state.ux)}>
-                    UX<i className="fa fa-plus pull-right fs-25 pt-8 pr-20" aria-hidden="true"></i>
+                    UX
+                    {this.state.ux ? <i className="fa fa-minus pull-right fs-25 pt-8 pr-20" aria-hidden="true"></i> : <i className="fa fa-plus pull-right fs-25 pt-8 pr-20" aria-hidden="true"></i> }
                     <div className={"accordian-container" + (this.state.ux ? '' : ' hide' )}>
                         <p><span className="font-bold">Q:</span> How does the UX of Leverj compare to the UX of a centralized exchange?</p>
                         <p><span className="font-bold">A:</span> The UX of Leverj will be every bit as seamless as the top centralized exchanges, as while we refuse to compromise on security, we likewise refuse to compromise on usability.</p>
@@ -62,7 +66,8 @@ export default class FAQ extends Component {
                     </div>
                 </div>
                 <div id="features" className="accordian-header" onClick={() => this.displayAccordian('features',this.state.features)}>
-                    New Features<i className="fa fa-plus pull-right fs-25 pt-8 pr-20" aria-hidden="true"></i>
+                    New Features
+                    {this.state.features ? <i className="fa fa-minus pull-right fs-25 pt-8 pr-20" aria-hidden="true"></i> : <i className="fa fa-plus pull-right fs-25 pt-8 pr-20" aria-hidden="true"></i> }
                     <div className={"accordian-container" + (this.state.features ? '' : ' hide' )}>
                         <p><span className="font-bold">Q:</span> What are price action entries?</p>
                         <p><span className="font-bold">A:</span> Price action entries are intended to give traders the opportunity to steer clear of FOMO-driven trades. Hesitation from a trader reacting too late once the price moves with unexpected strength can lead to entries too close to the top or bottom of a move, and exits that often leave the trader’s PNL at a loss. Price action entries allow the trader to quickly build a position free from absolute price levels and remain focused on the unfolding market structure. This allows for ease of entries and exits, reducing unexpected losses and suboptimal exits.</p>
@@ -75,7 +80,8 @@ export default class FAQ extends Component {
                     </div>
                 </div>
                 <div id="account" className="accordian-header" onClick={() => this.displayAccordian('account',this.state.account)}>
-                    Accessing Your Account <i className="fa fa-plus pull-right fs-25 pt-8 pr-20" aria-hidden="true"></i>
+                    Accessing Your Account 
+                    {this.state.account ? <i className="fa fa-minus pull-right fs-25 pt-8 pr-20" aria-hidden="true"></i> : <i className="fa fa-plus pull-right fs-25 pt-8 pr-20" aria-hidden="true"></i> }
                     <div className={"accordian-container" + (this.state.account ? '' : ' hide' )}>
                         <p><span className="font-bold">Q:</span> How do logins work without username/password?</p>
                         <p><span className="font-bold">A:</span> The UX is loginless. Accounts are created simply by generating a private key. This private key will be downloadable to your computer via JSON file for ease of access to your account from different browsers.</p>
@@ -86,7 +92,8 @@ export default class FAQ extends Component {
                     </div>
                 </div>
                 <div id="withdrawals" className="accordian-header" onClick={() => this.displayAccordian('withdrawals',this.state.withdrawals)}>
-                    Deposits/ Withdrawals<i className="fa fa-plus pull-right fs-25 pt-8 pr-20" aria-hidden="true"></i>
+                    Deposits/ Withdrawals
+                    {this.state.withdrawals ? <i className="fa fa-minus pull-right fs-25 pt-8 pr-20" aria-hidden="true"></i> : <i className="fa fa-plus pull-right fs-25 pt-8 pr-20" aria-hidden="true"></i> }
                     <div className={"accordian-container" + (this.state.withdrawals ? '' : ' hide' )}>
                         <p><span className="font-bold">Q:</span> What currencies will I be able to deposit to trade on Leverj?</p>
                         <p><span className="font-bold">A:</span> Leverj uses ETH as the sole currency of the base platform. Deposits will only be made available in ETH as well as listed ERC20 tokens.</p>
@@ -95,7 +102,8 @@ export default class FAQ extends Component {
                     </div>
                 </div>
                 <div id="token" className="accordian-header" onClick={() => this.displayAccordian('token',this.state.token)}>
-                    LEV Token<i className="fa fa-plus pull-right fs-25 pt-8 pr-20" aria-hidden="true"></i>
+                    LEV Token
+                    {this.state.token ? <i className="fa fa-minus pull-right fs-25 pt-8 pr-20" aria-hidden="true"></i> : <i className="fa fa-plus pull-right fs-25 pt-8 pr-20" aria-hidden="true"></i> }
                     <div className={"accordian-container" + (this.state.token ? '' : ' hide' )}>
                         <p><span className="font-bold">Q:</span> What is the utility of the LEV token?</p>
                         <p><span className="font-bold">A:</span> LEV is the primary token in our two-level token system. It is of fixed supply and represents a license to transact on the platform proportional to the percentage ownership of the token supply</p>
@@ -106,7 +114,8 @@ export default class FAQ extends Component {
                     </div>
                 </div>
                 <div id="tokenSystem" className="accordian-header" onClick={() => this.displayAccordian('tokenSystem',this.state.tokenSystem)}>
-                    2-Level Token System<i className="fa fa-plus pull-right fs-25 pt-8 pr-20" aria-hidden="true"></i>
+                    2-Level Token System
+                    {this.state.tokenSystem ? <i className="fa fa-minus pull-right fs-25 pt-8 pr-20" aria-hidden="true"></i> : <i className="fa fa-plus pull-right fs-25 pt-8 pr-20" aria-hidden="true"></i> }
                     <div className={"accordian-container" + (this.state.tokenSystem ? '' : ' hide' )}>
                         <p><span className="font-bold">Q:</span> What is a 2-level token system?</p>
                         <p><span className="font-bold">A:</span> Many DApps use bi-level tokens to separate value from utility. The two level token system has been carefully crafted using economics and game theory to incentivize liquidity and to quickly grow a rich ecosystem.</p>
@@ -115,7 +124,8 @@ export default class FAQ extends Component {
                     </div>
                 </div>
                 <div id="fee" className="accordian-header" onClick={() => this.displayAccordian('fee',this.state.fee)}>
-                    FEE Token<i className="fa fa-plus pull-right fs-25 pt-8 pr-20" aria-hidden="true"></i>
+                    FEE Token
+                    {this.state.fee ? <i className="fa fa-minus pull-right fs-25 pt-8 pr-20" aria-hidden="true"></i> : <i className="fa fa-plus pull-right fs-25 pt-8 pr-20" aria-hidden="true"></i> }
                     <div className={"accordian-container" + (this.state.fee ? '' : ' hide' )}>
                         <p><span className="font-bold">Q:</span> Will FEE tokens be distributed along with LEV tokens?</p>
                         <p><span className="font-bold">A:</span> No. Unlike the LEV token which is created only on the ICO issuance with a permanently fixed supply, FEE tokens can be generated by LEV token holders by freezing the LEV token in a smart contract for a fixed duration. The amount of FEE generated is determined by the amount of LEV being frozen, as well as the exchange’s trading volume at the time that the LEV tokens are frozen.</p>
