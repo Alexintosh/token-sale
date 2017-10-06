@@ -23,7 +23,7 @@ export default class FAQ extends Component {
     }
     render(){
         return(
-            <section id="faq" className="pv-20">
+            <section id="faq" className="about-card pv-20">
                 <h2 className="sub-header fs-50 pt-30"><span>FAQ</span></h2>
                 <div id="define" className="accordian-header" onClick={() => this.displayAccordian('define',this.state.define)}>
                     What is Leverj?<i className="fa fa-plus pull-right fs-25 pt-8 pr-20" aria-hidden="true"></i>

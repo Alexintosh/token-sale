@@ -6,7 +6,7 @@ import ContributeDetail         from './overview/ContributeDetail';
 export default class Overview extends PureComponent{
     render(){
         return(
-            <section id="overview" className="pt-100 h-100">
+            <section id="overview" className="mv-100 h-100 about-card">
                 <h2 className="sub-header fs-50 pb-0"><span>OVERVIEW</span></h2>
                 <div className="row pv-30">
                     <div className="col-md-7 hidden-xs">

@@ -146,6 +146,10 @@ body {
 .sub-header{
   font-size: 38px;
   padding-bottom: 30px;
+  padding-top: 50px;
+}
+.sub-header.fs-50{
+  padding-top: 10px;
 }
 .is-current a{
   font-weight: bold;
