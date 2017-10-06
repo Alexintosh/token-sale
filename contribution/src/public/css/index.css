@@ -260,6 +260,27 @@ span.date{
   margin-top: 20px;
   margin-bottom: 20px;
 }
+.white-paper{
+  font-size: 30px !important;
+  color: #111;
+}
+.white-paper i {
+  font-size: 40px;
+}
+.white-paper:hover{
+  color: #666;
+}
+.yellow-paper{
+  font-size: 30px !important;
+  color: #111;
+}
+.yellow-paper i {
+  font-size: 40px;
+  color: #E4D100;
+}
+.yellow-paper:hover{
+  color: #666;
+}
 @media (max-width: 768px){
   .sub-header{
     font-size: 30px;
