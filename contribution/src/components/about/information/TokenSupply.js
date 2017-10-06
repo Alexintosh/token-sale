@@ -4,7 +4,7 @@ export default class TokenSupply extends PureComponent{
     render(){
         return(
             <div className="about-card">
-                <h2 className="sub-header"><span>TOKEN SUPPLY/BREAKDOWN OF OWNERSHIP</span></h2>
+                <h2 className="sub-header"><span>TOKEN SUPPLY/ BREAKDOWN OF OWNERSHIP</span></h2>
                 <div className="row">
                     <div className="col-md-5">
                         <p>

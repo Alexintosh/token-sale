@@ -9,7 +9,7 @@ export default class Overview extends PureComponent{
             <section id="overview" className="pv-40">
                 <h2 className="sub-header fs-50 pb-0"><span>OVERVIEW</span></h2>
                 <div className="row pv-30">
-                    <div className="col-md-7">
+                    <div className="col-md-7 hidden-xs">
                         <LandingVideo />
                     </div>
                     <div className="col-md-5">

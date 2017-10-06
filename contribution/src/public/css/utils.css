@@ -232,6 +232,16 @@ th{
 .font-bold{
     font-weight: bold;
 }
+#landing-registration{
+    background-image: url('../img/Sphere.png');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
 @media (min-width: 992px) and (max-width: 1200px){
     .features-card{
         height: 450px;

@@ -334,3 +334,12 @@ span.date{
 #landing-registration h1 {
   color: #333;
 }
+
+@media (max-width: 768px){
+  .sub-header{
+    font-size: 30px;
+  }
+  .sub-header.fs-50{
+    font-size: 40px;
+  }
+}

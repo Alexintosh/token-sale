@@ -86,7 +86,7 @@ export default class FAQ extends Component {
                     </div>
                 </div>
                 <div id="withdrawals" className="accordian-header" onClick={() => this.displayAccordian('withdrawals',this.state.withdrawals)}>
-                    Deposits/Withdrawals<i className="fa fa-plus pull-right fs-25 pt-8 pr-20" aria-hidden="true"></i>
+                    Deposits/ Withdrawals<i className="fa fa-plus pull-right fs-25 pt-8 pr-20" aria-hidden="true"></i>
                     <div className={"accordian-container" + (this.state.withdrawals ? '' : ' hide' )}>
                         <p><span className="font-bold">Q:</span> What currencies will I be able to deposit to trade on Leverj?</p>
                         <p><span className="font-bold">A:</span> Leverj uses ETH as the sole currency of the base platform. Deposits will only be made available in ETH as well as listed ERC20 tokens.</p>

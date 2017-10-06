@@ -12,7 +12,7 @@ export default class About extends PureComponent {
             <section id="about" className="about-background pv-20">
                 <div className="container-fluid">
                     <div className="col-container">
-                        <div className="col-md-h-3">
+                        <div className="col-md-h-3 hidden-xs">
                             <AboutNavigation />
                         </div>
                         <div className="col-md-h-9">

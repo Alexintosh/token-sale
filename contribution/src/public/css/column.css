@@ -104,6 +104,9 @@
 }
 /* SMALL SCREEN */
 @media (max-width: 768px) {
+    .col-container{
+        display: block;
+      }
     .col-sm-h-1{
         display: block;
         width: 100%;
