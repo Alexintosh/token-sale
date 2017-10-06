@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component }     from 'react';
 import SignupModal              from '../utils/SignupModal';
 import Social                   from '../landing/Social';
 import Scroll                   from 'react-scroll';
@@ -8,8 +8,14 @@ export default class Landing extends Component{
     constructor(){
         super();
         this.state={
-            display: false
+            display: false,
+            months: '',
+            days: '',
+            hours: '',
+            minutes: '',
+            seconds: ''
         }
+        this.countdown = this.countdown.bind(this);
     }
     displayModal() {
         this.setState({
@@ -24,16 +30,43 @@ export default class Landing extends Component{
     scrollDown(){
         Scroll.animateScroll.scrollTo(1000);
     }
-    createstructuredselector
+    componentWillMount(){
+        this.startTimer();
+    }
+    startTimer(){
+        setInterval(this.countdown, 1000)
+    }
+    countdown(){
+        var oneDay=1000*60*60*24;
+        var endDate = new Date(2017,10,12,12);
+        var todaysDate = new Date();
+        var difference = endDate - todaysDate;
+        var time = (difference/oneDay);
+        var days = Math.floor(time)
+        var hours = Math.floor((time*24)%24);
+        var minutes = Math.floor((time*24*60)%60);
+        var seconds = Math.floor((time*24*60*60)%60);
+        this.setState({
+            days: days,
+            hours: hours,
+            minutes: minutes,
+            seconds: seconds
+        })
+    }
     render(){
         return(
             <section id="landing-registration">
                 <div className="container-fluid center-text">
                     <div className="h-85">
-                        <h1 className="fs-90 pt-20v fw-200 lh-70 mt-0">DECENTRALIZED</h1>
-                        <h1 className="fs-70 fw-200 lh-70">LEVERAGD FUTURES EXCHANGE</h1>
-                        <p className="fs-30 pt-40 p-dull">TOKEN SALE COMING SOON</p>
+                        <h1 className="fs-50 pt-20v lh-70 mt-0">LEV Token Sale Starts: November 12th 12pm EST</h1>
+                        <div className="timer">
+                            <p className="fs-70">{this.state.days} : {this.state.hours} : {this.state.minutes} : {this.state.seconds}</p>
+                            <p>Days Hours Minutes Seconds </p>
+                        </div>
                         <button onClick={()=> this.displayModal()} className="btn btn-register mv-20">Register</button>
+                        <br />
+                        <a href="https://leverj.io/whitepaper.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-landing mv-20">Read Whitepaper</a>
+                        <a href="https://www.youtube.com/watch?v=XKzOqrbvsKQ" target="_blank" rel="noopener noreferrer" className="btn btn-landing mv-20">Watch Video</a>
                     </div>
                     <div className="h-15">
                         <div className="row">

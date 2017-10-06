@@ -26,7 +26,7 @@
 .btn-register{
     padding: 10px 140px;
     font-size: 30px;
-    border-radius: 30px;
+    border-radius: 5px;
     color: #fff;
     background: #ea993e; /* For browsers that do not support gradients */
     background: -webkit-linear-gradient(left top, #ebb063, #ea993e); /* For Safari 5.1 to 6.0 */
@@ -61,6 +61,20 @@
     margin-bottom: 20px;
 }
 .btn-white-1:hover{
+    color: #666 !important;
+}
+.btn-landing {
+    background-color: #fff;
+    width: 300px;
+    font-size: 25px;
+    color: #111;
+    border: 1px solid rgba(102, 102, 102, 0.3) !important;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.btn-landing:hover{
     color: #666 !important;
 }
 #footer{

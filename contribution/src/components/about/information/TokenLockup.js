@@ -12,7 +12,7 @@ export default class TokenLockup extends PureComponent{
                 </p>
                 <div className="row">
                     <div className="col-md-6">
-                        <table border="0" className="no-table">
+                        <table className="no-table">
                             <thead>
                                 <tr>
                                     <th>Percentage</th>
