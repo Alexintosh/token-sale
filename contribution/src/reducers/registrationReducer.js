@@ -17,9 +17,9 @@ const initialState = {
     purchaseSizeCheck: true,
     countryCheckValidation: true,
     termsCheckValidation:true,
-    step1: true,
+    step1: false,
     step2: false,
-    step3: false
+    step3: true
 }
 
 export default function registrationReducer(state = initialState, action) {
