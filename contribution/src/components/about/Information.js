@@ -12,7 +12,7 @@ import Escrow                   from './information/Escrow';
 export default class Information extends PureComponent {
     render(){
         return (
-            <section id="information" className="pt-100">
+            <section id="information">
                 <TokenInformation />
                 <TokenFunction />
                 <TokenBreakdown />

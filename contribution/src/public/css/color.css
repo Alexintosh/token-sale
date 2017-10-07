@@ -204,7 +204,7 @@
 .whitepaper-link span{
     border-bottom: 1px solid #fff;
 }
-.sub-header span{ 
+.sub-header span, .sub-header-large span{ 
     border-bottom: 3px solid #fd8900;
 }
 @media (max-width: 700px){

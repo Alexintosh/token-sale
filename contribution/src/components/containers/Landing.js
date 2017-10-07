@@ -60,8 +60,34 @@ export default class Landing extends Component{
                     <div className="h-85">
                         <h1 className="fs-50 pt-20v lh-70 mt-0">LEV Token Sale Starts: November 12th 12pm EST</h1>
                         <div className="timer">
-                            <p className="fs-70">{this.state.days} : {this.state.hours} : {this.state.minutes} : {this.state.seconds}</p>
-                            <p>Days Hours Minutes Seconds </p>
+                            <div className="center-text">
+                                <div className="countdown-number">
+                                    <p className="fs-70">{this.state.days}</p>
+                                </div>
+                                <div className="countdown-number">
+                                    <p className="fs-70">{this.state.hours}</p>
+                                </div>
+                                <div className="countdown-number">
+                                    <p className="fs-70">{this.state.minutes}</p>
+                                </div>
+                                <div className="countdown-number">
+                                    <p className="fs-70">{this.state.seconds}</p>
+                                </div>
+                            </div>
+                            <div className="center-text">
+                                <div className="countdown-number">
+                                    <p className="fs-20">Days</p>
+                                </div>
+                                <div className="countdown-number">
+                                    <p className="fs-20">Hours</p>
+                                </div>
+                                <div className="countdown-number">
+                                    <p className="fs-20">Minutes</p>
+                                </div>
+                                <div className="countdown-number">
+                                    <p className="fs-20">Seconds</p>
+                                </div>
+                            </div>
                         </div>
                         <button onClick={()=> this.displayModal()} className="btn btn-register mv-20">Register</button>
                         <br />

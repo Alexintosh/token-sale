@@ -6,10 +6,10 @@ import pdf                      from '../../public/documents/LEV_Token_Purchase_
 export default class Contribute extends PureComponent {
     render(){
         return(
-            <section id="contribute" className="pt-100 h-90 about-card">
+            <section id="contribute" className="pt-100 about-card">
                 <div className="row">
                     <div className="col-md-10">
-                        <h2 className="sub-header fs-50"><span>HOW TO CONTRIBUTE</span></h2>
+                        <h2 className="sub-header-large"><span>HOW TO CONTRIBUTE</span></h2>
                         <p className="font-bold">
                             You can participate to the token sale through MyEtherWallet or MetaMask for detailed instructions 
                             <a href={pdf} target="_blank" rel="noopener noreferrer"> click on this PDF <i className="fa fa-file-pdf-o"></i></a></p>
