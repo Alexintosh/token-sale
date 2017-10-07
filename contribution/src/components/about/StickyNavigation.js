@@ -13,7 +13,6 @@ export default class StickyNavigation extends PureComponent{
     componentDidMount(){
         window.addEventListener('scroll', ()=>{
             var domReact = this.refs.stickyNav.getBoundingClientRect();
-            console.log(document.body.scrollTop, domReact.top)
             if(domReact.top <= 0){
                 this.setState({
                     stuck: true
