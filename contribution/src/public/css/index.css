@@ -155,12 +155,16 @@ body {
   padding-right: 40px;
 }
 .sub-header{
+  line-height: 45px;
   font-size: 38px;
   padding-bottom: 30px;
   padding-top: 50px;
 }
 .sub-header.fs-50{
   padding-top: 10px;
+}
+.sub-header.fs-50{
+  line-height: 55px;
 }
 .contribute-img{
   margin-top: 30px;

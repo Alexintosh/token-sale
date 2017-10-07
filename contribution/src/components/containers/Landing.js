@@ -70,14 +70,14 @@ export default class Landing extends Component{
                     </div>
                     <div className="h-15">
                         <div className="row">
-                            <div className="col-sm-4">
+                            <div className="col-md-4 col-sm-12">
                                 <Social />
                             </div>
-                            <div className="col-sm-4">
+                            <div className="col-md-4 col-sm-12">
                                 <div><span className="fs-20 clickable" onClick={() => this.scrollDown()}>Learn More</span></div>
                                 <div><span className="clickable" onClick={() => this.scrollDown()}><i className="fa fa-angle-down fs-70" aria-hidden="true"></i></span></div>
                             </div>
-                            <div className="col-sm-4">
+                            <div className="col-sm-4 hide-on-xs">
                                 <div className="row">
                                     <div className="col-sm-6 text-right">
                                         <img src={consensys} alt="Consensys logo" className="landing-img" />

@@ -278,9 +278,20 @@ th{
         height: 350px;
     }
 }
+@media (max-width: 768px){
+    .hide-on-xs{
+        display: none !important;
+    }
+    .fs-50{
+        font-size: 40px;
+    }
+}
 @media (max-width: 500px){
     .features-card{
         height: 420px;
+    }
+    .fs-50{
+        font-size: 40px !important;
     }
     .fs-90{
         font-size: 35px;
