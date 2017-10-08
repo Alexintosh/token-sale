@@ -91,16 +91,6 @@ contract Sale {
         _;
     }
 
-    modifier notPrivateBuyer(){
-        require(!privateBuyers[msg.sender]);
-        _;
-    }
-
-    modifier notAlreadyRedeemed(address _recipient){
-        require(!redeemedUnsold[_recipient]);
-        _;
-    }
-
     /*
      * Public functions
      */
@@ -159,8 +149,6 @@ contract Sale {
         for(uint i = 0; i < _preBuyers.length; i++) {
             token.transfer(_preBuyers[i], _preBuyersTokens[i]);
             preBuyersDispensedTo += 1;
-            privateBuyers[_preBuyers[i]] = true;
-            soldTokens += _preBuyersTokens[i];
             TransferredPreBuyersReward(_preBuyers[i], _preBuyersTokens[i]);
         }
 
@@ -199,8 +187,6 @@ contract Sale {
           disbursement.setup(token);
           token.transfer(disbursement, beneficiaryTokens);
           timeLockedBeneficiariesDisbursedTo += 1;
-          privateBuyers[beneficiary] = true;
-          soldTokens += beneficiaryTokens;
           TransferredTimelockedTokens(beneficiary, disbursement, beneficiaryTokens);
         }
 
@@ -217,7 +203,6 @@ contract Sale {
         setupComplete
         notInEmergency
         saleInProgress
-        notPrivateBuyer
     {
         /* Calculate whether any of the msg.value needs to be returned to
            the sender. The purchaseAmount is the actual number of tokens which
@@ -238,8 +223,6 @@ contract Sale {
 
         // Transfer the sum of tokens tokenPurchase to the msg.sender
         token.transfer(msg.sender, purchaseAmount);
-        soldTokens += purchaseAmount;
-        soldTokensPublic += purchaseAmount;
         PurchasedTokens(msg.sender, purchaseAmount);
     }
 
