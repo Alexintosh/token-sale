@@ -53,7 +53,7 @@ contract StandardToken is Token {
       return allowed[_owner][_spender];
     }
 
-    mapping (address => uint256) balances; //bool will flag public sale purchasers
+    mapping (address => uint256) balances;
     mapping (address => mapping (address => uint256)) allowed;
 
 }

@@ -12,7 +12,7 @@ contract Sale {
     event PurchasedTokens(address indexed purchaser, uint amount);
     event TransferredPreBuyersReward(address indexed preBuyer, uint amount);
     event TransferredTimelockedTokens(address beneficiary, address disburser, uint amount);
-    event UnsoldRedeemed(address msgsender, address recipient, uint tokensToRedistribute);
+    event LockUnsoldTokens(address msgsender, uint numTokensLocked);
 
     /*
      * Storage
@@ -24,8 +24,7 @@ contract Sale {
     uint public price;
     uint public startBlock;
     uint public freezeBlock;
-    uint public soldTokens;
-    uint public soldTokensPublic;
+    uint public endBlock;
 
     uint public totalPreBuyers;
     uint public preBuyersDispensedTo = 0;
@@ -35,8 +34,6 @@ contract Sale {
     bool public emergencyFlag = false;
     bool public preSaleTokensDisbursed = false;
     bool public timelockedTokensDisbursed = false;
-    mapping (address => bool) privateBuyers;
-    mapping (address => bool) redeemedUnsold;
 
     /*
      * Modifiers
@@ -62,6 +59,10 @@ contract Sale {
         _;
     }
 
+    modifier saleInProgress {
+    	require(block.number >= startBlock && block.number < endBlock);
+	_;
+    }
 
     modifier setupComplete {
         assert(preSaleTokensDisbursed && timelockedTokensDisbursed);
@@ -73,9 +74,11 @@ contract Sale {
         _;
     }
 
-    modifier checkBlockNumberInputs(uint _start, uint _freeze) {
-        require( _freeze > _start && _start >= block.number );
-        _;
+    modifier checkBlockNumberInputs(uint _start, uint _freeze, uint _end) {
+        require(_freeze >= block.number
+		&& _start >= _freeze
+		&& _end >= _start);
+	_;
     }
 
     modifier ownerOrSender(address _recipient){
@@ -121,9 +124,10 @@ contract Sale {
         uint _price,
         uint _startBlock,
         uint _freezeBlock,
+	uint _endBlock,
         uint _totalPreBuyers,
         uint _totalTimelockedBeneficiaries) 
-        checkBlockNumberInputs(_startBlock,_freezeBlock)
+        checkBlockNumberInputs(_startBlock,_freezeBlock, _endBlock)
     {
         owner = _owner;
         wallet = _wallet;
@@ -131,10 +135,9 @@ contract Sale {
         price = _price;
         startBlock = _startBlock;
         freezeBlock = _freezeBlock;
-        totalPreBuyers = _totalPreBuyers;
+        endBlock = _endBlock;
+	totalPreBuyers = _totalPreBuyers;
         totalTimelockedBeneficiaries = _totalTimelockedBeneficiaries;
-        soldTokens = 0;
-        soldTokensPublic=0;
 
         token.transfer(this, token.totalSupply());
         assert(token.balanceOf(this) == token.totalSupply());
@@ -213,7 +216,7 @@ contract Sale {
         payable
         setupComplete
         notInEmergency
-        notFrozen
+        saleInProgress
         notPrivateBuyer
     {
         /* Calculate whether any of the msg.value needs to be returned to
@@ -238,24 +241,6 @@ contract Sale {
         soldTokens += purchaseAmount;
         soldTokensPublic += purchaseAmount;
         PurchasedTokens(msg.sender, purchaseAmount);
-    }
-
-    function redeemUnsoldShare(address _recipient)
-        ownerOrSender(_recipient)
-        frozen
-        hasTokens(_recipient)
-        notPrivateBuyer
-        notAlreadyRedeemed(_recipient)
-    {
-        uint tokensToRedistribute = SafeMath.div(SafeMath.mul(token.balanceOf(_recipient), token.totalSupply() - soldTokens), soldTokensPublic);
-
-        // JS: what do we do with this? will this throw for any reason?
-        // uint remainder = SafeMath.mul(token.balanceOf(_recipient), token.totalSupply - soldTokens) % soldTokensPublic;
-        
-        require(tokensToRedistribute <= token.balanceOf(this));
-        token.transfer(_recipient, tokensToRedistribute);
-        redeemedUnsold[_recipient] = true;
-        UnsoldRedeemed(msg.sender, _recipient, tokensToRedistribute);
     }
 
     /*
