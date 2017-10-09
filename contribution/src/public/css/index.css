@@ -113,8 +113,15 @@ body {
 .nav-header{
   position: absolute;
   top: 22px;
-  left: 70px;
-  font-size: 25px;
+  left: 40px;
+  font-size: 50px;
+  font-weight: bold;
+}
+.nav-header-stuck{
+  position: absolute;
+  top: 22px;
+  left: 40px;
+  font-size: 30px;
   font-weight: bold;
 }
 #thank-you{
@@ -132,9 +139,19 @@ body {
     list-style: none;
     padding-left: 0px;
 }
-.landing-social li {
-    display: inline-block;
-    padding: 20px;
+.landing-social i{
+  padding-right: 30px;
+  font-size: 50px;
+}
+.landing-social-stuck {
+  padding-left: 20px !important;
+  padding-top: 15px;
+  list-style: none;
+  padding-left: 0px;
+}
+.landing-social-stuck i{
+padding-right: 30px;
+font-size: 50px;
 }
 .lh-70{
   line-height: 70px;
@@ -185,9 +202,6 @@ body {
 }
 span.date{
   font-size: 60px;
-}
-#landing-registration h1 {
-  color: #333;
 }
 #stickyNav{
   height: 100vh;
@@ -265,23 +279,62 @@ span.date{
   margin-bottom: 20px;
 }
 .white-paper{
-  font-size: 20px;
+  font-size: 16px;
   color: #111;
 }
 .white-paper img {
-  width: 40px;
+  width: 30px;
   margin-right: 10px;
 }
 .white-paper:hover{
   color: #666;
 }
 .countdown-number{
-  width: 110px;
+  width: 60px;
+  height: 90px;
+  line-height: 90px;
+  margin-left: 5px;
+  margin-right: 5px;
   display: inline-block;
+  border-radius: 5px;
+  background-color: #444;
+  color: #fff;
+  font-size: 70px;
+}
+.countdown-number-stuck{
+  width: 40px;
+  height: 50px;
+  line-height: 50px;
+  margin-left: 2px;
+  margin-right: 2px;
+  display: inline-block;
+  border-radius: 5px;
+  background-color: #444;
+  color: #fff;
+  font-size: 30px;
 }
 .info-graph{
   height: 300px;
   width: auto;
+}
+.lh-1{
+  margin-top: 0px;
+  font-size: 55px;
+  padding-top: 20vh;
+  line-height: 70px;
+  color: #ea993e;
+  font-weight: bold;
+}
+.token-info-background{
+  background-color: #4a4a4a;
+  border-radius: 5px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: #fff;
+}
+.token-info-background h3{
+  font-weight: bold;
+  font-size: 25px;
 }
 @media (max-width: 768px){
   .sub-header{

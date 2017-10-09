@@ -9,11 +9,14 @@ export default class Landing extends Component{
         super();
         this.state={
             display: false,
-            months: '',
-            days: '',
-            hours: '',
-            minutes: '',
-            seconds: ''
+            days1: '',
+            days2: '',
+            hours1: '',
+            hours2: '',
+            minutes1: '',
+            minutes2: '',
+            seconds1: '',
+            seconds2: ''
         }
         this.countdown = this.countdown.bind(this);
     }
@@ -42,59 +45,120 @@ export default class Landing extends Component{
         var todaysDate = new Date();
         var difference = endDate - todaysDate;
         var time = (difference/oneDay);
-        var days = Math.floor(time)
-        var hours = Math.floor((time*24)%24);
-        var minutes = Math.floor((time*24*60)%60);
-        var seconds = Math.floor((time*24*60*60)%60);
+        var days = Math.floor(time) + '';
+        var hours = Math.floor((time*24)%24) + '';
+        var minutes = Math.floor((time*24*60)%60) + '';
+        var seconds = Math.floor((time*24*60*60)%60) + '';
+        var sec1, sec2;
+        if(seconds<10){
+            sec1 = 0;
+            sec2 = seconds;
+        }else{
+            var secSplit = seconds.split('');
+            sec1 = secSplit[0];
+            sec2 = secSplit[1];
+        }
+        var min1, min2;
+        if(minutes<10){
+            min1 = 0;
+            min2 = minutes;
+        }else{
+            var minSplit = minutes.split('');
+            min1 = minSplit[0];
+            min2 = minSplit[1];
+        }
+        var hour1, hour2;
+        if(hours<10){
+            hour1 = 0;
+            hour2 = hours;
+        }else{
+            var hourSplit = hours.split('');
+            hour1 = hourSplit[0];
+            hour2 = hourSplit[1];
+        }
+        var day1, day2;
+        if(days<10){
+            day1 = 0;
+            day2 = days;
+        }else{
+            var daySplit = days.split('');
+            day1 = daySplit[0];
+            day2 = daySplit[1];
+        }
         this.setState({
-            days: days,
-            hours: hours,
-            minutes: minutes,
-            seconds: seconds
+            days1: day1,
+            days2: day2,
+            hours1: hour1,
+            hours2: hour2,
+            minutes1: min1,
+            minutes2: min2,
+            seconds1: sec1,
+            seconds2: sec2
         })
     }
     render(){
         return(
             <section id="landing-registration">
                 <div className="container-fluid center-text">
-                    <div className="h-85">
-                        <h1 className="fs-50 pt-20v lh-70 mt-0">LEV Token Sale Starts: November 12th 12pm EST</h1>
+                    <div className="h-90">
+                        <h1 className="lh-1">LEV Token Sale Starts: </h1>
+                        <h2 className="fs-50 lh-70 mt-0">November 7th 9am PST</h2>
                         <div className="timer">
                             <div className="center-text">
-                                <div className="countdown-number">
-                                    <p className="fs-70">{this.state.days}</p>
-                                </div>
-                                <div className="countdown-number">
-                                    <p className="fs-70">{this.state.hours}</p>
-                                </div>
-                                <div className="countdown-number">
-                                    <p className="fs-70">{this.state.minutes}</p>
-                                </div>
-                                <div className="countdown-number">
-                                    <p className="fs-70">{this.state.seconds}</p>
-                                </div>
-                            </div>
-                            <div className="center-text">
-                                <div className="countdown-number">
+                                <div className="inline-block">
+                                    <div className="inline-block">
+                                        <div className="countdown-number">
+                                            {this.state.days1}
+                                        </div>
+                                        <div className="countdown-number">
+                                            {this.state.days2}
+                                        </div>
+                                        <span className="fs-70">:</span>
+                                    </div>
                                     <p className="fs-20">Days</p>
                                 </div>
-                                <div className="countdown-number">
-                                    <p className="fs-20">Hours</p>
+                                <div className="inline-block">
+                                    <div className="inline-block">
+                                        <div className="countdown-number">
+                                            {this.state.hours1}
+                                        </div>
+                                        <div className="countdown-number">
+                                            {this.state.hours2}
+                                        </div>
+                                        <span className="fs-70">:</span>
+                                    </div>
+                                    <p className="fs-20">Days</p>
                                 </div>
-                                <div className="countdown-number">
+                                <div className="inline-block">
+                                    <div className="inline-block">
+                                        <div className="countdown-number">
+                                            {this.state.minutes1}
+                                        </div>
+                                        <div className="countdown-number">
+                                            {this.state.minutes2}
+                                        </div><span className="fs-70">:</span>
+                                    </div>
                                     <p className="fs-20">Minutes</p>
                                 </div>
-                                <div className="countdown-number">
+                                <div className="inline-block">
+                                    <div className="inline-block">
+                                        <div className="countdown-number">
+                                            {this.state.seconds1}
+                                        </div>
+                                        <div className="countdown-number">
+                                            {this.state.seconds2}
+                                        </div>
+                                    </div>
                                     <p className="fs-20">Seconds</p>
                                 </div>
                             </div>
                         </div>
-                        <button onClick={()=> this.displayModal()} className="btn btn-register mv-20">Register</button>
+                        <button onClick={()=> this.displayModal()} className="btn btn-register-landing mv-20">REGISTER NOW FOR EARLY ACCESS</button>
                         <br />
-                        <a href="https://leverj.io/whitepaper.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-landing mv-20">Read Whitepaper</a>
-                        <a href="https://www.youtube.com/watch?v=XKzOqrbvsKQ" target="_blank" rel="noopener noreferrer" className="btn btn-landing mv-20">Watch Video</a>
+                        <a href="https://leverj.io/whitepaper.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-landing mv-20">READ WHITEPAPER</a>
+                        <a href="https://www.youtube.com/watch?v=XKzOqrbvsKQ" target="_blank" rel="noopener noreferrer" className="btn btn-landing mv-20">WATCH THE VIDEO</a>
                     </div>
-                    <div className="h-15">
+                    <div className="h-10">
                         <div className="row">
                             <div className="col-md-4 col-sm-12">
                                 <Social />

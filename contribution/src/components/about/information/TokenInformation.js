@@ -12,6 +12,26 @@ export default class TokenInformation extends PureComponent{
                     can be exercised fully in a decentralized manner. The LEV can be utilized to stake and receive the
                     FEE created proportional to platform volume.
                 </p>
+                <div className="row center-text">
+                    <div className="col-md-4">
+                        <div className="token-info-background">
+                            <h3>250,000 ETH</h3>
+                            <p>Contribution cap</p>
+                        </div>
+                    </div>
+                    <div className="col-md-4">
+                        <div className="token-info-background">
+                            <h3>3,000 TOKENS/1 ETH</h3>
+                            <p>Conversion Ratio</p>
+                        </div>
+                    </div>
+                    <div className="col-md-4">
+                        <div className="token-info-background">
+                            <h3>1,000,000,000</h3>
+                            <p>Total Tokens Supply</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         )
     }
