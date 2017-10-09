@@ -9,6 +9,8 @@ var RateLimit   = require('express-rate-limit');
 var request 	= require('request');
 const uuidv4    = require('uuid/v4');
 const app       = express()
+const https 	= require('https');
+const fs 	= require('fs');
 
 require('dotenv').config();
 var tokenMap = new Map();
@@ -170,9 +172,18 @@ app.post('/api/register', async (req, res) => {
 
 })
 
-app.listen(8080, function(){
-    console.log('api is running on port 8080');
-})
+if(process.env.NODE_ENV == 'prod' || process.env.NODE_ENV == 'test') {
+    https.createServer({
+        key: fs.readFileSync('./https/key.pem'),
+        cert: fs.readFileSync('./https/cert.pem')
+    }, app).listen(8080, ()=>{
+        console.log('api is running on port 443 with https');
+    });
+} else {
+    app.listen(8080, function(){
+        console.log('api is running on port 8080');
+    })
+}
 
 function checkRequestHeaders(req_headers){
 
