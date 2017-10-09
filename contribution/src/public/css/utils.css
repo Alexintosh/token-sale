@@ -265,6 +265,9 @@ th{
 .pos-absolute{
     position: absolute;
 }
+.mv-80{
+    margin-top: 80px;
+}
 .mv-100{
     margin-top: 100px;
 }
@@ -291,6 +294,12 @@ th{
     .fs-50{
         font-size: 40px;
     }
+}
+@media (min-width: 768px){
+    body{
+        min-width: 1500px;
+    }
+    
 }
 @media (max-width: 500px){
     .features-card{

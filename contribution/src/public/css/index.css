@@ -22,7 +22,7 @@ body {
 }
 .about-list a{
   color: #555;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 30px;
 }
 .about-list a:hover{
@@ -30,12 +30,12 @@ body {
   text-decoration: none;
 }
 .is-current a{
-  font-size: 24px;
+  font-size: 20px;
   font-weight: bold;
   color: #222;
 }
 .nav-circle{
-  margin-left: -32px;
+  margin-left: -29px;
   padding-right: 20px;
   display: none;
 }
@@ -137,21 +137,12 @@ body {
 }
 .landing-social {
     list-style: none;
-    padding-left: 0px;
+    padding-left: 20px;
+    padding-bottom: 30px;
 }
 .landing-social i{
   padding-right: 30px;
   font-size: 50px;
-}
-.landing-social-stuck {
-  padding-left: 20px !important;
-  padding-top: 15px;
-  list-style: none;
-  padding-left: 0px;
-}
-.landing-social-stuck i{
-padding-right: 30px;
-font-size: 50px;
 }
 .lh-70{
   line-height: 70px;
@@ -173,7 +164,7 @@ font-size: 50px;
 }
 .sub-header{
   line-height: 45px;
-  font-size: 30px;
+  font-size: 25px;
   padding-bottom: 10px;
   margin-top: 0px;
 }
@@ -181,7 +172,7 @@ font-size: 50px;
   margin-top: 0px;
   padding-bottom: 10px;
   line-height: 55px;
-  font-size: 35px;
+  font-size: 30px;
 }
 .contribute-img{
   margin-top: 30px;
@@ -302,28 +293,21 @@ span.date{
   font-size: 70px;
 }
 .countdown-number-stuck{
-  width: 40px;
-  height: 50px;
-  line-height: 50px;
+  width: 32px;
+  height: 40px;
+  line-height: 40px;
   margin-left: 2px;
   margin-right: 2px;
   display: inline-block;
   border-radius: 5px;
   background-color: #444;
   color: #fff;
-  font-size: 30px;
+  font-weight: bold;
+  font-size: 20px;
 }
 .info-graph{
   height: 300px;
   width: auto;
-}
-.lh-1{
-  margin-top: 0px;
-  font-size: 55px;
-  padding-top: 20vh;
-  line-height: 70px;
-  color: #ea993e;
-  font-weight: bold;
 }
 .token-info-background{
   background-color: #4a4a4a;
@@ -335,6 +319,39 @@ span.date{
 .token-info-background h3{
   font-weight: bold;
   font-size: 25px;
+}
+.telegram-img{
+  width: 50px;
+  margin-top: -10px;
+  margin-right: 15px;
+}
+.telegram{
+  font-size: 25px;
+  color: #000;;
+}
+.pos-bottom{
+  position: absolute;
+  bottom: 0;
+}
+.learn-more{
+  position: absolute;
+  width: 20vw;
+  left: 40%;
+  bottom: 0;
+}
+.consensys-landing-social{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding-bottom: 20px;
+  padding-left: 20px;
+}
+.consensys-landing-img{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding-bottom: 30px;
+  padding-right: 20px;
 }
 @media (max-width: 768px){
   .sub-header{

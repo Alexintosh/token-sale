@@ -13,19 +13,19 @@ export default class TokenInformation extends PureComponent{
                     FEE created proportional to platform volume.
                 </p>
                 <div className="row center-text">
-                    <div className="col-md-4">
+                    <div className="col-sm-4">
                         <div className="token-info-background">
                             <h3>250,000 ETH</h3>
                             <p>Contribution cap</p>
                         </div>
                     </div>
-                    <div className="col-md-4">
+                    <div className="col-sm-4">
                         <div className="token-info-background">
                             <h3>3,000 TOKENS/1 ETH</h3>
                             <p>Conversion Ratio</p>
                         </div>
                     </div>
-                    <div className="col-md-4">
+                    <div className="col-sm-4">
                         <div className="token-info-background">
                             <h3>1,000,000,000</h3>
                             <p>Total Tokens Supply</p>

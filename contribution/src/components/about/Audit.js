@@ -6,7 +6,7 @@ export default class Audit extends PureComponent{
         return(
             <section id="audit" className="about-card h-50">
                 <div className="row">
-                    <div className="col-md-10">
+                    <div className="col-sm-10">
                         <h2 className="sub-header-large"><span>CODE AUDIT</span></h2>
                         <p className="fs-30"><img src={diligence} alt="ConsenSys Diligence" className="diligence-img" />Consensys Diligence - Security Audit</p>
                         <p>The code has been reviewed by ConsenSys Diligence. The Leverj Token Sale smart contract has been audited and tested. The contracts can be view on github.</p>

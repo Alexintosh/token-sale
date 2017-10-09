@@ -14,9 +14,9 @@ export default class About extends PureComponent {
                 <div className="container-fluid">
                     <StickyNavigation history={this.props.history} />
                     <div className="row">
-                        <div className="col-md-9 col-md-offset-3">
+                        <div className="col-sm-9 col-sm-offset-3">
                             <div className="row">
-                                <div className="col-md-11">
+                                <div className="col-sm-11">
                                     <Overview />
                                     <Information />
                                     <Contribute />

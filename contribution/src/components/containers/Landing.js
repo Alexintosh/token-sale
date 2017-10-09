@@ -100,7 +100,7 @@ export default class Landing extends Component{
         return(
             <section id="landing-registration">
                 <div className="container-fluid center-text">
-                    <div className="h-90">
+                    <div className="h-85">
                         <h1 className="lh-1">LEV Token Sale Starts: </h1>
                         <h2 className="fs-50 lh-70 mt-0">November 7th 9am PST</h2>
                         <div className="timer">
@@ -127,7 +127,7 @@ export default class Landing extends Component{
                                         </div>
                                         <span className="fs-70">:</span>
                                     </div>
-                                    <p className="fs-20">Days</p>
+                                    <p className="fs-20">Hours</p>
                                 </div>
                                 <div className="inline-block">
                                     <div className="inline-block">
@@ -147,7 +147,7 @@ export default class Landing extends Component{
                                         </div>
                                         <div className="countdown-number">
                                             {this.state.seconds2}
-                                        </div>
+                                        </div><span className="fs-70"></span>
                                     </div>
                                     <p className="fs-20">Seconds</p>
                                 </div>
@@ -158,26 +158,18 @@ export default class Landing extends Component{
                         <a href="https://leverj.io/whitepaper.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-landing mv-20">READ WHITEPAPER</a>
                         <a href="https://www.youtube.com/watch?v=XKzOqrbvsKQ" target="_blank" rel="noopener noreferrer" className="btn btn-landing mv-20">WATCH THE VIDEO</a>
                     </div>
-                    <div className="h-10">
-                        <div className="row">
-                            <div className="col-md-4 col-sm-12">
-                                <Social />
-                            </div>
-                            <div className="col-md-4 col-sm-12">
-                                <div><span className="fs-20 clickable" onClick={() => this.scrollDown()}>Learn More</span></div>
-                                <div><span className="clickable" onClick={() => this.scrollDown()}><i className="fa fa-angle-down fs-70" aria-hidden="true"></i></span></div>
-                            </div>
-                            <div className="col-sm-4 hide-on-xs">
-                                <div className="row">
-                                    <div className="col-sm-6 text-right">
-                                        <img src={consensys} alt="Consensys logo" className="landing-img" />
-                                    </div>
-                                    <div className="col-sm-6 text-left">
-                                        <p className="mb-0">Supported by</p>
-                                        <p className="fs-25">ConsenSys</p>
-                                    </div>
-                                </div>
-                            </div>
+                    <div className="h-15 hide-on-xs">
+                        <div className="consensys-landing-social">
+                            <Social />
+                        </div>
+                        <div className="learn-more">
+                            <p className="fs-20 clickable mb-0" onClick={() => this.scrollDown()}>Learn More</p>
+                            <p className="clickable" onClick={() => this.scrollDown()}><i className="fa fa-angle-down fs-70" aria-hidden="true"></i></p>
+                        </div>
+                        <div className="consensys-landing-img">
+                            <img src={consensys} alt="Consensys logo" className="landing-img" />
+                            <p className="mb-0">Supported by</p>
+                            <p className="fs-25 mb-0">ConsenSys</p>
                         </div>
                     </div>
                 </div>

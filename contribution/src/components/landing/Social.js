@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import join                     from '../../public/img/join_telegram.png'; 
 
 export default class Social extends PureComponent{
     render(){
@@ -6,9 +7,9 @@ export default class Social extends PureComponent{
             <section id="social-tags">
                 <div className="landing-social text-left">
                     <a href="https://t.me/joinchat/C-gLzkMqKr1zmoeS-ZQePg" target="_blank" title="Telegram" rel="noopener noreferrer">
-                        <i className="fa fa-send"></i>
+                        <img src={join} alt="Join Telegram" className="telegram-img" />
+                        <span className="telegram fs-25">Join the convo on Telegram</span>
                     </a>
-                    <span className="telegram fs-30">Join the convo on Telegram</span>
                 </div>
             </section>
         )

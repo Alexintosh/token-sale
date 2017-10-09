@@ -11,7 +11,7 @@ export default class TokenLockup extends PureComponent{
                     Early exit of the core team also impacts the success of the project and thereby the value of the token.
                 </p>
                 <div className="row">
-                    <div className="col-md-6">
+                    <div className="col-sm-6">
                         <table className="no-table">
                             <thead>
                                 <tr>

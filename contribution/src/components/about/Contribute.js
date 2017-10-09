@@ -8,7 +8,7 @@ export default class Contribute extends PureComponent {
         return(
             <section id="contribute" className="pt-100 about-card">
                 <div className="row">
-                    <div className="col-md-10">
+                    <div className="col-sm-10">
                         <h2 className="sub-header-large"><span>HOW TO CONTRIBUTE</span></h2>
                         <p className="font-bold">
                             You can participate to the token sale through MyEtherWallet or MetaMask for detailed instructions 
@@ -45,7 +45,7 @@ export default class Contribute extends PureComponent {
                             </li>
                         </ul>
                     </div>
-                    <div className="col-md-2 center-text">
+                    <div className="col-sm-2 center-text">
                         <div className="pt-80">
                             <img src={metamask} className="contribute-img" alt="MetaMask" />
                             <p className="fs-20 font-bold pt-10">MetaMask</p>

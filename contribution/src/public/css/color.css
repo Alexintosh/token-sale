@@ -134,9 +134,8 @@
     color: #666 !important;
 }
 #footer{
-    background-color: #151515;
+    background-color: #4A4A4A;
     color: #FFF;
-    padding-bottom: 60px;
 }
 #footer .container{
     padding: 50px;
@@ -199,24 +198,14 @@
     color: #333;
 }
 .landing-social i:hover{
-    color: #FF9720;
+    color: #fd8900;
 }
 .landing-social-stuck i{
     font-size: 50px;
     color: #333;
 }
 .landing-social-stuck i:hover{
-    color: #FF9720;
-}
-.whitepaper-background{
-    padding-top: 40px;
-    padding-bottom: 40px;
-    color: #fff;
-    background: #ea993e; /* For browsers that do not support gradients */
-    background: -webkit-linear-gradient(left top, #ebb063, #ea993e); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(bottom right, #ebb063, #ea993e); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(bottom right, #ebb063, #ea993e); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(to bottom right, #ebb063, #ea993e); /* Standard syntax */
+    color: #fd8900;
 }
 .whitepaper-link{
     padding-top: 5px;
@@ -233,6 +222,14 @@
 }
 .sub-header span, .sub-header-large span{ 
     border-bottom: 3px solid #fd8900;
+}
+.lh-1{
+  margin-top: 0px;
+  font-size: 55px;
+  padding-top: 20vh;
+  line-height: 70px;
+  color: #fd8900;
+  font-weight: bold;
 }
 @media (max-width: 700px){
     .btn-white-1 {
