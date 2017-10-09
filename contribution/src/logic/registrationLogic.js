@@ -46,6 +46,8 @@ const userRegister = createLogic({
             const errors = validate(reg, sale, addr);
             if(errors.length === 0){
 
+                console.log('submit registration logic: sale.recaptchaUserResponse=' + sale.recaptchaUserResponse);
+
                 const result = await axios.post(APIEndpoint + '/api/register',{
                     access_id: sale.accessId,
                     api_token: sale.apiToken,
@@ -55,7 +57,7 @@ const userRegister = createLogic({
                     country: reg.contactCountry,
                     amount: reg.purchaseSize,
                     check: reg.countryCheck,
-                    user_response: reg.captchaPassed
+                    user_response: sale.recaptchaUserResponse
                 })
                 console.log(result);
                 dispatch(resetFormSteps())

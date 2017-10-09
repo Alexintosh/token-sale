@@ -10,7 +10,8 @@ import { selectContactAddress,
          selectPurchaseSizeCheck }  from '../../../selectors';
 import { updateRegisterFormField }  from '../../../actions/registrationActions';
 import { updateRecaptchaResponse,
-         fetchCaptchaResponse }     from '../../../actions/saleActions';
+         fetchCaptchaResponse,
+         setRecaptchaPassed }     from '../../../actions/saleActions';
 import metamask                     from '../../../public/img/metamask.png';
 import mew                          from '../../../public/img/mew.png';
 import pdf                          from '../../../public/documents/LEV_Token_Purchase_Instructions.pdf'
@@ -19,7 +20,8 @@ class Step2 extends PureComponent{
     onRecaptchaChange(value) {
         var userResponse = value;
         this.props.updateRecaptchaResp(userResponse);
-        this.props.fetchCaptchaResponse(userResponse, this.props.accessId, this.props.apiToken);
+        this.props.updateRecaptchaPassed();
+        //this.props.fetchCaptchaResponse(userResponse, this.props.accessId, this.props.apiToken);
     }
     render(){
         return(
@@ -90,6 +92,9 @@ const mapDispatchToProps = dispatch => {
      },
      fetchCaptchaResponse: (userResponse, accessID, apiToken) => {
          dispatch(fetchCaptchaResponse(userResponse, accessID, apiToken))
+     },
+     updateRecaptchaPassed: ()=>{
+        dispatch(setRecaptchaPassed(true));
      }
    }       
 }
