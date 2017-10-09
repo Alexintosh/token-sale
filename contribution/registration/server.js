@@ -23,12 +23,12 @@ app.use(cors({origin: '*'})); //TODO:should change this for deployment
 app.enable('trust proxy');
 var limiter = new RateLimit({
 	windowMs: 15*60*1000, // 15 minutes 
-	max: 2, // limit each IP to 2 requests per windowMs 
+	max: 10, // limit each IP to 10 requests per windowMs 
 	delayMs: 0 // disable delaying - full speed until the max limit is reached 
 });
 app.use(limiter);
 
-app.post('/api/register_client', (req, res)=>{
+app.post('/api/register_client', async (req, res)=>{
 
 	if(!checkRequestHeaders(req.headers)){
 		res.status(401);
@@ -49,7 +49,7 @@ app.post('/api/register_client', (req, res)=>{
 	res.send(api_token);
 })
 
-app.post('/api/check-recaptcha', (req, res) => {
+app.post('/api/check-recaptcha', async (req, res) => {
 
 	if(!checkRequestHeaders(req.headers)){
 		res.status(401);
@@ -57,12 +57,12 @@ app.post('/api/check-recaptcha', (req, res) => {
 		return;
 	}
     
-    	console.log('api/email-registration: received access id: ' + req.body.access_id);
-    	console.log('api/email-registration: received api token: ' + req.body.api_token);
-    	console.log('api/email-registration: existing token: ' + tokenMap.get(req.body.access_id));
+    	console.log('api/check-recaptcha: received access id: ' + req.body.access_id);
+    	console.log('api/check-recaptcha: received api token: ' + req.body.api_token);
+    	console.log('api/check-recaptcha: existing token: ' + tokenMap.get(req.body.access_id));
 	
 	if(req.body.api_token != tokenMap.get(req.body.access_id)){
-		console.log('api/email-registration: 401 due to token issue');
+		console.log('api/check-recaptcha: 401 due to token issue');
 		res.status(401);
 		res.send('unauthorized');
 		return;
@@ -82,7 +82,7 @@ app.post('/api/check-recaptcha', (req, res) => {
 	})	
 })
 
-app.post('/api/email-registration',(req, res) => {
+app.post('/api/email-registration',async (req, res) => {
 	
 	if(!checkRequestHeaders(req.headers)){
 		res.status(401);
@@ -111,7 +111,7 @@ app.post('/api/email-registration',(req, res) => {
 
 });
 
-app.post('/api/register',(req, res) => {
+app.post('/api/register', async (req, res) => {
 
 	if(!checkRequestHeaders(req.headers)){
 		console.log('api/register: 401 due to request headers');
@@ -182,9 +182,9 @@ function checkRequestHeaders(req_headers){
 	console.log('req.headers.host:  ' + req_headers.host);
 	console.log('req.headers[\'x-forwarded-host\']:  ' + req_headers['x-forwarded-host']);
 
-	var targetOrigin = process.env.NODE_ENV=='prod' ? 'https://register.leverj.io' : (process.env.NODE_ENV =='test' ? 'https://leverj.test.tokenry.ca' : 'http://localhost:3000');
-	var targetReferer = process.env.NODE_ENV=='prod' ? 'https://register.leverj.io/' : (process.env.NODE_ENV=='test' ? 'https://leverj.test.tokenry.ca/ ' : 'http://localhost:3000/');
-	var targetHost = process.env.NODE_ENV=='prod' ? 'api.leverj.tokenry.io' : (process.env.NODE_ENV=='test' ? 'api.leverj.test.tokenry.ca' : 'localhost:8080');
+	var targetOrigin = process.env.NODE_ENV=='prod' ? 'https://register.leverj.io' : (process.env.NODE_ENV =='test' ? 'https://leverj-test.tokenry.io' : 'http://localhost:3000');
+	var targetReferer = process.env.NODE_ENV=='prod' ? 'https://register.leverj.io/' : (process.env.NODE_ENV=='test' ? 'https://leverj-test.tokenry.io/ ' : 'http://localhost:3000/');
+	var targetHost = process.env.NODE_ENV=='prod' ? 'api.leverj.tokenry.io' : (process.env.NODE_ENV=='test' ? 'leverj-test-api.tokenry.io' : 'localhost:8080');
 
 	console.log('targetOrigin: ' + targetOrigin);
 	console.log('targetReferer: ' + targetReferer);
