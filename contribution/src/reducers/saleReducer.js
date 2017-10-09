@@ -11,7 +11,7 @@
     userRegistered: false,
     termsConditions: false,
     recaptchaUserResponse: '',
-    captchaPassed: true, //this should be set to false in non-dev environments 
+    captchaPassed: false, //this should be set to false in non-dev environments 
     error: null
   };
   
