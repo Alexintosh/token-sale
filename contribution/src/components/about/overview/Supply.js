@@ -6,15 +6,15 @@ export default class Supply extends PureComponent {
             <section id="supply" className="supply-component">
                 <div className="row">
                     <div className="col-md-4">
-                        <h3>10,000 ETH</h3>
-                        <p>Contribution cap (about $20M)</p>
+                        <h3>250,000 ETH</h3>
+                        <p>Contribution cap</p>
                     </div>
                     <div className="col-md-4">
-                        <h3>2,000 TOKENS/1 ETH</h3>
+                        <h3>3,000 TOKENS/1 ETH</h3>
                         <p>Conversion Ratio</p>
                     </div>
                     <div className="col-md-4">
-                        <h3>100,000</h3>
+                        <h3>1,000,000,000</h3>
                         <p>Total Tokens Supply</p>
                     </div>
                 </div>

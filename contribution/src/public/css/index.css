@@ -279,6 +279,10 @@ span.date{
   width: 110px;
   display: inline-block;
 }
+.info-graph{
+  height: 300px;
+  width: auto;
+}
 @media (max-width: 768px){
   .sub-header{
     font-size: 30px;

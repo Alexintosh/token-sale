@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import ownership                from '../../../public/img/token_ownership.png';
 
 export default class TokenSupply extends PureComponent{
     render(){
@@ -15,7 +16,7 @@ export default class TokenSupply extends PureComponent{
                         </p>
                     </div>
                     <div className="col-md-7">
-
+                        <img src={ownership} alt="Token Ownership" className="info-graph" />
                     </div>
                 </div>
             </div>
