@@ -1,7 +1,8 @@
 import React, { PureComponent } from 'react';
 import About                    from './About';
 import Landing                  from './Landing';
-import MobileNav                   from '../utils/Mobile';
+import MobileNav                from '../utils/Mobile';
+import MobileFooter             from '../utils/MobileFooter';
 
 export default class LandingPage extends PureComponent {
     render(){
@@ -10,6 +11,7 @@ export default class LandingPage extends PureComponent {
                 <MobileNav />
                 <Landing history={this.props.history} />
                 <About history={this.props.history} />
+                <MobileFooter history={this.props.history} />
             </section>
         )
     }

@@ -374,7 +374,7 @@ span.date{
 .mobile-nav{
   display: none;
 }
-.mobile-nav-hidden{
+.mobile-footer{
   display: none;
 }
 .bm-burger-button {
@@ -439,19 +439,6 @@ span.date{
   top: 0;
   right: 0;
 }
-.mobile-nav-pan ul{
-  list-style: none;
-  padding-left: 0px;
-}
-.mobile-nav-pan a{
-  width: 100%;
-}
-.mobile-nav-pan-closed{ 
-  width: 100%; height: 100%; background: rgba(0, 0, 0, 0.3); opacity: 0; transition: opacity 0.3s, transform 0s 0.3s; transform: translate3d(100%, 0px, 0px);
-}
-.mobile-nav-pan-open{
-
-}
 @media (max-width: 768px){
   th{
     font-size: 18px;
@@ -466,6 +453,34 @@ span.date{
   }
   .diligence-text{
     font-size: 18px;
+  }
+  .btn-footer{
+      width: 100%;
+      font-size: 30px;
+      border-radius: 0px;
+      padding: 15px;
+      color: #fff;
+      background: #ea993e; /* For browsers that do not support gradients */
+      background: -webkit-linear-gradient(left top, #ebb063, #ea993e); /* For Safari 5.1 to 6.0 */
+      background: -o-linear-gradient(bottom right, #ebb063, #ea993e); /* For Opera 11.1 to 12.0 */
+      background: -moz-linear-gradient(bottom right, #ebb063, #ea993e); /* For Firefox 3.6 to 15 */
+      background: linear-gradient(to bottom right, #ebb063, #ea993e); /* Standard syntax */
+  }
+  .btn-footer:hover {
+      color: #fff;
+      background: #fd8900; /* For browsers that do not support gradients */
+      background: -webkit-linear-gradient(left top, #ebb063, #fd8900); /* For Safari 5.1 to 6.0 */
+      background: -o-linear-gradient(bottom right, #ebb063, #fd8900); /* For Opera 11.1 to 12.0 */
+      background: -moz-linear-gradient(bottom right, #ebb063, #fd8900); /* For Firefox 3.6 to 15 */
+      background: linear-gradient(to bottom right, #ebb063, #fd8900); /* Standard syntax */    
+  }
+  .mobile-footer{
+    display: block;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
   }
   .mobile-nav{
     display: block;
