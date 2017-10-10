@@ -18,7 +18,6 @@ export default class About extends Component {
     componentDidMount(){
         window.addEventListener('scroll', ()=>{
             var domReact = this.refs.aboutContainer.getBoundingClientRect();
-            console.log(domReact.bottom);
             if(domReact.bottom <= 1100){
                 this.setState({
                     bottom: true

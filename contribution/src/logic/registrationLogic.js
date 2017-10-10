@@ -15,8 +15,7 @@ const emailRegistration = createLogic({
     async process({ getState, action, APIEndpoint }, dispatch, done){
         try {
             if(validator.isEmail(getState().register.contactEmailName)){
-                const result = await axios.post(APIEndpoint + '/api/email-registration',{ email: getState().register.contactEmailName });
-                console.log(result);
+                await axios.post(APIEndpoint + '/api/email-registration',{ email: getState().register.contactEmailName });
                 action.history.push('/email-signup');
                 dispatch(submitEmailFormSuccess())
             }else{
@@ -40,9 +39,7 @@ const userRegister = createLogic({
             const errors = validate(reg, sale);
             if(errors.length === 0){
 
-                console.log('submit registration logic: sale.recaptchaUserResponse=' + sale.recaptchaUserResponse);
-
-                const result = await axios.post(APIEndpoint + '/api/register',{
+                await axios.post(APIEndpoint + '/api/register',{
                     access_id: sale.accessId,
                     api_token: sale.apiToken,
                     name: reg.contactFirstName,
@@ -53,7 +50,6 @@ const userRegister = createLogic({
                     check: reg.countryCheck,
                     user_response: sale.recaptchaUserResponse
                 })
-                console.log(result);
                 dispatch(resetFormSteps())
                 dispatch(changeFormStep('step4'))
                 done();
