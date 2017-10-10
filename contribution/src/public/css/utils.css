@@ -306,7 +306,7 @@ th{
     .about-card{
         padding: 5px 10px;
         border: none;
-        background-color: none;
+        background-color: #fff;
     }
     .about-card ul{
         padding-left: 0px;
