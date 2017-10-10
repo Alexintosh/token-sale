@@ -22,7 +22,7 @@ export default class Whitepaper extends PureComponent {
     }
     render(){
         return (
-            <section id="whitepaper-container" className="about-card">
+            <section id="whitepaper" className="about-card">
                 <h2 className="sub-header-large"><span>WHITEPAPER & OTHER INFO</span></h2>
                 <div className="row pv-20">
                     <div className="col-sm-4 pt-10">
