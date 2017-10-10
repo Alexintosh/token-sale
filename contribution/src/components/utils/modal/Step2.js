@@ -21,7 +21,7 @@ class Step2 extends PureComponent{
         return(
             <div className={this.props.step2 ? '' : 'hide' }>
                 <p className="modal-p center-text">Enter Ether Wallet Address</p>
-                <p>Please enter the Ether Wallet Address that you will be making your contribution from</p>                
+                <p>The Leverj public sale will only accept contributions from MyEtherWallet or MetaMask. Please only add a wallet address from one of those 2 applications, otherwise you won't be able to make a contribution.</p>                
                 <div className="pt-20">
                     <img src={mew} className="contribute-details-img" alt="My Ether Wallet" />
                     <span className="fs-20 font-bold pt-10 pl-20">My Ether Wallet</span>
