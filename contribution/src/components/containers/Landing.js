@@ -102,7 +102,7 @@ export default class Landing extends Component{
                 <div className="container-fluid center-text">
                     <div className="h-85">
                         <h1 className="lh-1">LEV Token Sale Starts: </h1>
-                        <h2 className="fs-50 lh-70 mt-0">November 7th 9am PST</h2>
+                        <h2 className="lh-2">November 7th 9am PST</h2>
                         <div className="timer">
                             <div className="center-text">
                                 <div className="inline-block">
@@ -115,7 +115,7 @@ export default class Landing extends Component{
                                         </div>
                                         <span className="fs-70">:</span>
                                     </div>
-                                    <p className="fs-20">Days</p>
+                                    <p className="countdown-letter">Days</p>
                                 </div>
                                 <div className="inline-block">
                                     <div className="inline-block">
@@ -127,7 +127,7 @@ export default class Landing extends Component{
                                         </div>
                                         <span className="fs-70">:</span>
                                     </div>
-                                    <p className="fs-20">Hours</p>
+                                    <p className="countdown-letter">Hours</p>
                                 </div>
                                 <div className="inline-block">
                                     <div className="inline-block">
@@ -138,7 +138,7 @@ export default class Landing extends Component{
                                             {this.state.minutes2}
                                         </div><span className="fs-70">:</span>
                                     </div>
-                                    <p className="fs-20">Minutes</p>
+                                    <p className="countdown-letter">Minutes</p>
                                 </div>
                                 <div className="inline-block">
                                     <div className="inline-block">
@@ -149,7 +149,7 @@ export default class Landing extends Component{
                                             {this.state.seconds2}
                                         </div><span className="fs-70"></span>
                                     </div>
-                                    <p className="fs-20">Seconds</p>
+                                    <p className="countdown-letter">Seconds</p>
                                 </div>
                             </div>
                         </div>

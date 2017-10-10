@@ -4,7 +4,7 @@ export default class ContributeDetail extends PureComponent{
     render(){
         return(
             <section id="contribute-detail">
-                <h3 className="font-bold">Contribute to LEV</h3>
+                <h3 className="font-bold contribute-mobile">Contribute to LEV</h3>
                 <p>
                     LeverJ decentralizes the most desirable features of derivatives trading by implementing them in cryptocurrencies and eliminating points of friction. 
                     With a tight focus on derivatives trading and the supporting ecosystem, LeverJ has taken the approach of defining the product first. 

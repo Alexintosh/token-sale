@@ -18,7 +18,7 @@ export default class Contribute extends PureComponent {
                             click the Reveal Smart Contract Address button above, and accept GRID token purchase agreement . The button will remain
                             disabled until shortly before the token launch goes live.
                         </p>
-                        <p>IMPORTANT NOTES</p>
+                        <p className="important-notes">IMPORTANT NOTES</p>
                         <ul>
                             <li>
                                 Do not send ETH directly to the GRID token sale contract address. Please follow instruction below on how to properly execute
@@ -46,7 +46,7 @@ export default class Contribute extends PureComponent {
                         </ul>
                     </div>
                     <div className="col-sm-2 center-text">
-                        <div className="pt-80">
+                        <div className="contribute-img">
                             <img src={metamask} className="contribute-img" alt="MetaMask" />
                             <p className="fs-20 font-bold pt-10">MetaMask</p>
                             <img src={mew} className="contribute-img" alt="My Ether Wallet" />

@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import TopBar                   from './TopBar';
 import AboutNavigation          from './AboutNavigation';
+import Mobile                   from '../utils/Mobile';
 
 export default class StickyNavigation extends PureComponent{
     constructor(){
@@ -25,11 +26,14 @@ export default class StickyNavigation extends PureComponent{
     }
     render(){
         return(
-            <section id="stickyNav" ref="stickyNav" className="pos-absolute hide-on-xs">
-                <TopBar stuck={this.state.stuck} history={this.props.history} />
-                <AboutNavigation stuck={this.state.stuck} />
-                {/*<BottomBar stuck={this.state.stuck} />*/}
-            </section>
+            <div>
+                <Mobile stuck={this.state.stuck} />
+                <section id="stickyNav" ref="stickyNav" className="pos-absolute hide-on-xs">
+                    <TopBar stuck={this.state.stuck} history={this.props.history} />
+                    <AboutNavigation stuck={this.state.stuck} />
+                    {/*<BottomBar stuck={this.state.stuck} />*/}
+                </section>
+            </div>
         )
     }
 }

@@ -297,6 +297,21 @@ th{
     .fs-50{
         font-size: 40px;
     }
+    .about-card{
+        padding: 5px 10px;
+        border: none;
+        background-color: none;
+    }
+    .about-card ul{
+        padding-left: 0px;
+    }
+    .about-card li{
+        list-style: none;
+        text-align: center;
+    }
+    .globe{
+        background-image: none;
+    }
 }
 @media (min-width: 768px){
     body{

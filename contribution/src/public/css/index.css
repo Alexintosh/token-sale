@@ -124,6 +124,16 @@ body {
   font-size: 30px;
   font-weight: bold;
 }
+.nav-header-mobile{
+  font-size: 40px;
+  font-weight: bold;
+  padding-top: 18px;
+  padding-left: 15px;
+}
+.mobile-nav{
+  background-color: #fff;
+  width: 100%;
+}
 #thank-you{
   padding-top: 100px;
 }
@@ -353,11 +363,143 @@ span.date{
   padding-bottom: 30px;
   padding-right: 20px;
 }
+.countdown-letter{
+  font-size: 20px;
+}
+.lh-2{
+  font-size: 50px;
+  line-height: 70px;
+  margin-top: 0px;
+}
+.mobile-nav{
+  display: none;
+}
+.mobile-nav-hidden{
+  display: none;
+}
+.bm-burger-button {
+  position: fixed;
+  width: 36px;
+  height: 30px;
+  right: 20px;
+  top: 28px;
+}
+.bm-burger-bars {
+  background: #fd8900;
+}
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+}
+.bm-cross {
+  background: #bdc3c7;
+}
+.bm-menu {
+  background: #373a47;
+  padding: 2.5em 1.5em 0;
+  font-size: 1.15em;
+}
+.bm-morph-shape {
+  fill: #373a47;
+}
+.bm-item-list {
+  color: #b8b7ad;
+  padding: 0.8em;
+}
+.bm-overlay {
+  background: rgba(0, 0, 0, 0.3);
+}
+.diligence-text{
+  font-size: 30px;
+}
+.contribute-img{
+  padding-top: 80px;
+}
 @media (max-width: 768px){
+  th{
+    font-size: 18px;
+  }
+  tr{
+    font-size: 16px;
+  }
+  .contribute-img{
+    padding-top: 10px;
+    margin: 0 auto;
+    width: 100px;
+  }
+  .diligence-text{
+    font-size: 18px;
+  }
+  .mobile-nav{
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+  }
   .sub-header{
-    font-size: 30px;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
   }
   .sub-header-large{
-    font-size: 40px;
+    font-size: 25px;
+    line-height: 30px;
+    text-align: center;
+  }
+  .countdown-number{
+    width: 35px;
+    height: 40px;
+    line-height: 40px;
+    margin-left: 2px;
+    margin-right: 2px;
+    font-size: 30px;
+  }
+  .countdown-letter{
+    font-size: 14px;
+  }
+  .lh-2{
+    font-size: 30px;
+    line-height: 40px;
+  }
+  #sale-header{
+    position: fixed;
+  }
+  .nav-header{
+    display: none;
+  }
+  .github{
+    font-size: 18px;
+  }
+  .accordian-header{
+    font-size: 20px;
+    padding: 10px;
+  }
+  .accordian-header i {
+    font-size: 20px;
+    padding-top: 6px;
+  }
+  .important-notes{
+    text-align: center;
+    color: #fd8900;
+    font-weight: bold;
+  }
+  .info-graph{
+    height: 200px;
+    width: auto;
+  }
+  .contribute-mobile{
+    color: #fd8900;
+    text-align: center;
+  }
+  .token-info-background{
+    border-radius: 5px;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  .token-info-background h3{
+    font-size: 20px;
   }
 }

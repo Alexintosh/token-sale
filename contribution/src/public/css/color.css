@@ -236,3 +236,19 @@
         padding: 20px 20px;
     }
 }
+@media (max-width: 768px){
+    .lh-1{
+        font-size: 35px;
+    }
+    .btn-register-landing{
+        padding: 15px 15px;
+        font-size: 20px;
+    }
+    .btn-landing {
+        font-size: 20px;
+    }
+    .about-background{
+      background-color: #fff;
+    }
+    
+}
