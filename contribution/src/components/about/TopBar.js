@@ -35,7 +35,7 @@ export default class TopBar extends PureComponent{
     }
     countdown(){
         var oneDay=1000*60*60*24;
-        var endDate = new Date(2017,10,12,12);
+        var endDate = new Date(2017,10,7,12);
         var todaysDate = new Date();
         var difference = endDate - todaysDate;
         var time = (difference/oneDay);
