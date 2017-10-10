@@ -415,6 +415,25 @@ span.date{
 .contribute-img{
   padding-top: 80px;
 }
+.bm-menu-wrap{
+  background-color: #fff;
+}
+.bm-menu{
+  background-color: #fff;
+}
+.menu-item{
+  width: 100%;
+  background-color: #fff;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-top: 10px;
+  border: 1px solid rgba(119, 119, 119, 0.5);
+  border-radius: 5px;
+  text-align: center;
+  color: #333;
+  cursor: pointer;
+  font-size: 20px;
+}
 @media (max-width: 768px){
   th{
     font-size: 18px;

@@ -13,11 +13,6 @@ export default class AboutNavigation extends PureComponent {
                     <li key={uuidv4()}><a href="#whitepaper"><i className="fa fa-circle nav-circle" aria-hidden="true"></i>WHITEPAPER</a></li>
                     <li key={uuidv4()}><a href="#audit"><i className="fa fa-circle nav-circle" aria-hidden="true"></i>CODE AUDIT</a></li>
                     <li key={uuidv4()}><a href="#faq"><i className="fa fa-circle nav-circle" aria-hidden="true"></i>FAQ</a></li>
-                    <li key={uuidv4()}>
-                        <a href="https://t.me/joinchat/C-gLzkMqKr1zmoeS-ZQePg" target="_blank" title="Telegram" rel="noopener noreferrer">
-                            <i className="fa fa-circle nav-circle" aria-hidden="true"></i>CHAT
-                        </a>
-                    </li>
                 </Scrollspy>
             </section>
         )
