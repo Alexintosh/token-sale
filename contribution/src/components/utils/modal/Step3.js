@@ -37,7 +37,7 @@ class Step3 extends PureComponent{
                 <ReCAPTCHA className="center-text" ref="recaptcha" sitekey="6LcUYDIUAAAAACW2oe-ShyAVAVhuJJ2efpFjWziG" onChange={this.onRecaptchaChange.bind(this)}/>
 
                 <div className="pt-20 center-text">
-                    <button onClick={(e) => {e.preventDefault(); this.props.submit()}} className="btn btn-register-sm">COMPLETE REGISTRATION</button>
+                    <div onClick={(e) => {e.preventDefault(); this.props.submit()}} className="btn btn-register-complete">COMPLETE REGISTRATION</div>
                 </div>
             </div>
         )

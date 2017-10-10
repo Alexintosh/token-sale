@@ -137,18 +137,21 @@ export default class TopBar extends PureComponent{
                             </div>
 
                             <div className="inline-block">
+                                <div className="inline-block">
                                 <div className="countdown-number-stuck">
                                     {this.state.seconds1}
                                 </div>
                                 <div className="countdown-number-stuck">
                                     {this.state.seconds2}
                                 </div>
+                                    <span className="fs-40"></span>
+                                </div>
                                 <p>Seconds</p>
                             </div>
                         </div>
                     </div>
                     <div className="topbar-register pull-right">
-                        <button onClick={()=> this.displayModal()} className="btn btn-register-sm">REGISTER</button>
+                        <div onClick={()=> this.displayModal()} className="btn btn-register-sm">REGISTER</div>
                     </div>
                 </div>
                 <SignupModal display={ this.state.display } hide={() => this.hideModal()}  history={this.props.history} />

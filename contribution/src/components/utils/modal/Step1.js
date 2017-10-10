@@ -74,7 +74,7 @@ class Step1 extends Component{
                 </label>
                 <div id="_termsCheck" className={"warning-text" + (this.props.termsCheckValidation ? ' hidden' : '')}>You may only proceed if you agree to the terms and conditions</div>
                 <div className="pt-20 center-text">
-                    <button onClick={(e) => {e.preventDefault(); this.props.validateFields()}} className="btn btn-register-sm">NEXT</button>
+                    <div onClick={(e) => {e.preventDefault(); this.props.validateFields()}} className="btn btn-register-next">NEXT</div>
                 </div>
             </div>
         )

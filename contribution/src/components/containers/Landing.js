@@ -153,7 +153,7 @@ export default class Landing extends Component{
                                 </div>
                             </div>
                         </div>
-                        <button onClick={()=> this.displayModal()} className="btn btn-register-landing mv-20">REGISTER NOW FOR EARLY ACCESS</button>
+                        <div onClick={()=> this.displayModal()} className="btn btn-register-landing mv-20">REGISTER NOW FOR EARLY ACCESS</div>
                         <br />
                         <a href="https://leverj.io/whitepaper.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-landing mv-20">READ WHITEPAPER</a>
                         <a href="https://www.youtube.com/watch?v=XKzOqrbvsKQ" target="_blank" rel="noopener noreferrer" className="btn btn-landing mv-20">WATCH THE VIDEO</a>
