@@ -11,59 +11,44 @@ export default class Whitepaper extends PureComponent {
                     <div className="col-sm-4 pt-10">
                         <a href="https://leverj.io/whitepaper.pdf" target="_blank" rel="noopener noreferrer" className="white-paper">
                             <img src={ whitepaper } alt="Leverj Whitepaper" />
-                            English Whitepaper
+                            Whitepaper
                         </a>
                     </div>
                     <div className="col-sm-4 pt-10">
-                        <a href="https://leverj.io/whitepaper.pdf" target="_blank" rel="noopener noreferrer" className="white-paper">
-                            <img src={ yellowpaper } alt="Leverj Yellowpaper" />
-                            English Yellowpaper
+                        <a href="https://blog.leverj.io/" target="_blank" rel="noopener noreferrer" className="white-paper">
+                            <i className="fa fa-link fs-30 pr-10" aria-hidden="true"></i> Blog
                         </a>
                     </div>
-                    <div className="col-sm-4 pt-10">
-                        <a href="https://leverj.io/whitepaper.pdf" target="_blank" rel="noopener noreferrer" className="white-paper">
-                            <img src={ yellowpaper } alt="Leverj Yellowpaper" />
-                            English Yellowpaper
-                        </a>
-                    </div>
-                </div>
-                <div className="row pv-20">
-                    <div className="col-sm-4 pt-10">
-                        <a href="https://leverj.io/whitepaper.pdf" target="_blank" rel="noopener noreferrer" className="white-paper">
-                            <img src={ whitepaper } alt="Leverj Whitepaper" />
-                            Language1 Whitepaper
-                        </a>
-                    </div>
-                    <div className="col-sm-4 pt-10">
-                        <a href="https://leverj.io/whitepaper.pdf" target="_blank" rel="noopener noreferrer" className="white-paper">
-                            <img src={ yellowpaper } alt="Leverj Yellowpaper" />
-                            Language1 Yellowpaper
-                        </a>
-                    </div>
-                    <div className="col-sm-4 pt-10">
-                        <a href="https://leverj.io/whitepaper.pdf" target="_blank" rel="noopener noreferrer" className="white-paper">
-                            <img src={ yellowpaper } alt="Leverj Yellowpaper" />
-                            Language1 Yellowpaper
+                    <div className="col-sm-4">
+                        <a href="https://github.com/coinpit/token-sale" target="_blank" rel="noopener noreferrer" className="white-paper">
+                            <i className="fa fa-github fs-30 pr-10" aria-hidden="true"></i>
+                             GitHub repo (Coinpit)
                         </a>
                     </div>
                 </div>
                 <div className="row pv-20">
                     <div className="col-sm-4 pt-10">
-                        <a href="https://leverj.io/whitepaper.pdf" target="_blank" rel="noopener noreferrer" className="white-paper">
-                            <img src={ whitepaper } alt="Leverj Whitepaper" />
-                            Language2 Whitepaper
+                        <a href="https://leverj.io/LeverjProtocol.pdf" target="_blank" rel="noopener noreferrer" className="white-paper">
+                            <img src={ yellowpaper } alt="Leverj Yellowpaper" />
+                            Technical Protocol Paper
                         </a>
                     </div>
                     <div className="col-sm-4 pt-10">
-                        <a href="https://leverj.io/whitepaper.pdf" target="_blank" rel="noopener noreferrer" className="white-paper">
-                            <img src={ yellowpaper } alt="Leverj Yellowpaper" />
-                            Language2 Yellowpaper
+                        <a href="https://www.youtube.com/watch?v=miJ4zz87VIs" target="_blank" rel="noopener noreferrer" className="white-paper">
+                            <i className="fa fa-link fs-30 pr-10" aria-hidden="true"></i> CEO Interview
                         </a>
                     </div>
+                    <div className="col-sm-4">
+                        <a href="https://github.com/leverj/token-sale" target="_blank" rel="noopener noreferrer" className="white-paper">
+                            <i className="fa fa-github fs-30 pr-10" aria-hidden="true"></i>
+                             GitHub repo (Leverj)
+                        </a>
+                    </div>
+                </div>
+                <div className="row pv-20">
                     <div className="col-sm-4 pt-10">
-                        <a href="https://leverj.io/whitepaper.pdf" target="_blank" rel="noopener noreferrer" className="white-paper">
-                            <img src={ yellowpaper } alt="Leverj Yellowpaper" />
-                            Language2 Yellowpaper
+                        <a href="https://leverj.io/tc.html" target="_blank" rel="noopener noreferrer" className="white-paper">
+                            <i className="fa fa-link fs-30 pr-10" aria-hidden="true"></i> Terms and Conditions
                         </a>
                     </div>
                 </div>

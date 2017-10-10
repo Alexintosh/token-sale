@@ -283,6 +283,9 @@ th{
 .show-on-xs{
     display: none;
 }
+.display-none{
+    display: none;
+}
 @media (min-width: 992px) and (max-width: 1200px){
     .features-card{
         height: 450px;
@@ -317,6 +320,7 @@ th{
     .about-card li{
         list-style: none;
         text-align: center;
+        padding-top: 15px;
     }
     .globe{
         background-image: none;

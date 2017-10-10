@@ -28,7 +28,7 @@ export default class StickyNavigation extends PureComponent{
             <div>
                 <section id="stickyNav" ref="stickyNav" className="pos-absolute hide-on-xs">
                     <TopBar stuck={this.state.stuck} history={this.props.history} />
-                    <AboutNavigation stuck={this.state.stuck} />
+                    <AboutNavigation stuck={this.state.stuck} bottom={this.props.bottom} />
                     {/*<BottomBar stuck={this.state.stuck} />*/}
                 </section>
             </div>

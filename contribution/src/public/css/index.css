@@ -204,6 +204,7 @@ span.date{
 }
 .about-stuck{
   position: fixed;
+  height: 95%;
 }
 #topbar{
   z-index: 100;
@@ -353,7 +354,17 @@ span.date{
 }
 .telegram{
   font-size: 25px;
-  color: #000;;
+  color: #000;
+  border-bottom: 2px solid #000;
+}
+.telegram:hover{
+  border-bottom: none;
+}
+.view-on{
+  border-bottom: 2px solid #000;
+}
+.view-on:hover{
+  border-bottom: none;
 }
 .pos-bottom{
   position: absolute;
@@ -378,6 +389,14 @@ span.date{
   right: 0;
   padding-bottom: 30px;
   padding-right: 20px;
+}
+.consensys-about-img{
+  position: fixed;
+  text-align: center;
+  bottom: 0;
+  left: 0;
+  padding-bottom: 30px;
+  padding-left: 40px;
 }
 .countdown-letter{
   font-size: 20px;
@@ -429,7 +448,7 @@ span.date{
   font-size: 30px;
 }
 .contribute-img{
-  padding-top: 80px;
+  padding-top: 20px;
 }
 .bm-menu-wrap{
   background-color: #fff;
@@ -471,7 +490,8 @@ span.date{
   padding: 10px 20px;
   border-radius: 5px;
   border: 1px solid #ccc;
-  background-color: #fff;  
+  background-color: #fff;
+  height: 45px;
 }
 .selectDropdown:after{
   padding-right: 20px;
@@ -485,8 +505,13 @@ span.date{
     padding-right: 20px;
     text-align: center !important;
   }
+  .telegram-img{
+    width: 30px;
+    margin-top: -10px;
+    margin-right: 5px;
+  }
   .telegram{
-    font-size: 18px;
+    font-size: 16px;
   }
   .landing-container-large{
     height: 100vh;
@@ -564,7 +589,7 @@ span.date{
     margin-left: 2px;
     margin-right: 2px;
     font-size: 30px;
-    background-size: 60px 90px;
+    background-size: 35px 40px;
   }
   .countdown-letter{
     font-size: 14px;
@@ -618,5 +643,8 @@ span.date{
   }
   .center-mobile-h{
     text-align: center;
+  }
+  .left-mobile p, .left-mobile li{
+    text-align: left !important;
   }
 }

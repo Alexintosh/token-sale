@@ -11,34 +11,31 @@ export default class Contribute extends PureComponent {
                     <div className="col-sm-10">
                         <h2 className="sub-header-large"><span>HOW TO CONTRIBUTE</span></h2>
                         <p className="font-bold">
-                            You can participate to the token sale through MyEtherWallet or MetaMask for detailed instructions 
+                            You can contribute to the LEV token sale using MyEtherWallet or MetaMask. For detailed instructions  
                             <a href={pdf} target="_blank" rel="noopener noreferrer"> click on this PDF <i className="fa fa-file-pdf-o"></i></a></p>
-                        <p>To join the LEV token sale, you can purchase LEV tokens directly from the Token Sale smart contract. Check out this guide to
-                            learn how to purchase using MyEtherWallet, Mist, Parity and MetaMask. To view the LEV token sale smart contract address,
-                            click the Reveal Smart Contract Address button above, and accept LEV token purchase agreement . The button will remain
-                            disabled until shortly before the token launch goes live.
+                        <p>
+                            To join the Leverj token sale, you can purchase LEV tokens directly from the Token Sale smart contract. Check out this guide to learn how to purchase using MyEtherWallet and MetaMask. 
                         </p>
                         <p className="important-notes">IMPORTANT NOTES</p>
                         <ul>
                             <li>
-                                Do not send ETH directly to the LEV token sale contract address. Please follow instruction below on how to properly execute
-                                the purchaseTokens() smart contract function in order to purchase LEV tokens.
+                                Do not send ETH directly to the LEV token sale contract address. Please follow instruction below on how to properly execute the purchase Tokens() smart contract function in order to purchase LEV tokens.                            
                             </li>
                             <li>
                                 DO NOT send funds from exchanges such as Poloniex, Bitfinex, Bittrex, Coinbase, GDAX, etc. Your LEV may be lost if you do.
                             </li>
                             <li>
-                            Do not send ether before the specified start block number found above. You can view the last block number on etherscan.
+                                Do not send ether before the specified start block number, which will be announced and published on this page closer to the public sale date. 
                             </li>
                             <li>
-                                We recommend using the geth light client to avoid network congestion if you know how to use it. If you are new, read our guide
-                                on how to purchase using MyEtherWallet, Mist, Parity or MetaMask.
+                                We recommend using the geth light client to avoid network congestion if you know how to use it. If you are new, read our guide on how to purchase using MyEtherWallet or MetaMask.                            
                             </li>
                             <li>
                                 Only ETH is accepted. Do no try sending anything other than ETH. *Always double check addresses you are sending ETH to.
                             </li>
                             <li>
-                                By participating in the token sale, you agree to the LEV token purchase agreement.
+                                By participating in the token sale, you agree to the LEV token sale 
+                                <a href="https://leverj.io/tc.html" target="_blank" rel="noopener noreferrer"> terms and conditions.</a>
                             </li>
                             <li>
                                 All transactions sent to LEV token sale contract are viewable on etherscan website.

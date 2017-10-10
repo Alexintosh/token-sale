@@ -1,25 +1,19 @@
 import React, { PureComponent } from 'react';
-import ownership                from '../../../public/img/token_ownership.png';
 
 export default class TokenSupply extends PureComponent{
     render(){
         return(
-            <div className="about-card">
-                <h2 className="sub-header"><span>TOKEN SUPPLY/ BREAKDOWN OF OWNERSHIP</span></h2>
-                <div className="row">
-                    <div className="col-sm-5">
-                        <p>
-                            The following pie chart provides the breakup of the tokens
-                            distribution. All Tokens including pre-sale tokens are distributed
-                            via smart contract, audited by Consensys and managed by the
-                            independent escrow providers BraveNewCoin.com(BNC)
-                        </p>
-                    </div>
-                    <div className="col-sm-7 center-text">
-                        <img src={ownership} alt="Token Ownership" className="info-graph" />
-                    </div>
-                </div>
-            </div>
+            <section id="token-supply" className="about-card">
+                <h2 className="sub-header"><span>TOKEN SUPPLY</span></h2>
+                <ul>
+                    <li><b>1000</b> million Token Created</li>
+                    <li><b>400</b> million Available for purchase*</li>
+                    <li><b>200</b> million Founders</li>
+                    <li><b>300</b> million Liquidity and Operations</li>
+                    <li><b>100</b> million Partners</li>
+                </ul>
+                <p>*Unsold tokens will be locked for 12 months and be used for future marketing and partnerships</p>
+            </section>
         )
     }
 }
