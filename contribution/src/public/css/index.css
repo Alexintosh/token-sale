@@ -97,9 +97,6 @@ body {
 #about-nav{
   top: 30px;
 }
-#whitepaper a, #whitepaper div{
-  font-size: 20px;
-}
 .modal-p{
   font-size: 30px;
   padding: 10px 30px;
@@ -277,7 +274,7 @@ span.date{
   margin-bottom: 20px;
 }
 .white-paper{
-  font-size: 16px;
+  font-size: 18px;
   color: #111;
 }
 .white-paper img {
@@ -450,6 +447,7 @@ span.date{
 }
 .contribute-img{
   padding-top: 20px;
+  width: 150px;
 }
 .bm-menu-wrap{
   background-color: #fff;
@@ -479,10 +477,10 @@ span.date{
   height: 450px;
 }
 .landing-container-large{
-  height: 85vh;
+  min-height: 85vh;
 }
 .landing-container-small{
-  height: 15vh;
+  min-height: 15vh;
 }
 .selectDropdown{
   width: 100%;
@@ -506,7 +504,20 @@ span.date{
 .popup-video{
   height: 500px;
 }
+.white-line{
+  display: inline-block;
+  width: 50px;
+}
+.v-align-bottom{
+  vertical-align: bottom;
+}
 @media (max-width: 768px){
+  #overview{
+    padding-top: 40px;
+  }
+  .white-paper{
+    font-size: 16px;
+  }
   .landing-social {
     padding-top: 20px;
     padding-right: 20px;
@@ -531,10 +542,10 @@ span.date{
     height: 350px;
   }
   th{
-    font-size: 18px;
+    font-size: 16px !important;
   }
-  tr{
-    font-size: 16px;
+  td{
+    font-size: 16px !important;
   }
   .diligence-text{
     font-size: 18px;
@@ -626,6 +637,7 @@ span.date{
     text-align: center;
     color: #fd8900;
     font-weight: bold;
+    padding-top: 20px;
   }
   .info-graph{
     height: 150px;

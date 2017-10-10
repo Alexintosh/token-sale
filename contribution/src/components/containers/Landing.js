@@ -185,17 +185,21 @@ export default class Landing extends Component{
                         </div>
                     </div>
                     <div className="landing-container-small">
-                        <div className="consensys-landing-social">
-                            <Social />
-                        </div>
-                        <div className="learn-more">
-                            <p className="fs-20 clickable mb-0" onClick={() => this.scrollDown()}>Learn More</p>
-                            <p className="clickable" onClick={() => this.scrollDown()}><i className="fa fa-angle-down fs-70" aria-hidden="true"></i></p>
-                        </div>
-                        <div className="consensys-landing-img">
-                            <img src={consensys} alt="Consensys logo" className="landing-img" />
-                            <p className="mb-0">Supported by</p>
-                            <p className="fs-25 mb-0">ConsenSys</p>
+                        <div className="col-container">
+                            <div className="col-sm-h-5 v-align-bottom">
+                                <Social />
+                            </div>
+                            <div className="col-md-h-2 v-align-bottom">
+                                <p className="fs-20 clickable mb-0" onClick={() => this.scrollDown()}>Learn More</p>
+                                <p className="clickable" onClick={() => this.scrollDown()}><i className="fa fa-angle-down fs-70" aria-hidden="true"></i></p>
+                            </div>
+                            <div className="col-md-h-5 v-align-bottom">
+                                <div className="pull-right pr-20">
+                                    <img src={consensys} alt="Consensys logo" className="landing-img" />
+                                    <p className="mb-0">Supported by</p>
+                                    <p className="fs-25 mb-0">ConsenSys</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
