@@ -7,6 +7,7 @@ import * as formSelector                from '../../selectors';
 import Step1                            from './modal/Step1';
 import Step2                            from './modal/Step2';
 import Step3                            from './modal/Step3';
+import StepFinal                        from './modal/StepFinal';
 
 class SignupModal extends Component{
     render(){
@@ -15,8 +16,9 @@ class SignupModal extends Component{
                 <Modal.Body>
                     <form   id="contactFormRegister">
                         <Step1 />
-                        <Step2 submit={() => this.props.submitRegistrationFormFields(this.props.history)} />
-                        <Step3 />
+                        <Step2 />
+                        <Step3 submit={() => this.props.submitRegistrationFormFields(this.props.history)} />
+                        <StepFinal />
                 </form>
                 </Modal.Body>
             </Modal>

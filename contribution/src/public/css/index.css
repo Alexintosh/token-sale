@@ -270,6 +270,7 @@ span.date{
 .contribute-details-img{
   width: 40px;
   margin-top: -10px;
+  margin-left: 10px;
 }
 .success-img{
   margin-top: 20px;
@@ -442,17 +443,13 @@ span.date{
   tr{
     font-size: 16px;
   }
-  .contribute-img{
-    padding-top: 10px;
-    margin: 0 auto;
-    width: 100px;
-  }
   .diligence-text{
     font-size: 18px;
   }
   .contribute-img{
-    margin-top: 30px;
-    width: 65px;
+    padding-top: 10px;
+    margin: 0 auto;
+    width: 100px;
   }
   .btn-footer{
       width: 100%;
@@ -511,8 +508,8 @@ span.date{
     font-size: 14px;
   }
   .lh-2{
-    font-size: 30px;
-    line-height: 40px;
+    font-size: 22px;
+    line-height: 30px;
   }
   #sale-header{
     position: fixed;
@@ -553,5 +550,8 @@ span.date{
   }
   .token-info-background h3{
     font-size: 20px;
+  }
+  .center-mobile p{
+    text-align: center;
   }
 }

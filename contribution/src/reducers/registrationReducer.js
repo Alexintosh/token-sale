@@ -19,7 +19,8 @@ const initialState = {
     termsCheckValidation:true,
     step1: true,
     step2: false,
-    step3: false
+    step3: false,
+    step4: false
 }
 
 export default function registrationReducer(state = initialState, action) {

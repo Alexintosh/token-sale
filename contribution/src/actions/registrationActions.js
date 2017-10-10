@@ -75,3 +75,9 @@ export const resetFormSteps = () => {
         type: 'RESET_FORM_STEPS'
     }
 }
+
+export const validateAddressField = () => {
+    return {
+        type: 'VALIDATE_ADDRESS_FIELD'
+    }
+}
