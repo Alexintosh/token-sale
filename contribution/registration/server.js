@@ -9,6 +9,8 @@ var RateLimit   = require('express-rate-limit');
 var request 	= require('request');
 const uuidv4    = require('uuid/v4');
 const app       = express()
+const https 	= require('https');
+const fs 	= require('fs');
 
 require('dotenv').config();
 var tokenMap = new Map();
@@ -27,6 +29,11 @@ var limiter = new RateLimit({
 	delayMs: 0 // disable delaying - full speed until the max limit is reached 
 });
 app.use(limiter);
+
+app.get('/api/healthcheck', async (req, res)=>{
+	res.status(200);
+	res.send('200');
+})
 
 app.post('/api/register_client', async (req, res)=>{
 
@@ -120,45 +127,53 @@ app.post('/api/register', async (req, res) => {
 		return;
 	}
     
-    console.log('api/register: received access id: ' + req.body.access_id);
-    console.log('api/register: received api token: ' + req.body.api_token);
-    console.log('api/register: existing token: ' + tokenMap.get(req.body.access_id));
-	if(req.body.api_token != tokenMap.get(req.body.access_id)){
+        console.log('api/register: received access id: ' + req.body.access_id);
+        console.log('api/register: received api token: ' + req.body.api_token);
+        console.log('api/register: existing token: ' + tokenMap.get(req.body.access_id));
+	
+       if(req.body.api_token != tokenMap.get(req.body.access_id)){
 		console.log('api/register: 401 due to token issue');
 		res.status(401);
 		res.send('unauthorized');
 		return;
 	}
 
-	if(req.body.check){
+	console.log('sending recaptcha check with user_response: ' + JSON.stringify(req.body.user_response));
+ 	callRecaptcha(req.body.user_response, (err, response)=>{
+	    if(response){
+		console.log('got recatpcha response: ' + JSON.stringify(response));
+	    }
+            if(!err && response.body.success){
+          
+		        if(req.body.check){
         if(validator.isAlphanumeric(req.body.name.replace(/ /g,''))){
             if(validator.isEmail(req.body.email)){
                 if(validator.isAlphanumeric(req.body.address) && req.body.address.length === 42){
                     if(validator.isAlphanumeric(req.body.country)){
                         if(validator.isDecimal(req.body.amount) && req.body.amount >= 25 && req.body.amount <= 500){
-                            			
-			    			datastore_lib.addRegistration({
+                                          
+                                                datastore_lib.addRegistration({
                                 name: req.body.name,
                                 email: req.body.email,
                                 eth_address: req.body.address,
                                 country: req.body.country,
                                 amount: req.body.amount,
                                 residence_disclaimer: req.body.check,
-		 	                    timestamp: new Date().toISOString()
+                                            timestamp: new Date().toISOString()
                             }, res, (response, err, result) => {
-                            	if(err) {
-                            		console.log('finished datastore call ERROR');
-		                            response.status(500);
-		                            response.send("update failed");
-                            	}else{
-                            		console.log('finished datastore call SUCCESS');
-									tokenMap.delete(req.body.access_id);
-                            		
-									mailChimp(req.body.email, (param)=>{										
-										response.status(200);
-		                            	response.send("success");
-									})
-                            	}
+                                if(err) {
+                                        console.log('finished datastore call ERROR');
+                                            response.status(500);
+                                            response.send("update failed: " + JSON.stringify(err));
+                                }else{
+                                        console.log('finished datastore call SUCCESS');
+                                                                        tokenMap.delete(req.body.access_id);
+                                        
+                                                                        mailChimp(req.body.email, (param)=>{                                                                            
+                                                                                response.status(200);
+                                                response.send("success");
+                                                                        })
+                                }
                             });
 
                         }else{ res.status(500); res.send("invalid information")}
@@ -168,11 +183,23 @@ app.post('/api/register', async (req, res) => {
         }else{ res.status(500); res.send("invalid information")}
     }else{ res.status(500); res.send("invalid information")}
 
+	    }
+        })
+
 })
 
-app.listen(8080, function(){
-    console.log('api is running on port 8080');
-})
+if(process.env.NODE_ENV == 'prod' || process.env.NODE_ENV == 'test') {
+    https.createServer({
+        key: fs.readFileSync('./https/key.pem'),
+        cert: fs.readFileSync('./https/cert.pem')
+    }, app).listen(8080, ()=>{
+        console.log('api is running on port 443 with https');
+    });
+} else {
+    app.listen(8080, function(){
+        console.log('api is running on port 8080');
+    })
+}
 
 function checkRequestHeaders(req_headers){
 
@@ -218,20 +245,19 @@ function checkRequestHeaders(req_headers){
 	return true;
 }
 
-function callRecaptcha( userReponse, callback){
+function callRecaptcha( userResponse, callback){
+        console.log('callRecaptcha: using: ' + process.env.RECAPTCHA_KEY);
+
 	var options = {
 		method: 'POST',
-		url: 'https://www.google.com/recaptcha/api/siteverify',
+		url: 'https://www.google.com/recaptcha/api/siteverify?secret='+process.env.RECAPTCHA_KEY + '&response=' + userResponse,
 		body: {
 		  secret: process.env.RECAPTCHA_KEY,
-		  response: userReponse
+		  response: userResponse
 		},	
 		json: true
 	  }
 	  request(options, function(error, response, body){
-	  	console.log('recaptcha call return');
-	  	console.log('response: ' + JSON.stringify(response));
-	  	console.log('body: ' + JSON.stringify(body));
 		if(error){
 			console.log("Recaptcha Error: ", error);
 			callback(error, response);
