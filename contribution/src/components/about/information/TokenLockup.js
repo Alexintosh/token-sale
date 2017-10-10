@@ -4,7 +4,7 @@ export default class TokenLockup extends PureComponent{
     render(){
         return(
             <div className="about-card">
-                <h2 className="sub-header"><span>TOKEN LOCKUP SCHEDULE (VESTMENT PLAN)</span></h2>
+                <h2 className="sub-header"><span>TOKEN LOCKUP SCHEDULE</span></h2>
                 <p>
                     The token vesting schedule, shown below, has been designed to specifically align the long-term interests of the founding team with those of public token sale participants to maintain consistent and healthy growth of the trading ecosystem. The long drawn-out vesting schedule also ensures that the team is continuously motivated and stays vested in the success of the project for a longer duration. Early exit of the core team also impacts the success of the project and thereby the value of the token.
                 </p>
