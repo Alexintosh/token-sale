@@ -4,7 +4,7 @@ export default class Whitelist extends PureComponent{
     render(){
         return(
             <section id="whitelist" className="pt-100 about-card center-mobile-h left-mobile">
-                <h2 className="sub-header-large"><span>WHITELIST</span></h2>
+                <h2 className="sub-header-large"><span>WHITELIST INFO</span></h2>
                 <p>
                     The purpose of the whitelist is to give Leverj supporters and followers early access to the public sale to ensure everyone gets a fair chance to participate. 
                 </p>

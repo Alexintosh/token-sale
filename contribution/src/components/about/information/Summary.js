@@ -4,7 +4,7 @@ export default class Summary extends PureComponent{
     render(){
         return(
             <section id="summary" className="about-card">
-                <h2 className="sub-header"><span>SUMMARY</span></h2>
+                <h2 className="sub-header"><span>TOKEN INFO</span></h2>
                 <p>The following are some useful highlights for the LEV token sale</p>
                 <div className="col-container center-text">
                     <div className="col-sm-h-4">
