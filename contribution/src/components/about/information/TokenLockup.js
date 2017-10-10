@@ -6,7 +6,7 @@ export default class TokenLockup extends PureComponent{
             <div className="about-card">
                 <h2 className="sub-header"><span>TOKEN LOCKUP SCHEDULE</span></h2>
                 <p>
-                    The token vesting schedule, shown below, has been designed to specifically align the long-term interests of the founding team with those of public token sale participants to maintain consistent and healthy growth of the trading ecosystem. The long drawn-out vesting schedule also ensures that the team is continuously motivated and stays vested in the success of the project for a longer duration. Early exit of the core team also impacts the success of the project and thereby the value of the token.
+                    The token token release schedule, shown below, has been designed to specifically align the long-term interests of the founding team with those of public token sale participants to maintain consistent and healthy growth of the trading ecosystem. The long drawn-out token release schedule also ensures that the team is continuously motivated and stays vested in the success of the project for a longer duration. Early exit of the core team also impacts the success of the project and thereby the value of the token.
                 </p>
                 <div className="row">
                     <div className="col-sm-6">
@@ -14,7 +14,7 @@ export default class TokenLockup extends PureComponent{
                             <thead>
                                 <tr>
                                     <th>Percentage</th>
-                                    <th>Vesting Schedule</th>
+                                    <th>Token Release Schedule</th>
                                 </tr>
                             </thead>
                             <tbody>
