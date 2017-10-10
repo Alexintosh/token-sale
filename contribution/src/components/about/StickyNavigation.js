@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 import TopBar                   from './TopBar';
 import AboutNavigation          from './AboutNavigation';
-import Mobile                   from '../utils/Mobile';
 
 export default class StickyNavigation extends PureComponent{
     constructor(){
