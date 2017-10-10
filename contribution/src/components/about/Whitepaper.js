@@ -33,7 +33,7 @@ export default class Whitepaper extends PureComponent {
                             Whitepaper (English)
                         </a>
                     </div>
-                    <div className="col-sm-4 pt-10">
+                    <div className="col-sm-4 pt-10 plm-80">
                         <a href="https://blog.leverj.io/" target="_blank" rel="noopener noreferrer" className="white-paper">
                             <div className="white-line">
                                 <i className="fa fa-link fs-30 pr-10" aria-hidden="true"></i>
@@ -41,7 +41,7 @@ export default class Whitepaper extends PureComponent {
                             Leverj   Blog
                         </a>
                     </div>
-                    <div className="col-sm-4">
+                    <div className="col-sm-4 plm-50">
                         <a href="https://github.com/coinpit/token-sale" target="_blank" rel="noopener noreferrer" className="white-paper">
                             <div className="white-line">
                                 <i className="fa fa-github fs-30 pr-10" aria-hidden="true"></i>
@@ -59,7 +59,7 @@ export default class Whitepaper extends PureComponent {
                             Yellowpaper (English)
                         </a>
                     </div>
-                    <div className="col-sm-4 pt-10">
+                    <div className="col-sm-4 pt-10 plm-80">
                         <div className="white-paper pointer" onClick={()=> this.displayModal()}>
                             <div className="white-line">
                                 <i className="fa fa-youtube fs-30 pr-10" aria-hidden="true"></i>
@@ -67,7 +67,7 @@ export default class Whitepaper extends PureComponent {
                             CEO Interview
                         </div>
                     </div>
-                    <div className="col-sm-4">
+                    <div className="col-sm-4 plm-50">
                         <a href="https://github.com/leverj/token-sale" target="_blank" rel="noopener noreferrer" className="white-paper">
                             <div className="white-line">
                                 <i className="fa fa-github fs-30 pr-10" aria-hidden="true"></i>
