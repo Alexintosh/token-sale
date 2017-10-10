@@ -139,13 +139,13 @@ app.post('/api/register', async (req, res) => {
 	}
 
 	console.log('sending recaptcha check with user_response: ' + JSON.stringify(req.body.user_response));
- 	callRecaptcha(req.body.user_response, (err, response)=>{
-	    if(response){
-		console.log('got recatpcha response: ' + JSON.stringify(response));
-	    }
-            if(!err && response.body.success){
+ 	//callRecaptcha(req.body.user_response, (err, response)=>{
+	    //if(response){
+		//console.log('got recatpcha response: ' + JSON.stringify(response));
+	    //}
+        //    if(!err && response.body.success){
           
-		        if(req.body.check){
+	if(req.body.check){
         if(validator.isAlphanumeric(req.body.name.replace(/ /g,''))){
             if(validator.isEmail(req.body.email)){
                 if(validator.isAlphanumeric(req.body.address) && req.body.address.length === 42){
@@ -183,8 +183,8 @@ app.post('/api/register', async (req, res) => {
         }else{ res.status(500); res.send("invalid information")}
     }else{ res.status(500); res.send("invalid information")}
 
-	    }
-        })
+	    //}
+        //})
 
 })
 
