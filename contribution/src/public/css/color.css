@@ -232,6 +232,19 @@
   color: #fd8900;
   font-weight: bold;
 }
+.modal-header{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-bottom: none;
+}
+.close{
+    opacity: 1;
+}
+.close span{
+    font-size: 50px;
+    font-weight: bold;
+    color: #fd8900;
+}
 @media (max-width: 700px){
     .btn-white-1 {
         padding: 20px 20px;

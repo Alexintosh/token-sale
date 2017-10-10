@@ -12,7 +12,9 @@ import StepFinal                        from './modal/StepFinal';
 class SignupModal extends Component{
     render(){
         return(
-            <Modal show={this.props.display} onHide={this.props.hide}>
+            <Modal show={this.props.display} onHide={this.props.hide} backdrop="static">
+                <Modal.Header closeButton="true">
+                </Modal.Header>
                 <Modal.Body>
                     <form   id="contactFormRegister">
                         <Step1 />
