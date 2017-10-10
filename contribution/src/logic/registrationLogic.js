@@ -37,6 +37,7 @@ const userRegister = createLogic({
             var sale = getState().sale;
             var reg = getState().register;
             const errors = validate(reg, sale);
+            console.log('registration logic: errors: ' + JSON.stringify(errors));
             if(errors.length === 0){
 
                 await axios.post(APIEndpoint + '/api/register',{
@@ -47,8 +48,8 @@ const userRegister = createLogic({
                     address: reg.contactAddress,
                     country: reg.contactCountry,
                     amount: reg.purchaseSize,
-                    check: reg.countryCheck,
-                    user_response: sale.recaptchaUserResponse
+                    check: reg.countryCheck
+                    //user_response: sale.recaptchaUserResponse
                 })
                 dispatch(resetFormSteps())
                 dispatch(changeFormStep('step4'))
@@ -117,8 +118,8 @@ const userStep2 = createLogic({
 
 function validate (reg, sale) {
     const errors = []; 
-    if(!sale.captchaPassed)
-        errors.push(errorRegistrationFormField('Recaptcha')); 
+    //if(!sale.captchaPassed)
+    //    errors.push(errorRegistrationFormField('Recaptcha')); 
     if(!validator.isAlphanumeric(reg.contactFirstName.replace(/ /g,'')))
         errors.push(errorRegistrationFormField('contactFirstNameCheck'));
     if(!validator.isAlphanumeric(reg.contactLastName.replace(/ /g,'')))
