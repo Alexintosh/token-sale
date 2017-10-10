@@ -1,12 +1,28 @@
-import React, { PureComponent }     from 'react';
+import React, { Component }     from 'react';
 import { connect }                  from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import * as formSelector            from '../../../selectors';
 import { updateRegisterFormField,
          validateFields }           from '../../../actions/registrationActions';
+import countries                    from '../countries.json';
+import uuidv4                       from 'uuid/v4';
 
-class Step1 extends PureComponent{
+class Step1 extends Component{
+    constructor(){
+        super();
+        this.state = {
+            country: ''
+        }        
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({country: event.target.value});
+  }
     render(){
+        const countryList = countries.map((country)=>{
+            return <option key={uuidv4()} value={country.name}>{country.name}</option>
+        })
         return(
             <div className={this.props.step1 ? '' : 'hide' }>
                 <p className="modal-p center-text">Register Below to Gain Early Access to Leverj Crowd Sale</p>
@@ -34,12 +50,9 @@ class Step1 extends PureComponent{
                         placeholder="Email *" />
                 <div id="_contactEmail" className={"warning-text" + (this.props.contactEmailCheck ? ' hidden' : '')}>Please enter your email address</div>
 
-                <input  type="text"
-                        name="contactCountry"
-                        id="contactCountry"
-                        value={this.props.contactCountry}
-                        onChange={this.props.updateRegisterFormField.bind(this)} 
-                        placeholder="Country *" />
+                <select value={this.props.contactCountry} onChange={this.props.updateRegistrationDropdown.bind(this)} className="selectDropdown">
+                    {countryList}
+                </select>
                 <div id="_contactCountry" className={"warning-text" + (this.props.contactCountryCheck ? ' hidden' : '')}>Please enter where you are a resident</div>
 
                 <label>
@@ -92,6 +105,9 @@ const mapDispatchToProps = dispatch => {
      },
      updateRegisterFormCheckField: (name, value) => {
          dispatch(updateRegisterFormField(name, value))
+     },
+     updateRegistrationDropdown: (e) => {
+         dispatch(updateRegisterFormField('contactCountry', e.target.value))
      },
      validateFields: () => {
          dispatch(validateFields())

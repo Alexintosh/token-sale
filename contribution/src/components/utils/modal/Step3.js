@@ -20,15 +20,20 @@ class Step3 extends PureComponent{
     render(){
         return(
             <div className={this.props.step3 ? '' : 'hide'}>
-                <p className="modal-p center-text">Contribution Details</p>
-                <p>Please enter the Ether Wallet Address that you will be making your contribution from or login with MetaMask</p>
+                <p className="modal-p center-text">Enter Contribution Amount</p>
+                <div className="modal-info-background">
+                    <p className="large">250M</p>
+                    <span>Total LEV Tokens For Sale</span>
+                    <p className="large">3,000 TOKENS/ 1 ETH</p>
+                    <span>Conversion Ratio</span>
+                </div>
                 <input  type="text"
                         name="purchaseSize"
                         id="purchaseSize"
                         value={this.props.purchaseSize}
                         onChange={this.props.updateRegisterFormField.bind(this)} 
                         placeholder="Purchase Size [min 25 Ether - max 500 Ether] *" />
-                <div id="_purchaseSize" className={"warning-text" + (this.props.purchaseSizeCheck ? ' hidden' : '')}>Please enter an amount between 25 Ether and 500 Ether</div>
+                <div id="_purchaseSize" className={"warning-text" + (this.props.purchaseSizeCheck ? ' hidden' : '')}>Please enter an amount between 25 Ether and 100 Ether</div>
                 <ReCAPTCHA className="center-text" ref="recaptcha" sitekey="6LcUYDIUAAAAACW2oe-ShyAVAVhuJJ2efpFjWziG" onChange={this.onRecaptchaChange.bind(this)}/>
 
                 <div className="pt-20 center-text">

@@ -4,7 +4,6 @@ const initialState = {
     contactLastName: '',
     contactEmail: '',
     contactAddress: '',
-    contactMEWAddress: '',
     contactCountry: '',
     purchaseSize: '',
     countryCheck: false,

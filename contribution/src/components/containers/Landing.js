@@ -100,7 +100,7 @@ export default class Landing extends Component{
         return(
             <section id="landing-registration">
                 <div className="container-fluid center-text">
-                    <div className="h-85">
+                    <div className="landing-container-large">
                         <h1 className="lh-1">LEV Token Sale Starts: </h1>
                         <h2 className="lh-2">November 7th 9am PST</h2>
                         <div className="timer">
@@ -157,8 +157,22 @@ export default class Landing extends Component{
                         <br />
                         <a href="https://leverj.io/whitepaper.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-landing mv-20">READ WHITEPAPER</a>
                         <a href="https://www.youtube.com/watch?v=XKzOqrbvsKQ" target="_blank" rel="noopener noreferrer" className="btn btn-landing mv-20">WATCH THE VIDEO</a>
+                        <div className="show-on-xs">
+                            <div className="center-text">
+                                <Social />
+                            </div>
+                            <div className="pv-20">
+                                <img src={consensys} alt="Consensys logo" className="landing-img" />
+                                <p className="mb-0">Supported by</p>
+                                <p className="fs-25 mb-0">ConsenSys</p>
+                            </div>
+                            <div className="pv-20"> 
+                                <p className="fs-20 clickable mb-0" onClick={() => this.scrollDown()}>Learn More</p>
+                                <p className="clickable" onClick={() => this.scrollDown()}><i className="fa fa-angle-down fs-70" aria-hidden="true"></i></p>
+                            </div>
+                        </div>
                     </div>
-                    <div className="h-15 hide-on-xs">
+                    <div className="landing-container-small">
                         <div className="consensys-landing-social">
                             <Social />
                         </div>

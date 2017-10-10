@@ -13,19 +13,19 @@ export default class Contribute extends PureComponent {
                         <p className="font-bold">
                             You can participate to the token sale through MyEtherWallet or MetaMask for detailed instructions 
                             <a href={pdf} target="_blank" rel="noopener noreferrer"> click on this PDF <i className="fa fa-file-pdf-o"></i></a></p>
-                        <p>To join the GRID token sale, you can purchase GRID tokens directly from the Token Sale smart contract. Check out this guide to
-                            learn how to purchase using MyEtherWallet, Mist, Parity and MetaMask. To view the GRID token sale smart contract address,
-                            click the Reveal Smart Contract Address button above, and accept GRID token purchase agreement . The button will remain
+                        <p>To join the LEV token sale, you can purchase LEV tokens directly from the Token Sale smart contract. Check out this guide to
+                            learn how to purchase using MyEtherWallet, Mist, Parity and MetaMask. To view the LEV token sale smart contract address,
+                            click the Reveal Smart Contract Address button above, and accept LEV token purchase agreement . The button will remain
                             disabled until shortly before the token launch goes live.
                         </p>
                         <p className="important-notes">IMPORTANT NOTES</p>
                         <ul>
                             <li>
-                                Do not send ETH directly to the GRID token sale contract address. Please follow instruction below on how to properly execute
-                                the purchaseTokens() smart contract function in order to purchase GRID tokens.
+                                Do not send ETH directly to the LEV token sale contract address. Please follow instruction below on how to properly execute
+                                the purchaseTokens() smart contract function in order to purchase LEV tokens.
                             </li>
                             <li>
-                                DO NOT send funds from exchanges such as Poloniex, Bitfinex, Bittrex, Coinbase, GDAX, etc. Your GRID may be lost if you do.
+                                DO NOT send funds from exchanges such as Poloniex, Bitfinex, Bittrex, Coinbase, GDAX, etc. Your LEV may be lost if you do.
                             </li>
                             <li>
                             Do not send ether before the specified start block number found above. You can view the last block number on etherscan.
@@ -38,10 +38,10 @@ export default class Contribute extends PureComponent {
                                 Only ETH is accepted. Do no try sending anything other than ETH. *Always double check addresses you are sending ETH to.
                             </li>
                             <li>
-                                By participating in the token sale, you agree to the GRID token purchase agreement.
+                                By participating in the token sale, you agree to the LEV token purchase agreement.
                             </li>
                             <li>
-                                All transactions sent to GRID token sale contract are viewable on etherscan website.
+                                All transactions sent to LEV token sale contract are viewable on etherscan website.
                             </li>
                         </ul>
                     </div>

@@ -4,7 +4,7 @@ import YouTube                  from 'react-youtube' ;
 class LandingVideo extends PureComponent {
     render(){
         const opts = {
-            height: '500',
+            height: '100%',
             width: '100%',
             playerVars: { 
                 autoplay: 0

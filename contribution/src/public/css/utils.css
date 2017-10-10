@@ -280,6 +280,9 @@ th{
 .inline-block{
     display: inline-block;
 }
+.show-on-xs{
+    display: none;
+}
 @media (min-width: 992px) and (max-width: 1200px){
     .features-card{
         height: 450px;
@@ -294,6 +297,9 @@ th{
     .hide-on-xs{
         display: none !important;
     }
+    .show-on-xs{
+        display: block !important;
+    }
     .fs-50{
         font-size: 40px;
     }
@@ -303,6 +309,9 @@ th{
         background-color: none;
     }
     .about-card ul{
+        padding-left: 0px;
+    }
+    .about-card ol{
         padding-left: 0px;
     }
     .about-card li{

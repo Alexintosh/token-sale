@@ -146,7 +146,6 @@ body {
     padding: 20px;
 }
 .landing-social {
-    list-style: none;
     padding-left: 20px;
     padding-bottom: 30px;
 }
@@ -316,6 +315,24 @@ span.date{
   height: 300px;
   width: auto;
 }
+.modal-info-background{
+  background-color: #4a4a4a;
+  width: 80%;
+  margin-left: 10%;
+  border-radius: 5px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+  color: #fff;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.modal-info-background p{
+  font-size: 24px;
+  margin-bottom: 0px;
+  padding-top: 10px;
+  font-weight: bold;
+}
 .token-info-background{
   background-color: #4a4a4a;
   border-radius: 5px;
@@ -436,7 +453,44 @@ span.date{
   top: 0;
   right: 0;
 }
+#video-js{
+  height: 450px;
+}
+.landing-container-large{
+  height: 85vh;
+}
+.landing-container-small{
+  height: 15vh;
+}
+.selectDropdown{
+  width: 100%;
+  margin: 10px 0px;
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #fff;  
+}
+.selectDropdown:after{
+  padding-right: 20px;
+}
 @media (max-width: 768px){
+  .landing-social {
+    padding-top: 20px;
+  }
+  .telegram{
+    font-size: 18px;
+  }
+  .landing-container-large{
+    height: 100vh;
+  }
+  .landing-container-small{
+    height: 0vh;
+    display: none;
+  }
+  #video-js{
+    height: 350px;
+  }
   th{
     font-size: 18px;
   }
@@ -534,7 +588,7 @@ span.date{
     font-weight: bold;
   }
   .info-graph{
-    height: 200px;
+    height: 150px;
     width: auto;
   }
   .contribute-mobile{
@@ -552,6 +606,9 @@ span.date{
     font-size: 20px;
   }
   .center-mobile p{
+    text-align: center;
+  }
+  .center-mobile-h{
     text-align: center;
   }
 }

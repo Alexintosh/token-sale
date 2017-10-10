@@ -6,6 +6,7 @@ import Whitepaper               from '../about/Whitepaper';
 import Audit                    from '../about/Audit';
 import FAQ                      from '../about/FAQ';
 import StickyNavigation         from '../about/StickyNavigation';
+import Whitelist                from '../about/Whitelist';
 
 export default class About extends PureComponent {
     render(){
@@ -18,6 +19,7 @@ export default class About extends PureComponent {
                             <div className="row">
                                 <div className="col-sm-11">
                                     <Overview />
+                                    <Whitelist />
                                     <Information />
                                     <Contribute />
                                     <Whitepaper />

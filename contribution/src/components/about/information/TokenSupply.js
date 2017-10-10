@@ -15,7 +15,7 @@ export default class TokenSupply extends PureComponent{
                             independent escrow providers BraveNewCoin.com(BNC)
                         </p>
                     </div>
-                    <div className="col-sm-7">
+                    <div className="col-sm-7 center-text">
                         <img src={ownership} alt="Token Ownership" className="info-graph" />
                     </div>
                 </div>

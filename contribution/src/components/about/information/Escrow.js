@@ -5,7 +5,7 @@ export default class Escrow extends PureComponent {
         return (
             <div className="about-card">
                 <h2 className="sub-header"><span>ESCROW MULTI-SIG DETAILS</span></h2>
-                <h4>Multisig Key Setup - 3 of 5</h4>
+                <h4 className="center-mobile-h">Multisig Key Setup - 3 of 5</h4>
                 <p># Keys Key Holder</p>
                 <ol>
                     <li>ConsenSys</li>

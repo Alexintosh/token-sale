@@ -8,7 +8,7 @@ export default class Social extends PureComponent{
                 <div className="landing-social text-left">
                     <a href="https://t.me/joinchat/C-gLzkMqKr1zmoeS-ZQePg" target="_blank" title="Telegram" rel="noopener noreferrer">
                         <img src={join} alt="Join Telegram" className="telegram-img" />
-                        <span className="telegram fs-25">Join the convo on Telegram</span>
+                        <span className="telegram">Join the convo on Telegram</span>
                     </a>
                 </div>
             </section>

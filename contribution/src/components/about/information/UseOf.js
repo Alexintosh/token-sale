@@ -15,7 +15,7 @@ export default class UseOf extends PureComponent{
                             All-in-all, since we have a centralized component, we have need operational and strategic flexibility unlike a pure protocol project. 
                         </p> 
                     </div>
-                    <div className="col-sm-7">
+                    <div className="col-sm-7 center-text">
                         <img src={breakdown} alt="Token Breakdown" className="info-graph" />
                     </div>
                 </div>

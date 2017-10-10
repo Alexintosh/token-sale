@@ -14,10 +14,10 @@ export default class Information extends PureComponent {
         return (
             <section id="information">
                 <TokenInformation />
+                <TokenSupply />
                 <TokenFunction />
                 <TokenBreakdown />
                 <ProjectOverview />
-                <TokenSupply />
                 <TokenLockup />
                 <Secondary />
                 <UseOf />
