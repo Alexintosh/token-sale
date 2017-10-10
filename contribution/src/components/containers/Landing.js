@@ -3,12 +3,14 @@ import SignupModal              from '../utils/SignupModal';
 import Social                   from '../landing/Social';
 import Scroll                   from 'react-scroll';
 import consensys                from '../../public/img/consensyslogoblack.png';
+import PopupVideo               from '../utils/PopupVideo';
 
 export default class Landing extends Component{
     constructor(){
         super();
         this.state={
             display: false,
+            displayVideo: false,
             days1: '',
             days2: '',
             hours1: '',
@@ -28,6 +30,16 @@ export default class Landing extends Component{
     hideModal() {
         this.setState({
             display: false
+        });
+    }
+    displayVideoModal() {
+        this.setState({
+            displayVideo: true
+        });
+    }
+    hideVideoModal() {
+        this.setState({
+            displayVideo: false
         });
     }
     scrollDown(){
@@ -156,7 +168,7 @@ export default class Landing extends Component{
                         <div onClick={()=> this.displayModal()} className="btn btn-register-landing mv-20">REGISTER NOW FOR EARLY ACCESS</div>
                         <br />
                         <a href="https://leverj.io/whitepaper.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-landing mv-20">READ WHITEPAPER</a>
-                        <a href="https://www.youtube.com/watch?v=XKzOqrbvsKQ" target="_blank" rel="noopener noreferrer" className="btn btn-landing mv-20">WATCH THE VIDEO</a>
+                        <div onClick={()=> this.displayVideoModal()} className="btn btn-landing mv-20">WATCH THE VIDEO</div>
                         <div className="show-on-xs">
                             <div className="center-text">
                                 <Social />
@@ -188,6 +200,7 @@ export default class Landing extends Component{
                     </div>
                 </div>
                 <SignupModal display={ this.state.display } hide={() => this.hideModal()}  history={this.props.history} />
+                <PopupVideo display={ this.state.displayVideo } hide={() => this.hideVideoModal()} />
             </section>
         )
     }

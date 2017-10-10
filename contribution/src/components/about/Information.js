@@ -5,7 +5,6 @@ import Ownership                from './information/Ownership';
 import TokenLockup              from './information/TokenLockup';
 import Secondary                from './information/Secondary';
 import UseOf                    from './information/UseOf';
-import Escrow                   from './information/Escrow';
 import Summary                  from './information/Summary';
 
 export default class Information extends PureComponent {
@@ -19,7 +18,6 @@ export default class Information extends PureComponent {
                 <TokenLockup />
                 <Secondary />
                 <UseOf />
-                <Escrow />
             </section>
         )
     }

@@ -10,19 +10,16 @@ export default class Whitelist extends PureComponent{
                 </p>
                 <ul>
                     <li>
-                        <b>Whitelist Registration Period:</b> October 10th - November 1st
+                        <span className="bold-font">Whitelist Registration Period:</span> October 10th - November 1st
                     </li>
                     <li>
-                        <b>Tokens Available for Sale:</b> 250,000,000 LEV 
+                        <span className="bold-font">Tokens Available for Sale:</span> 250,000,000 LEV 
                     </li>
                     <li>
-                        <b>Min/Max Contribution Amount:</b> 25 - 100 ETH
+                        <span className="bold-font">Min/Max Contribution Amount:</span> 25 - 100 ETH
                     </li>
                     <li>
-                        <b>Geographic Restriction:</b> Only non-residents of USA and China and sanctioned countries are allowed to take part in the token sale
-                    </li>
-                    <li>
-                        Only ETH is accepted. Do no try sending anything other than ETH. *Always double check addresses you are sending ETH to.
+                        <span className="bold-font">Geographic Restriction:</span> Only non-residents of USA and China and sanctioned countries are allowed to take part in the token sale
                     </li>
                 </ul>
                 <p className="p-header">How to Register:</p>
@@ -34,7 +31,7 @@ export default class Whitelist extends PureComponent{
                 <p className="p-header">How to Contribute:</p>
                 <ol>
                     <li>You will receive access to the public sale 72 hours before it starts</li>
-                    <li>ou will need to provide the email, ETH wallet address, and contribution amount from your whitelist confirmation in order to access the sale early.</li>
+                    <li>You will need to provide the email, ETH wallet address, and contribution amount from your whitelist confirmation in order to access the sale early.</li>
                     <li>Follow the normal contribution steps (link to pdf)</li>
                 </ol>
                 <a href="#contribute">See More Info Below</a>

@@ -24,7 +24,7 @@ class Step2 extends PureComponent{
                 <p>The Leverj public sale will only accept contributions from MyEtherWallet or MetaMask. Please only add a wallet address from one of those 2 applications, otherwise you won't be able to make a contribution.</p>                
                 <div className="pt-20">
                     <img src={mew} className="contribute-details-img" alt="My Ether Wallet" />
-                    <span className="fs-20 font-bold pt-10 pl-20">My Ether Wallet</span>
+                    <span className="fs-20 font-bold pt-10 ph-20">My Ether Wallet</span>
                     <img src={metamask} className="contribute-details-img" alt="MetaMask" />
                     <span className="fs-20 font-bold pl-20">MetaMask</span>
                 </div>

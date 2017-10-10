@@ -97,7 +97,7 @@ body {
 #about-nav{
   top: 30px;
 }
-#whitepaper a{
+#whitepaper a, #whitepaper div{
   font-size: 20px;
 }
 .modal-p{
@@ -341,6 +341,7 @@ span.date{
   border-radius: 5px;
   padding-top: 20px;
   padding-bottom: 20px;
+  margin: 5px;
   color: #fff;
 }
 .token-info-background h3{
@@ -498,6 +499,12 @@ span.date{
 }
 .p-header{
   font-size: 20px;
+}
+.bold-font{
+  font-weight: bold;
+}
+.popup-video{
+  height: 500px;
 }
 @media (max-width: 768px){
   .landing-social {

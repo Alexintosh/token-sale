@@ -286,6 +286,9 @@ th{
 .display-none{
     display: none;
 }
+.pointer{
+    cursor: pointer;
+}
 @media (min-width: 992px) and (max-width: 1200px){
     .features-card{
         height: 450px;
