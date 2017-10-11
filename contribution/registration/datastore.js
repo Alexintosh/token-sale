@@ -1,6 +1,86 @@
 // Imports the Google Cloud client library
 const Datastore = require('@google-cloud/datastore');
 
+module.exports.validateEmail = function(email, callback){
+    console.log("starting datastorelib registration function");
+
+  // Your Google Cloud Platform project ID
+  const projectId = process.env.NODE_ENV=='prod' ? 'leverj-prod' : (process.env.NODE_ENV =='test' ? 'consensys-leverj' : 'consensys-leverj'); //consensys-leverj is a legacy name repurposed as dev project in GCP
+  
+  var keyfile = process.env.DATASTORE_API_KEY_FILE;
+
+  if(keyfile == '' || keyfile === undefined){console.log("ERROR: please provide a keyfile");return;}
+
+  console.log('using keyfilename: ' + keyfile);
+
+  var targetNamespace = process.env.NODE_ENV || 'dev';
+
+  // Instantiates a client
+  const datastore = Datastore({
+    projectId: projectId,
+    keyFilename: keyfile,
+    namespace: targetNamespace
+  });
+
+  var query = datastore.createQuery('RegistrationEntry');
+  query.filter('email', email);
+  datastore.runQuery(query, (err, entities)=>{
+    if(err){
+      console.log('error checking email: ' + JSON.stringify(err));
+      callback(err, null);
+    }
+
+    console.log('got back entities with count ' + entities.length);
+    if(!entities || entities.length < 1){
+      callback(null, true);
+    }else{
+      callback(null, false);
+    }
+  });
+
+}
+
+module.exports.validateEthAddress = function(ethAddress, callback){
+    console.log("starting datastorelib registration function");
+
+  // Your Google Cloud Platform project ID
+  const projectId = process.env.NODE_ENV=='prod' ? 'leverj-prod' : (process.env.NODE_ENV =='test' ? 'consensys-leverj' : 'consensys-leverj'); //consensys-leverj is a legacy name repurposed as dev project in GCP
+  
+  var keyfile = process.env.DATASTORE_API_KEY_FILE;
+
+  if(keyfile == '' || keyfile === undefined){console.log("ERROR: please provide a keyfile");return;}
+
+  console.log('using keyfilename: ' + keyfile);
+
+  var targetNamespace = process.env.NODE_ENV || 'dev';
+
+  // Instantiates a client
+  const datastore = Datastore({
+    projectId: projectId,
+    keyFilename: keyfile,
+    namespace: targetNamespace
+  });
+
+  console.log('checking eth address:' + ethAddress);
+
+  var query = datastore.createQuery('RegistrationEntry');
+  query.filter('eth_address', ethAddress);
+  datastore.runQuery(query, (err, entities)=>{
+    if(err){
+      console.log('error checking ethaddress: ' + JSON.stringify(err));
+      callback(err, null);
+    }
+
+    console.log('got back entities:' + entities.length);
+    if(!entities || entities.length < 1){
+      callback(null, true);
+    }else{
+      callback(null, false);
+    }
+  });
+
+}
+
 module.exports.addRegistration = function(regData, res, callback){
 
   console.log("starting datastorelib registration function");
