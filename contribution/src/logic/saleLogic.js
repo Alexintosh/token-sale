@@ -11,8 +11,10 @@ const apiRegister = createLogic({
     try {
       const result = await axios.post(APIEndpoint + '/api/register_client',{ access_id: action.payload })
       dispatch(handleAPIToken(result.data))
+      done();
     } catch (err) {
       dispatch(handleAPITokenError(err));
+      done()
     }
   }
 });
@@ -26,12 +28,16 @@ const checkCaptcha = createLogic({
           access_id: action.accessId,
           api_tokens: action.apiToken
       });      
-      if(result.body.success) 
+      if(result.body.success) {
         dispatch(setRecaptchaPassed(true));
-      else 
-        dispatch(setRecaptchaPassed(false));
+        done()
+      } else {
+          dispatch(setRecaptchaPassed(false));
+          done();
+      }
     } catch (err) { 
         dispatch(setRecaptchaError(err));
+        done();
     }
   }
 })

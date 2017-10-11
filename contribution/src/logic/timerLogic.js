@@ -4,6 +4,7 @@ import { timerError,
 
 const startTimer = createLogic({
   type: 'START_TIMER',
+  warnTimeout: 0,
   async process({ getState, action, APIEndpoint }, dispatch, done) {
     try {
         setInterval(function() {
