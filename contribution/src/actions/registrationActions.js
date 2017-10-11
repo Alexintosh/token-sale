@@ -21,6 +21,24 @@ export const submitRegistrationFormFields = (history) => {
     }
 }
 
+export const formSuccess = () => {
+    return {
+        type: 'SUBMIT_REGISTRATION_FIELDS_SUCCESS'
+    }
+}
+
+export const formError = () => {
+    return {
+        type: 'SUBMIT_REGISTRATION_FIELDS_ERROR'
+    }
+}
+
+export const formSubmit = () => {
+    return {
+        type: 'SUBMIT_REGISTRATION_FIELDS_START'
+    }
+}
+
 export const errorRegistrationFormField = (name) => {
     return {
         type: 'ERROR_REGISTRATION_FIELD',

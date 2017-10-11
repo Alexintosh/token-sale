@@ -8,7 +8,10 @@ import {    resetRegistrationFormFields,
             submitEmailFormSuccess,
             submitEmailFormError,
             resetFormSteps,
-            changeFormStep }     from '../actions/registrationActions';
+            changeFormStep,
+            formSuccess,
+            formError,
+            formSubmit }    from '../actions/registrationActions';
 
 const emailRegistration = createLogic({
     type: 'SUBMIT_EMAIL_REGISTRATION',
@@ -37,9 +40,8 @@ const userRegister = createLogic({
             var sale = getState().sale;
             var reg = getState().register;
             const errors = validate(reg, sale);
-            console.log('registration logic: errors: ' + JSON.stringify(errors));
             if(errors.length === 0){
-
+                dispatch(formSubmit())
                 await axios.post(APIEndpoint + '/api/register',{
                     access_id: sale.accessId,
                     api_token: sale.apiToken,
@@ -51,14 +53,17 @@ const userRegister = createLogic({
                     check: reg.countryCheck
                     //user_response: sale.recaptchaUserResponse
                 })
+                dispatch(formSuccess())
                 dispatch(resetFormSteps())
                 dispatch(changeFormStep('step4'))
                 done();
             }else {
                 errors.forEach(error => { dispatch(error) })
+                dispatch(formError());
                 done();
             }
         } catch (err) {
+            dispatch(formError());
             dispatch(registrationFormError(err));
         } finally {
             done()
@@ -130,7 +135,7 @@ function validate (reg, sale) {
         errors.push(errorRegistrationFormField('contactCountryCheck'));
     if(!(validator.isAlphanumeric(reg.contactAddress) && reg.contactAddress.length === 42))
         errors.push(errorRegistrationFormField('contactAddressCheck'));
-    if(!(validator.isDecimal(reg.purchaseSize) && reg.purchaseSize >= 25 && reg.purchaseSize <= 500))
+    if(!(validator.isDecimal(reg.purchaseSize) && reg.purchaseSize >= 1 && reg.purchaseSize <= 500))
         errors.push(errorRegistrationFormField('purchaseSizeCheck'));
     if(!reg.countryCheck)
         errors.push(errorRegistrationFormField('countryCheckValidation'));

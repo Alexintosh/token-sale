@@ -3,7 +3,8 @@ import { connect }                  from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { selectStep3,
          selectPurchaseSize,
-         selectPurchaseSizeCheck }  from '../../../selectors';
+         selectPurchaseSizeCheck,
+         selectSubmission }         from '../../../selectors';
 import { updateRegisterFormField }  from '../../../actions/registrationActions';
 import { updateRecaptchaResponse,
          fetchCaptchaResponse,
@@ -23,7 +24,7 @@ class Step3 extends PureComponent{
                 <div className="row">
                     <div className="col-sm-3 pr-0">
                         <div className="inline-amount">
-                            <p>25 ETH</p>
+                            <p>1 ETH</p>
                             <span>minimum</span>
                         </div>
                     </div>
@@ -43,11 +44,12 @@ class Step3 extends PureComponent{
                         </div>
                     </div>
                 </div>
-                <div id="_purchaseSize" className={"warning-text" + (this.props.purchaseSizeCheck ? ' hidden' : '')}>Please enter an amount between 25 Ether and 100 Ether</div>
+                <div id="_purchaseSize" className={"warning-text" + (this.props.purchaseSizeCheck ? ' hidden' : '')}>Please enter an amount between 1 Ether and 500 Ether</div>
 
                 <div className="pt-20 center-text">
                     <div onClick={(e) => {e.preventDefault(); this.props.submit()}} className="btn btn-register-complete">COMPLETE REGISTRATION</div>
                 </div>
+                { this.props.submission ? <div className="loader"></div> : '' }
             </div>
         )
     }
@@ -57,6 +59,7 @@ const structuredSelector = createStructuredSelector({
     step3: selectStep3,
     purchaseSize: selectPurchaseSize,
     purchaseSizeCheck: selectPurchaseSizeCheck,
+    submission: selectSubmission
 })
 
 const mapDispatchToProps = dispatch => {

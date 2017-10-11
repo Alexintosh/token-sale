@@ -19,7 +19,8 @@ const initialState = {
     step1: true,
     step2: false,
     step3: false,
-    step4: false
+    step4: false,
+    submission: false
 }
 
 export default function registrationReducer(state = initialState, action) {
@@ -49,6 +50,21 @@ export default function registrationReducer(state = initialState, action) {
         case 'SUBMIT_REGISTRATION_FIELDS':
             return {
                 ...state
+            }
+        case 'SUBMIT_REGISTRATION_FIELDS_START':
+            return {
+                ...state,
+                submission: true
+            }
+        case 'SUBMIT_REGISTRATION_FIELDS_SUCCESS':
+            return {
+                ...state,
+                submission: false
+            }
+        case 'SUBMIT_REGISTRATION_FIELDS_ERROR':
+            return {
+                ...state,
+                submission: false
             }
         case 'REGISTRATION_FORM_ERROR': 
             return {
