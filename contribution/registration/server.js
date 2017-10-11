@@ -37,7 +37,7 @@ app.get('/api/healthcheck', async (req, res)=>{
 
 app.post('/api/validate_email', async (req, res)=>{
 
-	/*if(!checkRequestHeaders(req.headers)){
+	if(!checkRequestHeaders(req.headers)){
 		res.status(401);
 		res.send('unauthorized');
 		return;
@@ -48,11 +48,13 @@ app.post('/api/validate_email', async (req, res)=>{
 		res.status(401);
 		res.send('unauthorized');
 		return;
-	}*/
+	}
 
 	datastore_lib.validateEmail(req.body.email, (err, result)=>{
 		if(err){
 			console.log('error validating email: ' + JSON.stringify(err));
+			res.status(500);
+			res.send('error checking email address');
 		}else{
 			console.log('validation for '+req.body.email+': ' + result);
 			res.status(200);
@@ -64,7 +66,7 @@ app.post('/api/validate_email', async (req, res)=>{
 
 app.post('/api/validate_eth_address', async (req, res)=>{
 
-	/*if(!checkRequestHeaders(req.headers)){
+	if(!checkRequestHeaders(req.headers)){
 		res.status(401);
 		res.send('unauthorized');
 		return;
@@ -75,11 +77,13 @@ app.post('/api/validate_eth_address', async (req, res)=>{
 		res.status(401);
 		res.send('unauthorized');
 		return;
-	}*/
+	}
 
 	datastore_lib.validateEthAddress(req.body.eth_address, (err, result)=>{
 		if(err){
 			console.log('error validating eth address: ' + JSON.stringify(err));
+			res.status(500);
+			res.send('error checking eth address');
 		}else{
 			console.log('validation for '+req.body.eth_address+': ' + result);
 			res.status(200);
@@ -221,12 +225,12 @@ app.post('/api/register', async (req, res) => {
                                             response.send("update failed: " + JSON.stringify(err));
                                 }else{
                                         console.log('finished datastore call SUCCESS');
-                                                                        tokenMap.delete(req.body.access_id);
-                                        
-                                                                        mailChimp(req.body.email, (param)=>{                                                                            
-                                                                                response.status(200);
-                                                response.send("success");
-                                                                        })
+                                        //tokenMap.delete(req.body.access_id);
+        
+                                        mailChimp(req.body.email, (param)=>{                                                                            
+                                                response.status(200);
+                								response.send("success");
+                                        })
                                 }
                             });
 
@@ -247,7 +251,7 @@ if(process.env.NODE_ENV == 'prod' || process.env.NODE_ENV == 'test') {
         key: fs.readFileSync('./https/key.pem'),
         cert: fs.readFileSync('./https/cert.pem')
     }, app).listen(8080, ()=>{
-        console.log('api is running on port 443 with https');
+        console.log('api is running on port 8080 with https. dont forget to preroute 443 to 8080');
     });
 } else {
     app.listen(8080, function(){
@@ -265,7 +269,7 @@ function checkRequestHeaders(req_headers){
 
 	var targetOrigin = process.env.NODE_ENV=='prod' ? 'https://register.leverj.io' : (process.env.NODE_ENV =='test' ? 'https://leverj-test.tokenry.io' : 'http://localhost:3000');
 	var targetReferer = process.env.NODE_ENV=='prod' ? 'https://register.leverj.io/' : (process.env.NODE_ENV=='test' ? 'https://leverj-test.tokenry.io/ ' : 'http://localhost:3000/');
-	var targetHost = process.env.NODE_ENV=='prod' ? 'api.leverj.tokenry.io' : (process.env.NODE_ENV=='test' ? 'leverj-test-api.tokenry.io' : 'localhost:8080');
+	var targetHost = process.env.NODE_ENV=='prod' ? 'leverj-api.tokenry.io' : (process.env.NODE_ENV=='test' ? 'leverj-test-api.tokenry.io' : 'localhost:8080');
 
 	console.log('targetOrigin: ' + targetOrigin);
 	console.log('targetReferer: ' + targetReferer);
@@ -341,7 +345,8 @@ function mailChimp(email, callback){
 			console.log("Mailchimp Error: ", error);
 			callback("Error");
 		}else{
-			callback("success")
+			callback("success");
+			console.log('mailchimp response');
 		}
 	})
 }
