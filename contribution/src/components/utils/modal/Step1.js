@@ -49,6 +49,7 @@ class Step1 extends Component{
                         onChange={this.props.updateRegisterFormField.bind(this)} 
                         placeholder="Email *" />
                 <div id="_contactEmail" className={"warning-text" + (this.props.contactEmailCheck ? ' hidden' : '')}>Please enter your email address</div>
+                <div id="_contactDupEmail" className={"warning-text" + (this.props.duplicateEmail ? '' : ' hidden')}>This email has been taken</div>
 
                 <select value={this.props.contactCountry} onChange={this.props.updateRegistrationDropdown.bind(this)} className="selectDropdown">
                     {countryList}
@@ -95,7 +96,8 @@ const structuredSelector = createStructuredSelector({
     contactAddressCheck: formSelector.selectContactAddressCheck,
     contactCountryCheck: formSelector.selectContactCountryCheck,
     countryCheckValidation: formSelector.selectCountryCheckValidation,
-    termsCheckValidation: formSelector.selectTermsCheckValidation
+    termsCheckValidation: formSelector.selectTermsCheckValidation,
+    duplicateEmail: formSelector.selectDuplicateEmail
 })
 
 const mapDispatchToProps = dispatch => {

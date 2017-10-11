@@ -16,6 +16,8 @@ const initialState = {
     purchaseSizeCheck: true,
     countryCheckValidation: true,
     termsCheckValidation:true,
+    duplicateEmail: false,
+    duplicateAddress: false,
     inProgressFlag: false,
     step1: true,
     step2: false,
@@ -53,7 +55,9 @@ export default function registrationReducer(state = initialState, action) {
                 purchaseSizeCheck: true,
                 countryCheckValidation: true,
                 termsCheckValidation: true,
-                inProgressFlag: false
+                duplicateAddress: false,
+                duplicateEmail: false
+
             }
         case 'SUBMIT_REGISTRATION_FIELDS':
             return {

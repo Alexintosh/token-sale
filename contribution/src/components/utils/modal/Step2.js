@@ -3,7 +3,8 @@ import { connect }                  from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { selectContactAddress,
          selectContactAddressCheck,
-         selectStep2 }              from '../../../selectors';
+         selectStep2,
+         selectDuplicateAddress }   from '../../../selectors';
 import { updateRegisterFormField,
          validateAddressField }     from '../../../actions/registrationActions';
 import metamask                     from '../../../public/img/metamask.png';
@@ -35,6 +36,7 @@ class Step2 extends PureComponent{
                         onChange={this.props.updateRegisterFormField.bind(this)} 
                         placeholder="Ethereum Address *" />
                 <div id="_contactAddress" className={"warning-text" + (this.props.contactAddressCheck ? ' hidden' : '')}>Please enter a valid ethereum address</div>
+                <div id="_contactDupAddress" className={"warning-text" + (this.props.duplicateAddress ? '' : ' hidden')}>This ethereum address has already been registered</div>
 
                 <p>Don't have MetaMask or MyEtherWallet yet? <a href={pdf} target="_blank" rel="noopener noreferrer">Click Here</a></p>
                 
@@ -48,7 +50,8 @@ class Step2 extends PureComponent{
 const structuredSelector = createStructuredSelector({
     contactAddress: selectContactAddress,
     contactAddressCheck: selectContactAddressCheck,
-    step2: selectStep2
+    step2: selectStep2,
+    duplicateAddress : selectDuplicateAddress
 })
 
 const mapDispatchToProps = dispatch => {

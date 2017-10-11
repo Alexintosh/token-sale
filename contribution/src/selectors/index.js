@@ -22,6 +22,8 @@ export const selectContactEmailCheck = state => state.register.contactEmailCheck
 export const selectContactAddressCheck = state => state.register.contactAddressCheck;
 export const selectContactCountryCheck = state => state.register.contactCountryCheck;
 export const selectPurchaseSizeCheck = state => state.register.purchaseSizeCheck;
+export const selectDuplicateEmail = state => state.register.duplicateEmail;
+export const selectDuplicateAddress = state => state.register.duplicateAddress;
 
 
 ///Signup Modal Check Boxes

@@ -11,8 +11,7 @@ import {    resetRegistrationFormFields,
             changeFormStep,
             formSuccess,
             formError,
-            formSubmit,
-            setInProgressFlag }    from '../actions/registrationActions';
+            formSubmit }    from '../actions/registrationActions';
 
 const emailRegistration = createLogic({
     type: 'SUBMIT_EMAIL_REGISTRATION',
@@ -37,7 +36,6 @@ const userRegister = createLogic({
     type: 'SUBMIT_REGISTRATION_FIELDS',
     async process({ getState, action, APIEndpoint }, dispatch, done) {
         try {
-            dispatch(setInProgressFlag(true));
             dispatch(resetRegistrationFormFields());
             var sale = getState().sale;
             var reg = getState().register;
@@ -59,7 +57,6 @@ const userRegister = createLogic({
                         //user_response: sale.recaptchaUserResponse
                     })
                     dispatch(resetFormSteps());
-                    dispatch(setInProgressFlag(false));
                     dispatch(formSuccess());
                     dispatch(changeFormStep('step4'));
                     done();
@@ -67,13 +64,11 @@ const userRegister = createLogic({
                     console.log('http request error');
                     dispatch(resetFormSteps());
                     dispatch(formError());
-                    dispatch(setInProgressFlag(false));
                     dispatch(changeFormStep('stepError'));
                     done()
                 }
             }else {
-                errors.forEach(error => { dispatch(error) })
-                dispatch(setInProgressFlag(false));
+                errors.forEach(error => { dispatch(error) });
                 dispatch(formError());
                 done()
             }
@@ -82,11 +77,9 @@ const userRegister = createLogic({
             dispatch(formError());
             dispatch(resetFormSteps());
             dispatch(changeFormStep('stepError'));
-            dispatch(setInProgressFlag(false));
             done();
         } finally {
             dispatch(formError());
-            dispatch(setInProgressFlag(false));
             done()
         }
     }
@@ -101,9 +94,20 @@ const userStep1 = createLogic({
             var reg = getState().register;
 
             const errors = validateStep1(reg, sale);
+
             if(errors.length === 0){
-                dispatch(resetFormSteps())
-                dispatch(changeFormStep('step2'))
+                var result = await axios.post(APIEndpoint + '/api/validate_email',{
+                    access_id: sale.accessId,
+                    api_token: sale.apiToken,
+                    email: reg.contactEmail,
+                })
+                if(result){
+                    dispatch(resetFormSteps())
+                    dispatch(changeFormStep('step2'))
+                }
+                else{
+                    dispatch(errorRegistrationFormField('duplicateEmail'))
+                }
                 done();
             }else {
                 errors.forEach(error => { dispatch(error) })
@@ -127,8 +131,17 @@ const userStep2 = createLogic({
 
             const errors = validateStep2(reg, sale);
             if(errors.length === 0){
-                dispatch(resetFormSteps())
-                dispatch(changeFormStep('step3'))
+                var result = await axios.post(APIEndpoint + '/api/validate_eth_address',{
+                    access_id: sale.accessId,
+                    api_token: sale.apiToken,
+                    eth_address: reg.contactAddress,
+                })
+                if(result){
+                    dispatch(resetFormSteps())
+                    dispatch(changeFormStep('step3'))
+                }else{
+                    dispatch(errorRegistrationFormField('duplicateAddress'))
+                }
                 done();
             }else {
                 errors.forEach(error => { dispatch(error) })
