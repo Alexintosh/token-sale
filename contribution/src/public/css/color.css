@@ -186,6 +186,14 @@
     background-color: rgba(254, 46, 46, 0.85);
     border-radius: 5px;
 }
+
+.info-text{
+    padding: 10px 10px 10px 20px;
+    color: #fff;
+    background-color: rgba(18, 230, 3, 0.85);
+    border-radius: 5px;
+}
+
 .footer-social i{
     font-size: 30px;
     color: #fff;

@@ -73,6 +73,12 @@ export const submitEmailFormError = (err) => {
 }
 
 
+export const setInProgressFlag = (flag) => {
+    return {
+        type: 'SET_IN_PROGRESS_FLAG',
+        payload: flag
+    }
+}
 
 /////FORM STEPS 
 export const validateFields = () => {

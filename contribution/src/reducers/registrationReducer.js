@@ -16,15 +16,22 @@ const initialState = {
     purchaseSizeCheck: true,
     countryCheckValidation: true,
     termsCheckValidation:true,
+    inProgressFlag: false,
     step1: true,
     step2: false,
     step3: false,
     step4: false,
-    submission: false
+    submission: false,
+    stepError: false
 }
 
 export default function registrationReducer(state = initialState, action) {
     switch (action.type) {
+        case 'SET_IN_PROGRESS_FLAG':
+            return{
+                ...state,
+                inProgressFlag: action.payload
+            }
         case 'UPDATE_REGISTRATION_FIELD':
             return{
                 ...state,
@@ -45,7 +52,8 @@ export default function registrationReducer(state = initialState, action) {
                 contactCountryCheck: true,
                 purchaseSizeCheck: true,
                 countryCheckValidation: true,
-                termsCheckValidation: true
+                termsCheckValidation: true,
+                inProgressFlag: false
             }
         case 'SUBMIT_REGISTRATION_FIELDS':
             return {
@@ -83,7 +91,8 @@ export default function registrationReducer(state = initialState, action) {
                 ...state,
                 step1: false,
                 step2: false,
-                step3: false
+                step3: false,
+                stepError: false
             }
         case 'SHOW_FORM_STEP':
             return {
