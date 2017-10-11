@@ -40,8 +40,8 @@
 }
 
 
-.btn-register-landing{
-    padding: 20px 90px;
+.btn-register-landing{    
+    padding: 25px 80px;
     font-size: 25px;
     font-weight: bold;
     color: #fff;
@@ -56,7 +56,7 @@
 }
 
 .btn-register-next{
-    padding: 10px 90px;
+    padding: 10px 110px;
     font-size: 25px;
     font-weight: bold;
     color: #fff;
