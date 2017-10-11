@@ -36,7 +36,9 @@ export const selectStep1 = state => state.register.step1;
 export const selectStep2 = state => state.register.step2;
 export const selectStep3 = state => state.register.step3;
 export const selectStep4 = state => state.register.step4;
+export const selectStepError = state => state.register.stepError;
 
+export const selectInProgressFlag = state => state.register.inProgressFlag;
 
 ///Email Registration inside of countdown
 export const selectContactEmailName = state => state.register.contactEmailName;

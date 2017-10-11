@@ -8,7 +8,8 @@ import {    resetRegistrationFormFields,
             submitEmailFormSuccess,
             submitEmailFormError,
             resetFormSteps,
-            changeFormStep }     from '../actions/registrationActions';
+            changeFormStep,
+            setInProgressFlag }     from '../actions/registrationActions';
 
 const emailRegistration = createLogic({
     type: 'SUBMIT_EMAIL_REGISTRATION',
@@ -33,34 +34,53 @@ const userRegister = createLogic({
     type: 'SUBMIT_REGISTRATION_FIELDS',
     async process({ getState, action, APIEndpoint }, dispatch, done) {
         try {
+            dispatch(setInProgressFlag(true));
             dispatch(resetRegistrationFormFields());
             var sale = getState().sale;
             var reg = getState().register;
             const errors = validate(reg, sale);
             console.log('registration logic: errors: ' + JSON.stringify(errors));
+
             if(errors.length === 0){
 
-                await axios.post(APIEndpoint + '/api/register',{
-                    access_id: sale.accessId,
-                    api_token: sale.apiToken,
-                    name: reg.contactFirstName,
-                    email: reg.contactEmail,
-                    address: reg.contactAddress,
-                    country: reg.contactCountry,
-                    amount: reg.purchaseSize,
-                    check: reg.countryCheck
-                    //user_response: sale.recaptchaUserResponse
-                })
-                dispatch(resetFormSteps())
-                dispatch(changeFormStep('step4'))
-                done();
+                try{
+                    await axios.post(APIEndpoint + '/api/register',{
+                        access_id: sale.accessId,
+                        api_token: sale.apiToken,
+                        name: reg.contactFirstName,
+                        email: reg.contactEmail,
+                        address: reg.contactAddress,
+                        country: reg.contactCountry,
+                        amount: reg.purchaseSize,
+                        check: reg.countryCheck
+                        //user_response: sale.recaptchaUserResponse
+                    })
+                    dispatch(resetFormSteps())
+                    dispatch(setInProgressFlag(false));
+                    dispatch(changeFormStep('step4'))
+                    done()
+                } catch (err){
+                    console.log('http request error');
+                    dispatch(resetFormSteps())
+                    dispatch(setInProgressFlag(false));
+                    dispatch(changeFormStep('stepError'))
+                    done()
+                }
+
+
             }else {
                 errors.forEach(error => { dispatch(error) })
-                done();
+                dispatch(setInProgressFlag(false));
+                done()
             }
         } catch (err) {
-            dispatch(registrationFormError(err));
+            dispatch(registrationFormError(err))
+            dispatch(resetFormSteps());
+            dispatch(changeFormStep('stepError'));
+            dispatch(setInProgressFlag(false));
+            done();
         } finally {
+            dispatch(setInProgressFlag(false));
             done()
         }
     }

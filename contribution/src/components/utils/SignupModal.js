@@ -8,6 +8,7 @@ import Step1                            from './modal/Step1';
 import Step2                            from './modal/Step2';
 import Step3                            from './modal/Step3';
 import StepFinal                        from './modal/StepFinal';
+import StepError                        from './modal/StepError';
 
 class SignupModal extends Component{
     render(){
@@ -21,6 +22,7 @@ class SignupModal extends Component{
                         <Step2 />
                         <Step3 submit={() => this.props.submitRegistrationFormFields(this.props.history)} />
                         <StepFinal />
+                        <StepError />
                 </form>
                 </Modal.Body>
             </Modal>
