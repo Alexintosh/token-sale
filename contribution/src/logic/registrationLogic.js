@@ -40,7 +40,6 @@ const userRegister = createLogic({
             var sale = getState().sale;
             var reg = getState().register;
             const errors = validate(reg, sale);
-            console.log('registration logic: errors: ' + JSON.stringify(errors));
 
             if(errors.length === 0){
                 try{
@@ -101,7 +100,10 @@ const userStep1 = createLogic({
                     api_token: sale.apiToken,
                     email: reg.contactEmail,
                 })
-                if(result){
+               
+                //console.log('result: ' + JSON.stringify(result));
+                //console.log('type of result: ' + (typeof result));
+                if(result.data){
                     dispatch(resetFormSteps())
                     dispatch(changeFormStep('step2'))
                 }
@@ -136,7 +138,7 @@ const userStep2 = createLogic({
                     api_token: sale.apiToken,
                     eth_address: reg.contactAddress,
                 })
-                if(result){
+                if(result.data){
                     dispatch(resetFormSteps())
                     dispatch(changeFormStep('step3'))
                 }else{
