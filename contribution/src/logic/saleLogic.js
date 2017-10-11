@@ -19,7 +19,7 @@ const apiRegister = createLogic({
 
 const checkCaptcha = createLogic({
   type: 'FETCH_CAPTCHA_RESPONSE',
-  async process({ getStaet, action, APIEndpoint }, dispatch, done) {
+  async process({ getState, action, APIEndpoint }, dispatch, done) {
     try {
       const result = await axios.post(APIEndpoint + '/api/check-recaptcha',{
           user_response: action.userResponse,
