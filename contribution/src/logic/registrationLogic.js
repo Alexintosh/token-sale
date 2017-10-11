@@ -50,7 +50,7 @@ const userRegister = createLogic({
                     await axios.post(APIEndpoint + '/api/register',{
                         access_id: sale.accessId,
                         api_token: sale.apiToken,
-                        name: reg.contactFirstName +":"+ reg.contactLastName,
+                        name: reg.contactFirstName +" "+ reg.contactLastName,
                         email: reg.contactEmail,
                         address: reg.contactAddress,
                         country: reg.contactCountry,
