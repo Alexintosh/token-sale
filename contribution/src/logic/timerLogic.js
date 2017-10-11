@@ -9,7 +9,7 @@ const startTimer = createLogic({
     try {
         setInterval(function() {
             var oneDay=1000*60*60*24;
-            var endDate = new Date(2017,10,7,12);
+            var endDate = new Date(2017,10,7,11);
             var todaysDate = new Date();
             var difference = endDate - todaysDate;
             var time = (difference/oneDay);
