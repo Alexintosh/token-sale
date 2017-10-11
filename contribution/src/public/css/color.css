@@ -56,18 +56,18 @@
 }
 
 .btn-register-next{
-    padding: 10px 110px;
+    padding: 17px 115px;
     font-size: 25px;
     font-weight: bold;
     color: #fff;
     border-radius: 5px;
-    background-image: url('../img/Leverj-Next-Button-Web.png');
+    background-image: url('../img/Leverj-Register-Button-Web-Top-Right.png');
     background-repeat: no-repeat;
     background-size: cover;
 }
 .btn-register-next:hover{
     color: #eee;
-    background-image: url('../img/Leverj-Next-Button-Web.png');
+    background-image: url('../img/Leverj-Register-Button-Web-Top-Right.png');
     background-size: cover;
 }
 
