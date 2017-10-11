@@ -1,10 +1,7 @@
-<script>
-  <script async src="/tagmanager.js"></script>
-  <script>
+(function(){
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments)}
     gtag('js', new Date());
 
     gtag('config', 'UA-91770964-1');
-  </script>
-</script>    
+})
