@@ -12,9 +12,6 @@ import {    selectDays1,
 import { startTimer }                from '../../actions/timerActions';
 
 class Timer extends PureComponent{
-    componentDidMount(){
-        this.props.startTimer()
-    }
     render(){
         return(            
             <div className="timer">
