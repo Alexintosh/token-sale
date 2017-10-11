@@ -36,7 +36,7 @@ class Step2 extends PureComponent{
                         onChange={this.props.updateRegisterFormField.bind(this)} 
                         placeholder="Ethereum Address *" />
                 <div id="_contactAddress" className={"warning-text" + (this.props.contactAddressCheck ? ' hidden' : '')}>Please enter a valid ethereum address</div>
-                <div id="_contactDupAddress" className={"warning-text" + (this.props.duplicateAddress ? '' : ' hidden')}>This ethereum address has already been registered</div>
+                <div id="_contactDupAddress" className={"warning-text" + (this.props.duplicateAddress ? ' hidden' : '')}>This ethereum address has already been registered</div>
 
                 <p>Don't have MetaMask or MyEtherWallet yet? <a href={pdf} target="_blank" rel="noopener noreferrer">Click Here</a></p>
                 
