@@ -20,12 +20,29 @@ class Step3 extends PureComponent{
                     <p className="large">3,000 TOKENS/ 1 ETH</p>
                     <span>Conversion Ratio</span>
                 </div>
-                <input  type="text"
-                        name="purchaseSize"
-                        id="purchaseSize"
-                        value={this.props.purchaseSize}
-                        onChange={this.props.updateRegisterFormField.bind(this)} 
-                        placeholder="Purchase Size [min 25 Ether - max 500 Ether] *" />
+                <div className="row">
+                    <div className="col-sm-3 pr-0">
+                        <div className="inline-amount">
+                            <p>25 ETH</p>
+                            <span>minimum</span>
+                        </div>
+                    </div>
+                    <div className="col-sm-6">
+                        <input  type="text"
+                                name="purchaseSize"
+                                id="purchaseSize"
+                                className="purchase-size center-text"
+                                value={this.props.purchaseSize}
+                                onChange={this.props.updateRegisterFormField.bind(this)} 
+                                placeholder="Purchase Size *" />
+                    </div>
+                    <div className="col-sm-3 pl-0">
+                        <div className="inline-right">
+                            <p>500 ETH</p>
+                            <span>maximum</span>
+                        </div>
+                    </div>
+                </div>
                 <div id="_purchaseSize" className={"warning-text" + (this.props.purchaseSizeCheck ? ' hidden' : '')}>Please enter an amount between 25 Ether and 100 Ether</div>
 
                 <div className="pt-20 center-text">
