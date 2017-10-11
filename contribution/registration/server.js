@@ -28,11 +28,65 @@ var limiter = new RateLimit({
 	max: 10, // limit each IP to 10 requests per windowMs 
 	delayMs: 0 // disable delaying - full speed until the max limit is reached 
 });
-app.use(limiter);
+//app.use(limiter);
 
 app.get('/api/healthcheck', async (req, res)=>{
 	res.status(200);
 	res.send('200');
+})
+
+app.post('/api/validate_email', async (req, res)=>{
+
+	/*if(!checkRequestHeaders(req.headers)){
+		res.status(401);
+		res.send('unauthorized');
+		return;
+	}
+
+	if(req.body.api_token != tokenMap.get(req.body.access_id)){
+		console.log('api/check-recaptcha: 401 due to token issue');
+		res.status(401);
+		res.send('unauthorized');
+		return;
+	}*/
+
+	datastore_lib.validateEmail(req.body.email, (err, result)=>{
+		if(err){
+			console.log('error validating email: ' + JSON.stringify(err));
+		}else{
+			console.log('validation for '+req.body.email+': ' + result);
+			res.status(200);
+			res.send(result);
+		}
+	});
+
+})
+
+app.post('/api/validate_eth_address', async (req, res)=>{
+
+	/*if(!checkRequestHeaders(req.headers)){
+		res.status(401);
+		res.send('unauthorized');
+		return;
+	}
+
+	if(req.body.api_token != tokenMap.get(req.body.access_id)){
+		console.log('api/check-recaptcha: 401 due to token issue');
+		res.status(401);
+		res.send('unauthorized');
+		return;
+	}*/
+
+	datastore_lib.validateEthAddress(req.body.eth_address, (err, result)=>{
+		if(err){
+			console.log('error validating eth address: ' + JSON.stringify(err));
+		}else{
+			console.log('validation for '+req.body.eth_address+': ' + result);
+			res.status(200);
+			res.send(result);
+		}
+	});
+
 })
 
 app.post('/api/register_client', async (req, res)=>{
@@ -138,7 +192,7 @@ app.post('/api/register', async (req, res) => {
 		return;
 	}
 
-	console.log('sending recaptcha check with user_response: ' + JSON.stringify(req.body.user_response));
+	//console.log('sending recaptcha check with user_response: ' + JSON.stringify(req.body.user_response));
  	//callRecaptcha(req.body.user_response, (err, response)=>{
 	    //if(response){
 		//console.log('got recatpcha response: ' + JSON.stringify(response));
