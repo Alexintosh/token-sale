@@ -3,8 +3,13 @@ import { connect }                  from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { selectStep4 }              from '../../../selectors';
 import success                      from '../../../public/img/success.png';
+import ReactGA                      from 'react-ga';
+ReactGA.initialize('UA-91770964-1');
 
 class StepFinal extends PureComponent{
+    componentDidMount(){
+      ReactGA.ga('send', 'pageview', '/register-success');
+    }
     render(){
         return(
             <div className={this.props.step4 ? '' : 'hide'}>

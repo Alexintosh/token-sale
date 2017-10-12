@@ -6,6 +6,9 @@ import { updateRegisterFormField,
          validateFields }           from '../../../actions/registrationActions';
 import countries                    from '../countries.json';
 import uuidv4                       from 'uuid/v4';
+import ReactGA                      from 'react-ga';
+ReactGA.initialize('UA-91770964-1');
+
 
 class Step1 extends Component{
     constructor(){
@@ -14,6 +17,9 @@ class Step1 extends Component{
             country: ''
         }        
     this.handleChange = this.handleChange.bind(this);
+  }
+  componentDidMount(){
+    ReactGA.ga('send', 'pageview', '/register-step1');
   }
 
   handleChange(event) {

@@ -9,8 +9,13 @@ import { updateRegisterFormField }  from '../../../actions/registrationActions';
 import { updateRecaptchaResponse,
          fetchCaptchaResponse,
          setRecaptchaPassed }       from '../../../actions/saleActions';
+import ReactGA                      from 'react-ga';
+ReactGA.initialize('UA-91770964-1');
 
 class Step3 extends PureComponent{
+    componentDidMount(){
+      ReactGA.ga('send', 'pageview', '/register-step3');
+    }
     render(){
         return(
             <div className={this.props.step3 ? '' : 'hide'}>
