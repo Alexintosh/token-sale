@@ -19,9 +19,9 @@ const initialState = {
     duplicateEmail: true,
     duplicateAddress: true,
     inProgressFlag: false,
-    step1: false,
+    step1: true,
     step2: false,
-    step3: true,
+    step3: false,
     step4: false,
     submission: false,
     stepError: false
