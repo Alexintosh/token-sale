@@ -1,6 +1,6 @@
 import React, { PureComponent }         from 'react';
 import { Modal }                        from 'react-bootstrap';
-import YouTube                  from 'react-youtube' ;
+import YouTube                          from 'react-youtube' ;
 
 export default class PopupModal extends PureComponent{
     render(){

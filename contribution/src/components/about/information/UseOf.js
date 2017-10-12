@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import breakdown                from '../../../public/img/token_breakdown.png';
+import breakdown                from '../../../public/img/Use-Of-Proceeds-Chart.png';
 
 export default class UseOf extends PureComponent{
     render(){

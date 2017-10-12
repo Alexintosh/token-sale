@@ -1,0 +1,116 @@
+[{
+    "header": "What is Leverj?",
+    "id": "define",
+    "questions":[{
+        "question": "What is Leverj?",
+        "answer": "Leverj is a decentralized leveraged crypto exchange that provides solutions to the inherent risks seen in centralized trading platforms."
+    },{
+        "question": "Why does Leverj use Ethereum as a base platform instead of Bitcoin?",
+        "answer": "In the current state of the bitcoin network, the decentralized model has become prohibitively expensive. Ethereum transactions are faster and cheaper, making it the natural step forward for further developing a decentralized trading platform."
+    }]
+},{
+    "header": "Decentralized Exchange",
+    "id": "exchange",
+    "questions":[{
+        "question": "What risks are associated with centralized exchanges?",
+        "answer": "The exposure of three core pieces of user information are inevitable in centralized exchanges. They include the identity of the user, user funds and user transaction history. In a traditional centralized exchange, this valuable information is at the mercy and competence of the exchange operators. The centralization of these valuables in the custody of an exchange are an attractive target for hackers, lawsuits and state actors. As seen over and over again, the risks and losses can be substantial."
+    },{
+        "question": "How does Leverj avoid these risks?",
+        "answer": "Leverj provides decentralized identity to avoid identity leaks and multi-signature accounts to provide complete user control over account funds. We also give the user complete control of funds by fully decentralizing the back-end."
+    }]
+},{
+    "header": "Decentralized Identity",
+    "id": "identity",
+    "questions":[{
+        "question": "What is decentralized identity?",
+        "answer": "The user’s identity for any trade is simply a public key that controls the user’s coins. This brings financial privacy to trades that would be otherwise exposed on the blockchain. Given the ability to create identities at will, users are able to decentralize transaction histories. This works to further obfuscate the identity of the user and the amount of funds held by the user."
+    }]
+},{
+    "header": "UX",
+    "id": "ux",
+    "questions":[{
+        "question": "How does the UX of Leverj compare to the UX of a centralized exchange?",
+        "answer": "The UX of Leverj will be every bit as seamless as the top centralized exchanges, as while we refuse to compromise on security, we likewise refuse to compromise on usability."
+    },{
+        "question": "How does the UX of Leverj compare to the UX of other decentralized exchange?",
+        "answer": "There are many decentralized exchanges, but none offer leveraged trading. There are many high speed exchanges, but none are non-custodial. We offer the user a high-speed non-custodial leveraged exchange, complete with all of the usability features seen in the top centralized exchanges."
+    },{
+        "question":"What features can the user expect on Leverj?",
+        "answer":"High liquidity, tight spreads, low slippage, atomic stops, hardware key authentication, near-instant settlement, proof-of-audit embedded in blockchain, zero-knowledge API keys, and into the near-future, price action entries, trade replay videos, managed trading and simulated trading."
+    }]
+},{
+    "header": "New Features",
+    "id":"features",
+    "questions":[{
+        "question":"What are price action entries?",
+        "answer":"Price action entries are intended to give traders the opportunity to steer clear of FOMO-driven trades. Hesitation from a trader reacting too late once the price moves with unexpected strength can lead to entries too close to the top or bottom of a move, and exits that often leave the trader’s PNL at a loss. Price action entries allow the trader to quickly build a position free from absolute price levels and remain focused on the unfolding market structure. This allows for ease of entries and exits, reducing unexpected losses and suboptimal exits."
+    },{
+        "question":"How are trade replay videos used?",
+        "answer":"The best way to improve trading is for the trader to observe his or her own trades. Trade replay videos allow the trader to view how a trade was planned and executed, from placing the entry order, to stop management to eventual exit. Video replay can be used to document trading, share with and teach other traders or simply to keep an archive of one’s greatest trading moments."
+    },{
+        "question":"What is managed trading?",
+        "answer":"Managed trading presents an attractive alternative to those who have the capital but not the skill to trade. Simply “follow” or replicate trades of highly skilled traders automatically in exchange for a percentage of the profits."
+    },{
+        "question":"What is simulated trading?",
+        "answer":"Simulated trading enables testing out ideas and fine tuning trading techniques with real-time market data while avoiding market risk"
+    }]
+},{
+    "header": "Accessing Your Account",
+    "id":"account",
+    "questions":[{
+        "question":"How do logins work without username/password?",
+        "answer":"The UX is loginless. Accounts are created simply by generating a private key. This private key will be downloadable to your computer via JSON file for ease of access to your account from different browsers."
+    },{
+        "question":"Will you also be able to access the account with a JSON file? Or will you have to paste the private key each time?",
+        "answer":"The UX is loginless. The user only need to use the JSON when accessing from a new browser. Zero-knowledge API keys are also available, which allows the user to trade without private key. This allows for trading without the ability to move coins."
+    },{
+        "question":"What is a Zero-knowledge API key?",
+        "answer":"Zero-knowledge API keys (ZKA) enable integration with vendors and partners without relying on transport and storage secrecy."
+    }]
+},{
+    "header": "Deposits/ Withdrawals",
+    "id":"withdrawals",
+    "questions":[{
+        "question":"What currencies will I be able to deposit to trade on Leverj?",
+        "answer":"Leverj uses ETH as the sole currency of the base platform. Deposits will only be made available in ETH as well as listed ERC20 tokens."
+    },{
+        "question":"Is there a plan for minimizing slow withdrawal risks if/when the ETH blockchain gets congested, as has happened on other exchanges?",
+        "answer":"Withdrawal delays will depend on the blockchain congestion. By treading lightly on the blockchain, an increase in exchange volume will not cause a proportional increase in our blockchain footprint. Since blockchain congestion does not impact trading but only withdrawals, we are able to be responsive and scale the trading part of it in the case of severe blockchain congestion."
+    }]
+},{
+    "header": "LEV Token",
+    "id":"token",
+    "questions":[{
+        "question":"What is the utility of the LEV token?",
+        "answer":"LEV is the primary token in our two-level token system. It is of fixed supply and represents a license to transact on the platform proportional to the percentage ownership of the token supply"
+    },{
+        "question":"When will tokens be distributed?",
+        "answer":"Within one month of the end of the token sale. Ideally tokens will be distributed within the first week following the token sale, but at most it will be no longer than one month."
+    },{
+        "question":"Immediately following distribution, where can I trade my LEV token?",
+        "answer":"A centralized trading exchange will be created for our tokens to start with."
+    }]
+},{
+    "header": "2-Level Token System",
+    "id":"tokenSystem",
+    "questions":[{
+        "question":"What is a 2-level token system?",
+        "answer":"Many DApps use bi-level tokens to separate value from utility. The two level token system has been carefully crafted using economics and game theory to incentivize liquidity and to quickly grow a rich ecosystem."
+    },{
+        "question":"What is the 2nd level token?",
+        "answer":"The secondary token is the FEE token. It is the accounting mechanism to ensure the rights of LEV can be exercised fully in a decentralized manner."
+    }]
+},{
+    "header": "FEE Token",
+    "id":"fee",
+    "questions":[{
+        "question":"Will FEE tokens be distributed along with LEV tokens?",
+        "answer":"No. Unlike the LEV token which is created only on the ICO issuance with a permanently fixed supply, FEE tokens can be generated by LEV token holders by freezing the LEV token in a smart contract for a fixed duration. The amount of FEE generated is determined by the amount of LEV being frozen, as well as the exchange’s trading volume at the time that the LEV tokens are frozen."
+    },{
+        "question":"What value do I gain from acquiring FEE tokens?",
+        "answer":"By staking LEV tokens and ultimately acquiring FEE tokens, a trader is able to trade on the Leverj platform without having to pay fees in ETH. The benefit of paying fees in FEE tokens instead of ETH comes into play when the FEE/ETH market is trading below the face FEE price of 0.0001 ETH. Since some LEV stakers will sell FEE on the market, it will provide sell pressure for traders to buy FEE with ETH at a discount to save money on trading fees."
+    },{
+        "question":"Can I buy FEE tokens if I don’t have any LEV to stake?",
+        "answer":"Yes. There will be a FEE/ETH spot market for traders interested in paying trading fees in FEE to purchase the token using ETH."
+    }]
+}]

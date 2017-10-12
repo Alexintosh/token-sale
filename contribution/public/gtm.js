@@ -12,4 +12,4 @@
 })(window, document, 'script', '/analytics.js', 'ga');
 
 ga('create', 'UA-91770964-1', 'auto');
-ga('send', 'pageview');
+ga('send', 'pageview', '/register');

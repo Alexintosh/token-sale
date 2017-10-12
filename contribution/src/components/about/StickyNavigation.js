@@ -13,10 +13,12 @@ export default class StickyNavigation extends PureComponent{
         window.addEventListener('scroll', ()=>{
             var domReact = this.refs.stickyNav.getBoundingClientRect();
             if(domReact.top <= 0){
-                this.setState({
-                    stuck: true
-                })
-            } else {
+                if(!this.state.stuck){
+                    this.setState({
+                        stuck: true
+                    })
+                }
+            } else if(this.state.stuck) {
                 this.setState({
                     stuck: false
                 })
@@ -29,7 +31,6 @@ export default class StickyNavigation extends PureComponent{
                 <section id="stickyNav" ref="stickyNav" className="pos-absolute hide-on-xs">
                     <TopBar stuck={this.state.stuck} history={this.props.history} />
                     <AboutNavigation stuck={this.state.stuck} bottom={this.props.bottom} />
-                    {/*<BottomBar stuck={this.state.stuck} />*/}
                 </section>
             </div>
         )

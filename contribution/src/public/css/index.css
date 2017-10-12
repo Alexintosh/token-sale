@@ -190,6 +190,12 @@ body {
   margin-bottom: 15px;
   background-color: #fff;
 }
+.accordian-header i{
+  font-size: 25px;
+  padding-top: 8px;
+  float: right;
+  padding-right: 20px;
+}
 .accordian-container{
   padding-top: 20px;
 }
