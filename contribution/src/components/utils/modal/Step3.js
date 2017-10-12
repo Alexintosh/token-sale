@@ -44,12 +44,12 @@ class Step3 extends PureComponent{
                     </div>
                     <div className="col-sm-3 pl-0">
                         <div className="inline-right">
-                            <p>500 ETH</p>
+                            <p>100 ETH</p>
                             <span>maximum</span>
                         </div>
                     </div>
                 </div>
-                <div id="_purchaseSize" className={"warning-text" + (this.props.purchaseSizeCheck ? ' hidden' : '')}>Please enter an amount between 1 Ether and 500 Ether</div>
+                <div id="_purchaseSize" className={"warning-text" + (this.props.purchaseSizeCheck ? ' hidden' : '')}>Please enter an amount between 1 Ether and 100 Ether</div>
 
                 <div className="pt-20 center-text">
                     <div onClick={(e) => {e.preventDefault(); this.props.submit()}} className="btn btn-register-complete">COMPLETE REGISTRATION</div>

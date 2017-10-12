@@ -171,7 +171,7 @@ function validate (reg, sale) {
         errors.push(errorRegistrationFormField('contactCountryCheck'));
     if(!(validator.isAlphanumeric(reg.contactAddress) && reg.contactAddress.length === 42))
         errors.push(errorRegistrationFormField('contactAddressCheck'));
-    if(!(validator.isDecimal(reg.purchaseSize) && reg.purchaseSize >= 1 && reg.purchaseSize <= 500))
+    if(!(validator.isDecimal(reg.purchaseSize) && reg.purchaseSize >= 1 && reg.purchaseSize <= 100))
         errors.push(errorRegistrationFormField('purchaseSizeCheck'));
     if(!reg.countryCheck)
         errors.push(errorRegistrationFormField('countryCheckValidation'));

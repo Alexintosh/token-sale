@@ -208,7 +208,7 @@ app.post('/api/register', async (req, res) => {
             if(validator.isEmail(req.body.email)){
                 if(validator.isAlphanumeric(req.body.address) && req.body.address.length === 42){
                     if(validator.isAlphanumeric(req.body.country.replace(/ /g,''))){
-                        if(validator.isDecimal(req.body.amount) && req.body.amount >=1 && req.body.amount <= 500){
+                        if(validator.isDecimal(req.body.amount) && req.body.amount >=1 && req.body.amount <= 100){
                                           
 							datastore_lib.addRegistration({
                                 name: req.body.name,
