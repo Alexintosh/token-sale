@@ -13,7 +13,7 @@ class LandingVideo extends PureComponent {
         return(
             <section id="video-js" className="pv-20">
                  <YouTube
-                    videoId="XKzOqrbvsKQ"
+                    videoId="0rdwokWlJss"
                     opts={opts}
                     onReady={this._onReady}
                 />
