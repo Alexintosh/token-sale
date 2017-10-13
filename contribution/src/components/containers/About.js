@@ -33,7 +33,7 @@ export default class About extends Component {
         return(
             <section id="about" className="about-background" ref="aboutContainer">
                 <div className="container-fluid">
-                    <StickyNavigation history={this.props.history} bottom={this.state.bottom} />
+                    <StickyNavigation bottom={this.state.bottom} />
                     <div className="row">
                         <div className="col-sm-9 col-sm-offset-3">
                             <div className="row">

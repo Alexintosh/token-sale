@@ -1,25 +1,10 @@
-import React, { PureComponent } from 'react';
-import whitepaper               from '../../public/img/leverj_white.png';
-import yellowpaper              from '../../public/img/leverj_yellow.png';
-import CeoVideo                 from '../utils/CeoVideo';
+import React, { PureComponent }     from 'react';
+import { connect }                  from 'react-redux';
+import whitepaper                   from '../../public/img/leverj_white.png';
+import yellowpaper                  from '../../public/img/leverj_yellow.png';
+import { showCEOModal }             from '../../actions/modalActions'; 
 
-export default class Whitepaper extends PureComponent {
-    constructor(){
-        super();
-        this.state={
-            display: false
-        }
-    }
-    displayModal() {
-        this.setState({
-            display: true
-        });
-    }
-    hideModal() {
-        this.setState({
-            display: false
-        });
-    }
+class Whitepaper extends PureComponent {
     render(){
         return (
             <section id="whitepaper" className="about-card">
@@ -60,7 +45,7 @@ export default class Whitepaper extends PureComponent {
                         </a>
                     </div>
                     <div className="col-sm-4 pt-10 plm-80">
-                        <div className="white-paper pointer" onClick={()=> this.displayModal()}>
+                        <div className="white-paper pointer" onClick={()=> this.props.displayModal()}>
                             <div className="white-line">
                                 <i className="fa fa-youtube fs-30 pr-10" aria-hidden="true"></i>
                             </div>
@@ -86,8 +71,18 @@ export default class Whitepaper extends PureComponent {
                         </a>
                     </div>
                 </div>
-                <CeoVideo display={ this.state.display } hide={() => this.hideModal()} />
             </section>
         )
     }
 }
+
+const mapDispatchToProps = dispatch => {
+    return {
+        displayModal: () => { dispatch(showCEOModal()) }
+    }
+}
+
+export default connect(
+    null,
+    mapDispatchToProps
+)(Whitepaper)

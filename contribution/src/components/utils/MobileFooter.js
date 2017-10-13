@@ -1,31 +1,24 @@
-import React, { PureComponent } from 'react';
-import SignupModal              from './SignupModal';
+import React, { PureComponent }     from 'react';
+import { connect }                  from 'react-redux';
+import { showRegistrationModal }    from '../../actions/modalActions';
 
-export default class MobileFooter extends PureComponent{
-    constructor(){
-        super();
-        this.state={
-            display: false
-        }
-    }
-    displayModal() {
-        this.setState({
-            display: true
-        });
-    }
-    hideModal() {
-        this.setState({
-            display: false
-        });
-    }
+class MobileFooter extends PureComponent{
     render(){
         return(
             <div className="mobile-footer">
                 <div className="center-text">
-                    <button onClick={()=> this.displayModal()} className="btn btn-footer">REGISTER</button>
+                    <button onClick={()=> this.props.displayRegistrationModal()} className="btn btn-footer">REGISTER</button>
                 </div>
-                <SignupModal display={ this.state.display } hide={() => this.hideModal()}  history={this.props.history} />
             </div>
         )
     }
 }
+const mapDispatchToProps = dispatch => {
+    return {
+        displayRegistrationModal: () => { dispatch(showRegistrationModal()) }
+    }
+}
+export default connect(
+    null,
+    mapDispatchToProps
+)(MobileFooter)

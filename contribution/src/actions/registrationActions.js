@@ -14,10 +14,9 @@ export const resetRegistrationFormFields = () => {
     }
 }
 
-export const submitRegistrationFormFields = (history) => {
+export const submitRegistrationFormFields = () => {
     return {
-        type: 'SUBMIT_REGISTRATION_FIELDS',
-        history
+        type: 'SUBMIT_REGISTRATION_FIELDS'
     }
 }
 

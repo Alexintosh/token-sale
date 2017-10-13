@@ -19,7 +19,6 @@ const emailRegistration = createLogic({
         try {
             if(validator.isEmail(getState().register.contactEmailName)){
                 await axios.post(APIEndpoint + '/api/email-registration',{ email: getState().register.contactEmailName });
-                action.history.push('/email-signup');
                 dispatch(submitEmailFormSuccess())
             }else{
                 dispatch(submitEmailFormError("not a valid email"))

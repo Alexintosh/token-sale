@@ -1,8 +1,12 @@
 import React, { PureComponent }         from 'react';
+import { connect }                      from 'react-redux';
 import { Modal }                        from 'react-bootstrap';
 import YouTube                          from 'react-youtube' ;
+import { createStructuredSelector }     from 'reselect';
+import { selectDisplayVideo }           from '../../selectors';
+import { hideVideoModal }               from '../../actions/modalActions';
 
-export default class PopupModal extends PureComponent{
+class PopupVideo extends PureComponent{
     render(){
         const opts = {
             height: '100%',
@@ -12,7 +16,7 @@ export default class PopupModal extends PureComponent{
             }
         };
         return(
-            <Modal show={this.props.display} onHide={this.props.hide} bsSize="large">
+            <Modal show={this.props.display} onHide={() => this.props.hide()} bsSize="large">
                 <Modal.Body>
                     <div className="popup-video">
                     <YouTube
@@ -26,3 +30,17 @@ export default class PopupModal extends PureComponent{
         )
     }
 }
+
+const structureSelector = createStructuredSelector({
+    display: selectDisplayVideo
+})
+
+const mapDispatchToProps = dispatch => {
+    return {
+        hide: () => { dispatch(hideVideoModal()) }
+    }
+}
+export default connect(
+    structureSelector,
+    mapDispatchToProps
+)(PopupVideo)

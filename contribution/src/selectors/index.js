@@ -55,3 +55,10 @@ export const selectMinutes1 = state => state.timer.minutes1;
 export const selectMinutes2 = state => state.timer.minutes2;
 export const selectSeconds1 = state => state.timer.seconds1;
 export const selectSeconds2 = state => state.timer.seconds2;
+
+
+
+////MODAL
+export const selectDisplayVideo = state => state.modal.displayVideo;
+export const selectDisplaySignup = state => state.modal.displaySignup;
+export const selectDisplayCeoVideo = state => state.modal.displayCeoVideo;
