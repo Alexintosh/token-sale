@@ -62,3 +62,8 @@ export const selectSeconds2 = state => state.timer.seconds2;
 export const selectDisplayVideo = state => state.modal.displayVideo;
 export const selectDisplaySignup = state => state.modal.displaySignup;
 export const selectDisplayCeoVideo = state => state.modal.displayCeoVideo;
+
+
+/////STICKY NAVIGATION
+export const selectBottom = state => state.sticky.bottom;
+export const selectStuck = state => state.sticky.stuck;

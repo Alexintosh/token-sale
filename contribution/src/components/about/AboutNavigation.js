@@ -1,9 +1,14 @@
-import React, { PureComponent } from 'react';
-import uuidv4                   from 'uuid/v4';
-import Scrollspy                from 'react-scrollspy'
-import consensys                from '../../public/img/consensyslogoblack.png';
+import React, { PureComponent }     from 'react';
+import { connect }                  from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+import { selectBottom,
+         selectStuck }              from '../../selectors';
 
-export default class AboutNavigation extends PureComponent {
+import uuidv4                       from 'uuid/v4';
+import Scrollspy                    from 'react-scrollspy'
+import consensys                    from '../../public/img/consensyslogoblack.png';
+
+class AboutNavigation extends PureComponent {
     render(){
         return(
             <section id="about-nav" className={(this.props.stuck ? 'about-stuck' : 'h-90')}>
@@ -28,3 +33,12 @@ export default class AboutNavigation extends PureComponent {
         )
     }
 }
+
+const structuredSelector = createStructuredSelector({
+    bottom: selectBottom,
+    stuck: selectStuck
+})
+
+export default connect(
+    structuredSelector
+)(AboutNavigation);

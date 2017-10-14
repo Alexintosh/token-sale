@@ -1,5 +1,7 @@
 import React, { PureComponent }     from 'react';
 import { connect }                  from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+import { selectStuck }              from '../../selectors';
 import TimerSmall                   from './TopBar/TimerSmall';
 import { showRegistrationModal }    from '../../actions/modalActions';
 
@@ -23,7 +25,10 @@ const mapDispatchToProps = dispatch => {
         displayRegistrationModal: () => { dispatch(showRegistrationModal()) }
     }
 }
+const structuredSelector = createStructuredSelector({
+    stuck: selectStuck
+})
 export default connect(
-    null,
+    structuredSelector,
     mapDispatchToProps
 )(TopBar);

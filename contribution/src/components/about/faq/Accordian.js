@@ -4,9 +4,7 @@ import uuidv4                   from 'uuid/v4';
 export default class Accordian extends Component{
     constructor(){
         super();
-        this.state={
-            display: false
-        }
+        this.state={ display: false }
     }
     displayAccordian(showing){
         if(showing)
