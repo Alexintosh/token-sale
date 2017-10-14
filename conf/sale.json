@@ -1,14 +1,15 @@
 {
   "owner": "0x2df099d2857fe3822ef4b99dbae87d9a0394b21e",
-  "tokenSupply": 150000000000,
+  "tokenSupply": 1000000000,
   "tokenName": "Leverj",
-  "tokenDecimals": 8,
+  "tokenDecimals": 9,
   "tokenSybmol": "LEV",
   "price": "500",
   "startBlock": 5500,
   "freezeBlock": 5000,
   "endBlock": 6500,
   "totalPreBuyers": 3,
-  "totalTimelockedBeneficiaries": 4
+  "totalTimelockedBeneficiaries": 4,
+  "wallet": "0x2df099d2857fe3822ef4b99dbae87d9a0394b211"
 }
 

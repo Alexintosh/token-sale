@@ -14,6 +14,8 @@ const ethQuery = new EthQuery(new HttpProvider('http://localhost:8545'));
 const Sale = artifacts.require('./Sale.sol');
 const Disbursement = artifacts.require('./Disbursement.sol');
 
+console.log("sale.js: starting sales test");
+
 contract('Sale', (accounts) => {
   const preBuyersConf = JSON.parse(fs.readFileSync('./conf/preBuyers.json'));
   const timelocksConf = JSON.parse(fs.readFileSync('./conf/timelocks.json'));

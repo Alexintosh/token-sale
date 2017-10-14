@@ -4,6 +4,8 @@ const Sale = artifacts.require('./Sale.sol');
 const fs = require('fs');
 const BN = require('bn.js');
 
+console.log('starting sale deployment');
+
 const distributePreBuyersTokens = async function distributePreBuyersTokens(addresses, tokens) {
   const BATCHSIZE = 30;
   if (addresses.length !== tokens.length) {
@@ -91,6 +93,8 @@ module.exports = (deployer) => {
     new BN(preBuyersConf[preBuyer].amount, 10));
 
   const timeLockData = flattenTimeLockData(timelocksConf);
+
+  console.log('about to deploy sale contract');
 
   return deployer.deploy(Sale,
     saleConf.owner,
