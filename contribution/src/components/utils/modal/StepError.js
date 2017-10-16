@@ -8,7 +8,7 @@ ReactGA.initialize('UA-91770964-1');
 
 class StepError extends PureComponent{
     componentDidMount(){
-      ReactGA.pageview('/register-error');
+        ReactGA.pageview('/register-error');
     }
     render(){
         return(

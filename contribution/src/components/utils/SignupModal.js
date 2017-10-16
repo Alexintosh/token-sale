@@ -19,11 +19,11 @@ class SignupModal extends PureComponent{
                 </Modal.Header>
                 <Modal.Body>
                     <form   id="contactFormRegister">
-                        <Step1 />
-                        <Step2 />
-                        <Step3 submit={() => this.props.submitRegistrationFormFields()} />
-                        <StepFinal />
-                        <StepError />
+                        { this.props.step1 ? <Step1 /> : '' }
+                        { this.props.step2 ? <Step2 /> : '' }
+                        { this.props.step3 ? <Step3 submit={() => this.props.submitRegistrationFormFields()} /> : '' }
+                        { this.props.step4 ? <StepFinal /> : '' }
+                        { this.props.stepError ? <StepError /> : '' }
                 </form>
                 </Modal.Body>
             </Modal>
@@ -32,6 +32,11 @@ class SignupModal extends PureComponent{
 }
 
 const structuredSelector = createStructuredSelector({
+    step1: formSelector.selectStep1,
+    step2: formSelector.selectStep2,
+    step3: formSelector.selectStep3,
+    step4: formSelector.selectStep4,
+    stepError: formSelector.selectStepError,
     accessId: formSelector.selectAccessId,
     apiToken: formSelector.selectApiToken,
     display:  formSelector.selectDisplaySignup
