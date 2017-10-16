@@ -1,0 +1,3 @@
+#!/bin/bash
+geth --datadir /tmp/datadir init conf/genesis.json
+geth --datadir /tmp/datadir --ethash.dagdir /tmp/ethash --keystore conf/keystore --password conf/pass --mine --unlock `seq 0 10 | tr "\n" "," | cut -d "," -f 1-10` --maxpeers 0 --nodiscover --rpc console --preload lib/automine.js

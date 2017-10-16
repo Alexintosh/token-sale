@@ -1,0 +1,14 @@
+#!/usr/bin/env node
+var Web3 = require('web3');
+var web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:8545'));
+var repl = require('repl');
+var MultiSigWallet = require('../lib/MultiSigWallet');
+
+const session = repl.start({prompt: '> '});
+
+session.context.web3 = web3;
+session.context.eth = web3.eth;
+session.context.signers = [web3.eth.accounts[0], web3.eth.accounts[1], web3.eth.accounts[2]];
+session.context.sendTransaction = web3.eth.sendTransaction;
+session.context.blockNumber = () => web3.eth.blockNumber();
+session.context.MultiSigWallet = MultiSigWallet;
