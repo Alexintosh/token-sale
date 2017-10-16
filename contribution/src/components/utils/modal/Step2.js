@@ -15,7 +15,7 @@ ReactGA.initialize('UA-91770964-1');
 
 class Step2 extends PureComponent{
     componentDidMount(){
-      ReactGA.ga('send', 'pageview', '/register-step2');
+      ReactGA.pageview('/register-step2');
     }
     onRecaptchaChange(value) {
         var userResponse = value;

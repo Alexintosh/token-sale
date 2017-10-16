@@ -3,14 +3,12 @@ import { connect }                  from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { selectStepError }              from '../../../selectors';
 import { resetFormSteps, changeFormStep }  from '../../../actions/registrationActions';
-//import failure                      from '../../../public/img/failure.png';
-//<img src={failure} alt="Failed Registration" className="failure-img" />
 import ReactGA                      from 'react-ga';
 ReactGA.initialize('UA-91770964-1');
 
 class StepError extends PureComponent{
     componentDidMount(){
-      ReactGA.ga('send', 'pageview', '/register-error');
+      ReactGA.pageview('/register-error');
     }
     render(){
         return(
