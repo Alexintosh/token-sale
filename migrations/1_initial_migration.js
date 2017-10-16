@@ -1,6 +1,6 @@
 /* global artifacts */
 
-const Migrations = artifacts.require('./Migrations.sol');
+const Migrations = artifacts.require('../contracts/Migrations.sol');
 
 module.exports = (deployer) => {
   deployer.deploy(Migrations);

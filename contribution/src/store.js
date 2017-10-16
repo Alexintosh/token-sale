@@ -3,8 +3,8 @@ import { rootReducer }                  from './reducers';
 import { createLogicMiddleware }        from 'redux-logic';
 import arrLogic                         from './logic';
 
-const APIEndpoint = 'http://localhost:8080';
-//const APIEndpoint = 'https://api.leverj.test.tokenry.ca';  // TEST
+//const APIEndpoint = 'http://localhost:8080';
+const APIEndpoint = 'https://api.leverj.test.tokenry.ca';  // TEST
 //const APIEndpoint = 'https://api.leverj.tokenry.io';  // PROD
 
 const logicMiddleware = createLogicMiddleware(arrLogic, { APIEndpoint });
