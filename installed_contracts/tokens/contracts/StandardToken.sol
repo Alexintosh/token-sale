@@ -13,6 +13,7 @@ import "./Token.sol";
 contract StandardToken is Token {
 
     function transfer(address _to, uint256 _value)
+        validTransfer
        	returns (bool success) 
     {
         //Default assumes totalSupply can't be over max (2^256 - 1).
@@ -56,4 +57,15 @@ contract StandardToken is Token {
     mapping (address => uint256) balances;
     mapping (address => mapping (address => uint256)) allowed;
 
+    modifier validTransfer()
+    {
+        require(msg.sender == sale || block.number >= endBlock);
+        _;
+    }
+
+
+    modifier onlySale(){
+        require(msg.sender == sale);
+        _;
+    }
 }

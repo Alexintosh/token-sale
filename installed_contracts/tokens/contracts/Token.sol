@@ -14,7 +14,9 @@ contract Token {
     */
     /// total amount of tokens
     uint256 public totalSupply;
-
+    address public sale;
+    uint public endBlock;
+    
     /// @param _owner The address from which the balance will be retrieved
     /// @return The balance
     function balanceOf(address _owner) constant returns (uint256 balance);

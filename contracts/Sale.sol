@@ -74,7 +74,7 @@ contract Sale {
     {
         owner = _owner;
 
-        token = new HumanStandardToken(_tokenSupply, _tokenName, _tokenDecimals, _tokenSymbol);
+        token = new HumanStandardToken(_tokenSupply, _tokenName, _tokenDecimals, _tokenSymbol, address(this), _endBlock);
         
         freezeBlock = _freezeBlock;
         whitelistSaleStartBlock = _whitelistSaleStartBlock;
@@ -119,9 +119,7 @@ contract Sale {
 
     function distributeLiquidityTokens(
         address[] _liquidityWallets,
-        uint[] _liquidityTokens,
-        uint[] _vestingStartDates,
-        uint[] _vestingDurations)
+        uint[] _liquidityTokens)
         public
         onlyOwner
         notFrozen
