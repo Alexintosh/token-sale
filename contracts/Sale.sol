@@ -11,38 +11,45 @@ contract Sale {
      * Events
      */
 
+    event TransferredFoundersTokens(address indexed beneficiary, address disburser, uint amount);
+     event TransferredPartnersTokens(address indexed beneficiary, address disburser, uint amount);
+    event TransferredLiquidityTokens(address liquidityWallet, uint liquidityTokens);
+    event TransferredPreSaleTokens(address indexed beneficiary, address disburser, uint amount);
     event PurchasedTokens(address indexed purchaser, uint amount);
-    event TransferredFoundersTokens(address beneficiary, address disburser, uint amount);
-    event TransferredPreSaleTokens(address beneficiary, address disburser, uint amount);
-    event LockUnsoldTokens(address msgsender, uint numTokensLocked, address disburser);
+    event LockUnsoldTokens(uint numTokensLocked, address disburser);
 
     /*
      * Storage
      */
 
     address public owner;
-    address[2] public wallets;
-    address public unsoldTokensWallet;
-    uint[2] public splitRatios;
+    address public wallet;
+    bool walletConfiguredFlag = false;
+
     HumanStandardToken public token;
+    uint public price;
 
     uint public freezeBlock;
     uint public whitelistSaleStartBlock;
     uint public publicSaleStartBlock;
     uint public endBlock;
 
-    uint public foundersTokenCap;
+    uint public foundersTokenCap = 200000000;
     uint public foundersTokenAllocated = 0;
 
-    uint public presaleTokenCap;
-    uint public presaleTokenAllocated = 0;
+    uint public liquidityTokenCap = 300000000;
+    uint public liquidityTokenAllocated = 0;
 
-    uint public whitelistTokenCap;
+    uint public partnersTokenCap = 100000000;
+    uint public partnersTokenAllocated = 0;
+
+    uint public preSaleTokenCap = 150000000;
+    uint public preSaleTokenAllocated = 0;
+
+    uint public publicSaleTokenCap = 250000000;
     uint public publicTokensSold = 0;
 
     bool public emergencyFlag = false;
-
-    uint[2] public prices;
 
     mapping(address => uint) public whitelistRegistrants;
     bytes32 public termsAndConditionsIPFS;
@@ -51,18 +58,9 @@ contract Sale {
      * Public functions
      */
 
-    /// @dev Sale(): constructor for Sale contract
-    /// @param _wallets list of wallets to split ETH raised
-    /// @param _tokenName the token's human-readable name
-    /// @param _tokenDecimals the number of display decimals in token balances
-    /// @param _tokenSymbol the token's human-readable asset symbol
-    /// @param _prices list of prices for each of the price levels (i.e., tokens sold thresholds)
-    /// @param _whitelistSaleStartBlock block that the whitelist sale starts
     function Sale(
         address _owner,
-        address[2] _wallets,
-        uint[2] _splitRatios,
-        uint256 _tokenSupply,
+        uint _tokenSupply,
         string _tokenName,
         uint8 _tokenDecimals,
         string _tokenSymbol,
@@ -70,19 +68,11 @@ contract Sale {
         uint _whitelistSaleStartBlock,
         uint _publicSaleStartBlock,
         uint _endBlock,
-        uint _foundersTokenCap,
-        uint _presaleTokenCap,
-        uint _whitelistTokenCap,
-        address _unsoldTokensWallet,
-        uint[2] _prices)
-        // TO-DO: re-enable these modifiers once constructor is adjusted for "stack too deep" error  
-        //checkBlockNumberInputs(_freezeBlock, _whitelistSaleStartBlock, _publicSaleStartBlock, _endBlock)
-        //validPrices(_prices)
+        uint _price)
+        checkBlockNumberInputs(_freezeBlock, _whitelistSaleStartBlock, _publicSaleStartBlock, _endBlock)
+        validPrice(_price)
     {
         owner = _owner;
-        wallets = _wallets;
-        splitRatios = _splitRatios;
-        unsoldTokensWallet = _unsoldTokensWallet;
 
         token = new HumanStandardToken(_tokenSupply, _tokenName, _tokenDecimals, _tokenSymbol);
         
@@ -91,16 +81,7 @@ contract Sale {
         publicSaleStartBlock = _publicSaleStartBlock;
         endBlock = _endBlock;
 
-        foundersTokenCap = _foundersTokenCap;
-        presaleTokenCap = _presaleTokenCap;
-        whitelistTokenCap = _whitelistTokenCap;
-
-        prices = _prices;
-
-        wallets =  _wallets;
-        splitRatios = _splitRatios;
-
-        token.transfer(this, token.totalSupply());
+        price = _price;
 
         assert(token.balanceOf(this) == token.totalSupply());
         assert(token.balanceOf(this) == _tokenSupply);
@@ -110,11 +91,10 @@ contract Sale {
         address[] _founders,
         uint[] _foundersTokens,
         uint[] _vestingStartDates,
-        uint[] _vestingDurations
-    )
+        uint[] _vestingDurations)
         public
         onlyOwner
-        saleNotEnded
+        notFrozen
     {
 
         for(uint i = 0; i < _founders.length; i++) {
@@ -137,33 +117,80 @@ contract Sale {
 
     }
 
-    function distributePresaleTokens(
-        address[] presaleBuyers,
-        uint[] _presaleBuyersTokens,
+    function distributeLiquidityTokens(
+        address[] _liquidityWallets,
+        uint[] _liquidityTokens,
         uint[] _vestingStartDates,
-        uint[] _vestingDurations
-    )
+        uint[] _vestingDurations)
         public
         onlyOwner
-        saleNotEnded
+        notFrozen
     {
 
-        for(uint i = 0; i < presaleBuyers.length; i++) {
-          if(presaleTokenAllocated + _presaleBuyersTokens[i] > presaleTokenCap){ break;}
+        for(uint i = 0; i < _liquidityWallets.length; i++) {
+          if(liquidityTokenAllocated + _liquidityTokens[i] > liquidityTokenCap){ break;}
+          token.transfer(_liquidityWallets[i], _liquidityTokens[i]);
+          TransferredLiquidityTokens(_liquidityWallets[i], _liquidityTokens[i]);
+        }
 
-          address presaleBuyer = presaleBuyers[i];
-          uint presaleBuyerTokens = _presaleBuyersTokens[i];
+    }
+
+    function distributePartnersTokens(
+        address[] _partners,
+        uint[] _partnersTokens,
+        uint[] _vestingStartDates,
+        uint[] _vestingDurations)
+        public
+        onlyOwner
+        notFrozen
+    {
+
+        for(uint i = 0; i < _partners.length; i++) {
+          if(partnersTokenAllocated + _partnersTokens[i] > partnersTokenCap){ break;}
+
+          address partner = _partners[i];
+          uint partnersTokens = _partnersTokens[i];
 
           Disbursement disbursement = new Disbursement(
-            presaleBuyer,
+            partner,
             _vestingDurations[i],
             _vestingStartDates[i]
           );
 
           disbursement.setup(token);
-          token.transfer(disbursement, presaleBuyerTokens);
-          presaleTokenAllocated += presaleBuyerTokens;
-          TransferredPreSaleTokens(presaleBuyer, disbursement, presaleBuyerTokens);
+          token.transfer(disbursement, partnersTokens);
+          partnersTokenAllocated += partnersTokens;
+          TransferredPartnersTokens(partner, disbursement, partnersTokens);
+        }
+
+    }
+
+    function distributePreSaleTokens(
+        address[] _preSaleBuyers,
+        uint[] _preSaleTokens,
+        uint[] _vestingStartDates,
+        uint[] _vestingDurations)
+        public
+        onlyOwner
+        notFrozen
+    {
+
+        for(uint i = 0; i < _preSaleBuyers.length; i++) {
+          if(preSaleTokenAllocated + _preSaleTokens[i] > preSaleTokenCap){ break;}
+
+          address preSaleBuyer = _preSaleBuyers[i];
+          uint preSaleTokens = _preSaleTokens[i];
+
+          Disbursement disbursement = new Disbursement(
+            preSaleBuyer,
+            _vestingDurations[i],
+            _vestingStartDates[i]
+          );
+
+          disbursement.setup(token);
+          token.transfer(disbursement, preSaleTokens);
+          preSaleTokenAllocated += preSaleTokens;
+          TransferredPreSaleTokens(preSaleBuyer, disbursement, preSaleTokens);
         }
 
     }
@@ -175,14 +202,20 @@ contract Sale {
         setupComplete
         notInEmergency
         saleInProgress
+        walletConfigured
     {
         /* Calculate whether any of the msg.value needs to be returned to
            the sender. The purchaseAmount is the actual number of tokens which
            will be purchased. */
-        uint purchaseAmount = msg.value / getCurrentPrice();
-        uint excessAmount = msg.value % getCurrentPrice();
+        uint purchaseAmount = msg.value / price;
+        uint excessAmount = msg.value % price;
 
-        if(publicTokensSold < whitelistTokenCap && block.number < whitelistSaleStartBlock){
+        // dont need this because it will naturally just cap at whatever is left in sale contracts balance
+        /* if(publicTokensSold == 0){
+            publicSaleTokenCap = calculateNewPublicSaleCap();
+        }*/
+
+        if(block.number < publicSaleStartBlock){
             require(whitelistRegistrants[msg.sender] >= (msg.value - excessAmount));
             whitelistRegistrants[msg.sender] -= (msg.value-excessAmount);
         }
@@ -196,7 +229,7 @@ contract Sale {
         }
 
         // Forward received ether minus any excessAmount to the wallet
-        wallets[0].transfer(this.balance); //TODO split as per the ratios
+        wallet.transfer(this.balance);
 
         publicTokensSold += purchaseAmount;
 
@@ -208,10 +241,12 @@ contract Sale {
     // this is made public so that anyone can call it since it's the communicated mechanism for handling unsold tokens
     function lockUnsoldTokens()
         saleEnded
+        onlyOwner
+        walletConfigured
     {
         //unsoldTokensWallet
         Disbursement disbursement = new Disbursement(
-            unsoldTokensWallet,
+            wallet,
             1*365*24*60*60,
             block.timestamp
         );
@@ -219,29 +254,19 @@ contract Sale {
         disbursement.setup(token);
         uint amountToLock = token.balanceOf(this);
         token.transfer(disbursement, amountToLock);
-        LockUnsoldTokens(msg.sender, amountToLock, disbursement);
+        LockUnsoldTokens(amountToLock, disbursement);
     }
-
-    /*
-     * Private helper functions
-     */ 
-
-    function getCurrentPrice()
-        private
-        returns (uint)
-    {
-        //nice-to-have-update: make more generic
-        if(publicTokensSold < whitelistTokenCap && block.number <= publicSaleStartBlock){
-            return prices[0];
-        }else{
-            return prices[1];
-        }
-    }
-
 
     /*
      * Owner-only functions
      */
+
+    function configureWallet(address _wallet)
+        onlyOwner
+    {
+        wallet = _wallet;
+        walletConfiguredFlag = true;
+    }
 
     function changeOwner(address _newOwner)
         onlyOwner
@@ -250,23 +275,12 @@ contract Sale {
         owner = _newOwner;
     }
 
-    function changePrices(uint[2] _newPrices)
+    function changePrice(uint _newPrice)
         onlyOwner
         notFrozen
-        validPrices(_newPrices)
+        validPrice(_newPrice)
     {
-        prices = _newPrices;
-    }
-
-    function changeWallet(address[2] _wallets)
-        onlyOwner
-        notFrozen
-    {
-        for(uint i=0; i < _wallets.length; i++){
-            require(_wallets[i] != 0);
-        }
-
-        wallets = _wallets;
+        price = _newPrice;
     }
 
     function changeWhitelistStartBlock(uint _newBlock)
@@ -331,7 +345,7 @@ contract Sale {
     }
 
     modifier setupComplete {
-        assert((foundersTokenAllocated == foundersTokenCap) && (presaleTokenAllocated == presaleTokenCap));
+        assert((foundersTokenAllocated == foundersTokenCap) && (preSaleTokenAllocated == preSaleTokenCap));
         _;
     }
 
@@ -358,13 +372,13 @@ contract Sale {
         _;
     }
 
-    modifier validPrices(uint[2] _prices){
-        require(_prices.length > 0);
+    modifier validPrice(uint _price){
+        require(_price > 0);
+        _;
+    }
 
-        for(uint i=0; i < _prices.length; i++){
-            require(_prices[i] > 0);
-        }
-
+    modifier walletConfigured(){
+        require(walletConfiguredFlag);
         _;
     }
 
