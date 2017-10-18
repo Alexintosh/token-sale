@@ -134,9 +134,12 @@
 .btn-contribute:hover{
     color: #666 !important;
 }
-#footer{
+#footer, #footer a{
     background-color: #4A4A4A;
     color: #FFF;
+}
+#footer a:hover{
+    color: #ea993e;
 }
 #footer .container{
     padding: 50px;
