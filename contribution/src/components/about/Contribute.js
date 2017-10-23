@@ -11,8 +11,9 @@ export default class Contribute extends PureComponent {
                     <div className="col-sm-10">
                         <h2 className="sub-header-large"><span>HOW TO CONTRIBUTE</span></h2>
                         <p className="font-bold">
-                            You can contribute to the LEV token sale using MyEtherWallet or MetaMask. For detailed instructions  
-                            <a href={pdf} target="_blank" rel="noopener noreferrer"> click on this PDF <i className="fa fa-file-pdf-o"></i></a></p>
+                            You can contribute to the LEV token sale using MyEtherWallet or MetaMask. 
+                            { /* For detailed instructions <a href={pdf} target="_blank" rel="noopener noreferrer"> click on this PDF <i className="fa fa-file-pdf-o"></i></a> */ }
+                        </p>
                         <p>
                             To join the Leverj token sale, you can purchase LEV tokens directly from the Token Sale smart contract. Check out this guide to learn how to purchase using MyEtherWallet and MetaMask. 
                         </p>
