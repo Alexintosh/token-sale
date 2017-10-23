@@ -41,6 +41,7 @@ export default class Footer extends PureComponent{
                                 </li>
                             </ul>
                             <p>© COPYRIGHT LEVERJ.IO 2017.</p>
+                            <p>Suite #9, Anusuya Estate, Revolution Avenue</p>
                             <p>Victoria, Seychelles</p>
                             <p><a href="mailto:info@leverj.io">info@leverj.io</a></p>
                         </div>
