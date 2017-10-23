@@ -1,27 +1,18 @@
 import React, { PureComponent } from 'react';
+import { connect}               from 'react-redux';
+import { pageStuck,
+         pageUnstuck }          from '../../actions/stickyActions';
 import TopBar                   from './TopBar';
 import AboutNavigation          from './AboutNavigation';
 
-export default class StickyNavigation extends PureComponent{
-    constructor(){
-        super();
-        this.state={
-            stuck: false
-        }
-    }
+class StickyNavigation extends PureComponent{
     componentDidMount(){
         window.addEventListener('scroll', ()=>{
             var domReact = this.refs.stickyNav.getBoundingClientRect();
             if(domReact.top <= 0){
-                if(!this.state.stuck){
-                    this.setState({
-                        stuck: true
-                    })
-                }
-            } else if(this.state.stuck) {
-                this.setState({
-                    stuck: false
-                })
+                this.props.stickPage()
+            } else {
+                this.props.unstickPage()
             }
         })
     }
@@ -29,10 +20,20 @@ export default class StickyNavigation extends PureComponent{
         return(
             <div>
                 <section id="stickyNav" ref="stickyNav" className="pos-absolute hide-on-xs">
-                    <TopBar stuck={this.state.stuck} history={this.props.history} />
-                    <AboutNavigation stuck={this.state.stuck} bottom={this.props.bottom} />
+                    <TopBar />
+                    <AboutNavigation />
                 </section>
             </div>
         )
     }
 }
+const mapDispatchToProps = dispatch => {
+    return {
+        stickPage: () => { dispatch(pageStuck()) },
+        unstickPage: () => { dispatch(pageUnstuck()) }
+    }
+}
+export default connect(
+    null,
+    mapDispatchToProps
+)(StickyNavigation)

@@ -8,11 +8,12 @@ ReactGA.initialize('UA-91770964-1');
 
 class StepFinal extends PureComponent{
     componentDidMount(){
-      ReactGA.ga('send', 'pageview', '/register-success');
+      ReactGA.pageview('/register-success');
     }
     render(){
         return(
             <div className={this.props.step4 ? '' : 'hide'}>
+            <img height="1" width="1" style={{borderStyle: 'none'}} alt="" src="//www.googleadservices.com/pagead/conversion/840593584/?label=XzohCIe7snYQsOHpkAM&amp;guid=ON&amp;script=0"/>
                 <div className="center-text">
                     <p className="modal-p">You’ve successfully registered! You should receive an e-mail within 24 hrs</p>
                     <img src={success} alt="Successful Registration" className="success-img" />

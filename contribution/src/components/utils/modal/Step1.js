@@ -16,21 +16,22 @@ class Step1 extends Component{
         this.state = {
             country: ''
         }        
-    this.handleChange = this.handleChange.bind(this);
-  }
-  componentDidMount(){
-    ReactGA.ga('send', 'pageview', '/register-step1');
-  }
+        this.handleChange = this.handleChange.bind(this);
+    }
+    componentDidMount(){
+        ReactGA.pageview('/register-step1');
+    }
 
-  handleChange(event) {
-    this.setState({country: event.target.value});
-  }
+    handleChange(event) {
+        this.setState({country: event.target.value});
+    }
     render(){
         const countryList = countries.map((country)=>{
             return <option key={uuidv4()} value={country.name}>{country.name}</option>
         })
         return(
             <div className={this.props.step1 ? '' : 'hide' }>
+            <img height="1" width="1" style={{borderStyle: 'none'}} alt="" src="//www.googleadservices.com/pagead/conversion/840593584/?label=XzohCIe7snYQsOHpkAM&amp;guid=ON&amp;script=0"/>
                 <p className="modal-p center-text">Register Below to Gain Early Access to Leverj Crowd Sale</p>
                 <input  type="text"
                         name="contactFirstName"

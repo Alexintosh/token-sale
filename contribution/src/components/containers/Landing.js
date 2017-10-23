@@ -1,39 +1,13 @@
-import React, { Component }     from 'react';
-import SignupModal              from '../utils/SignupModal';
-import Social                   from '../landing/Social';
+import React, { PureComponent } from 'react';
+import { connect }              from 'react-redux';
 import Scroll                   from 'react-scroll';
-import consensys                from '../../public/img/consensyslogoblack.png';
-import PopupVideo               from '../utils/PopupVideo';
 import Timer                    from '../landing/Timer';
+import Social                   from '../landing/Social';
+import { showVideoModal,
+        showRegistrationModal } from '../../actions/modalActions';
+import consensys                from '../../public/img/consensyslogoblack.png';
 
-export default class Landing extends Component{
-    constructor(){
-        super();
-        this.state={
-            display: false,
-            displayVideo: false
-        }
-    }
-    displayModal() {
-        this.setState({
-            display: true
-        });
-    }
-    hideModal() {
-        this.setState({
-            display: false
-        });
-    }
-    displayVideoModal() {
-        this.setState({
-            displayVideo: true
-        });
-    }
-    hideVideoModal() {
-        this.setState({
-            displayVideo: false
-        });
-    }
+class Landing extends PureComponent{
     scrollDown(){
         Scroll.animateScroll.scrollTo(1000);
     }
@@ -45,10 +19,10 @@ export default class Landing extends Component{
                         <h1 className="lh-1">LEV Token Sale Starts: </h1>
                         <h2 className="lh-2">November 7th 9am PST</h2>
                         <Timer />
-                        <div onClick={()=> this.displayModal()} className="btn btn-register-landing mv-20">REGISTER NOW FOR EARLY ACCESS</div>
+                        <div onClick={()=> this.props.displayRegistrationModal()} className="btn btn-register-landing mv-20">REGISTER NOW FOR EARLY ACCESS</div>
                         <br />
                         <a href="https://leverj.io/whitepaper.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-landing mv-20">READ WHITEPAPER</a>
-                        <div onClick={()=> this.displayVideoModal()} className="btn btn-landing mv-20">WATCH THE VIDEO</div>
+                        <div onClick={()=> this.props.displayVideoModal()} className="btn btn-landing mv-20">WATCH THE VIDEO</div>
                         <div className="show-on-xs">
                             <div className="center-text">
                                 <Social />
@@ -83,9 +57,17 @@ export default class Landing extends Component{
                         </div>
                     </div>
                 </div>
-                <SignupModal display={ this.state.display } hide={() => this.hideModal()}  history={this.props.history} />
-                <PopupVideo display={ this.state.displayVideo } hide={() => this.hideVideoModal()} />
             </section>
         )
     }
 }
+const mapDispatchToProps = dispatch => {
+    return {
+        displayVideoModal: () => { dispatch(showVideoModal()) },
+        displayRegistrationModal: () => { dispatch(showRegistrationModal())}
+    }
+}
+export default connect (
+    null,
+    mapDispatchToProps
+)(Landing);

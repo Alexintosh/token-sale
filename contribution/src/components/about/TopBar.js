@@ -1,24 +1,11 @@
-import React, { Component }     from 'react';
-import SignupModal              from '../utils/SignupModal';
-import TimerSmall               from './TopBar/TimerSmall';
+import React, { PureComponent }     from 'react';
+import { connect }                  from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+import { selectStuck }              from '../../selectors';
+import TimerSmall                   from './TopBar/TimerSmall';
+import { showRegistrationModal }    from '../../actions/modalActions';
 
-export default class TopBar extends Component{
-    constructor(){
-        super();
-        this.state={
-            display: false
-        }
-    }
-    displayModal() {
-        this.setState({
-            display: true
-        });
-    }
-    hideModal() {
-        this.setState({
-            display: false
-        });
-    }
+class TopBar extends PureComponent{
     render(){
         return(
             <section id="topbar" className={(this.props.stuck ? 'topbar-stuck' : 'topbar-top')}>
@@ -26,11 +13,22 @@ export default class TopBar extends Component{
                 <div className="pull-right">
                     <TimerSmall />
                     <div className="topbar-register pull-right">
-                        <div onClick={()=> this.displayModal()} className="btn btn-register-sm">REGISTER</div>
+                        <div onClick={()=> this.props.displayRegistrationModal()} className="btn btn-register-sm">REGISTER</div>
                     </div>
                 </div>
-                <SignupModal display={ this.state.display } hide={() => this.hideModal()}  history={this.props.history} />
             </section>
         )
     }
 }
+const mapDispatchToProps = dispatch => {
+    return { 
+        displayRegistrationModal: () => { dispatch(showRegistrationModal()) }
+    }
+}
+const structuredSelector = createStructuredSelector({
+    stuck: selectStuck
+})
+export default connect(
+    structuredSelector,
+    mapDispatchToProps
+)(TopBar);

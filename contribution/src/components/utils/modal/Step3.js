@@ -14,7 +14,7 @@ ReactGA.initialize('UA-91770964-1');
 
 class Step3 extends PureComponent{
     componentDidMount(){
-      ReactGA.ga('send', 'pageview', '/register-step3');
+        ReactGA.pageview('/register-step3');
     }
     render(){
         return(

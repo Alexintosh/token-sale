@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
+import { connect }              from 'react-redux'
 import Overview                 from '../about/Overview';
 import Information              from '../about/Information';
 import Contribute               from '../about/Contribute';
@@ -7,25 +8,17 @@ import Audit                    from '../about/Audit';
 import FAQ                      from '../about/FAQ';
 import StickyNavigation         from '../about/StickyNavigation';
 import Whitelist                from '../about/Whitelist';
+import { showBottomImage,
+         hideBottomImage }      from '../../actions/stickyActions';
 
-export default class About extends Component {
-    constructor(){
-        super();
-        this.state={
-            bottom: false
-        }
-    }
+class About extends PureComponent {
     componentDidMount(){
         window.addEventListener('scroll', ()=>{
             var domReact = this.refs.aboutContainer.getBoundingClientRect();
             if(domReact.bottom <= 1100){
-                this.setState({
-                    bottom: true
-                })
+                this.props.showBottom();
             } else {
-                this.setState({
-                    bottom: false
-                })
+                this.props.hideBottom();
             }
         })
     }
@@ -33,7 +26,7 @@ export default class About extends Component {
         return(
             <section id="about" className="about-background" ref="aboutContainer">
                 <div className="container-fluid">
-                    <StickyNavigation history={this.props.history} bottom={this.state.bottom} />
+                    <StickyNavigation />
                     <div className="row">
                         <div className="col-sm-9 col-sm-offset-3">
                             <div className="row">
@@ -54,3 +47,15 @@ export default class About extends Component {
         )
     }
 }
+
+const mapDispatchToProps = dispatch => {
+    return {
+        showBottom: () => { dispatch(showBottomImage()) },
+        hideBottom: () => { dispatch(hideBottomImage()) }
+    }
+}
+
+export default connect(
+    null,
+    mapDispatchToProps
+)(About);
