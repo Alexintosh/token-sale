@@ -1,33 +1,23 @@
-import React, { Component }     from 'react';
+import React, { PureComponent }     from 'react';
 import { connect }                  from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import * as formSelector            from '../../../selectors';
 import { updateRegisterFormField,
          validateFields }           from '../../../actions/registrationActions';
 import countries                    from '../countries.json';
-import uuidv4                       from 'uuid/v4';
 import ReactGA                      from 'react-ga';
+import Select                       from 'react-select';
 ReactGA.initialize('UA-91770964-1');
 
 
-class Step1 extends Component{
-    constructor(){
-        super();
-        this.state = {
-            country: ''
-        }        
-        this.handleChange = this.handleChange.bind(this);
-    }
+class Step1 extends PureComponent{
     componentDidMount(){
         ReactGA.pageview('/register-step1');
     }
-
-    handleChange(event) {
-        this.setState({country: event.target.value});
-    }
     render(){
-        const countryList = countries.map((country)=>{
-            return <option key={uuidv4()} value={country.name}>{country.name}</option>
+        var countryList = [];
+        countries.forEach((country)=>{
+            countryList.push({ value: country.name, label: country.name });
         })
         return(
             <div className={this.props.step1 ? '' : 'hide' }>
@@ -58,9 +48,7 @@ class Step1 extends Component{
                 <div id="_contactEmail" className={"warning-text" + (this.props.contactEmailCheck ? ' hidden' : '')}>Please enter your email address</div>
                 <div id="_contactDupEmail" className={"warning-text" + (this.props.duplicateEmail ? ' hidden' : '')}>This email has been taken</div>
 
-                <select value={this.props.contactCountry} onChange={this.props.updateRegistrationDropdown.bind(this)} className="selectDropdown">
-                    {countryList}
-                </select>
+                <Select name="country-select" placeholder="Country *" className="selectDropdown" value={this.props.contactCountry} options={countryList} onChange={this.props.updateRegistrationDropdown.bind(this)} />
                 <div id="_contactCountry" className={"warning-text" + (this.props.contactCountryCheck ? ' hidden' : '')}>Please enter where you are a resident</div>
 
                 <label>
@@ -116,7 +104,11 @@ const mapDispatchToProps = dispatch => {
          dispatch(updateRegisterFormField(name, value))
      },
      updateRegistrationDropdown: (e) => {
-         dispatch(updateRegisterFormField('contactCountry', e.target.value))
+         if(e !== null){
+            dispatch(updateRegisterFormField('contactCountry', e.value))
+         }else{
+            dispatch(updateRegisterFormField('contactCountry', ''))
+         }
      },
      validateFields: () => {
          dispatch(validateFields())

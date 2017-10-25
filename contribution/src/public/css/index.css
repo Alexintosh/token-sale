@@ -488,18 +488,22 @@ span.date{
 .landing-container-small{
   min-height: 15vh;
 }
-.selectDropdown{
+.selectDropdown .Select-control{
   width: 100%;
   margin: 10px 0px;
   font-size: 16px;
-  padding: 10px 20px;
   border-radius: 5px;
   border: 1px solid #ccc;
   background-color: #fff;
   height: 45px;
 }
-.selectDropdown:after{
-  padding-right: 20px;
+.selectDropdown .Select-placeholder{
+  padding-top: 5px;
+  padding-left: 20px;
+}
+.selectDropdown .Select-value{
+  padding-top: 5px;
+  padding-left: 20px;
 }
 .p-header{
   font-size: 20px;

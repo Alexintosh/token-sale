@@ -9,6 +9,7 @@ import './public/css/index.css';
 import './public/css/utils.css';
 import './public/css/column.css';
 import './public/css/color.css';
+import 'react-select/dist/react-select.css';
 
 
 const app = document.getElementById('root');
