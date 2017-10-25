@@ -6,9 +6,6 @@ import { selectStep3,
          selectPurchaseSizeCheck,
          selectSubmission }         from '../../../selectors';
 import { updateRegisterFormField }  from '../../../actions/registrationActions';
-import { updateRecaptchaResponse,
-         fetchCaptchaResponse,
-         setRecaptchaPassed }       from '../../../actions/saleActions';
 import ReactGA                      from 'react-ga';
 ReactGA.initialize('UA-91770964-1');
 
@@ -71,15 +68,6 @@ const mapDispatchToProps = dispatch => {
     return { 
         updateRegisterFormField: (e) => {
             dispatch(updateRegisterFormField(e.target.name, e.target.value))
-        },
-        updateRecaptchaResp: (userResponse) => {
-            dispatch(updateRecaptchaResponse(userResponse));
-        },
-        fetchCaptchaResponse: (userResponse, accessID, apiToken) => {
-            dispatch(fetchCaptchaResponse(userResponse, accessID, apiToken))
-        },
-        updateRecaptchaPassed: ()=>{
-            dispatch(setRecaptchaPassed(true));
         }
     }
 }

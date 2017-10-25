@@ -52,33 +52,6 @@ export const registrationFormError = (err) => {
     }
 }
 
-export const submitEmailForm = (history) => {
-    return {
-        type: 'SUBMIT_EMAIL_REGISTRATION',
-        history
-    }
-}
-
-export const submitEmailFormSuccess = () => {
-    return {
-        type: 'SUBMIT_EMAIL_FORM_SUCCESS'
-    }
-}
-
-export const submitEmailFormError = (err) => {
-    return {
-        type: 'SUBMIT_EMAIL_FORM_ERROR'
-    }
-}
-
-
-export const setInProgressFlag = (flag) => {
-    return {
-        type: 'SET_IN_PROGRESS_FLAG',
-        payload: flag
-    }
-}
-
 /////FORM STEPS 
 export const validateFields = () => {
     return {

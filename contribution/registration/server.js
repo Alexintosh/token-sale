@@ -43,25 +43,38 @@ app.post('/api/validate_email', async (req, res)=>{
 		return;
 	}
 
-	if(req.body.api_token != tokenMap.get(req.body.access_id)){
-		console.log('api/check-recaptcha: 401 due to token issue');
+	if(typeof req.body.api_token !== 'undefined' && typeof req.body.access_id !== 'undefined'){
+		if(req.body.api_token != tokenMap.get(req.body.access_id)){
+			console.log('api/validate_email: 401 due to token issue');
+			res.status(401);
+			res.send('unauthorized');
+			return;
+		}
+
+		if(typeof req.body.email !== 'undefined'){
+			datastore_lib.validateEmail(req.body.email, (err, result)=>{
+				if(err){
+					console.log('error validating email: ' + JSON.stringify(err));
+					res.status(500);
+					res.send('error checking email address');
+				}else{
+					console.log('validation for '+req.body.email+': ' + result);
+					res.status(200);
+					res.send(result);
+				}
+			});
+		}else{
+			console.log('api/validate_eth_address: 401 due to eth_address undefined');
+			res.status(401);
+			res.send({ error: 'unauthorized' });
+			return;
+		}
+	}else{
+		console.log('api/validate_email: 401 due to token issue');
 		res.status(401);
-		res.send('unauthorized');
+		res.send({ error: 'unauthorized' });
 		return;
 	}
-
-	datastore_lib.validateEmail(req.body.email, (err, result)=>{
-		if(err){
-			console.log('error validating email: ' + JSON.stringify(err));
-			res.status(500);
-			res.send('error checking email address');
-		}else{
-			console.log('validation for '+req.body.email+': ' + result);
-			res.status(200);
-			res.send(result);
-		}
-	});
-
 })
 
 app.post('/api/validate_eth_address', async (req, res)=>{
@@ -72,25 +85,38 @@ app.post('/api/validate_eth_address', async (req, res)=>{
 		return;
 	}
 
-	if(req.body.api_token != tokenMap.get(req.body.access_id)){
-		console.log('api/check-recaptcha: 401 due to token issue');
+	if(typeof req.body.api_token !== 'undefined' && typeof req.body.access_id !== 'undefined'){
+		if(req.body.api_token != tokenMap.get(req.body.access_id)){
+			console.log('api/validate_eth_address: 401 due to token issue');
+			res.status(401);
+			res.send({ error: 'unauthorized' });
+			return;
+		}
+
+		if(typeof req.body.eth_address !== 'undefined'){
+			datastore_lib.validateEthAddress(req.body.eth_address, (err, result)=>{
+				if(err){
+					console.log('error validating eth address: ' + JSON.stringify(err));
+					res.status(500);
+					res.send('error checking eth address');
+				}else{
+					console.log('validation for '+req.body.eth_address+': ' + result);
+					res.status(200);
+					res.send(result);
+				}
+			});
+		}else{
+			console.log('api/validate_eth_address: 401 due to eth_address undefined');
+			res.status(401);
+			res.send({ error: 'unauthorized' });
+			return;
+		}
+	}else{
+		console.log('api/validate_eth_address: 401 due to token issue');
 		res.status(401);
-		res.send('unauthorized');
+		res.send({ error: 'unauthorized' });
 		return;
 	}
-
-	datastore_lib.validateEthAddress(req.body.eth_address, (err, result)=>{
-		if(err){
-			console.log('error validating eth address: ' + JSON.stringify(err));
-			res.status(500);
-			res.send('error checking eth address');
-		}else{
-			console.log('validation for '+req.body.eth_address+': ' + result);
-			res.status(200);
-			res.send(result);
-		}
-	});
-
 })
 
 app.post('/api/register_client', async (req, res)=>{
@@ -104,77 +130,23 @@ app.post('/api/register_client', async (req, res)=>{
 	//using tokens for api, but also don't want to use cookies on client-side so storing a map ._______.
 	var api_token = uuidv4();
 	
-	console.log('api: setting access id: ' + req.body.access_id);
- 	console.log('api: setting api token: ' + api_token);
-	
-	tokenMap.set(req.body.access_id, api_token);
-	setTimeout(()=>{ tokenMap.delete(req.body.access_id); }, 2*60*60*1000);
+	if(typeof req.body.access_id !== 'undefined'){
+		console.log('api: setting access id: ' + req.body.access_id);
+		console.log('api: setting api token: ' + api_token);
+		
+		tokenMap.set(req.body.access_id, api_token);
+		setTimeout(()=>{ tokenMap.delete(req.body.access_id); }, 2*60*60*1000);
 
-	res.status(200);
-	res.send(api_token);
-})
-
-app.post('/api/check-recaptcha', async (req, res) => {
-
-	if(!checkRequestHeaders(req.headers)){
-		res.status(401);
-		res.send('unauthorized');
-		return;
-	}
-    
-    	console.log('api/check-recaptcha: received access id: ' + req.body.access_id);
-    	console.log('api/check-recaptcha: received api token: ' + req.body.api_token);
-    	console.log('api/check-recaptcha: existing token: ' + tokenMap.get(req.body.access_id));
-	
-	if(req.body.api_token != tokenMap.get(req.body.access_id)){
-		console.log('api/check-recaptcha: 401 due to token issue');
-		res.status(401);
-		res.send('unauthorized');
-		return;
-	}
-
-	if(process.env.NODE_ENV != 'prod' && process.env.NODE_ENV != 'test'){
 		res.status(200);
-		res.send('success');
+		res.send(api_token);
+	}else{
+		console.log('api/register_client: 401 due to access_id issue');
+		res.status(401);
+		res.send({ error: 'unauthorized' });
 		return;
 	}
-
-	callRecaptcha(req.body.user_response, (err, response)=>{
-		if(!err && response.body.success){
-			res.status(200);
-			res.send('success');
-		}
-	})	
 })
 
-app.post('/api/email-registration',async (req, res) => {
-	
-	if(!checkRequestHeaders(req.headers)){
-		res.status(401);
-		res.send('unauthorized');
-		return;
-	}
-    
-    console.log('api/email-registration: received access id: ' + req.body.access_id);
-    console.log('api/email-registration: received api token: ' + req.body.api_token);
-    console.log('api/email-registration: existing token: ' + tokenMap.get(req.body.access_id));
-	
-	if(req.body.api_token != tokenMap.get(req.body.access_id)){
-		console.log('api/email-registration: 401 due to token issue');
-		res.status(401);
-		res.send('unauthorized');
-		return;
-	}
-	if(validator.isEmail(req.body.email)){
-
-		mailChimp(req.body.email, (mailchimpResponse)=>{										
-			res.status(200);
-			res.send("success");
-		})
-
-	}else{ res.status(500); res.send("invalid information")}
-
-});
 
 app.post('/api/register', async (req, res) => {
 
@@ -184,66 +156,59 @@ app.post('/api/register', async (req, res) => {
 		res.send('unauthorized');
 		return;
 	}
-    
-        console.log('api/register: received access id: ' + req.body.access_id);
-        console.log('api/register: received api token: ' + req.body.api_token);
-        console.log('api/register: existing token: ' + tokenMap.get(req.body.access_id));
-	
-       if(req.body.api_token != tokenMap.get(req.body.access_id)){
+	 
+	if(typeof req.body.api_token !== 'undefined' && typeof req.body.access_id !== 'undefined'){    
+		console.log('api/register: received access id: ' + req.body.access_id);
+		console.log('api/register: received api token: ' + req.body.api_token);
+		console.log('api/register: existing token: ' + tokenMap.get(req.body.access_id));
+
+		if(req.body.api_token != tokenMap.get(req.body.access_id)){
+			console.log('api/register: 401 due to token issue');
+			res.status(401);
+			res.send('unauthorized');
+			return;
+		}
+
+		if(req.body.check){
+			if(validator.isAlphanumeric(req.body.name.replace(/ /g,''))){
+				if(validator.isEmail(req.body.email)){
+					if(validator.isAlphanumeric(req.body.address) && req.body.address.length === 42){
+						if(validator.isAlphanumeric(req.body.country.replace(/ /g,''))){
+							if(validator.isDecimal(req.body.amount) && req.body.amount >=1 && req.body.amount <= 100){
+											
+								datastore_lib.addRegistration({
+									name: req.body.name,
+									email: req.body.email,
+									eth_address: req.body.address,
+									country: req.body.country,
+									amount: req.body.amount,
+									residence_disclaimer: req.body.check,
+									timestamp: new Date().toISOString()
+								}, res, (response, err, result) => {
+									if(err) {
+										console.log('finished datastore call ERROR');
+										response.status(500);
+										response.send("update failed: " + JSON.stringify(err));
+									}else{
+										console.log('finished datastore call SUCCESS');        
+										mailChimp(req.body.email, (param)=>{                                                                            
+											response.status(200);
+											response.send("success");
+										})
+									}
+								});
+							}else{ res.status(500); res.send("invalid information")}
+						}else{ res.status(500); res.send("invalid information")}
+					}else{ res.status(500); res.send("invalid information")}
+				}else{ res.status(500); res.send("invalid information")}
+			}else{ res.status(500); res.send("invalid information")}
+		}else{ res.status(500); res.send("invalid information")}
+	}else{
 		console.log('api/register: 401 due to token issue');
 		res.status(401);
-		res.send('unauthorized');
+		res.send({ error: 'unauthorized' });
 		return;
 	}
-
-	//console.log('sending recaptcha check with user_response: ' + JSON.stringify(req.body.user_response));
- 	//callRecaptcha(req.body.user_response, (err, response)=>{
-	    //if(response){
-		//console.log('got recatpcha response: ' + JSON.stringify(response));
-	    //}
-        //    if(!err && response.body.success){
-          
-	if(req.body.check){
-        if(validator.isAlphanumeric(req.body.name.replace(/ /g,''))){
-            if(validator.isEmail(req.body.email)){
-                if(validator.isAlphanumeric(req.body.address) && req.body.address.length === 42){
-                    if(validator.isAlphanumeric(req.body.country.replace(/ /g,''))){
-                        if(validator.isDecimal(req.body.amount) && req.body.amount >=1 && req.body.amount <= 100){
-                                          
-							datastore_lib.addRegistration({
-                                name: req.body.name,
-                                email: req.body.email,
-                                eth_address: req.body.address,
-                                country: req.body.country,
-                                amount: req.body.amount,
-                                residence_disclaimer: req.body.check,
-                                            timestamp: new Date().toISOString()
-                            }, res, (response, err, result) => {
-                                if(err) {
-                                        console.log('finished datastore call ERROR');
-                                            response.status(500);
-                                            response.send("update failed: " + JSON.stringify(err));
-                                }else{
-                                        console.log('finished datastore call SUCCESS');
-                                        //tokenMap.delete(req.body.access_id);
-        
-                                        mailChimp(req.body.email, (param)=>{                                                                            
-                                                response.status(200);
-                								response.send("success");
-                                        })
-                                }
-                            });
-
-                        }else{ res.status(500); res.send("invalid information")}
-                    }else{ res.status(500); res.send("invalid information")}
-                }else{ res.status(500); res.send("invalid information")}
-            }else{ res.status(500); res.send("invalid information")}
-        }else{ res.status(500); res.send("invalid information")}
-    }else{ res.status(500); res.send("invalid information")}
-
-	    //}
-        //})
-
 })
 
 if(process.env.NODE_ENV == 'prod' || process.env.NODE_ENV == 'test') {
@@ -303,27 +268,6 @@ function checkRequestHeaders(req_headers){
 	return true;
 }
 
-function callRecaptcha( userResponse, callback){
-        console.log('callRecaptcha: using: ' + process.env.RECAPTCHA_KEY);
-
-	var options = {
-		method: 'POST',
-		url: 'https://www.google.com/recaptcha/api/siteverify?secret='+process.env.RECAPTCHA_KEY + '&response=' + userResponse,
-		body: {
-		  secret: process.env.RECAPTCHA_KEY,
-		  response: userResponse
-		},	
-		json: true
-	  }
-	  request(options, function(error, response, body){
-		if(error){
-			console.log("Recaptcha Error: ", error);
-			callback(error, response);
-		}else{
-			callback(null, response);
-		}
-	})
-}
 
 function mailChimp(email, callback){
 	var options = {

@@ -1,8 +1,6 @@
 ///Signup Modal selectors
 export const selectAccessId = state => state.sale.accessId;
 export const selectApiToken = state => state.sale.apiToken;
-export const selectRecaptchaUserReponse = state =>  state.sale.recaptchaUserReponse;
-export const selectCaptchaPassed = state => state.sale.captchaPassed;
 
 
 ///Signup Modal Input Fields
@@ -40,7 +38,6 @@ export const selectStep3 = state => state.register.step3;
 export const selectStep4 = state => state.register.step4;
 export const selectSubmission = state => state.register.submission;
 export const selectStepError = state => state.register.stepError;
-export const selectInProgressFlag = state => state.register.inProgressFlag;
 
 ///Email Registration inside of countdown
 export const selectContactEmailName = state => state.register.contactEmailName;

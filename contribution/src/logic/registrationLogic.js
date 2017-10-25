@@ -5,31 +5,12 @@ import validator            from 'validator';
 import {    resetRegistrationFormFields,
             errorRegistrationFormField,
             registrationFormError,
-            submitEmailFormSuccess,
-            submitEmailFormError,
             resetFormSteps,
             changeFormStep,
             formSuccess,
             formError,
             formSubmit }    from '../actions/registrationActions';
 
-const emailRegistration = createLogic({
-    type: 'SUBMIT_EMAIL_REGISTRATION',
-    async process({ getState, action, APIEndpoint }, dispatch, done){
-        try {
-            if(validator.isEmail(getState().register.contactEmailName)){
-                await axios.post(APIEndpoint + '/api/email-registration',{ email: getState().register.contactEmailName });
-                dispatch(submitEmailFormSuccess())
-            }else{
-                dispatch(submitEmailFormError("not a valid email"))
-            }
-        } catch (err) {
-            dispatch(submitEmailFormError(err))
-        } finally {
-            done();
-        }
-    }
-})
 
 const userRegister = createLogic({
     type: 'SUBMIT_REGISTRATION_FIELDS',
@@ -52,7 +33,6 @@ const userRegister = createLogic({
                         country: reg.contactCountry,
                         amount: reg.purchaseSize,
                         check: reg.countryCheck
-                        //user_response: sale.recaptchaUserResponse
                     })
                     dispatch(resetFormSteps());
                     dispatch(formSuccess());
@@ -158,8 +138,6 @@ const userStep2 = createLogic({
 
 function validate (reg, sale) {
     const errors = []; 
-    //if(!sale.captchaPassed)
-    //    errors.push(errorRegistrationFormField('Recaptcha')); 
     if(!validator.isAlphanumeric(reg.contactFirstName.replace(/ /g,'')))
         errors.push(errorRegistrationFormField('contactFirstNameCheck'));
     if(!validator.isAlphanumeric(reg.contactLastName.replace(/ /g,'')))
@@ -205,7 +183,6 @@ function validateStep2 (reg, sale) {
 
 export default [
     userRegister,
-    emailRegistration,
     userStep1,
     userStep2
 ]

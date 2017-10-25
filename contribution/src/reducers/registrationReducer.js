@@ -18,7 +18,6 @@ const initialState = {
     termsCheckValidation:true,
     duplicateEmail: true,
     duplicateAddress: true,
-    inProgressFlag: false,
     step1: true,
     step2: false,
     step3: false,
@@ -29,11 +28,6 @@ const initialState = {
 
 export default function registrationReducer(state = initialState, action) {
     switch (action.type) {
-        case 'SET_IN_PROGRESS_FLAG':
-            return{
-                ...state,
-                inProgressFlag: action.payload
-            }
         case 'UPDATE_REGISTRATION_FIELD':
             return{
                 ...state,
@@ -79,10 +73,6 @@ export default function registrationReducer(state = initialState, action) {
                 submission: false
             }
         case 'REGISTRATION_FORM_ERROR': 
-            return {
-                ...state
-            }
-        case 'SUBMIT_EMAIL_REGISTRATION':
             return {
                 ...state
             }

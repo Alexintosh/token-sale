@@ -10,8 +10,6 @@
     userContribution: '',
     userRegistered: false,
     termsConditions: false,
-    recaptchaUserResponse: '',
-    captchaPassed: false, //this should be set to false in non-dev environments 
     error: null
   };
   
@@ -45,20 +43,6 @@
        return {
          ...state
        }
-      case 'FETCH_CAPTCHA_RESPONSE': 
-       return {
-         ...state
-       }
-      case 'UPDATE_RECAPTCHA_RESPONSE':
-         return { 
-         ...state,
-         recaptchaUserResponse: action.payload
-      }
-      case 'UPDATE_RECAPTCHA_PASSED':
-         return { 
-         ...state,
-         captchaPassed: action.payload
-      }
       case 'UPDATE_RECAPTCH_ERROR':
         return {
           ...state

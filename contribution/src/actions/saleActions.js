@@ -17,30 +17,3 @@ export const handleAPITokenError = (err) => {
         payload: err
     }
 }
-
-//Captcha logic
-export const fetchCaptchaResponse = (userResponse, accessID, apiToken) => {
-    return { 
-        type: 'FETCH_CAPTCHA_RESPONSE',
-        userResponse,
-        accessID,
-        apiToken
-    }
-}
-export const updateRecaptchaResponse = (userResponse) => {
-    return {
-        type: 'UPDATE_RECAPTCHA_RESPONSE',
-        payload: userResponse
-    }
-}
-export const setRecaptchaPassed = (boolResult) => {
-    return {
-        type: 'UPDATE_RECAPTCHA_PASSED',
-        payload: boolResult
-    }
-}
-export const setRecaptchaError = (result) => {
-    return {
-        type: 'UPDATE_RECAPTCH_ERROR'
-    }
-}

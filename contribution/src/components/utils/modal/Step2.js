@@ -17,12 +17,6 @@ class Step2 extends PureComponent{
     componentDidMount(){
       ReactGA.pageview('/register-step2');
     }
-    onRecaptchaChange(value) {
-        var userResponse = value;
-        this.props.updateRecaptchaResp(userResponse);
-        this.props.updateRecaptchaPassed();
-        //this.props.fetchCaptchaResponse(userResponse, this.props.accessId, this.props.apiToken);
-    }
     render(){
         return(
             <div className={this.props.step2 ? '' : 'hide' }>
