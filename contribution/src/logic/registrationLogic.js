@@ -79,9 +79,6 @@ const userStep1 = createLogic({
                     api_token: sale.apiToken,
                     email: reg.contactEmail,
                 })
-               
-                //console.log('result: ' + JSON.stringify(result));
-                //console.log('type of result: ' + (typeof result));
                 if(result.data){
                     dispatch(resetFormSteps())
                     dispatch(changeFormStep('step2'))
