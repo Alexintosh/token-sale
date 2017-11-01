@@ -53,7 +53,7 @@ class Whitepaper extends PureComponent {
                         </div>
                     </div>
                     <div className="col-sm-4 plm-50">
-                        <a href="https://github.com/leverj/token-sale" target="_blank" rel="noopener noreferrer" className="white-paper">
+                        <a href="https://github.com/leverj/token-contracts" target="_blank" rel="noopener noreferrer" className="white-paper">
                             <div className="white-line">
                                 <i className="fa fa-github fs-30 pr-10" aria-hidden="true"></i>
                             </div>
