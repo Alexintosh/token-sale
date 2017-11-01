@@ -16,13 +16,13 @@ class Landing extends PureComponent{
             <section id="landing-registration">
                 <div className="container-fluid center-text">
                     <div className="landing-container-large">
-                        <h1 className="lh-1">LEV Token Sale Starts: </h1>
+                        <h1 className="lh-1">LEV Token Sale Starts</h1>
                         <h2 className="lh-2">November 7th 9am PST</h2>
                         <Timer />
-                        <div onClick={()=> this.props.displayRegistrationModal()} className="btn btn-register-landing mv-20">REGISTER NOW FOR EARLY ACCESS</div>
+                        <div onClick={()=> this.props.displayRegistrationModal()} className="btn btn-register-landing">REGISTER NOW FOR EARLY ACCESS</div>
                         <br />
-                        <a href="https://leverj.io/whitepaper.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-landing mv-20">READ WHITEPAPER</a>
-                        <div onClick={()=> this.props.displayVideoModal()} className="btn btn-landing mv-20">WATCH THE VIDEO</div>
+                        <a href="https://leverj.io/whitepaper.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-landing">READ WHITEPAPER</a>
+                        <div onClick={()=> this.props.displayVideoModal()} className="btn btn-landing">WATCH THE VIDEO</div>
                         <div className="show-on-xs">
                             <div className="center-text">
                                 <Social />

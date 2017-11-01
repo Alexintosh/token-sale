@@ -109,8 +109,8 @@ body {
 }
 .nav-header{
   position: absolute;
-  top: 22px;
-  left: 40px;
+  top: 5px;
+  left: 30px;
   font-size: 50px;
   font-weight: bold;
 }
@@ -291,17 +291,17 @@ span.date{
   color: #666;
 }
 .countdown-number{
-  width: 60px;
-  height: 90px;
-  line-height: 90px;
+  width: 55px;
+  height: 85px;
+  line-height: 85px;
   margin-left: 5px;
   margin-right: 5px;
   display: inline-block;
   background-image: url('../img/Leverj-Ticker-Bkgd-Web-Main.png');
   background-repeat: no-repeat;
-  background-size: 60px 90px;
+  background-size: 55px 85px;
   color: #fff;
-  font-size: 70px;
+  font-size: 60px;
 }
 .countdown-number-stuck{
   width: 32px;
@@ -406,7 +406,7 @@ span.date{
   font-size: 20px;
 }
 .lh-2{
-  font-size: 50px;
+  font-size: 45px;
   line-height: 70px;
   margin-top: 0px;
 }
