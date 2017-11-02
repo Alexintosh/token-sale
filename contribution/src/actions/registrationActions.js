@@ -52,6 +52,18 @@ export const registrationFormError = (err) => {
     }
 }
 
+export const emailRegistration = () => {
+    return {
+        type: 'REGISTER_EMAIL'
+    }
+}
+
+export const emailSuccess = () => {
+    return {
+        type: 'EMAIL_SUCCESS'
+    }
+}
+
 /////FORM STEPS 
 export const validateFields = () => {
     return {

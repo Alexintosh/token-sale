@@ -8,6 +8,7 @@ const initialState = {
     purchaseSize: '',
     countryCheck: false,
     termsCheck: false,
+    emailSuccessCheck: true,
     contactFirstNameCheck: true,
     contactLastNameCheck: true,
     contactEmailCheck: true,
@@ -50,8 +51,14 @@ export default function registrationReducer(state = initialState, action) {
                 countryCheckValidation: true,
                 termsCheckValidation: true,
                 duplicateAddress: true,
-                duplicateEmail: true
+                duplicateEmail: true,
+                emailSuccessCheck: true
 
+            }
+        case 'EMAIL_SUCCESS':
+            return {
+                ...state,
+                emailSuccessCheck: false
             }
         case 'SUBMIT_REGISTRATION_FIELDS':
             return {

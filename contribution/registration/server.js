@@ -64,7 +64,7 @@ app.post('/api/validate_email', async (req, res)=>{
 				}
 			});
 		}else{
-			console.log('api/validate_eth_address: 401 due to eth_address undefined');
+			console.log('api/validate_email: 401 due to eth_address undefined');
 			res.status(401);
 			res.send({ error: 'unauthorized' });
 			return;
@@ -76,6 +76,50 @@ app.post('/api/validate_email', async (req, res)=>{
 		return;
 	}
 })
+
+app.post('/api/email_register', async (req, res)=>{
+	
+		if(!checkRequestHeaders(req.headers)){
+			res.status(401);
+			res.send('unauthorized');
+			return;
+		}
+	
+		if(typeof req.body.api_token !== 'undefined' && typeof req.body.access_id !== 'undefined'){
+			if(req.body.api_token != tokenMap.get(req.body.access_id)){
+				console.log('api/email_register: 401 due to token issue');
+				res.status(401);
+				res.send('unauthorized');
+				return;
+			}
+	
+			if(typeof req.body.email !== 'undefined'){
+				datastore_lib.addEmail({email: req.body.email}, res, (response, err, result)=>{
+					if(err) {
+						console.log('finished datastore call ERROR');
+						response.status(500);
+						response.send("update failed: " + JSON.stringify(err));
+					}else{
+						console.log('finished datastore call SUCCESS');        
+						mailChimp(req.body.email, (param)=>{                                                                            
+							response.status(200);
+							response.send("success");
+						})
+					}
+				});
+			}else{
+				console.log('api/email_register: 401 due to eth_address undefined');
+				res.status(401);
+				res.send({ error: 'unauthorized' });
+				return;
+			}
+		}else{
+			console.log('api/email_register: 401 due to token issue');
+			res.status(401);
+			res.send({ error: 'unauthorized' });
+			return;
+		}
+	})
 
 app.post('/api/validate_eth_address', async (req, res)=>{
 

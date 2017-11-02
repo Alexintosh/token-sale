@@ -3,8 +3,8 @@ import { connect }              from 'react-redux';
 import Scroll                   from 'react-scroll';
 import Timer                    from '../landing/Timer';
 import Social                   from '../landing/Social';
-import { showVideoModal,
-        showRegistrationModal } from '../../actions/modalActions';
+import EmailRegistration        from '../landing/EmailRegistration';
+import { showVideoModal }       from '../../actions/modalActions';
 import consensys                from '../../public/img/consensyslogoblack.png';
 
 class Landing extends PureComponent{
@@ -19,7 +19,7 @@ class Landing extends PureComponent{
                         <h1 className="lh-1">LEV Token Sale Starts</h1>
                         <h2 className="lh-2">November 7th 9am PST</h2>
                         <Timer />
-                        <div onClick={()=> this.props.displayRegistrationModal()} className="btn btn-register-landing">REGISTER NOW FOR EARLY ACCESS</div>
+                        <EmailRegistration />
                         <br />
                         <a href="https://leverj.io/whitepaper.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-landing">READ WHITEPAPER</a>
                         <div onClick={()=> this.props.displayVideoModal()} className="btn btn-landing">WATCH THE VIDEO</div>
@@ -63,8 +63,7 @@ class Landing extends PureComponent{
 }
 const mapDispatchToProps = dispatch => {
     return {
-        displayVideoModal: () => { dispatch(showVideoModal()) },
-        displayRegistrationModal: () => { dispatch(showRegistrationModal())}
+        displayVideoModal: () => { dispatch(showVideoModal()) }
     }
 }
 export default connect (

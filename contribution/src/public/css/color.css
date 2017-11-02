@@ -116,7 +116,6 @@
     border: 1px solid rgba(102, 102, 102, 0.3) !important;
     border-radius: 5px;
     padding: 12px 40px;
-    margin-top: 20px;
     margin-bottom: 0px;
     margin-left: 20px;
     margin-right: 20px;
@@ -191,6 +190,15 @@
     color: #fff;
     background-color: rgba(254, 46, 46, 0.85);
     border-radius: 5px;
+}
+
+.warning-text-landing{
+    font-weight: bold;
+    color: rgba(254, 46, 46, 1);
+}
+.success-text-landing{
+    font-weight: bold;
+    color: #4BB543;
 }
 
 .info-text{

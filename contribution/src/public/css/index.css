@@ -42,6 +42,24 @@ body {
 .is-current .nav-circle{
   display: inline-block;
 }
+#emailForm input[type="text"]{
+  width: 300px;
+  margin: 10px 0px;
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 5px 0 0 5px;
+  border: 1px solid #ccc;
+  height: 42px;
+}
+#emailForm input[type="submit"]{
+  border-radius: 0 5px 5px 0;
+  border: 1px solid #ea993e;
+  background-color: #ea993e;
+  color: #fff;
+  padding-left: 15px;
+  padding-right: 15px;
+  height: 43px;
+}
 #contactFormRegister{
   padding: 5px 30px 30px 30px;
 }

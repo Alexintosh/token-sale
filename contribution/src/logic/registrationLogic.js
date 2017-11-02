@@ -9,7 +9,35 @@ import {    resetRegistrationFormFields,
             changeFormStep,
             formSuccess,
             formError,
-            formSubmit }    from '../actions/registrationActions';
+            formSubmit,
+            emailSuccess }    from '../actions/registrationActions';
+
+const emailRegister = createLogic({
+    type: 'REGISTER_EMAIL',
+    async process({ getState, action, APIEndpoint }, dispatch, done) {
+        console.log("register email")
+        try{
+            dispatch(resetRegistrationFormFields());
+            var sale = getState().sale;
+            var reg = getState().register;
+            const errors = validateEmail(reg);
+            if(errors.length === 0){
+                var result = await axios.post(APIEndpoint + '/api/email_register',{ 
+                    access_id: sale.accessId,
+                    api_token: sale.apiToken,
+                    email: reg.contactEmail 
+                })
+                dispatch(emailSuccess())
+                done();
+            }else{
+                errors.forEach(error => { dispatch(error) });
+                done();
+            }
+        }catch(err){
+            done();
+        }
+    }
+})
 
 
 const userRegister = createLogic({
@@ -171,6 +199,12 @@ function validateStep1 (reg, sale) {
     return errors;
 }
 
+function validateEmail (reg){
+    const errors = []; 
+    if(!validator.isEmail(reg.contactEmail))
+        errors.push(errorRegistrationFormField('contactEmailCheck'));
+    return errors;
+}
 function validateStep2 (reg, sale) {
     const errors = []; 
     if(!(validator.isAlphanumeric(reg.contactAddress) && reg.contactAddress.length === 42))
@@ -181,5 +215,6 @@ function validateStep2 (reg, sale) {
 export default [
     userRegister,
     userStep1,
-    userStep2
+    userStep2,
+    emailRegister
 ]
