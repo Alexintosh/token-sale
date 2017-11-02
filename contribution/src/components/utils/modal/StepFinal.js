@@ -4,11 +4,15 @@ import { createStructuredSelector } from 'reselect';
 import { selectStep4 }              from '../../../selectors';
 import success                      from '../../../public/img/success.png';
 import ReactGA                      from 'react-ga';
+import ReactPixel                   from 'react-facebook-pixel';
+
 ReactGA.initialize('UA-91770964-1');
+ReactPixel.init('1857805211198738');
 
 class StepFinal extends PureComponent{
     componentDidMount(){
-      ReactGA.pageview('/register-success');
+        ReactGA.pageview('/register-success');
+        ReactPixel.track('PageView');
     }
     render(){
         return(
