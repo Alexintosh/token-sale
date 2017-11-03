@@ -12,9 +12,6 @@ class TopBar extends PureComponent{
                 <div className="nav-header-stuck">LEVER<span className="color-text">J</span></div>
                 <div className="pull-right">
                     <TimerSmall />
-                    <div className="topbar-register pull-right">
-                        <div onClick={()=> this.props.displayRegistrationModal()} className="btn btn-register-sm">REGISTER</div>
-                    </div>
                 </div>
             </section>
         )

@@ -18,7 +18,7 @@ class Step3 extends PureComponent{
             <div className={this.props.step3 ? '' : 'hide'}>
                 <p className="modal-p center-text">Enter Contribution Amount</p>
                 <div className="modal-info-background">
-                    <p className="large">250M</p>
+                    <p className="large">400M</p>
                     <span>Total LEV Tokens For Sale</span>
                     <p className="large">3,000 TOKENS/ 1 ETH</p>
                     <span>Conversion Ratio</span>

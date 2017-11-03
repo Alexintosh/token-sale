@@ -13,10 +13,7 @@ export default class Whitelist extends PureComponent{
                         <span className="bold-font">Whitelist Registration Period:</span> October 10th - November 1st
                     </li>
                     <li>
-                        <span className="bold-font">Tokens Available for Sale:</span> 250,000,000 LEV 
-                    </li>
-                    <li>
-                        <span className="bold-font">Min/Max Contribution Amount:</span> 1 - 100 ETH
+                        <span className="bold-font">Tokens Available for Sale:</span> 400,000,000 LEV 
                     </li>
                     <li>
                         <span className="bold-font">Geographic Restriction:</span> Only non-residents of USA and China and sanctioned countries are allowed to take part in the token sale

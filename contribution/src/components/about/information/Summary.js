@@ -9,7 +9,7 @@ export default class Summary extends PureComponent{
                 <div className="col-container center-text">
                     <div className="col-sm-h-4">
                         <div className="token-info-background">
-                            <h3>250M Tokens</h3>
+                            <h3>400M Tokens</h3>
                             <p>Total Available for Sale</p>
                         </div>
                     </div>
