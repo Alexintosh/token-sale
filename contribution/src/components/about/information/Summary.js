@@ -16,12 +16,12 @@ export default class Summary extends PureComponent{
                     <div className="col-sm-h-4">
                         <div className="token-info-background">
                             <h3>1ETH/ 3,000 LEV</h3>
-                            <p>Conversion Ratio</p>
+                            <p>Public Sale Conversion Ratio</p>
                         </div>
                     </div>
                     <div className="col-sm-h-4">
                         <div className="token-info-background">
-                            <h3>83,333 ETH</h3>
+                            <h3>115,833 ETH</h3>
                             <p>Contribution Cap</p>
                         </div>
                     </div>

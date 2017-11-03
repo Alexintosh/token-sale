@@ -21,7 +21,7 @@ class Step3 extends PureComponent{
                     <p className="large">400M</p>
                     <span>Total LEV Tokens For Sale</span>
                     <p className="large">3,000 TOKENS/ 1 ETH</p>
-                    <span>Conversion Ratio</span>
+                    <span>Public Sale Conversion Ratio</span>
                 </div>
                 <div className="row">
                     <div className="col-sm-3 pr-0">
