@@ -17,7 +17,7 @@ class EmailRegistration extends PureComponent{
                         id="contactEmail"
                         value={this.props.contactEmail}
                         onChange={this.props.updateRegisterFormField.bind(this)} 
-                        placeholder="Email Newsletter" />
+                        placeholder="Email Newsletter Signup" />
                 <input type="submit" value="Submit" />
                 <div id="_contactEmail" className={"warning-text-landing" + (this.props.contactEmailCheck ? ' hidden' : '')}>Please enter your email address</div>
                 <div id="_contactEmailSuccess" className={"success-text-landing" + (this.props.emailSuccess ? ' hidden' : '')}>Email has been successfully registered, check you inbox!</div>

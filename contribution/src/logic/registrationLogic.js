@@ -22,7 +22,7 @@ const emailRegister = createLogic({
             var reg = getState().register;
             const errors = validateEmail(reg);
             if(errors.length === 0){
-                var result = await axios.post(APIEndpoint + '/api/email_register',{ 
+                await axios.post(APIEndpoint + '/api/email_register',{ 
                     access_id: sale.accessId,
                     api_token: sale.apiToken,
                     email: reg.contactEmail 
